@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://dlgg00l13fbxf"]
+
+[ext_resource type="Script" uid="uid://dqij5cbfbffov" path="res://entities/player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dxa0malsrpuf7" path="res://entities/player/inventory_manager.gd" id="2_b2kln"]
+[ext_resource type="Script" uid="uid://km01e0l3tsqd" path="res://entities/player/fs_camera.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://d6aavma38un5" path="res://interaction/interaction_ray.gd" id="3_afbqv"]
+[ext_resource type="Script" uid="uid://cscqrmj6y6eyt" path="res://ui/crosshair.gd" id="3_ghoj8"]
+[ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/states/state_machine.gd" id="3_hqtel"]
+[ext_resource type="Script" uid="uid://c5hcp3g4soaqb" path="res://ui/fps_counter.gd" id="3_qpopc"]
+[ext_resource type="Script" uid="uid://dc17h13quk4uy" path="res://entities/states/player/idle.gd" id="4_sweqy"]
+[ext_resource type="PackedScene" uid="uid://c5fhv5vdp2vi3" path="res://ui/context_menu/context_menu.tscn" id="4_wq0jh"]
+[ext_resource type="Script" uid="uid://u2gecm8p10jd" path="res://entities/states/player/jump.gd" id="5_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://wg8usys00kvl" path="res://ui/message_ui/message_ui.tscn" id="5_eyb6c"]
+[ext_resource type="Script" uid="uid://bkxw4rjwpoa6g" path="res://entities/states/player/walk.gd" id="5_sweqy"]
+[ext_resource type="PackedScene" uid="uid://4oqoq70bcefs" path="res://ui/hotbar/hotbar.tscn" id="6_24ehl"]
+[ext_resource type="PackedScene" uid="uid://clwtc3cb5k0cl" path="res://ui/pause_menu/pause_menu.tscn" id="6_221hk"]
+[ext_resource type="Script" uid="uid://76mh30jd17dq" path="res://entities/states/player/run.gd" id="7_1jxqw"]
+[ext_resource type="Script" uid="uid://bkqxko4ydyne0" path="res://entities/states/player/crouch.gd" id="10_ebec5"]
+[ext_resource type="Script" uid="uid://clulfjivr1sax" path="res://entities/states/player/falling.gd" id="11_ebec5"]
+[ext_resource type="Script" uid="uid://d2c4beeooctrk" path="res://entities/states/player/crouch_walk.gd" id="11_yllr7"]
+[ext_resource type="Script" uid="uid://wi8tcgxjbq4w" path="res://entities/states/player/crouch_jump.gd" id="12_yllr7"]
+[ext_resource type="Script" uid="uid://bmlospoma7j7d" path="res://entities/player/player_input.gd" id="15_gx6sm"]
+[ext_resource type="Script" uid="uid://csl0g7luudq4y" path="res://interaction/default_actions/object_default_hold.gd" id="29_sk710"]
+[ext_resource type="Script" uid="uid://jmu2hxk6ujv1" path="res://interaction/default_actions/hand_default_actions.gd" id="30_7rgwd"]
+[ext_resource type="Script" uid="uid://8tka5p6amtm6" path="res://interaction/default_actions/object_default_interact.gd" id="30_24so6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_221hk"]
+radius = 0.25
+height = 1.85
+
+[node name="Player" type="CharacterBody3D" unique_id=1510971249 node_paths=PackedStringArray("inv_manager", "player_interaction_ray", "camera", "hand", "state_machine", "input")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_4flbx")
+inv_manager = NodePath("InventoryManager")
+player_interaction_ray = NodePath("Head/InteractionRay")
+camera = NodePath("Head/FirstPersonCamera")
+hand = NodePath("Head/Hand")
+state_machine = NodePath("MovementStateMachine")
+input = NodePath("PlayerInput")
+metadata/_custom_type_script = "uid://dqij5cbfbffov"
+
+[node name="OnScreenUI" type="CanvasLayer" parent="." unique_id=278021222]
+
+[node name="FPSCounter" type="Label" parent="OnScreenUI" unique_id=1511789166]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "123 fps"
+horizontal_alignment = 2
+script = ExtResource("3_qpopc")
+
+[node name="Crosshair" type="ColorRect" parent="OnScreenUI" unique_id=1906495053]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.5019608)
+script = ExtResource("3_ghoj8")
+
+[node name="ContextMenu" parent="OnScreenUI" unique_id=189883459 node_paths=PackedStringArray("player") instance=ExtResource("4_wq0jh")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+player = NodePath("../..")
+
+[node name="Hotbar" parent="OnScreenUI" unique_id=901333055 node_paths=PackedStringArray("player") instance=ExtResource("6_24ehl")]
+player = NodePath("../..")
+
+[node name="MessageUI" parent="OnScreenUI" unique_id=828338374 instance=ExtResource("5_eyb6c")]
+
+[node name="PauseMenu" parent="OnScreenUI" unique_id=949683806 instance=ExtResource("6_221hk")]
+visible = false
+
+[node name="PlayerInput" type="Node" parent="." unique_id=9235229]
+script = ExtResource("15_gx6sm")
+metadata/_custom_type_script = "uid://bmlospoma7j7d"
+
+[node name="MovementStateMachine" type="Node" parent="." unique_id=1403041684 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_hqtel")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bmyit071yrfei"
+
+[node name="Idle" type="Node" parent="MovementStateMachine" unique_id=1699260753 node_paths=PackedStringArray("player")]
+script = ExtResource("4_sweqy")
+player = NodePath("../..")
+
+[node name="Crouch" type="Node" parent="MovementStateMachine" unique_id=1113254244 node_paths=PackedStringArray("player")]
+script = ExtResource("10_ebec5")
+player = NodePath("../..")
+type = "crouch"
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Walk" type="Node" parent="MovementStateMachine" unique_id=737925306 node_paths=PackedStringArray("player")]
+script = ExtResource("5_sweqy")
+player = NodePath("../..")
+
+[node name="CrouchWalk" type="Node" parent="MovementStateMachine" unique_id=1722763396 node_paths=PackedStringArray("player")]
+script = ExtResource("11_yllr7")
+player = NodePath("../..")
+type = "crouch"
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Run" type="Node" parent="MovementStateMachine" unique_id=1077086891 node_paths=PackedStringArray("player")]
+script = ExtResource("7_1jxqw")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Jump" type="Node" parent="MovementStateMachine" unique_id=355991110 node_paths=PackedStringArray("player")]
+script = ExtResource("5_2hs0m")
+player = NodePath("../..")
+
+[node name="CrouchJump" type="Node" parent="MovementStateMachine" unique_id=2114198014 node_paths=PackedStringArray("player", "head")]
+script = ExtResource("12_yllr7")
+player = NodePath("../..")
+head = NodePath("../../Head")
+type = "crouch"
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Falling" type="Node" parent="MovementStateMachine" unique_id=436809654 node_paths=PackedStringArray("player")]
+script = ExtResource("11_ebec5")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="InventoryManager" type="Node" parent="." unique_id=1513387226 node_paths=PackedStringArray("player")]
+script = ExtResource("2_b2kln")
+player = NodePath("..")
+metadata/_custom_type_script = "uid://dxa0malsrpuf7"
+
+[node name="Head" type="Node3D" parent="." unique_id=268318381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="FirstPersonCamera" type="Camera3D" parent="Head" unique_id=507761975 node_paths=PackedStringArray("head", "player", "player_state_machine")]
+current = true
+fov = 90.0
+script = ExtResource("2_onrkg")
+head = NodePath("..")
+player = NodePath("../..")
+player_state_machine = NodePath("../../MovementStateMachine")
+metadata/_custom_type_script = "uid://km01e0l3tsqd"
+
+[node name="InteractionRay" type="RayCast3D" parent="Head" unique_id=1730140807 node_paths=PackedStringArray("player")]
+target_position = Vector3(0, 0, -2)
+collision_mask = 9
+collide_with_areas = true
+script = ExtResource("3_afbqv")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d6aavma38un5"
+
+[node name="ObjectDefaultHold" type="Node" parent="Head/InteractionRay" unique_id=904208739 node_paths=PackedStringArray("player")]
+script = ExtResource("29_sk710")
+player = NodePath("../../..")
+metadata/_custom_type_script = "uid://csl0g7luudq4y"
+
+[node name="ObjectDefaultInteract" type="Node" parent="Head/InteractionRay" unique_id=925477096 node_paths=PackedStringArray("player")]
+script = ExtResource("30_24so6")
+player = NodePath("../../..")
+metadata/_custom_type_script = "uid://8tka5p6amtm6"
+
+[node name="HandDefaultActions" type="Node" parent="Head/InteractionRay" unique_id=153738342 node_paths=PackedStringArray("player")]
+script = ExtResource("30_7rgwd")
+player = NodePath("../../..")
+metadata/_custom_type_script = "uid://jmu2hxk6ujv1"
+
+[node name="Hand" type="Marker3D" parent="Head" unique_id=1789743703]
+transform = Transform3D(0.9612617, 0, -0.27563736, 0, 1, 0, 0.27563736, 0, 0.9612617, 0.7, -0.30000007, -0.4)
+
+[node name="PlayerCollisionShape" type="CollisionShape3D" parent="." unique_id=1390363648]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
+shape = SubResource("CapsuleShape3D_221hk")

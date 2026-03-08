@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://dlgg00l13fbxf"]
+
+[ext_resource type="Script" uid="uid://dqij5cbfbffov" path="res://entities/player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://km01e0l3tsqd" path="res://entities/player/fs_camera.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://d8711xuc1mkd" path="res://entities/player/animation_controller.gd" id="3_8t03j"]
+[ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/player/states/state_machine.gd" id="3_hqtel"]
+[ext_resource type="Script" uid="uid://dc17h13quk4uy" path="res://entities/player/states/player/idle.gd" id="4_sweqy"]
+[ext_resource type="Script" uid="uid://u2gecm8p10jd" path="res://entities/player/states/player/jump.gd" id="5_2hs0m"]
+[ext_resource type="Script" uid="uid://bkxw4rjwpoa6g" path="res://entities/player/states/player/walk.gd" id="5_sweqy"]
+[ext_resource type="Script" uid="uid://76mh30jd17dq" path="res://entities/player/states/player/run.gd" id="7_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://d3cq4k08xggbm" path="res://entities/player/luna.gltf" id="9_hg6s5"]
+[ext_resource type="Script" uid="uid://bkqxko4ydyne0" path="res://entities/player/states/player/crouch.gd" id="10_ebec5"]
+[ext_resource type="Script" uid="uid://clulfjivr1sax" path="res://entities/player/states/player/falling.gd" id="11_ebec5"]
+[ext_resource type="Script" uid="uid://d2c4beeooctrk" path="res://entities/player/states/player/crouch_walk.gd" id="11_yllr7"]
+[ext_resource type="Script" uid="uid://wi8tcgxjbq4w" path="res://entities/player/states/player/crouch_jump.gd" id="12_yllr7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+radius = 0.25
+height = 1.85
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_machine", "jump_buffer_timer")]
+collision_layer = 2
+script = ExtResource("1_4flbx")
+state_machine = NodePath("MovementStateMachine")
+jump_buffer_timer = NodePath("JumpBuffer")
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="FirstPersonCamera" type="Camera3D" parent="." node_paths=PackedStringArray("player_state_machine")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+fov = 100.0
+script = ExtResource("2_onrkg")
+player_state_machine = NodePath("../MovementStateMachine")
+metadata/_custom_type_script = "uid://km01e0l3tsqd"
+
+[node name="RayCast3D" type="RayCast3D" parent="FirstPersonCamera"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 4
+
+[node name="PlayerAnimationController" type="Node" parent="." node_paths=PackedStringArray("player", "model", "animation_player", "state_machine")]
+script = ExtResource("3_8t03j")
+player = NodePath("..")
+model = NodePath("../Model")
+animation_player = NodePath("../Model/AnimationPlayer")
+state_machine = NodePath("../MovementStateMachine")
+
+[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_hqtel")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bmyit071yrfei"
+
+[node name="Idle" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("4_sweqy")
+player = NodePath("../..")
+
+[node name="Crouch" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("10_ebec5")
+player = NodePath("../..")
+type = "crouch"
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Walk" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_sweqy")
+player = NodePath("../..")
+
+[node name="CrouchWalk" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("11_yllr7")
+player = NodePath("../..")
+type = "crouch"
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Run" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("7_1jxqw")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Jump" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_2hs0m")
+player = NodePath("../..")
+
+[node name="CrouchJump" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player", "fp_camera")]
+script = ExtResource("12_yllr7")
+player = NodePath("../..")
+fp_camera = NodePath("../../FirstPersonCamera")
+type = "crouch"
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Falling" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("11_ebec5")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Model" parent="." instance=ExtResource("9_hg6s5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+
+[node name="AnimationPlayer" parent="Model" index="1"]
+autoplay = "default"
+
+[editable path="Model"]

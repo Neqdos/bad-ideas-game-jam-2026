@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://clwtc3cb5k0cl"]
+
+[ext_resource type="Script" uid="uid://dvq81dsrmjyld" path="res://ui/pause_menu/pause_menu.gd" id="2_nxuqx"]
+[ext_resource type="PackedScene" uid="uid://dtv35jgfpemnh" path="res://ui/pause_menu/settings/settings.tscn" id="3_5fsn8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbgdu"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="Control" unique_id=949683806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_nxuqx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1426252801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=802018974]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jbgdu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=2031893816]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=793611931]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Pause Menu"
+horizontal_alignment = 1
+
+[node name="Settings" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1028702100 instance=ExtResource("3_5fsn8")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuitToMainMenuButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1260765271]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit to main menu"

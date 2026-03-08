@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dtv35jgfpemnh"]
+
+[ext_resource type="Script" uid="uid://c5jb36vwh66qi" path="res://ui/pause_menu/settings/settings.gd" id="1_7kwmf"]
+
+[node name="Settings" type="Control" unique_id=1028702100]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7kwmf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1758380033]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=350239038]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=341791209]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Fullscreen"
+
+[node name="Fullscreen" type="CheckBox" parent="VBoxContainer/HBoxContainer" unique_id=2096929730]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1805057011]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=894842271]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "V-Sync"
+
+[node name="VSync" type="CheckBox" parent="VBoxContainer/HBoxContainer2" unique_id=1792230338]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1262767347]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1236286934]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Max fps"
+
+[node name="MaxFps" type="OptionButton" parent="VBoxContainer/HBoxContainer3" unique_id=58051385]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+selected = 0
+item_count = 8
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "75"
+popup/item_2/id = 2
+popup/item_3/text = "120"
+popup/item_3/id = 3
+popup/item_4/text = "144"
+popup/item_4/id = 4
+popup/item_5/text = "165"
+popup/item_5/id = 5
+popup/item_6/text = "240"
+popup/item_6/id = 6
+popup/item_7/text = "Unlimited"
+popup/item_7/id = 7
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=941339448]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=1351759748]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Sensitivity"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer4" unique_id=2135407595]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResetSensitivityButton" type="Button" parent="VBoxContainer/HBoxContainer4/HBoxContainer" unique_id=311551497]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+text = "R"
+
+[node name="Sensitivity" type="SpinBox" parent="VBoxContainer/HBoxContainer4/HBoxContainer" unique_id=1889071110]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 0.5
+step = 0.001
+alignment = 2
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer" unique_id=882956198]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Apply"

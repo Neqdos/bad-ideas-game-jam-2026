@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://eilrpbiqfcoc"]
+
+[ext_resource type="PackedScene" uid="uid://ch1y7bbiwm04h" path="res://entities/static_objects/pc/pc.tscn" id="1_03f54"]
+[ext_resource type="Script" uid="uid://bhmug3lm0c8su" path="res://world/game.gd" id="1_7oyu6"]
+[ext_resource type="PackedScene" uid="uid://dlgg00l13fbxf" path="res://entities/player/player.tscn" id="2_xfo4j"]
+[ext_resource type="PackedScene" uid="uid://bqa2nx72cfcrn" path="res://entities/objects/other/square_duck/square_duck.tscn" id="3_7oyu6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xfo4j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_b7hlb"]
+sky_material = SubResource("ProceduralSkyMaterial_xfo4j")
+
+[sub_resource type="Environment" id="Environment_7oyu6"]
+background_mode = 2
+sky = SubResource("Sky_b7hlb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_bahc2"]
+size = Vector3(8, 1, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfo4j"]
+size = Vector3(8, 1, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b7hlb"]
+size = Vector3(1, 0.8, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b7hlb"]
+size = Vector3(1, 0.8, 0.5)
+
+[node name="Game" type="Node3D" unique_id=678831132 node_paths=PackedStringArray("pc", "player")]
+script = ExtResource("1_7oyu6")
+pc = NodePath("Map/PC")
+player = NodePath("Player")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2125227213]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1333082510]
+environment = SubResource("Environment_7oyu6")
+
+[node name="Map" type="Node3D" parent="." unique_id=752474690]
+
+[node name="Environemnt" type="StaticBody3D" parent="Map" unique_id=73272856]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Environemnt" unique_id=120191627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_bahc2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Environemnt" unique_id=956807539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_xfo4j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Map/Environemnt" unique_id=769499508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.5)
+mesh = SubResource("BoxMesh_b7hlb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/Environemnt" unique_id=1258797265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.5)
+shape = SubResource("BoxShape3D_b7hlb")
+
+[node name="PC" parent="Map" unique_id=1622198517 instance=ExtResource("1_03f54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 1.05, -1.552)
+
+[node name="ObjectsNode" type="Node3D" parent="." unique_id=701677193 groups=["objects_node"]]
+
+[node name="SquareDuck" parent="ObjectsNode" unique_id=1279859191 instance=ExtResource("3_7oyu6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9644995, 0.25000012, 1.242219)
+
+[node name="Player" parent="." unique_id=1510971249 instance=ExtResource("2_xfo4j")]

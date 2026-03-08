@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bqa2nx72cfcrn"]
+
+[ext_resource type="Script" uid="uid://04yn7m5smmj4" path="res://entities/_components/rigid_object.gd" id="1_t15hk"]
+[ext_resource type="Resource" uid="uid://bb3l8fff6nnes" path="res://entities/objects/other/square_duck/square_duck.tres" id="2_wqnq0"]
+[ext_resource type="Script" uid="uid://dohypidkqqjkv" path="res://interaction/in_world/object_info_label.gd" id="3_11n81"]
+[ext_resource type="PackedScene" uid="uid://cucpln7ygjisq" path="res://entities/objects/other/square_duck/square_duck.gltf" id="6_5cc15"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8fbi"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="SquareDuck" type="RigidBody3D" unique_id=1279859191]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_t15hk")
+obj_resource = ExtResource("2_wqnq0")
+metadata/_custom_type_script = "uid://04yn7m5smmj4"
+
+[node name="ObjectInfoLabel" type="Node" parent="." unique_id=875413767]
+script = ExtResource("3_11n81")
+info = "test object"
+metadata/_custom_type_script = "uid://dohypidkqqjkv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1584444917]
+shape = SubResource("BoxShape3D_x8fbi")
+
+[node name="blockbench_export" parent="." unique_id=1746322851 instance=ExtResource("6_5cc15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)

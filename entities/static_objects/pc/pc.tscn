@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://ch1y7bbiwm04h"]
+
+[ext_resource type="Script" uid="uid://bs1vygae8koo6" path="res://entities/static_objects/pc/pc.gd" id="1_dhe8j"]
+[ext_resource type="PackedScene" uid="uid://b1n3d1p8xjgtl" path="res://desktop/desktop.tscn" id="2_oaj68"]
+[ext_resource type="Script" uid="uid://bndh2mbwvs4ml" path="res://ui/gui_panel.gd" id="3_4w1th"]
+[ext_resource type="Script" uid="uid://dkvovvvhiovlj" path="res://interaction/in_world/object_interact_action.gd" id="4_npu3f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b2qlj"]
+size = Vector3(0.64, 0.48, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhe8j"]
+size = Vector3(0.64, 0.48, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2aic0"]
+size = Vector3(0.64, 0.48, 0.001)
+
+[sub_resource type="QuadMesh" id="QuadMesh_b2qlj"]
+resource_local_to_scene = true
+size = Vector2(0.64, 0.48)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dhe8j"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aic0"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_dhe8j")
+
+[node name="PC" type="StaticBody3D" unique_id=1622198517]
+script = ExtResource("1_dhe8j")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=136040285]
+gui_snap_controls_to_pixels = false
+gui_embed_subwindows = true
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="ConsoleUI" parent="SubViewport" unique_id=1029409550 instance=ExtResource("2_oaj68")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1239248781]
+mesh = SubResource("BoxMesh_b2qlj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=198511427]
+shape = SubResource("BoxShape3D_dhe8j")
+
+[node name="GUIPanel" type="Node3D" parent="." unique_id=402979962 node_paths=PackedStringArray("viewport", "quad", "area")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26)
+rotation_edit_mode = 2
+script = ExtResource("3_4w1th")
+viewport = NodePath("../SubViewport")
+quad = NodePath("DetectionArea/MeshInstance3D2")
+area = NodePath("DetectionArea")
+metadata/_custom_type_script = "uid://bndh2mbwvs4ml"
+
+[node name="DetectionArea" type="Area3D" parent="GUIPanel" unique_id=709415375]
+unique_name_in_owner = true
+collision_layer = 12
+input_capture_on_drag = true
+
+[node name="ObjectInteractAction" type="Node" parent="GUIPanel/DetectionArea" unique_id=574191883]
+unique_name_in_owner = true
+script = ExtResource("4_npu3f")
+metadata/_custom_type_script = "uid://dkvovvvhiovlj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GUIPanel/DetectionArea" unique_id=1227923479]
+shape = SubResource("BoxShape3D_2aic0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GUIPanel/DetectionArea" unique_id=877309697]
+mesh = SubResource("QuadMesh_b2qlj")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_2aic0")
+
+[node name="CameraMarker" type="Marker3D" parent="GUIPanel" unique_id=1348992215]
+unique_name_in_owner = true
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0.26)

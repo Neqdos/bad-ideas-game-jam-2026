@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://wg8usys00kvl"]
+
+[ext_resource type="Script" uid="uid://hgdofi71bx7o" path="res://ui/message_ui/message_ui.gd" id="1_p6yll"]
+
+[node name="MessageUI" type="Control" unique_id=828338374]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_p6yll")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=707260695]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MessageContainer" type="VBoxContainer" parent="MarginContainer" unique_id=912713730]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+alignment = 2

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cpclijfddba8j"]
+
+[ext_resource type="Script" uid="uid://4glrg4oe7ssn" path="res://entities/player/player_position_marker.gd" id="1_2w043"]
+
+[node name="PlayerPositionMarker" type="Node3D" unique_id=1326466461]
+script = ExtResource("1_2w043")

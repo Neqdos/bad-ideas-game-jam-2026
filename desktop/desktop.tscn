@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1n3d1p8xjgtl"]
+
+[ext_resource type="Script" uid="uid://38vhndrfwxjr" path="res://desktop/desktop.gd" id="1_c6ot5"]
+
+[node name="Desktop" type="Control" unique_id=1029409550]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c6ot5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=934996899]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

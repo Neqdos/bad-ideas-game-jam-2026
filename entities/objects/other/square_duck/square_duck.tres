@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ObjectResource" format=3 uid="uid://bb3l8fff6nnes"]
+
+[ext_resource type="Script" uid="uid://xd4oslmu3ja4" path="res://interaction/object_resource.gd" id="1_nbqop"]
+[ext_resource type="Texture2D" uid="uid://cmij0rdy3naji" path="res://entities/objects/other/square_duck/square_duck.png" id="3_ya0te"]
+
+[resource]
+script = ExtResource("1_nbqop")
+name = "Square Duck"
+weight = 0.2
+object_scene = "uid://bqa2nx72cfcrn"
+texture = ExtResource("3_ya0te")
+metadata/_custom_type_script = "uid://xd4oslmu3ja4"

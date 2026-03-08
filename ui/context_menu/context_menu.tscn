@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://c5fhv5vdp2vi3"]
+
+[ext_resource type="Script" uid="uid://dshu88kjrs0tg" path="res://ui/context_menu/context_menu.gd" id="1_ambon"]
+[ext_resource type="Texture2D" uid="uid://brqrw80ure2kq" path="res://ui/context_menu/rect_corners.png" id="3_mbel1"]
+[ext_resource type="Texture2D" uid="uid://dq6r08xagvv3u" path="res://ui/message_ui/rounded_npt.png" id="4_xmkoi"]
+[ext_resource type="Texture2D" uid="uid://dior847suqyxc" path="res://ui/context_menu/line_texture_2.png" id="5_xmkoi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sson3"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.09985284, 0.09985284, 0.09985284, 0.05)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txtrc"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource("4_xmkoi")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.20784314, 0.20784314, 0.20784314, 0.49803922)
+
+[node name="ContextMenu" type="Control" unique_id=189883459]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_ambon")
+
+[node name="Panel" type="Panel" parent="." unique_id=1042128780]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sson3")
+
+[node name="ActionContainer" type="VBoxContainer" parent="Panel" unique_id=2079693413]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -104.0
+offset_right = -3.0
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="PanelCorners" type="NinePatchRect" parent="Panel" unique_id=513911799]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_mbel1")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="ObjectNameLabel" type="Label" parent="Panel" unique_id=486902183]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = -10.0
+offset_right = 44.0
+offset_bottom = -2.0
+theme_override_font_sizes/font_size = 10
+text = "object name"
+
+[node name="InfoLabel" type="Label" parent="Panel" unique_id=1780954794]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_txtrc")
+text = "description"
+vertical_alignment = 2
+
+[node name="PointLine" type="Line2D" parent="." unique_id=912452835]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5)
+texture_repeat = 2
+position = Vector2(320, 180)
+closed = true
+width = 2.0
+texture = ExtResource("5_xmkoi")
+texture_mode = 1
