@@ -65,16 +65,17 @@ func _ready() -> void:
 	position_to_grid()
 
 func position_to_grid() -> void:
-	var old_grid_pos: Vector2i = grid_pos
+	var new_grid_pos: Vector2i = get_grid_pos_from_position()
 	
-	set_grid_to_position()
+	var found_file_icon: DesktopIcon = DesktopManager.get_file_icon_at_position(new_grid_pos)
 	
-	var found_file_icon: DesktopIcon = DesktopManager.get_file_icon_at_position(grid_pos)
-	if is_instance_valid(found_file_icon) and found_file_icon != self:
-		found_file_icon.grid_pos = old_grid_pos
+	if is_instance_valid(found_file_icon):
+		found_file_icon.grid_pos = grid_pos
+	
+	grid_pos = new_grid_pos
 
-func set_grid_to_position() -> void:
-	grid_pos = (global_position / TILE_SIZE).round()
+func get_grid_pos_from_position() -> Vector2i:
+	return (global_position / TILE_SIZE).round()
 
 
 func set_icon_and_name() -> void:
