@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://wr7j6c1jo6j2"]
+
+[ext_resource type="Script" uid="uid://b3ybhoe5ijkgr" path="res://desktop/file_window.gd" id="1_f8wid"]
+[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop/files/platformer/player.png" id="2_dohsy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sgau"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_aey7s"]
+thickness = 2
+
+[node name="FileWindow" type="PanelContainer" unique_id=1280815961]
+offset_right = 44.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3sgau")
+script = ExtResource("1_f8wid")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1294128284]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=132298249]
+layout_mode = 2
+
+[node name="TitleBar" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=2015124424]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TitleBar" unique_id=870326902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="WindowIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/TitleBar/HBoxContainer" unique_id=411618103]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_dohsy")
+expand_mode = 2
+
+[node name="WindowName" type="Label" parent="VBoxContainer/HBoxContainer/TitleBar/HBoxContainer" unique_id=847235809]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="MinimizeButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1213595635]
+unique_name_in_owner = true
+layout_mode = 2
+text = "_"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1004853565]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=240380124]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_aey7s")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer" unique_id=1173225212]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AppViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer" unique_id=142890262]
+unique_name_in_owner = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="FocusDetection" type="TextureButton" parent="." unique_id=917445410]
+unique_name_in_owner = true
+layout_mode = 2

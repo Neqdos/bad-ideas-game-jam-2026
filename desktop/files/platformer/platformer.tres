@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AppFileResource" format=3 uid="uid://b42hg020rk3m0"]
+
+[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop/files/platformer/player.png" id="1_l24ap"]
+[ext_resource type="Script" uid="uid://v1qyypsjrqi8" path="res://desktop/file_resources/app_file_resource.gd" id="1_ulkc2"]
+[ext_resource type="PackedScene" uid="uid://dbkys18npy7nu" path="res://desktop/files/platformer/platformer_app.tscn" id="2_3nn3x"]
+
+[resource]
+script = ExtResource("1_ulkc2")
+scene = ExtResource("2_3nn3x")
+name = "The Guy and the Platforms 2D Ultimate Edition Kiwami (Kiwami means Extreme)"
+icon = ExtResource("1_l24ap")
+window_size = Vector2(400, 200)
+metadata/_custom_type_script = "uid://v1qyypsjrqi8"

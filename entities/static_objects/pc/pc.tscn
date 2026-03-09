@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ch1y7bbiwm04h"]
 
 [ext_resource type="Script" uid="uid://bs1vygae8koo6" path="res://entities/static_objects/pc/pc.gd" id="1_dhe8j"]
-[ext_resource type="PackedScene" uid="uid://b1n3d1p8xjgtl" path="res://desktop/desktop.tscn" id="2_oaj68"]
+[ext_resource type="PackedScene" uid="uid://d0u6f1y03hipr" path="res://desktop/desktop.tscn" id="2_dhe8j"]
 [ext_resource type="Script" uid="uid://bndh2mbwvs4ml" path="res://ui/gui_panel.gd" id="3_4w1th"]
 [ext_resource type="Script" uid="uid://dkvovvvhiovlj" path="res://interaction/in_world/object_interact_action.gd" id="4_npu3f"]
 
@@ -12,7 +12,7 @@ size = Vector3(0.64, 0.48, 0.5)
 size = Vector3(0.64, 0.48, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2aic0"]
-size = Vector3(0.64, 0.48, 0.001)
+size = Vector3(1, 0.6, 0.001)
 
 [sub_resource type="QuadMesh" id="QuadMesh_b2qlj"]
 resource_local_to_scene = true
@@ -26,17 +26,20 @@ resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_dhe8j")
+texture_filter = 0
 
 [node name="PC" type="StaticBody3D" unique_id=1622198517]
 script = ExtResource("1_dhe8j")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=136040285]
+canvas_item_default_texture_filter = 0
 gui_snap_controls_to_pixels = false
 gui_embed_subwindows = true
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="ConsoleUI" parent="SubViewport" unique_id=1029409550 instance=ExtResource("2_oaj68")]
+[node name="Desktop" parent="SubViewport" unique_id=608329591 instance=ExtResource("2_dhe8j")]
+offset_bottom = 0.11993408
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1239248781]
 mesh = SubResource("BoxMesh_b2qlj")

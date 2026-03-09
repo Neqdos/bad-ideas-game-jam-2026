@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TextFileResource" format=3 uid="uid://dw886wwb4bdxg"]
+
+[ext_resource type="Script" uid="uid://c1hdbvasjjp7k" path="res://desktop/file_resources/text_file_resource.gd" id="1_8rycr"]
+[ext_resource type="Texture2D" uid="uid://dymyxtkmpfueh" path="res://desktop/_file_icons/text_file_icon.png" id="1_dkpnk"]
+
+[resource]
+script = ExtResource("1_8rycr")
+data = "So I guess this could be some type of tutorial/info for the player.
+
+Most of the stuff works the way you'd expect it to work.
+You can press RMB on an icon in the taskbar to close the app.
+You can move the image in the image files using your mouse, and zoom using scroll."
+name = "READ ME"
+icon = ExtResource("1_dkpnk")
+window_size = Vector2(500, 300)
+metadata/_custom_type_script = "uid://c1hdbvasjjp7k"

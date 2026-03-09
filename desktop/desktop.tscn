@@ -1,21 +1,164 @@
-[gd_scene format=3 uid="uid://b1n3d1p8xjgtl"]
+[gd_scene format=3 uid="uid://d0u6f1y03hipr"]
 
-[ext_resource type="Script" uid="uid://38vhndrfwxjr" path="res://desktop/desktop.gd" id="1_c6ot5"]
+[ext_resource type="Theme" uid="uid://bhpbpwq32ojxt" path="res://ui/themes/desktop_theme.tres" id="1_87qqj"]
+[ext_resource type="Script" uid="uid://dg81en2kfra8h" path="res://desktop/desktop.gd" id="1_c6ot5"]
+[ext_resource type="PackedScene" uid="uid://d2cy4fxujo4kc" path="res://desktop/desktop_icon.tscn" id="3_py4qr"]
+[ext_resource type="Resource" uid="uid://dw886wwb4bdxg" path="res://desktop/files/readme.tres" id="4_hbe16"]
+[ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land/land.tres" id="4_irqsv"]
+[ext_resource type="Resource" uid="uid://b42hg020rk3m0" path="res://desktop/files/platformer/platformer.tres" id="5_hbe16"]
 
-[node name="Desktop" type="Control" unique_id=1029409550]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my12u"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19, 0.19, 0.19, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_87qqj"]
+color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+thickness = 2
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phxyg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tcyu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsoxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqaxj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4dgp"]
+
+[sub_resource type="Theme" id="Theme_4m602"]
+HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_phxyg")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_8tcyu")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_wsoxx")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_hqaxj")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_g4dgp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4g4to"]
+
+[node name="Desktop" type="Control" unique_id=608329591]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_87qqj")
 script = ExtResource("1_c6ot5")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=934996899]
+[node name="BG" type="ColorRect" parent="." unique_id=1351861265]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.2604, 0.4922399, 0.84, 1)
+
+[node name="DesktopIconContainer" type="Control" parent="." unique_id=2088023451 groups=["desktop_icon_container"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="README" parent="DesktopIconContainer" unique_id=1056225044 instance=ExtResource("3_py4qr")]
+layout_mode = 0
+file_res = ExtResource("4_hbe16")
+
+[node name="Land" parent="DesktopIconContainer" unique_id=1187236872 instance=ExtResource("3_py4qr")]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 128.0
+file_res = ExtResource("4_irqsv")
+grid_pos = Vector2i(1, 0)
+
+[node name="Platformer" parent="DesktopIconContainer" unique_id=1491510001 instance=ExtResource("3_py4qr")]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 192.0
+file_res = ExtResource("5_hbe16")
+grid_pos = Vector2i(2, 0)
+
+[node name="WindowContainer" type="Control" parent="." unique_id=349596325 groups=["window_container"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=375334904]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_my12u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=588036825]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer" unique_id=185099658]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Boxes 69"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=1418102716]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_87qqj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=1752441923]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme = SubResource("Theme_4m602")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4g4to")
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="Taskbar" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=1343262825 groups=["taskbar"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=972942448]
+layout_mode = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_87qqj")
+
+[node name="TimeLabel" type="Label" parent="PanelContainer/HBoxContainer" unique_id=1321331706]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "hh:mm
+dd:mm:yyyy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TaskbarIconLabel" type="Label" parent="." unique_id=158971891]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+autowrap_mode = 3

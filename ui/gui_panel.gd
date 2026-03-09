@@ -61,11 +61,12 @@ func _area_input_event(_camera: Camera3D, event: InputEvent, event_position: Vec
 		event.global_position = event_position_2d
 	
 	if event is InputEventMouseMotion or event is InputEventScreenDrag:
-		if last_event_position:
-			event.relative = Vector2.ZERO
-		else:
+		if last_event_time >= 0.0:
 			event.relative = event_position_2d - last_event_position
 			event.velocity = event.relative / (current_time - last_event_time)
+		else:
+			event.relative = Vector2.ZERO
+			event.velocity = Vector2.ZERO
 	
 	last_event_position = event_position_2d
 	last_event_time = current_time

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://d2cy4fxujo4kc"]
+
+[ext_resource type="Script" uid="uid://da2unaxfmtyqh" path="res://desktop/desktop_icon.gd" id="1_s7i28"]
+[ext_resource type="Texture2D" uid="uid://dxh2uddm6spo7" path="res://desktop/ui/desktop_file_hover.png" id="2_7pnjs"]
+[ext_resource type="Texture2D" uid="uid://fr3ima5fffcc" path="res://desktop/_file_icons/file_icon.png" id="3_7pnjs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyges"]
+texture = ExtResource("2_7pnjs")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[node name="DesktopIcon" type="Control" unique_id=1056225044]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_s7i28")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1357783270]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oyges")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=547447884]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="FileIcon" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=1941422868]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("3_7pnjs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FileName" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1974860468]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "file"
+horizontal_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="MouseDetection" type="TextureButton" parent="." unique_id=936260951]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 63.0
+offset_bottom = 42.0
+focus_mode = 0

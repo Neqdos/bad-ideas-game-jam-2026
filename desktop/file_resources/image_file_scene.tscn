@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvvvhe265djxs"]
+
+[ext_resource type="Script" uid="uid://d3j6t6vypm18r" path="res://desktop/file_resources/image_file_scene.gd" id="1_hndr0"]
+
+[node name="ImageFileScene" type="Node2D" unique_id=1894127070]
+script = ExtResource("1_hndr0")
+
+[node name="ImageSprite" type="Sprite2D" parent="." unique_id=713446977]
+unique_name_in_owner = true
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1310715325]
+unique_name_in_owner = true

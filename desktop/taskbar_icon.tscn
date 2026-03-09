@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bvtr7dqhmh358"]
+
+[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop/files/platformer/player.png" id="1_dtpaj"]
+[ext_resource type="Script" uid="uid://p8m6llc7sex6" path="res://desktop/taskbar_icon.gd" id="1_yrkim"]
+
+[node name="TaskBarIcon" type="TextureButton" unique_id=1489235890]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+focus_mode = 0
+script = ExtResource("1_yrkim")
+
+[node name="FileIcon" type="TextureRect" parent="." unique_id=1522890863]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dtpaj")
+stretch_mode = 5

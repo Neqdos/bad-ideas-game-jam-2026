@@ -8,6 +8,7 @@ class_name PCObject
 
 @onready var detection_area: Area3D = %DetectionArea
 
+
 var current_user: PlayerBody
 
 func _ready() -> void:
@@ -23,4 +24,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		get_viewport().set_input_as_handled()
 		SignalManager.exit_screen(detection_area, current_user, gui_panel)
+		DesktopManager.window_grab_focus.emit(null)
 		current_user = null
