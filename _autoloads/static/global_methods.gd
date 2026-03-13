@@ -42,7 +42,7 @@ static func get_merged_aabb_from_meshes(meshes: Array[MeshInstance3D]) -> AABB:
 static func get_correct_collisions_from_a_node(node: Node3D) -> Array[CollisionShape3D]:
 	var colls: Array[CollisionShape3D]
 	
-	for coll: MeshInstance3D in node.find_children("", "CollisionObject3D"):
+	for coll: CollisionShape3D in node.find_children("", "CollisionObject3D"):
 		colls.append(coll)
 	
 	return colls
