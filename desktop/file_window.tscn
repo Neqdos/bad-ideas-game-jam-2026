@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wr7j6c1jo6j2"]
 
 [ext_resource type="Script" uid="uid://b3ybhoe5ijkgr" path="res://desktop/file_window.gd" id="1_f8wid"]
-[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop/files/test_game/tg_player.png" id="2_dohsy"]
+[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop_games/test_game/tg_player.png" id="2_dohsy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sgau"]
 bg_color = Color(1, 1, 1, 1)

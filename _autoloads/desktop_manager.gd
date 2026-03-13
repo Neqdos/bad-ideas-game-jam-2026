@@ -16,6 +16,7 @@ var desktop_icon_container: Control = null:
 var currently_moved_window: Control = null
 var currently_focused_window: FileWindow
 
+var time_minute_offset: float = 0.0
 
 func _ready() -> void:
 	window_grab_focus.connect(_on_window_grab_focus)
@@ -49,3 +50,11 @@ func add_file_to_desktop(file_res: FileResource) -> void:
 	new_desktop_icon.file_res = file_res
 	new_desktop_icon.grid_pos = grid_pos
 	desktop_icon_container.add_child(new_desktop_icon)
+
+func get_time_dict() -> Dictionary:
+	var time: Dictionary = Time.get_datetime_dict_from_system()
+	var minute: int = time["minute"] + int(time_minute_offset)
+	var hour: int = time["hour"] + floori(minute / 60.0)
+	time["minute"] = minute % 60 if minute % 60 >= 0 else 60 + minute % 60
+	time["hour"] = hour % 24 if hour % 24 >= 0 else 24 + hour % 24
+	return time

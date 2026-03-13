@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bw54bu8lrxlf"]
+
+[ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/_components/state_machine.gd" id="1_0wo2l"]
+[ext_resource type="Script" uid="uid://bfr01ewl5e2kx" path="res://desktop_games/climbing_game/player/climbing_player.gd" id="1_543t1"]
+[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop_games/test_game/tg_player.png" id="1_bwiu4"]
+[ext_resource type="Script" uid="uid://cj65v1agwdkx2" path="res://desktop_games/climbing_game/player/states/idle.gd" id="2_bwiu4"]
+[ext_resource type="Script" uid="uid://dw3cq5ixswpof" path="res://desktop_games/climbing_game/player/states/walk.gd" id="4_xgjoa"]
+[ext_resource type="Script" uid="uid://d38oqj0qqjtfq" path="res://desktop_games/climbing_game/player/states/jump.gd" id="5_fjxhk"]
+[ext_resource type="Script" uid="uid://dvg5fmhvf66ha" path="res://desktop_games/climbing_game/player/states/falling.gd" id="6_q4xk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwiu4"]
+size = Vector2(10, 12)
+
+[node name="ClimbingPlayer" type="CharacterBody2D" unique_id=1941018465]
+script = ExtResource("1_543t1")
+
+[node name="KoyoteTimer" type="Timer" parent="." unique_id=593270593]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=1843242670]
+unique_name_in_owner = true
+wait_time = 0.08
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=5333534 node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
+script = ExtResource("1_0wo2l")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bmyit071yrfei"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=419540239 node_paths=PackedStringArray("player")]
+script = ExtResource("2_bwiu4")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=763250379 node_paths=PackedStringArray("player")]
+script = ExtResource("4_xgjoa")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=716600507 node_paths=PackedStringArray("player")]
+script = ExtResource("5_fjxhk")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Falling" type="Node" parent="StateMachine" unique_id=1976286907 node_paths=PackedStringArray("player")]
+script = ExtResource("6_q4xk2")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=850247697]
+texture = ExtResource("1_bwiu4")
+offset = Vector2(0, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764679846]
+shape = SubResource("RectangleShape2D_bwiu4")

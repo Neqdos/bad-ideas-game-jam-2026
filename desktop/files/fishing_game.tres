@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AppFileResource" format=3 uid="uid://6p8wxrho3tag"]
+
+[ext_resource type="Texture2D" uid="uid://fr3ima5fffcc" path="res://desktop/_file_icons/file_icon.png" id="1_ek8n7"]
+[ext_resource type="Script" uid="uid://v1qyypsjrqi8" path="res://desktop/file_resources/app_file_resource.gd" id="1_x1aoh"]
+[ext_resource type="PackedScene" uid="uid://cdk8pgjxo1c2m" path="res://desktop_games/fishing_game/fishing_game.tscn" id="2_rddey"]
+
+[resource]
+script = ExtResource("1_x1aoh")
+scene = ExtResource("2_rddey")
+name = "Fishing Game"
+icon = ExtResource("1_ek8n7")
+metadata/_custom_type_script = "uid://v1qyypsjrqi8"

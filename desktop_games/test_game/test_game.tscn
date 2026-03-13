@@ -1,0 +1,67 @@
+[gd_scene format=4 uid="uid://dbkys18npy7nu"]
+
+[ext_resource type="Script" uid="uid://cmmvcip2dtji4" path="res://desktop_games/test_game/test_game.gd" id="1_00j6r"]
+[ext_resource type="Texture2D" uid="uid://c264c20jvyb5g" path="res://desktop_games/test_game/tiles.png" id="2_d7nc3"]
+[ext_resource type="PackedScene" uid="uid://br8lyylghpxpj" path="res://desktop/file_tile/file_tile.tscn" id="3_ptayv"]
+[ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land/land.tres" id="4_7p5dy"]
+[ext_resource type="PackedScene" uid="uid://iaqmpigt06jf" path="res://desktop_games/test_game/tg_player.tscn" id="5_3wa2p"]
+[ext_resource type="Script" uid="uid://dqj5h7cdjpw0n" path="res://desktop_games/test_game/test_game_input.gd" id="6_148a7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efrcy"]
+texture = ExtResource("2_d7nc3")
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ldjnn"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_efrcy")
+
+[node name="TestGame" type="Node2D" unique_id=1059420529 node_paths=PackedStringArray("bg", "file_tile")]
+script = ExtResource("1_00j6r")
+bg = NodePath("CanvasLayer/ColorRect")
+file_tile = NodePath("FileTile")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1265327421]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2123404156]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=964443140]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 15.0
+offset_right = 100.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "This is just for testing."
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=897228098]
+tile_map_data = PackedByteArray("AAD7/wYAAAABAAAAAAD8/wYAAAABAAAAAAD9/wYAAAABAAAAAAD+/wYAAAABAAAAAAD//wYAAAABAAAAAAAAAAYAAAABAAAAAAABAAYAAAABAAAAAAACAAYAAAABAAAAAAADAAYAAAABAAAAAAAEAAYAAAABAAAAAAAFAAYAAAABAAAAAAAGAAYAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAABAAAAAAAFAAQAAAABAAAAAAAHAAYAAAABAAAAAAAIAAYAAAABAAAAAAAJAAYAAAABAAAAAAAIAAQAAAABAAAAAAAJAAQAAAABAAAAAAAKAAQAAAABAAAAAAAKAAYAAAABAAAAAAALAAQAAAABAAAAAAALAAUAAAABAAAAAAALAAYAAAABAAAAAAALAAEAAAABAAAAAAALAAIAAAABAAAAAAALAAMAAAABAAAAAAAAAAUAAAABAAAAAAD6/wYAAAABAAAAAAD5/wYAAAABAAAAAAD5/wUAAAABAAAAAAD5/wQAAAABAAAAAAD5/wMAAAABAAAAAAD5/wEAAAABAAAAAAD5/wIAAAABAAAAAAABAAIAAAABAAAAAAAAAAIAAAABAAAAAAD//wIAAAABAAAAAAD+/wIAAAABAAAAAAD9/wIAAAABAAAAAAD6/wMAAAABAAAAAAD7/wMAAAABAAAAAAD5/wcAAAABAAAAAAD6/wcAAAABAAAAAAD7/wcAAAABAAAAAAD8/wcAAAABAAAAAAD9/wcAAAABAAAAAAD+/wcAAAABAAAAAAD//wcAAAABAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAADAAcAAAABAAAAAAAEAAcAAAABAAAAAAAGAAcAAAABAAAAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAALAAcAAAABAAAAAAAKAAcAAAABAAAAAAAJAAcAAAABAAAAAAAFAAcAAAABAAAAAAALAAgAAAABAAAAAAAKAAgAAAABAAAAAAAJAAgAAAABAAAAAAAIAAgAAAABAAAAAAAHAAgAAAABAAAAAAAGAAgAAAABAAAAAAAFAAgAAAABAAAAAAAEAAgAAAABAAAAAAADAAgAAAABAAAAAAACAAgAAAABAAAAAAABAAgAAAABAAAAAAD//wgAAAABAAAAAAD+/wgAAAABAAAAAAD9/wgAAAABAAAAAAD8/wgAAAABAAAAAAD7/wgAAAABAAAAAAD6/wgAAAABAAAAAAD5/wgAAAABAAAAAAD4/wEAAAABAAAAAAD4/wIAAAABAAAAAAD4/wMAAAABAAAAAAD4/wQAAAABAAAAAAD4/wUAAAABAAAAAAD4/wYAAAABAAAAAAD4/wcAAAABAAAAAAD4/wgAAAABAAAAAAD3/wgAAAABAAAAAAD3/wcAAAABAAAAAAD3/wYAAAABAAAAAAD3/wUAAAABAAAAAAD3/wQAAAABAAAAAAD3/wIAAAABAAAAAAD3/wEAAAABAAAAAAD3/wMAAAABAAAAAAAAAAgAAAABAAAAAAAMAAEAAAABAAAAAAANAAEAAAABAAAAAAANAAIAAAABAAAAAAANAAMAAAABAAAAAAANAAQAAAABAAAAAAANAAUAAAABAAAAAAANAAYAAAABAAAAAAANAAcAAAABAAAAAAAMAAcAAAABAAAAAAAMAAgAAAABAAAAAAAMAAYAAAABAAAAAAAMAAUAAAABAAAAAAAMAAQAAAABAAAAAAAMAAMAAAABAAAAAAAMAAIAAAABAAAAAAANAAgAAAABAAAAAAAEAAUAAAAAAAAAAAD+/wUAAAAAAAAAAAD+/wQAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ldjnn")
+
+[node name="Player" parent="." unique_id=1747451016 node_paths=PackedStringArray("input") instance=ExtResource("5_3wa2p")]
+input = NodePath("PlatformerAppInput")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1570807572]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="PlatformerAppInput" type="Node" parent="Player" unique_id=1263055127 node_paths=PackedStringArray("app_node")]
+script = ExtResource("6_148a7")
+app_node = NodePath("../..")
+
+[node name="FileTile" parent="." unique_id=611094426 instance=ExtResource("3_ptayv")]
+position = Vector2(72, 24)
+file_res = ExtResource("4_7p5dy")

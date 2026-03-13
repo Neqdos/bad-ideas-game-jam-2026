@@ -5,11 +5,12 @@ extends Control
 
 const TASKBAR_ICON_LABEL_OFFSET_Y: float = 8.0
 
+
 func _ready() -> void:
 	DesktopManager.taskbar_icon_hovered.connect(_on_taskbar_icon_hovered)
 
 func _process(_delta: float) -> void:
-	var time: Dictionary = Time.get_datetime_dict_from_system()
+	var time: Dictionary = DesktopManager.get_time_dict()
 	time_label.text = "%02d:%02d\n%02d.%02d.%d" % [time["hour"], time["minute"], time["day"], time["month"], time["year"]]
 
 func _on_taskbar_icon_hovered(taskbar_icon: TaskbarIcon) -> void:

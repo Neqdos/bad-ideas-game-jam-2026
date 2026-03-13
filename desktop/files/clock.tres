@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AppFileResource" format=3 uid="uid://dnc0tny0wi7h0"]
+
+[ext_resource type="Texture2D" uid="uid://fr3ima5fffcc" path="res://desktop/_file_icons/file_icon.png" id="1_v1j6v"]
+[ext_resource type="Script" uid="uid://v1qyypsjrqi8" path="res://desktop/file_resources/app_file_resource.gd" id="1_xcmsr"]
+[ext_resource type="PackedScene" uid="uid://dn1go6p6cfloq" path="res://desktop_apps/clock/clock.tscn" id="2_jb807"]
+
+[resource]
+script = ExtResource("1_xcmsr")
+scene = ExtResource("2_jb807")
+name = "Clock"
+icon = ExtResource("1_v1j6v")
+window_size = Vector2(160, 200)
+metadata/_custom_type_script = "uid://v1qyypsjrqi8"

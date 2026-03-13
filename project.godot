@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 SignalManager="*uid://cafwjpaejgis4"
 SaveManager="*uid://bnpycohaibk81"
 DesktopManager="*uid://c7jwnbsuan11x"
+BetterTerrain="*uid://d2amnv3vywley"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [display]
 
@@ -30,7 +32,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 
@@ -40,6 +42,8 @@ folder_colors={
 "res://_shaders/": "gray",
 "res://addons/": "gray",
 "res://desktop/": "purple",
+"res://desktop_apps/": "purple",
+"res://desktop_games/": "purple",
 "res://entities/": "red",
 "res://interaction/": "orange",
 "res://ui/": "yellow",
