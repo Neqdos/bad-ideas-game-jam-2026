@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://br8lyylghpxpj"]
+
+[ext_resource type="Script" uid="uid://ufmjk07p4mwj" path="res://desktop/file_tile/file_tile.gd" id="1_5e8yi"]
+[ext_resource type="Shader" uid="uid://bphre67tsgqmw" path="res://_shaders/grayscale.gdshader" id="2_bfjus"]
+[ext_resource type="Texture2D" uid="uid://xe6t5cofvtb2" path="res://desktop/_file_icons/image_file_icon.png" id="3_u7crq"]
+[ext_resource type="Texture2D" uid="uid://dowgtrj7xbbiy" path="res://desktop/file_tile/file_tile_border.png" id="4_s4txc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jbb2"]
+size = Vector2(24, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sk3lt"]
+shader = ExtResource("2_bfjus")
+shader_parameter/is_on = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e8yi"]
+atlas = ExtResource("4_s4txc")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfjus"]
+atlas = ExtResource("4_s4txc")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7crq"]
+atlas = ExtResource("4_s4txc")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4txc"]
+atlas = ExtResource("4_s4txc")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqs1b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e8yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfjus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7crq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4txc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="FileTile" type="Area2D" unique_id=362535691]
+modulate = Color(1, 1, 1, 0.5)
+script = ExtResource("1_5e8yi")
+metadata/_custom_type_script = "uid://ufmjk07p4mwj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2031579239]
+shape = SubResource("RectangleShape2D_0jbb2")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=214129650]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_sk3lt")
+texture = ExtResource("3_u7crq")
+
+[node name="Border" type="AnimatedSprite2D" parent="." unique_id=1587682380]
+sprite_frames = SubResource("SpriteFrames_rqs1b")
+autoplay = "default"
+frame_progress = 0.24745351

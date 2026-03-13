@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var input: PlatformerAppInput
+@export var input: TestGameInput
 
 const SPEED: float = 128.0
 const JUMP_POWER: float = 256.0

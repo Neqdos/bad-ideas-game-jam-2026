@@ -3,6 +3,8 @@ extends Node
 signal window_grab_focus(window: FileWindow)
 signal taskbar_icon_hovered(taskbar_icon: TaskbarIcon)
 
+signal desktop_icon_dropped(desktop_icon: DesktopIcon, from: Vector2i)
+
 const DESKTOP_ICON_SCENE = preload("uid://d2cy4fxujo4kc")
 
 var desktop_icon_container: Control = null:

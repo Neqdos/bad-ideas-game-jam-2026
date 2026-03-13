@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r1mj0d6f1hjm"
-path="res://.godot/imported/player.png-2bc7aab4e702dd6880d101703a5cb607.ctex"
+uid="uid://dowgtrj7xbbiy"
+path="res://.godot/imported/file_tile_border.png-d2f2b97a2d587e59b5e0dd125b76cfe6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://desktop/files/platformer/player.png"
-dest_files=["res://.godot/imported/player.png-2bc7aab4e702dd6880d101703a5cb607.ctex"]
+source_file="res://desktop/file_tile/file_tile_border.png"
+dest_files=["res://.godot/imported/file_tile_border.png-d2f2b97a2d587e59b5e0dd125b76cfe6.ctex"]
 
 [params]
 

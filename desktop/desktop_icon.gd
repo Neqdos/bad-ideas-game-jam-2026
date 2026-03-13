@@ -62,21 +62,28 @@ func _ready() -> void:
 	new_task_bar_icon.visible = false
 	task_bar.add_child.call_deferred(new_task_bar_icon)
 	
-	position_to_grid()
+	move_to_pos(get_grid_pos_from_position())
 
-func position_to_grid() -> void:
-	var new_grid_pos: Vector2i = get_grid_pos_from_position()
+func move_to_pos(pos: Vector2i) -> void:
+	var found_file_icon: DesktopIcon = DesktopManager.get_file_icon_at_position(pos)
 	
-	var found_file_icon: DesktopIcon = DesktopManager.get_file_icon_at_position(new_grid_pos)
-	
-	if is_instance_valid(found_file_icon):
-		found_file_icon.grid_pos = grid_pos
-	
-	grid_pos = new_grid_pos
+	if is_instance_valid(found_file_icon): found_file_icon.grid_pos = grid_pos
+	grid_pos = pos
+
 
 func get_grid_pos_from_position() -> Vector2i:
 	return (global_position / TILE_SIZE).round()
 
+
+func start_move() -> void:
+	is_being_moved = true
+	top_level = true
+
+func end_move() -> void:
+	is_being_moved = false
+	top_level = false
+	DesktopManager.desktop_icon_dropped.emit(self, grid_pos)
+	move_to_pos(get_grid_pos_from_position())
 
 func set_icon_and_name() -> void:
 	if !is_node_ready(): await ready
@@ -106,14 +113,12 @@ func _on_button_down() -> void:
 func _on_button_up() -> void:
 	is_pressed = false
 	
-	if is_being_moved:
-		is_being_moved = false
-		position_to_grid()
+	if is_being_moved: end_move()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return
 	
 	if is_being_moved:
 		global_position = get_global_mouse_position() - move_offset
 	elif is_pressed and move_offset.distance_squared_to(get_global_mouse_position() - global_position) > 16.0:
-		is_being_moved = true
+		start_move()

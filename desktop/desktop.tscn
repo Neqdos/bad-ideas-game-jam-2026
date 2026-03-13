@@ -2,10 +2,11 @@
 
 [ext_resource type="Theme" uid="uid://bhpbpwq32ojxt" path="res://ui/themes/desktop_theme.tres" id="1_87qqj"]
 [ext_resource type="Script" uid="uid://dg81en2kfra8h" path="res://desktop/desktop.gd" id="1_c6ot5"]
+[ext_resource type="Texture2D" uid="uid://b45umqf885fhb" path="res://desktop/wallpaper.png" id="3_6vopt"]
 [ext_resource type="PackedScene" uid="uid://d2cy4fxujo4kc" path="res://desktop/desktop_icon.tscn" id="3_py4qr"]
 [ext_resource type="Resource" uid="uid://dw886wwb4bdxg" path="res://desktop/files/readme.tres" id="4_hbe16"]
 [ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land/land.tres" id="4_irqsv"]
-[ext_resource type="Resource" uid="uid://b42hg020rk3m0" path="res://desktop/files/platformer/platformer.tres" id="5_hbe16"]
+[ext_resource type="Resource" uid="uid://b42hg020rk3m0" path="res://desktop/files/test_game/test_game.tres" id="5_hbe16"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my12u"]
 content_margin_left = 8.0
@@ -52,14 +53,14 @@ grow_vertical = 2
 theme = ExtResource("1_87qqj")
 script = ExtResource("1_c6ot5")
 
-[node name="BG" type="ColorRect" parent="." unique_id=1351861265]
+[node name="BG" type="TextureRect" parent="." unique_id=1712644097]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2604, 0.4922399, 0.84, 1)
+texture = ExtResource("3_6vopt")
 
 [node name="DesktopIconContainer" type="Control" parent="." unique_id=2088023451 groups=["desktop_icon_container"]]
 layout_mode = 1

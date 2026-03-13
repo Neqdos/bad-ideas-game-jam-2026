@@ -1,7 +1,7 @@
 extends Node
-class_name PlatformerAppInput
+class_name TestGameInput
 
-@export var platformer_app_node: Node2D
+@export var app_node: Node2D
 
 var input_dir_x: float = 0.0
 
@@ -9,8 +9,8 @@ var just_jumped: bool = false
 
 var did_reset: bool = false
 
-func _physics_process(delta: float) -> void:
-	var viewport: SubViewport = platformer_app_node.get_parent()
+func _physics_process(_delta: float) -> void:
+	var viewport: SubViewport = app_node.get_parent()
 	if viewport.gui_disable_input:
 		if !did_reset: reset()
 		return

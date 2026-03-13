@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c264c20jvyb5g"
-path="res://.godot/imported/tiles.png-1675cc96f5cbfc27367241b486096a03.ctex"
+uid="uid://b45umqf885fhb"
+path="res://.godot/imported/wallpaper.png-b2665472a6d8c1c7ef47764384ad6180.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://desktop/files/platformer/tiles.png"
-dest_files=["res://.godot/imported/tiles.png-1675cc96f5cbfc27367241b486096a03.ctex"]
+source_file="res://desktop/wallpaper.png"
+dest_files=["res://.godot/imported/wallpaper.png-b2665472a6d8c1c7ef47764384ad6180.ctex"]
 
 [params]
 
