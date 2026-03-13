@@ -39,6 +39,26 @@ static func get_merged_aabb_from_meshes(meshes: Array[MeshInstance3D]) -> AABB:
 		aabb = aabb.merge(AABB(mi3d.position - mesh_aabb.size / 2.0, mesh_aabb.size))
 	return aabb
 
+static func get_correct_collisions_from_a_node(node: Node3D) -> Array[CollisionShape3D]:
+	var colls: Array[CollisionShape3D]
+	
+	for coll: MeshInstance3D in node.find_children("", "CollisionObject3D"):
+		colls.append(coll)
+	
+	return colls
+
+static func get_merged_aabb_from_collisions(colls: Array[CollisionShape3D]) -> AABB:
+	var aabb: AABB = AABB()
+	
+	for coll: CollisionShape3D in colls:
+		var shape: Shape3D = coll.get_shape()
+		var coll_aabb: AABB = AABB()
+		for face in shape.get_faces():
+			coll_aabb = coll_aabb.expand(face)
+		
+		aabb = aabb.merge(AABB(coll.position - coll_aabb.size / 2.0, coll_aabb.size))
+	return aabb
+
 static func create_sleep_area_of_influence(position: Vector3, size: Vector3, parent: Node) -> void:
 	var area: SleepAreaOfInfluence = SleepAreaOfInfluence.new()
 	area.size = size * 1.1

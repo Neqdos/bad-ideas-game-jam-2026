@@ -33,8 +33,7 @@ func place_object() -> void:
 	var target_point: Vector3 = player.player_interaction_ray.get_collision_point()
 	var collision_normal: Vector3 = player.player_interaction_ray.get_collision_normal()
 	
-	#HACK: Probably should be changed to collisions instead of mesh.
-	var aabb: AABB = GlobalMethods.get_merged_aabb_from_meshes(GlobalMethods.get_correct_meshes_from_a_node(object))
+	var aabb: AABB = GlobalMethods.get_merged_aabb_from_collisions(GlobalMethods.get_correct_collisions_from_a_node(object))
 	
 	var size_length: float = aabb.size.length() / 3
 	
