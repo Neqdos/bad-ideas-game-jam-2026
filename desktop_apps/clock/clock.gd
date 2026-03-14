@@ -7,6 +7,8 @@ extends Control
 
 var changing_clock: bool = false
 
+var rot_vector: Vector2
+
 func _ready() -> void:
 	clock.button_down.connect(_on_clock_button_down)
 	clock.button_up.connect(_on_clock_button_up)
@@ -20,6 +22,7 @@ func _process(delta: float) -> void:
 
 func _on_clock_button_down() -> void:
 	changing_clock = true
+	set_rot_vector()
 
 func _on_clock_button_up() -> void:
 	changing_clock = false
@@ -28,4 +31,9 @@ func _input(event: InputEvent) -> void:
 	if !changing_clock: return
 	
 	if event is InputEventMouseMotion:
-		DesktopManager.time_minute_offset += event.relative.x
+		var old_rot_vector: Vector2 = rot_vector
+		set_rot_vector()
+		DesktopManager.time_minute_offset -= rad_to_deg(rot_vector.angle_to(old_rot_vector)) * .25
+
+func set_rot_vector() -> void:
+	rot_vector = (get_global_mouse_position() - size / 2.0).normalized()
