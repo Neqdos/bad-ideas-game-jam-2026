@@ -1,4 +1,4 @@
-extends PanelContainer
+extends Control
 class_name FileWindow
 
 signal closed()
@@ -9,6 +9,7 @@ signal opened()
 @onready var title_bar: TextureButton = %TitleBar
 @onready var window_icon: TextureRect = %WindowIcon
 @onready var window_name: Label = %WindowName
+@onready var window_panel: PanelContainer = %WindowPanel
 
 @onready var minimize_button: Button = %MinimizeButton
 @onready var close_button: Button = %CloseButton
@@ -16,6 +17,9 @@ signal opened()
 @onready var app_viewport: SubViewport = %AppViewport
 
 const LIMIT_OFFSET: Vector2 = Vector2(16.0, 64.0)
+
+const ROTATION_LERP: float = 12.0
+const POSITION_LERP: float = 16.0
 
 var move_offset: Vector2
 
@@ -55,19 +59,26 @@ func _ready() -> void:
 	
 	initiate()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if DesktopManager.currently_moved_window == self:
 		if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			DesktopManager.currently_moved_window = null
 			return
-		global_position = get_global_mouse_position() - move_offset
+		var old_global_pos: Vector2 = global_position
+		global_position = global_position.lerp(get_global_mouse_position() - move_offset, POSITION_LERP * delta)
 		global_position.x = clampf(global_position.x, 0.0, 640.0 - LIMIT_OFFSET.x)
 		global_position.y = clampf(global_position.y, 0.0, 480.0 - LIMIT_OFFSET.y)
-	
+		set_window_rotation((global_position.x - old_global_pos.x) * 2.0, delta)
+	else:
+		set_window_rotation(0.0, delta)
 	if title_bar.is_hovered() and Input.is_action_just_pressed("mouse_left_click"):
 		if is_instance_valid(DesktopManager.currently_moved_window): return
 		DesktopManager.currently_moved_window = self
 		move_offset = get_global_mouse_position() - global_position
+		window_panel.pivot_offset = move_offset
+
+func set_window_rotation(rot: float, delta: float) -> void:
+	window_panel.rotation_degrees = lerpf(window_panel.rotation_degrees, rot, ROTATION_LERP * delta)
 
 func _on_window_grab_focus(window: FileWindow) -> void:
 	app_viewport.gui_disable_input = window != self
@@ -86,7 +97,7 @@ func close() -> void:
 	visible = false
 	DesktopManager.window_grab_focus.emit(null)
 	
-	global_position = Vector2(320.0, 240.0) - (size / 2.0)
+	global_position = Vector2(320.0, 240.0) - (window_panel.size / 2.0)
 	
 	closed.emit()
 

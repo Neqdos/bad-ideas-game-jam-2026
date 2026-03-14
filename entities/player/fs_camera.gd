@@ -42,10 +42,10 @@ func _ready() -> void:
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	player_state_machine.state_changed.connect(_on_state_changed)
-	
 	SignalManager.camera_lock.connect(_on_camera_lock)
 	SignalManager.camera_position_at.connect(_on_camera_position_at)
+	
+	player_state_machine.state_changed.connect(_on_state_changed)
 
 func _on_camera_lock(is_locked: bool) -> void:
 	can_rotate += int(is_locked) * 2 - 1
