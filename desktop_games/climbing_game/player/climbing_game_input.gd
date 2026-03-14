@@ -6,8 +6,17 @@ signal jumped()
 var input_x: float = 0.0
 var jump_released: bool = false
 
+var is_locked: int = 0
+
+func _ready() -> void:
+	DesktopManager.climbing_input_lock.connect(_on_input_lock)
+
+func _on_input_lock(lock: bool) -> void:
+	is_locked += int(lock) * 2 - 1
+
 func _process(delta: float) -> void:
 	if check_viewport(): return
+	if is_locked: return
 	
 	input_x = Input.get_axis("left", "right")
 	

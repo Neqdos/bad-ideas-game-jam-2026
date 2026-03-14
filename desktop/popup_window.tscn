@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://nhxqcrnm8ar6"]
+
+[ext_resource type="Script" uid="uid://dxql1ioslbhtt" path="res://desktop/popup_window.gd" id="1_si0rx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si0rx"]
+bg_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e0w75"]
+thickness = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_si0rx"]
+
+[node name="PopupWindow" type="Control" unique_id=758290786 node_paths=PackedStringArray("focus_detection", "window_panel", "title_bar", "app_viewport")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_si0rx")
+focus_detection = NodePath("WindowPanel/VBoxContainer/PanelContainer/FocusDetection")
+window_panel = NodePath("WindowPanel")
+title_bar = NodePath("WindowPanel/VBoxContainer/HBoxContainer/TitleBar")
+app_viewport = NodePath("WindowPanel/VBoxContainer/PanelContainer/SubViewportContainer/AppViewport")
+metadata/_custom_type_script = "uid://dxql1ioslbhtt"
+
+[node name="WindowPanel" type="PanelContainer" parent="." unique_id=207610277]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_si0rx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowPanel" unique_id=880645975]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowPanel/VBoxContainer" unique_id=1120282487]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="TitleBar" type="TextureButton" parent="WindowPanel/VBoxContainer/HBoxContainer" unique_id=536159501]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="WindowPanel/VBoxContainer/HBoxContainer" unique_id=1833407060]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="WindowPanel/VBoxContainer" unique_id=780617107]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_e0w75")
+
+[node name="PanelContainer" type="PanelContainer" parent="WindowPanel/VBoxContainer" unique_id=1123934893]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_si0rx")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="WindowPanel/VBoxContainer/PanelContainer" unique_id=1434258457]
+layout_mode = 2
+
+[node name="AppViewport" type="SubViewport" parent="WindowPanel/VBoxContainer/PanelContainer/SubViewportContainer" unique_id=1648386123]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+physics_object_picking = true
+gui_disable_input = true
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="FocusDetection" type="TextureButton" parent="WindowPanel/VBoxContainer/PanelContainer" unique_id=1753626898]
+layout_mode = 2

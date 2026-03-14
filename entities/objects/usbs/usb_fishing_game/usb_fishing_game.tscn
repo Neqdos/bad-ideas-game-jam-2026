@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://clbli2af05lx"]
+
+[ext_resource type="Script" uid="uid://3yspe6qbyedk" path="res://entities/_components/usb_drive.gd" id="1_a54u8"]
+[ext_resource type="Resource" uid="uid://6p8wxrho3tag" path="res://desktop/files/fishing_game.tres" id="2_nnuib"]
+[ext_resource type="Resource" uid="uid://6nsn1nywsjfm" path="res://entities/objects/usbs/usb_fishing_game/usb_fishing_game.tres" id="3_5w4pj"]
+[ext_resource type="Script" uid="uid://lkg7k2vxlysd" path="res://interaction/in_hand/hand_interact_action.gd" id="3_tefke"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jputc"]
+size = Vector3(0.1, 0.05, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5w4pj"]
+albedo_color = Color(0.4324, 0.88924, 0.94, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n03sp"]
+size = Vector3(0.1, 0.05, 0.2)
+
+[node name="USBFishingGame" type="RigidBody3D" unique_id=26531379 node_paths=PackedStringArray("interact_action")]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_a54u8")
+file_res = ExtResource("2_nnuib")
+interact_action = NodePath("HandInteractAction")
+obj_resource = ExtResource("3_5w4pj")
+metadata/_custom_type_script = "uid://3yspe6qbyedk"
+
+[node name="HandInteractAction" type="Node" parent="." unique_id=585392751]
+script = ExtResource("3_tefke")
+metadata/_custom_type_script = "uid://lkg7k2vxlysd"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1997639034]
+mesh = SubResource("BoxMesh_jputc")
+surface_material_override/0 = SubResource("StandardMaterial3D_5w4pj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1342506528]
+shape = SubResource("BoxShape3D_n03sp")

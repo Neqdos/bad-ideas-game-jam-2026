@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var old_rot_vector: Vector2 = rot_vector
 		set_rot_vector()
-		DesktopManager.time_minute_offset -= rad_to_deg(rot_vector.angle_to(old_rot_vector)) * .25
+		DesktopManager.time_minute_offset -= rot_vector.angle_to(old_rot_vector) / TAU * 60.0
 
 func set_rot_vector() -> void:
 	rot_vector = (get_global_mouse_position() - size / 2.0).normalized()

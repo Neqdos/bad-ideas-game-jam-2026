@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://kw187sr6a2ai"]
+
+[ext_resource type="Script" uid="uid://3yspe6qbyedk" path="res://entities/_components/usb_drive.gd" id="1_wru7p"]
+[ext_resource type="Resource" uid="uid://dnc0tny0wi7h0" path="res://desktop/files/clock.tres" id="2_67v2p"]
+[ext_resource type="Resource" uid="uid://dhlxx4p6b6grc" path="res://entities/objects/usbs/usb_clock/usb_clock.tres" id="3_67v2p"]
+[ext_resource type="Script" uid="uid://lkg7k2vxlysd" path="res://interaction/in_hand/hand_interact_action.gd" id="3_grboh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_giqs5"]
+size = Vector3(0.1, 0.05, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jew23"]
+albedo_color = Color(0.090133324, 0.078, 0.26, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tb5ft"]
+size = Vector3(0.1, 0.05, 0.2)
+
+[node name="USBClock" type="RigidBody3D" unique_id=45558438 node_paths=PackedStringArray("interact_action")]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_wru7p")
+file_res = ExtResource("2_67v2p")
+interact_action = NodePath("HandInteractAction")
+obj_resource = ExtResource("3_67v2p")
+metadata/_custom_type_script = "uid://3yspe6qbyedk"
+
+[node name="HandInteractAction" type="Node" parent="." unique_id=124856089]
+script = ExtResource("3_grboh")
+metadata/_custom_type_script = "uid://lkg7k2vxlysd"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1930311396]
+mesh = SubResource("BoxMesh_giqs5")
+surface_material_override/0 = SubResource("StandardMaterial3D_jew23")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1339494857]
+shape = SubResource("BoxShape3D_tb5ft")

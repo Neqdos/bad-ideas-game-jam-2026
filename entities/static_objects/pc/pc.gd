@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Node3D
 class_name PCObject
 
 @onready var object_interact_action: ObjectInteractAction = %ObjectInteractAction

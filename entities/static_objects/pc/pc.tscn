@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d0u6f1y03hipr" path="res://desktop/desktop.tscn" id="2_dhe8j"]
 [ext_resource type="Script" uid="uid://bndh2mbwvs4ml" path="res://ui/gui_panel.gd" id="3_4w1th"]
 [ext_resource type="Script" uid="uid://dkvovvvhiovlj" path="res://interaction/in_world/object_interact_action.gd" id="4_npu3f"]
+[ext_resource type="Script" uid="uid://c0sxg0imgn6w1" path="res://entities/static_objects/pc/usb_slot.gd" id="5_4w1th"]
+[ext_resource type="Script" uid="uid://dohypidkqqjkv" path="res://interaction/in_world/object_info_label.gd" id="5_oaj68"]
+[ext_resource type="Resource" uid="uid://khve0uqaqspc" path="res://desktop/popups/usb_extracting/usb_extracting.tres" id="6_npu3f"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b2qlj"]
 size = Vector3(0.64, 0.48, 0.5)
@@ -19,7 +22,7 @@ resource_local_to_scene = true
 size = Vector2(0.64, 0.48)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dhe8j"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Monitor/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aic0"]
 resource_local_to_scene = true
@@ -28,26 +31,43 @@ shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_dhe8j")
 texture_filter = 0
 
-[node name="PC" type="StaticBody3D" unique_id=1622198517]
+[sub_resource type="BoxMesh" id="BoxMesh_dhe8j"]
+size = Vector3(0.2, 0.6, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oaj68"]
+size = Vector3(0.2, 0.6, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4w1th"]
+size = Vector3(0.175, 0.05, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_npu3f"]
+size = Vector3(0.175, 0.05, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhe8j"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="PC" type="Node3D" unique_id=1807889510]
 script = ExtResource("1_dhe8j")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=136040285]
+[node name="Monitor" type="StaticBody3D" parent="." unique_id=1622198517]
+
+[node name="SubViewport" type="SubViewport" parent="Monitor" unique_id=136040285]
 canvas_item_default_texture_filter = 0
 gui_snap_controls_to_pixels = false
 gui_embed_subwindows = true
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="Desktop" parent="SubViewport" unique_id=608329591 instance=ExtResource("2_dhe8j")]
+[node name="Desktop" parent="Monitor/SubViewport" unique_id=608329591 instance=ExtResource("2_dhe8j")]
 offset_bottom = 0.11993408
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1239248781]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Monitor" unique_id=1239248781]
 mesh = SubResource("BoxMesh_b2qlj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=198511427]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monitor" unique_id=198511427]
 shape = SubResource("BoxShape3D_dhe8j")
 
-[node name="GUIPanel" type="Node3D" parent="." unique_id=402979962 node_paths=PackedStringArray("viewport", "quad", "area")]
+[node name="GUIPanel" type="Node3D" parent="Monitor" unique_id=402979962 node_paths=PackedStringArray("viewport", "quad", "area")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26)
 rotation_edit_mode = 2
@@ -57,24 +77,56 @@ quad = NodePath("DetectionArea/MeshInstance3D2")
 area = NodePath("DetectionArea")
 metadata/_custom_type_script = "uid://bndh2mbwvs4ml"
 
-[node name="DetectionArea" type="Area3D" parent="GUIPanel" unique_id=709415375]
+[node name="DetectionArea" type="Area3D" parent="Monitor/GUIPanel" unique_id=709415375]
 unique_name_in_owner = true
 collision_layer = 12
 input_capture_on_drag = true
 
-[node name="ObjectInteractAction" type="Node" parent="GUIPanel/DetectionArea" unique_id=574191883]
+[node name="ObjectInteractAction" type="Node" parent="Monitor/GUIPanel/DetectionArea" unique_id=574191883]
 unique_name_in_owner = true
 script = ExtResource("4_npu3f")
 metadata/_custom_type_script = "uid://dkvovvvhiovlj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GUIPanel/DetectionArea" unique_id=1227923479]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monitor/GUIPanel/DetectionArea" unique_id=1227923479]
 shape = SubResource("BoxShape3D_2aic0")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="GUIPanel/DetectionArea" unique_id=877309697]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Monitor/GUIPanel/DetectionArea" unique_id=877309697]
 mesh = SubResource("QuadMesh_b2qlj")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_2aic0")
 
-[node name="CameraMarker" type="Marker3D" parent="GUIPanel" unique_id=1348992215]
+[node name="CameraMarker" type="Marker3D" parent="Monitor/GUIPanel" unique_id=1348992215]
 unique_name_in_owner = true
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0.26)
+
+[node name="Computer" type="StaticBody3D" parent="." unique_id=749941175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.06, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Computer" unique_id=1396518390]
+mesh = SubResource("BoxMesh_dhe8j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer" unique_id=1774978810]
+shape = SubResource("BoxShape3D_oaj68")
+
+[node name="USBSlot" type="Area3D" parent="Computer" unique_id=1049187984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19999999, 0.43474928)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("5_4w1th")
+usb_extracting = ExtResource("6_npu3f")
+
+[node name="USBSlotInfoLabel" type="Node" parent="Computer/USBSlot" unique_id=906377611]
+unique_name_in_owner = true
+script = ExtResource("5_oaj68")
+info = "USB Slot"
+metadata/_custom_type_script = "uid://dohypidkqqjkv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/USBSlot" unique_id=421331209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06142059)
+shape = SubResource("BoxShape3D_4w1th")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Computer/USBSlot" unique_id=1478700475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.08143014)
+mesh = SubResource("BoxMesh_npu3f")
+surface_material_override/0 = SubResource("StandardMaterial3D_dhe8j")

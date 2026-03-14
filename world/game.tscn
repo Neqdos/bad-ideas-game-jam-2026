@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ch1y7bbiwm04h" path="res://entities/static_objects/pc/pc.tscn" id="1_03f54"]
 [ext_resource type="Script" uid="uid://bhmug3lm0c8su" path="res://world/game.gd" id="1_7oyu6"]
 [ext_resource type="PackedScene" uid="uid://dlgg00l13fbxf" path="res://entities/player/player.tscn" id="2_xfo4j"]
-[ext_resource type="PackedScene" uid="uid://bqa2nx72cfcrn" path="res://entities/objects/other/square_duck/square_duck.tscn" id="3_7oyu6"]
+[ext_resource type="PackedScene" uid="uid://clbli2af05lx" path="res://entities/objects/usbs/usb_fishing_game/usb_fishing_game.tscn" id="5_6jtoe"]
+[ext_resource type="PackedScene" uid="uid://kw187sr6a2ai" path="res://entities/objects/usbs/usb_clock/usb_clock.tscn" id="6_jebw6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xfo4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,10 +26,10 @@ size = Vector3(8, 1, 8)
 size = Vector3(8, 1, 8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_b7hlb"]
-size = Vector3(1, 0.8, 0.5)
+size = Vector3(2, 0.8, 0.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b7hlb"]
-size = Vector3(1, 0.8, 0.5)
+size = Vector3(2, 0.8, 0.6)
 
 [node name="Game" type="Node3D" unique_id=678831132 node_paths=PackedStringArray("pc", "player")]
 script = ExtResource("1_7oyu6")
@@ -67,7 +68,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 1.05, -1.552)
 
 [node name="ObjectsNode" type="Node3D" parent="." unique_id=701677193 groups=["objects_node"]]
 
-[node name="SquareDuck" parent="ObjectsNode" unique_id=1279859191 instance=ExtResource("3_7oyu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9644995, 0.25000012, 1.242219)
+[node name="USBFishingGame" parent="ObjectsNode" unique_id=26531379 instance=ExtResource("5_6jtoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4731932, 0.025, -0.05310142)
+
+[node name="USBClock" parent="ObjectsNode" unique_id=45558438 instance=ExtResource("6_jebw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9529626, 0.025000239, -0.06460357)
 
 [node name="Player" parent="." unique_id=1510971249 instance=ExtResource("2_xfo4j")]

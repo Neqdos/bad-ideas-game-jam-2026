@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bjacl2kl56r75"]
+
+[ext_resource type="Script" uid="uid://b4ph20kmsrare" path="res://desktop/popups/usb_extracting/usb_extracting.gd" id="1_05fbi"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lcvqs"]
+frequency = 0.03
+
+[node name="USBExtracting" type="Control" unique_id=1518733439]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05fbi")
+noise = SubResource("FastNoiseLite_lcvqs")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1031999085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1521809061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=6865756]
+layout_mode = 2
+
+[node name="ExtractingLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1149498583]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+text = "EXTRACTING FILES"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1057243097]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExtractingLabelDotTimer" type="Timer" parent="." unique_id=580135438]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true

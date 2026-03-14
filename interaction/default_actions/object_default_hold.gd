@@ -23,6 +23,10 @@ func _on_object_hold() -> void:
 	
 	if !is_instance_valid(player.player_interaction_ray.object): return
 	
+	GlobalMethods.create_sleep_area_of_influence(
+		player.player_interaction_ray.object.global_position,
+		GlobalMethods.get_merged_aabb_from_collisions(GlobalMethods.get_correct_collisions_from_a_node(player.player_interaction_ray.object)).size,
+		get_tree().current_scene)
 	player.inv_manager.hold_object(player.player_interaction_ray.object)
 
 

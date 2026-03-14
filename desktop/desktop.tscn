@@ -8,8 +8,6 @@
 [ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land/land.tres" id="4_irqsv"]
 [ext_resource type="Resource" uid="uid://b42hg020rk3m0" path="res://desktop_games/test_game/test_game.tres" id="5_hbe16"]
 [ext_resource type="Resource" uid="uid://dnnlfm5p8xvmf" path="res://desktop/files/climbing_game.tres" id="8_r3xg6"]
-[ext_resource type="Resource" uid="uid://6p8wxrho3tag" path="res://desktop/files/fishing_game.tres" id="9_t632k"]
-[ext_resource type="Resource" uid="uid://dnc0tny0wi7h0" path="res://desktop/files/clock.tres" id="10_jsfay"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my12u"]
 content_margin_left = 8.0
@@ -98,20 +96,6 @@ offset_left = 192.0
 offset_right = 256.0
 file_res = ExtResource("8_r3xg6")
 grid_pos = Vector2i(3, 0)
-
-[node name="FishingGame" parent="DesktopIconContainer" unique_id=1484381002 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 256.0
-offset_right = 320.0
-file_res = ExtResource("9_t632k")
-grid_pos = Vector2i(4, 0)
-
-[node name="Clock" parent="DesktopIconContainer" unique_id=211883208 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 320.0
-offset_right = 384.0
-file_res = ExtResource("10_jsfay")
-grid_pos = Vector2i(5, 0)
 
 [node name="WindowContainer" type="Control" parent="." unique_id=349596325 groups=["window_container"]]
 layout_mode = 1
