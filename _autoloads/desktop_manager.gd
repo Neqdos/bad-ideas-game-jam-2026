@@ -1,4 +1,5 @@
 extends Node
+@warning_ignore_start("unused_signal")
 
 signal window_grab_focus(window: DesktopWindow)
 signal taskbar_icon_hovered(taskbar_icon: TaskbarIcon)
@@ -7,16 +8,58 @@ signal desktop_icon_dropped(desktop_icon: DesktopIcon, from: Vector2i)
 
 signal usb_extracting_finished()
 
-
+# CLIMBING
 signal climbing_input_lock(lock: bool)
 signal climbing_player_death()
 var climbing_spawn_area: SpawnArea
 const CLIMBING_DEATH_TIME: float = .5
 
+# FISHING
+signal fishing_game_started()
+signal fishing_game_reeling()
+signal fishing_game_ended()
+signal fishing_money_changed()
+signal fishing_all_sold()
+var fishing_game_is_going: bool = false
+var fishing_money: float = 0.0:
+	set(val):
+		fishing_money = val
+		fishing_money_changed.emit()
+var fishing_stats: Dictionary[String, float] = {
+	"area_size" : 8.0,
+	"moving_speed": 12.0,
+	"max_capacity": 6,
+	"jump_strength": 24.0,
+	"jump_cooldown": 3.0,
+	"money_gain": .8,
+	"hook_size": 0,
+	"line_length": 256.0,
+	"fish_mult": 1,
+}
+
+
 const DESKTOP_ICON_SCENE: PackedScene = preload("uid://d2cy4fxujo4kc")
 const POPUP_WINDOW_SCENE: PackedScene = preload("uid://nhxqcrnm8ar6")
 
 
+const TITLE_BAR_COLOR_TO_TEXTURE: Dictionary[FileResource.TITLE_BAR_COLOR, Texture2D] = {
+	FileResource.TITLE_BAR_COLOR.Black : preload("uid://dgqj4co82fad6"),
+	FileResource.TITLE_BAR_COLOR.White : preload("uid://b3i6111k5g7ob"),
+	FileResource.TITLE_BAR_COLOR.Blue : preload("uid://uud3gp5runin"),
+	FileResource.TITLE_BAR_COLOR.Red : preload("uid://b6g553k1w2vvb"),
+	FileResource.TITLE_BAR_COLOR.Yellow : preload("uid://dwnt5rouq8qv6"),
+	FileResource.TITLE_BAR_COLOR.Green : preload("uid://bngoxw5yjtxua"),
+	
+}
+
+#Black,
+	#Gray,
+	#White,
+	#Blue,
+	#Purple,
+	#Red,
+	#Yellow,
+	#Green,
 var desktop_icon_container: Control = null:
 	get():
 		if !is_instance_valid(desktop_icon_container): desktop_icon_container = get_tree().get_first_node_in_group("desktop_icon_container")

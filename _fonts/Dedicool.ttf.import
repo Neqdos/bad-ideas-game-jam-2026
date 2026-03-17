@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cl2hqptpgg7q4"
-path="res://.godot/imported/ModernDOS8x8.ttf-495ef921e437e4d43caf8fc11bd4a944.fontdata"
+uid="uid://dcxvpjo2old2m"
+path="res://.godot/imported/Dedicool.ttf-d58950f124a8d10cd563e6632e4a8001.fontdata"
 
 [deps]
 
-source_file="res://_fonts/ModernDOS8x8.ttf"
-dest_files=["res://.godot/imported/ModernDOS8x8.ttf-495ef921e437e4d43caf8fc11bd4a944.fontdata"]
+source_file="res://_fonts/Dedicool.ttf"
+dest_files=["res://.godot/imported/Dedicool.ttf-d58950f124a8d10cd563e6632e4a8001.fontdata"]
 
 [params]
 
@@ -30,13 +30,7 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0),
-&"variation_embolden": 0.0
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

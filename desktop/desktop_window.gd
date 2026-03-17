@@ -82,4 +82,4 @@ func open() -> void:
 	opened.emit()
 
 func position_to_center() -> void:
-	global_position = Vector2(320.0, 240.0) - (window_panel.size / 2.0)
+	global_position = round(Vector2(320.0, 240.0) - (window_panel.size / 2.0))

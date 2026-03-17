@@ -1,22 +1,20 @@
 [gd_scene format=3 uid="uid://bvtr7dqhmh358"]
 
-[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop_games/test_game/tg_player.png" id="1_dtpaj"]
+[ext_resource type="Theme" uid="uid://bhpbpwq32ojxt" path="res://ui/themes/desktop_theme.tres" id="1_5flnc"]
+[ext_resource type="Texture2D" uid="uid://d2afgrj6i0570" path="res://desktop/_file_icons/fishing_icon.png" id="1_qjaw5"]
 [ext_resource type="Script" uid="uid://p8m6llc7sex6" path="res://desktop/taskbar_icon.gd" id="1_yrkim"]
 
-[node name="TaskBarIcon" type="TextureButton" unique_id=1489235890]
-custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-offset_bottom = 32.0
-focus_mode = 0
-script = ExtResource("1_yrkim")
-
-[node name="FileIcon" type="TextureRect" parent="." unique_id=1522890863]
-unique_name_in_owner = true
-layout_mode = 1
+[node name="TaskBarIcon" type="Button" unique_id=2027064119]
+custom_minimum_size = Vector2(24, 24)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -616.0
+offset_bottom = -336.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_dtpaj")
-stretch_mode = 5
+size_flags_vertical = 4
+theme = ExtResource("1_5flnc")
+icon = ExtResource("1_qjaw5")
+icon_alignment = 1
+script = ExtResource("1_yrkim")

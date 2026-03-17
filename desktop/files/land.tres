@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ImageFileResource" format=3 uid="uid://jrdh6pxic0ii"]
+
+[ext_resource type="Texture2D" uid="uid://c1el4502vuvoh" path="res://desktop/_file_icons/image_icon.png" id="1_7werf"]
+[ext_resource type="Texture2D" uid="uid://c6es77tsumtuu" path="res://desktop/wallpaper2.png" id="2_7werf"]
+[ext_resource type="Script" uid="uid://ccu20ilt33asc" path="res://desktop/file_resources/image_file_resource.gd" id="3_j8qw4"]
+
+[resource]
+script = ExtResource("3_j8qw4")
+image = ExtResource("2_7werf")
+name = "land"
+icon = ExtResource("1_7werf")
+title_bar_color = 0
+metadata/_custom_type_script = "uid://ccu20ilt33asc"

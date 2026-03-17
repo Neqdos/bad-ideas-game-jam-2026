@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dymyxtkmpfueh"
-path="res://.godot/imported/text_file_icon.png-ca1a4e869c55763c093108eae7741c6c.ctex"
+uid="uid://cdoknwo4k3ed6"
+path="res://.godot/imported/medium_fish_placeholder.png-465747a2efd6538a2668c7d46164abac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://desktop/_file_icons/text_file_icon.png"
-dest_files=["res://.godot/imported/text_file_icon.png-ca1a4e869c55763c093108eae7741c6c.ctex"]
+source_file="res://desktop_games/fishing_game/fish_resources/medium_fish_placeholder.png"
+dest_files=["res://.godot/imported/medium_fish_placeholder.png-465747a2efd6538a2668c7d46164abac.ctex"]
 
 [params]
 

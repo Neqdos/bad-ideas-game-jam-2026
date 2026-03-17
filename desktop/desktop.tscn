@@ -5,24 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://b45umqf885fhb" path="res://desktop/wallpaper.png" id="3_6vopt"]
 [ext_resource type="PackedScene" uid="uid://d2cy4fxujo4kc" path="res://desktop/desktop_icon.tscn" id="3_py4qr"]
 [ext_resource type="Resource" uid="uid://dw886wwb4bdxg" path="res://desktop/files/readme.tres" id="4_hbe16"]
-[ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land/land.tres" id="4_irqsv"]
-[ext_resource type="Resource" uid="uid://b42hg020rk3m0" path="res://desktop_games/test_game/test_game.tres" id="5_hbe16"]
+[ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land.tres" id="4_irqsv"]
 [ext_resource type="Resource" uid="uid://dnnlfm5p8xvmf" path="res://desktop/files/climbing_game.tres" id="8_r3xg6"]
+[ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="9_jsfay"]
+[ext_resource type="Resource" uid="uid://6p8wxrho3tag" path="res://desktop/files/fishing_game.tres" id="9_t632k"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="10_4ndcx"]
+[ext_resource type="Texture2D" uid="uid://4o1vq7q536sf" path="res://desktop/textures/window_npt.png" id="10_jsfay"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_my12u"]
-content_margin_left = 8.0
-content_margin_right = 8.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.19, 0.19, 0.19, 1)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_87qqj"]
-color = Color(0.1882353, 0.1882353, 0.1882353, 1)
-thickness = 2
-vertical = true
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsfay"]
+texture = ExtResource("10_jsfay")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phxyg"]
 
@@ -42,6 +37,28 @@ HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_hqaxj")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_g4dgp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4g4to"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ndcx"]
+content_margin_left = 2.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 2.0
+texture = ExtResource("9_jsfay")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6j2u"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+texture = ExtResource("10_jsfay")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [node name="Desktop" type="Control" unique_id=608329591]
 layout_mode = 3
@@ -83,18 +100,18 @@ offset_right = 128.0
 file_res = ExtResource("4_irqsv")
 grid_pos = Vector2i(1, 0)
 
-[node name="Platformer" parent="DesktopIconContainer" unique_id=1491510001 instance=ExtResource("3_py4qr")]
+[node name="ClimbingGame" parent="DesktopIconContainer" unique_id=1649011081 instance=ExtResource("3_py4qr")]
 layout_mode = 0
 offset_left = 128.0
 offset_right = 192.0
-file_res = ExtResource("5_hbe16")
+file_res = ExtResource("8_r3xg6")
 grid_pos = Vector2i(2, 0)
 
-[node name="ClimbingGame" parent="DesktopIconContainer" unique_id=1649011081 instance=ExtResource("3_py4qr")]
+[node name="FishingGameTEST" parent="DesktopIconContainer" unique_id=1433175001 instance=ExtResource("3_py4qr")]
 layout_mode = 0
 offset_left = 192.0
-offset_right = 256.0
-file_res = ExtResource("8_r3xg6")
+offset_right = 256.0001
+file_res = ExtResource("9_t632k")
 grid_pos = Vector2i(3, 0)
 
 [node name="WindowContainer" type="Control" parent="." unique_id=349596325 groups=["window_container"]]
@@ -107,32 +124,31 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=375334904]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -35.0
+offset_top = -29.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_my12u")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jsfay")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=588036825]
-custom_minimum_size = Vector2(0, 32)
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=988957639]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=588036825]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer" unique_id=185099658]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=185099658]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Boxes 69"
+text = "Boxes OS  "
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=1418102716]
-layout_mode = 2
-theme_override_constants/separation = 4
-theme_override_styles/separator = SubResource("StyleBoxLine_87qqj")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/HBoxContainer" unique_id=1752441923]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1752441923]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -141,33 +157,28 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_4g4to")
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
-[node name="Taskbar" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ScrollContainer" unique_id=1343262825 groups=["taskbar"]]
+[node name="Taskbar" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/ScrollContainer" unique_id=1343262825 groups=["taskbar"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=972942448]
-layout_mode = 2
 theme_override_constants/separation = 4
-theme_override_styles/separator = SubResource("StyleBoxLine_87qqj")
 
-[node name="TimeLabel" type="Label" parent="PanelContainer/HBoxContainer" unique_id=1321331706]
+[node name="TimeLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1321331706]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_4ndcx")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_4ndcx")
 text = "hh:mm
-dd:mm:yyyy"
+dd.mm.yyyy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TaskbarIconLabel" type="Label" parent="." unique_id=158971891]
+[node name="TaskbarIconLabel" type="Label" parent="." unique_id=1490151042]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(128, 0)
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 8.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_right = 13.0
+offset_bottom = 21.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_b6j2u")
 horizontal_alignment = 1
-autowrap_mode = 3

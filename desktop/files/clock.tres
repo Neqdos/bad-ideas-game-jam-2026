@@ -10,4 +10,5 @@ scene = ExtResource("2_jb807")
 name = "Clock"
 icon = ExtResource("1_v1j6v")
 window_size = Vector2(160, 200)
+title_bar_color = 4
 metadata/_custom_type_script = "uid://v1qyypsjrqi8"

@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://nhxqcrnm8ar6"]
 
 [ext_resource type="Script" uid="uid://dxql1ioslbhtt" path="res://desktop/popup_window.gd" id="1_si0rx"]
+[ext_resource type="Texture2D" uid="uid://b6g553k1w2vvb" path="res://desktop/textures/checked_pattern_red.png" id="2_jtm15"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="3_ndgb5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_si0rx"]
-bg_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jtm15"]
+color = Color(0.2, 0.23529412, 0.34117648, 1)
+thickness = 4
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_e0w75"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ndgb5"]
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 thickness = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_si0rx"]
@@ -21,37 +20,61 @@ anchors_preset = 0
 script = ExtResource("1_si0rx")
 focus_detection = NodePath("WindowPanel/VBoxContainer/PanelContainer/FocusDetection")
 window_panel = NodePath("WindowPanel")
-title_bar = NodePath("WindowPanel/VBoxContainer/HBoxContainer/TitleBar")
+title_bar = NodePath("WindowPanel/VBoxContainer/TitleBarTexture/HBoxContainer/TitleBar")
 app_viewport = NodePath("WindowPanel/VBoxContainer/PanelContainer/SubViewportContainer/AppViewport")
 metadata/_custom_type_script = "uid://dxql1ioslbhtt"
 
 [node name="WindowPanel" type="PanelContainer" parent="." unique_id=207610277]
 layout_mode = 0
-offset_right = 24.0
-offset_bottom = 22.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_si0rx")
+offset_right = 97.0
+offset_bottom = 52.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WindowPanel" unique_id=880645975]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="WindowPanel/VBoxContainer" unique_id=1120282487]
-custom_minimum_size = Vector2(0, 16)
+[node name="TitleBarTexture" type="TextureRect" parent="WindowPanel/VBoxContainer" unique_id=448264660]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 17)
 layout_mode = 2
+texture = ExtResource("2_jtm15")
+stretch_mode = 1
 
-[node name="TitleBar" type="TextureButton" parent="WindowPanel/VBoxContainer/HBoxContainer" unique_id=536159501]
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowPanel/VBoxContainer/TitleBarTexture" unique_id=1120282487]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleBar" type="TextureButton" parent="WindowPanel/VBoxContainer/TitleBarTexture/HBoxContainer" unique_id=536159501]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CloseButton" type="Button" parent="WindowPanel/VBoxContainer/HBoxContainer" unique_id=1833407060]
+[node name="CloseButton" type="Button" parent="WindowPanel/VBoxContainer/TitleBarTexture/HBoxContainer" unique_id=1833407060]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(17, 17)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ndgb5")
+theme_override_font_sizes/font_size = 8
 text = "X"
 
-[node name="HSeparator" type="HSeparator" parent="WindowPanel/VBoxContainer" unique_id=780617107]
+[node name="HSeparator" type="HSeparator" parent="WindowPanel/VBoxContainer" unique_id=1019846717]
 layout_mode = 2
 theme_override_constants/separation = 0
-theme_override_styles/separator = SubResource("StyleBoxLine_e0w75")
+theme_override_styles/separator = SubResource("StyleBoxLine_jtm15")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowPanel/VBoxContainer/HSeparator" unique_id=2063956421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ndgb5")
 
 [node name="PanelContainer" type="PanelContainer" parent="WindowPanel/VBoxContainer" unique_id=1123934893]
 layout_mode = 2

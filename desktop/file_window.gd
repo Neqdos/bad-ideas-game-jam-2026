@@ -8,11 +8,14 @@ class_name FileWindow
 @onready var minimize_button: Button = %MinimizeButton
 @onready var close_button: Button = %CloseButton
 
+@onready var title_bar_texture: TextureRect = %TitleBarTexture
 
 var file_res: FileResource
 
 func initiate() -> void:
 	name = file_res.name.to_pascal_case()
+	
+	title_bar_texture.texture = DesktopManager.TITLE_BAR_COLOR_TO_TEXTURE[file_res.title_bar_color]
 	
 	window_name.text = file_res.name
 	window_icon.texture = file_res.icon

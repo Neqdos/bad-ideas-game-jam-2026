@@ -1,12 +1,26 @@
 [gd_scene format=3 uid="uid://dvvvhe265djxs"]
 
 [ext_resource type="Script" uid="uid://d3j6t6vypm18r" path="res://desktop/file_resources/image_file_scene.gd" id="1_hndr0"]
+[ext_resource type="Texture2D" uid="uid://bmoq47iu7ffhg" path="res://desktop/_file_icons/climbing_icon.png" id="2_0jbwj"]
 
 [node name="ImageFileScene" type="Node2D" unique_id=1894127070]
 script = ExtResource("1_hndr0")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=549709970]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=6949363]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+
 [node name="ImageSprite" type="Sprite2D" parent="." unique_id=713446977]
 unique_name_in_owner = true
+texture = ExtResource("2_0jbwj")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1310715325]
 unique_name_in_owner = true

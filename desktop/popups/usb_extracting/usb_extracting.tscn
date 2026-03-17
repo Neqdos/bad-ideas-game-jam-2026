@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.3372549, 0.42352942, 0.5254902, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1521809061]
 layout_mode = 1
@@ -48,7 +48,9 @@ horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1057243097]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
+value = 69.0
 
 [node name="ExtractingLabelDotTimer" type="Timer" parent="." unique_id=580135438]
 unique_name_in_owner = true

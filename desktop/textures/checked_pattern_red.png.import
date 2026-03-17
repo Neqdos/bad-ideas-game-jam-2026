@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c80cnnjj5tvg6"
-path="res://.godot/imported/land.png-49ffe52ba9f5df725474fbf2c03d5ae0.ctex"
+uid="uid://b6g553k1w2vvb"
+path="res://.godot/imported/checked_pattern_red.png-d985f0c8d26b59da7b3512221c67d34d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://desktop/files/land/land.png"
-dest_files=["res://.godot/imported/land.png-49ffe52ba9f5df725474fbf2c03d5ae0.ctex"]
+source_file="res://desktop/textures/checked_pattern_red.png"
+dest_files=["res://.godot/imported/checked_pattern_red.png-d985f0c8d26b59da7b3512221c67d34d.ctex"]
 
 [params]
 

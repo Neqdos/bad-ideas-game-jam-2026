@@ -1,3 +1,250 @@
-[gd_scene format=3 uid="uid://cdk8pgjxo1c2m"]
+[gd_scene format=4 uid="uid://cdk8pgjxo1c2m"]
+
+[ext_resource type="Script" uid="uid://oyx65nkwogwg" path="res://desktop_games/fishing_game/fishing_game.gd" id="1_ypyik"]
+[ext_resource type="PackedScene" uid="uid://bv1of3jo3vrim" path="res://desktop_games/fishing_game/ui/fishing_game_ui.tscn" id="2_dv54t"]
+[ext_resource type="PackedScene" uid="uid://epmb7v6e853d" path="res://desktop_games/fishing_game/fishing_hook/fishing_hook.tscn" id="2_k46on"]
+[ext_resource type="Texture2D" uid="uid://cknuyedh71j3r" path="res://desktop_games/climbing_game/stone_tileset.png" id="3_dty3a"]
+[ext_resource type="Script" uid="uid://b4fm75m7krycv" path="res://desktop_games/fishing_game/fishing_game_input.gd" id="3_ypyik"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_yxqwv"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_gkht2"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_yxqwv"]
+[ext_resource type="Script" uid="uid://du3d2kpwnh7al" path="res://desktop_games/fishing_game/fish_spawner.gd" id="9_2v5x7"]
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="10_dty3a"]
+[ext_resource type="Resource" uid="uid://dt24wel5oeo5k" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder.tres" id="11_mq71m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mq71m"]
+texture = ExtResource("3_dty3a")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/metadata/_better_terrain = {
+&"type": 0
+}
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/metadata/_better_terrain = {
+4: [0],
+&"symmetry": 7,
+&"type": 0
+}
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/metadata/_better_terrain = {
+4: [0],
+12: [0],
+&"symmetry": 7,
+&"type": 0
+}
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+&"symmetry": 7,
+&"type": 0
+}
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+&"symmetry": 7,
+&"type": 0
+}
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+&"symmetry": 7,
+&"type": 0
+}
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+12: [0],
+&"type": 0
+}
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+8: [0],
+&"symmetry": 8,
+&"type": 0
+}
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+8: [0],
+12: [0],
+&"symmetry": 7,
+&"type": 0
+}
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+12: [0],
+15: [0],
+&"symmetry": 7,
+&"type": 0
+}
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+12: [0],
+&"symmetry": 7,
+&"type": 0
+}
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+8: [0],
+11: [0],
+12: [0],
+&"symmetry": 1,
+&"type": 0
+}
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+&"symmetry": 7,
+&"type": 0
+}
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
+&"type": 0
+}
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/metadata/_better_terrain = {
+0: [0],
+3: [0],
+4: [0],
+7: [0],
+8: [0],
+11: [0],
+12: [0],
+15: [0],
+&"type": 0
+}
+
+[sub_resource type="TileSet" id="TileSet_k46on"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_mq71m")
+metadata/_better_terrain = {
+&"decoration": ["Decoration", Color(0.4117647, 0.4117647, 0.4117647, 1), 3, [], {
+&"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+&"terrains": [["stone", Color(0.7391195, 0.9609375, 0.045043945, 1), 0, [], {
+&"path": ""
+}]],
+&"version": "0.2"
+}
+
+[sub_resource type="Resource" id="Resource_dv54t"]
+script = ExtResource("6_yxqwv")
 
 [node name="FishingGame" type="Node2D" unique_id=1205627818]
+script = ExtResource("1_ypyik")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1173474434]
+
+[node name="UpgradesMenu" parent="CanvasLayer" unique_id=1855813188 instance=ExtResource("2_dv54t")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=504501848]
+tile_map_data = PackedByteArray("AAD2/wkAAQABAAIAAAD3/wkAAQACAAMAAAD4/wkAAQABAAMAAAD5/wkAAQABAAMAAAD2/woAAQABAAIAAAD3/woAAQACAAMAAAD4/woAAQACAAMAAAD5/woAAQACAAMAAAD2/wsAAQABAAIAAAD3/wsAAQABAAMAAAD4/wsAAQABAAMAAAD5/wsAAQABAAMAAAD2/wwAAQABAAIAAAD3/wwAAQABAAMAAAD4/wwAAQACAAMAAAD5/wwAAQABAAMAAAD2/w0AAQABAAIAAAD3/w0AAQABAAMAAAD4/w0AAQACAAMAAAD5/w0AAQABAAMAAAD2/w4AAQABAAIAAAD3/w4AAQACAAMAAAD4/w4AAQABAAMAAAD5/w4AAQACAAMAAAD2/w8AAQABAAIAAAD3/w8AAQABAAMAAAD4/w8AAQACAAMAAAD5/w8AAQACAAMAAAAGAAkAAQABAAMAAAAHAAkAAQABAAMAAAAIAAkAAQABAAIAADAGAAoAAQACAAMAAAAHAAoAAQABAAMAAAAIAAoAAQABAAIAADAGAAsAAQACAAMAAAAHAAsAAQACAAMAAAAIAAsAAQABAAIAADAGAAwAAQABAAMAAAAHAAwAAQABAAMAAAAIAAwAAQABAAIAADAGAA0AAQABAAMAAAAHAA0AAQABAAMAAAAIAA0AAQABAAIAADAGAA4AAQABAAMAAAAHAA4AAQABAAMAAAAIAA4AAQABAAIAADAGAA8AAQACAAMAAAAHAA8AAQABAAMAAAAIAA8AAQABAAIAADAGAAYAAQACAAMAAAAHAAYAAQABAAMAAAAGAAcAAQABAAMAAAAHAAcAAQACAAMAAAAGAAgAAQACAAMAAAAHAAgAAQABAAMAAAD6////AQABAAIAAFD7////AQABAAIAAFD8////AQABAAIAAFD9////AQAAAAEAAFD6/wAAAQABAAMAAAD7/wAAAQACAAMAAAD8/wAAAQACAAMAAAD9/wAAAQABAAIAADD6/wEAAQABAAMAAAD7/wEAAQABAAMAAAD8/wEAAQABAAMAAAD9/wEAAQABAAIAADD6/wIAAQACAAMAAAD7/wIAAQACAAMAAAD8/wIAAQABAAMAAAD9/wIAAQABAAIAADD6/wMAAQACAAMAAAD7/wMAAQACAAMAAAD8/wMAAQABAAMAAAD9/wMAAQABAAIAADD6/wQAAQABAAMAAAD7/wQAAQABAAMAAAD8/wQAAQAAAAMAAFD9/wQAAQAAAAEAADACAP//AQAAAAEAAAADAP//AQABAAIAAFAEAP//AQABAAIAAFAFAP//AQABAAIAAFAGAP//AQABAAIAAFAHAP//AQABAAIAAFACAAAAAQABAAIAAAADAAAAAQACAAMAAAAEAAAAAQABAAMAAAAFAAAAAQABAAMAAAAGAAAAAQABAAMAAAAHAAAAAQACAAMAAAACAAEAAQABAAIAAAADAAEAAQACAAMAAAAEAAEAAQABAAMAAAAFAAEAAQABAAMAAAAGAAEAAQABAAMAAAAHAAEAAQACAAMAAAACAAIAAQABAAIAAAADAAIAAQABAAMAAAAEAAIAAQACAAMAAAAFAAIAAQACAAMAAAAGAAIAAQACAAMAAAAHAAIAAQABAAMAAAACAAMAAQABAAIAAAADAAMAAQABAAMAAAAEAAMAAQACAAMAAAAFAAMAAQABAAMAAAAGAAMAAQACAAMAAAAHAAMAAQABAAMAAAACAAQAAQAAAAEAAGADAAQAAQAAAAMAADAEAAQAAQABAAMAAAAFAAQAAQACAAMAAAAGAAQAAQACAAMAAAAHAAQAAQABAAMAAAAEAAUAAQAAAAMAADAFAAUAAQABAAMAAAAGAAUAAQABAAMAAAAEAAYAAQAAAAEAAGAFAAYAAQAAAAMAADAHAAUAAQABAAMAAAAIAAUAAQABAAIAADAIAAYAAQABAAIAADAIAAcAAQABAAIAADD5/wUAAQABAAMAAAD6/wUAAQACAAMAAAD4/wYAAQABAAMAAAD4/wcAAQACAAMAAAD4/wgAAQACAAMAAAD4/wUAAQACAAMAAAD5/wYAAQABAAMAAAD5/wcAAQABAAMAAAD5/wgAAQACAAMAAAD3/wEAAQABAAMAAAD3/wIAAQACAAMAAAD3/wMAAQABAAMAAAD3/wQAAQACAAMAAAD3/wUAAQABAAMAAAD3/wYAAQABAAMAAAD3/wcAAQABAAMAAAD3/wgAAQACAAMAAAD2////AQAAAAEAAAD3////AQABAAIAAFD4////AQABAAIAAFD5////AQABAAIAAFD2/wAAAQABAAIAAAD3/wAAAQACAAMAAAD4/wAAAQACAAMAAAD5/wAAAQABAAMAAAD2/wEAAQABAAIAAAD4/wEAAQABAAMAAAD5/wEAAQACAAMAAAD2/wIAAQABAAIAAAD4/wIAAQACAAMAAAD5/wIAAQABAAMAAAD2/wMAAQABAAIAAAD4/wMAAQABAAMAAAD5/wMAAQABAAMAAAD2/wQAAQABAAIAAAD4/wQAAQACAAMAAAD5/wQAAQABAAMAAAD2/wUAAQABAAIAAAD2/wYAAQABAAIAAAD2/wcAAQABAAIAAAD2/wgAAQABAAIAAAAIAP//AQAAAAEAAFAIAAAAAQABAAIAADAIAAEAAQABAAIAADAIAAIAAQABAAIAADAIAAMAAQABAAIAADAIAAQAAQABAAIAADAIAAgAAQABAAIAADD2/xAAAQABAAIAAAD3/xAAAQABAAMAAAD4/xAAAQACAAMAAAD5/xAAAQACAAMAAAD2/xEAAQABAAIAAAD3/xEAAQABAAMAAAD4/xEAAQABAAMAAAD5/xEAAQABAAMAAAD2/xIAAQABAAIAAAD3/xIAAQACAAMAAAD4/xIAAQABAAMAAAD5/xIAAQABAAMAAAD2/xMAAQABAAIAAAD3/xMAAQACAAMAAAD4/xMAAQACAAMAAAD5/xMAAQACAAMAAAD2/xQAAQABAAIAAAD3/xQAAQACAAMAAAD4/xQAAQACAAMAAAD2/xUAAQABAAIAAAD3/xUAAQABAAMAAAD4/xUAAQABAAMAAAAGABAAAQACAAMAAAAHABAAAQABAAMAAAAIABAAAQABAAIAADAGABEAAQACAAMAAAAHABEAAQACAAMAAAAIABEAAQABAAIAADAGABIAAQABAAMAAAAHABIAAQACAAMAAAAIABIAAQABAAIAADAGABMAAQABAAMAAAAHABMAAQACAAMAAAAIABMAAQABAAIAADAGABQAAQABAAMAAAAHABQAAQACAAMAAAAIABQAAQABAAIAADAGABUAAQABAAMAAAAHABUAAQACAAMAAAAIABUAAQABAAIAADAGABYAAQABAAMAAAAHABYAAQACAAMAAAAIABYAAQABAAIAADAGABcAAQABAAIAAGAHABcAAQABAAIAAGAIABcAAQAAAAEAADD5/xQAAQABAAMAAAD5/xUAAQABAAMAAAD2/xYAAQABAAIAAAD3/xYAAQACAAMAAAD4/xYAAQACAAMAAAD5/xYAAQABAAMAAAD2/xcAAQAAAAEAAGD3/xcAAQABAAIAAGD4/xcAAQABAAIAAGD5/xcAAQABAAIAAGADAAUAAQAAAAEAAGD7/wUAAQAAAAMAAFD8/wUAAQAAAAEAADD6/wYAAQAAAAMAAFAFAAcAAQABAAIAAAAFAAgAAQABAAIAAAAFAAkAAQABAAIAAAAFAAoAAQABAAIAAAAFAAsAAQABAAIAAAAFAAwAAQABAAIAAAAFAA0AAQABAAIAAAAFAA4AAQABAAIAAAAFAA8AAQABAAIAAAAFABAAAQABAAIAAAAFABEAAQABAAIAAAAFABIAAQABAAIAAAAFABMAAQABAAIAAAAFABQAAQABAAIAAAAFABUAAQABAAIAAAAFABYAAQABAAIAAAAFABcAAQAAAAEAAGD7/wYAAQAAAAEAADD6/wcAAQABAAIAADD6/wgAAQABAAIAADD6/wkAAQABAAIAADD6/woAAQABAAIAADD6/wsAAQABAAIAADD6/wwAAQABAAIAADD6/w0AAQABAAIAADD6/w4AAQABAAIAADD6/w8AAQABAAIAADD6/xAAAQABAAIAADD6/xEAAQABAAIAADD6/xIAAQABAAIAADD6/xMAAQABAAIAADD6/xQAAQABAAIAADD6/xUAAQABAAIAADD6/xYAAQABAAIAADD6/xcAAQAAAAEAADA=")
+tile_set = SubResource("TileSet_k46on")
+
+[node name="FishingLine" type="Line2D" parent="." unique_id=1992170871]
+unique_name_in_owner = true
+points = PackedVector2Array(0, -32, 0, 0)
+width = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2016293746]
+physics_interpolation_mode = 1
+top_level = true
+zoom = Vector2(2, 2)
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=2117669226]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_yxqwv")
+host_layers = 2
+
+[node name="FishingHook" parent="." unique_id=1250461834 node_paths=PackedStringArray("input") instance=ExtResource("2_k46on")]
+unique_name_in_owner = true
+input = NodePath("FishingGameInput")
+
+[node name="FishingGameInput" type="Node" parent="FishingHook" unique_id=1119409621 node_paths=PackedStringArray("app_node")]
+unique_name_in_owner = true
+script = ExtResource("3_ypyik")
+app_node = NodePath("../..")
+metadata/_custom_type_script = "uid://b4fm75m7krycv"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1113775122 node_paths=PackedStringArray("follow_target")]
+top_level = true
+script = ExtResource("5_gkht2")
+priority = 1
+follow_mode = 1
+follow_target = NodePath("../FishingHook")
+zoom = Vector2(2, 2)
+overide_screen_size = Vector2(400, 300)
+tween_resource = SubResource("Resource_dv54t")
+host_layers = 2
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="FishSpawner" type="Node2D" parent="." unique_id=364679303 node_paths=PackedStringArray("line")]
+position = Vector2(0, 195)
+script = ExtResource("9_2v5x7")
+spawn_type = 0
+rect = Vector2i(64, 64)
+radius = 64
+line = NodePath("SpawnAreaLine")
+spawnable_fish = Dictionary[ExtResource("10_dty3a"), float]({
+ExtResource("11_mq71m"): 1.0
+})
+default_fish_count = 16
+metadata/_custom_type_script = "uid://du3d2kpwnh7al"
+
+[node name="SpawnAreaLine" type="Line2D" parent="FishSpawner" unique_id=1721805159]
+points = PackedVector2Array(-64, 64, 64, 64, 64, -64, -64, -64)
+closed = true
+width = 1.0

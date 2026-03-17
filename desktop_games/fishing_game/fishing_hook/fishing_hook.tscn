@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://epmb7v6e853d"]
+
+[ext_resource type="Script" uid="uid://13lhpo7g6bas" path="res://desktop_games/fishing_game/fishing_hook/fishing_hook.gd" id="1_asu8m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w0ww1"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_utcc3"]
+radius = 8.0
+
+[node name="FishingHook" type="CharacterBody2D" unique_id=1250461834]
+collision_layer = 2
+script = ExtResource("1_asu8m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=655652796]
+shape = SubResource("CircleShape2D_w0ww1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1542439844]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+
+[node name="FishingArea" type="Area2D" parent="." unique_id=933793157]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="FishingAreaCollisionShape" type="CollisionShape2D" parent="FishingArea" unique_id=1657586915]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_utcc3")

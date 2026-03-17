@@ -15,8 +15,8 @@ func initiate() -> void:
 	
 	await get_tree().process_frame
 	
-	position_to_center()
 	open()
+	position_to_center()
 
 func _ready() -> void:
 	_base_ready()

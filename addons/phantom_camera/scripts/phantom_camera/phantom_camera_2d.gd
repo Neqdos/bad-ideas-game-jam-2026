@@ -1086,7 +1086,7 @@ func _set_limit_clamp_position(value: Vector2) -> Vector2:
 func _draw() -> void:
 	if not Engine.is_editor_hint(): return
 
-	if frame_preview and not _is_active:
+	if frame_preview:# and not _is_active:
 		draw_rect(_camera_frame_rect(), Color("3ab99a"), false, 2)
 
 
@@ -1626,18 +1626,18 @@ func set_lock_axis(value: FollowLockAxis) -> void:
 	if not is_node_ready(): await ready
 
 	# Prevent axis lock from working in the editor
-	#if value != FollowLockAxis.NONE and not Engine.is_editor_hint():
-	_follow_axis_is_locked = true
-	match value:
-		FollowLockAxis.X:
-			_follow_axis_lock_value.x = _transform_output.origin.x
-		FollowLockAxis.Y:
-			_follow_axis_lock_value.y = _transform_output.origin.y
-		FollowLockAxis.XY:
-			_follow_axis_lock_value.x = _transform_output.origin.x
-			_follow_axis_lock_value.y = _transform_output.origin.y
-	#else:
-	#	_follow_axis_is_locked = false
+	if value != FollowLockAxis.NONE:# and not Engine.is_editor_hint():
+		_follow_axis_is_locked = true
+		match value:
+			FollowLockAxis.X:
+				_follow_axis_lock_value.x = _transform_output.origin.x
+			FollowLockAxis.Y:
+				_follow_axis_lock_value.y = _transform_output.origin.y
+			FollowLockAxis.XY:
+				_follow_axis_lock_value.x = _transform_output.origin.x
+				_follow_axis_lock_value.y = _transform_output.origin.y
+	else:
+		_follow_axis_is_locked = false
 
 ## Gets the current [member follow_axis_lock] value. Value is based on [enum FollowLockAxis] enum.
 func get_lock_axis() -> FollowLockAxis:

@@ -1,7 +1,5 @@
-extends TextureButton
+extends Button
 class_name TaskbarIcon
-
-@onready var file_icon: TextureRect = %FileIcon
 
 var file_res: FileResource
 
@@ -10,7 +8,7 @@ var window: FileWindow
 var was_closed: bool = true
 
 func _ready() -> void:
-	file_icon.texture = file_res.icon
+	icon = file_res.icon
 	
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
