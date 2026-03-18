@@ -6,7 +6,7 @@ signal taskbar_icon_hovered(taskbar_icon: TaskbarIcon)
 
 signal desktop_icon_dropped(desktop_icon: DesktopIcon, from: Vector2i)
 
-signal usb_extracting_finished()
+signal disc_extracting_finished()
 
 # CLIMBING
 signal climbing_input_lock(lock: bool)

@@ -20,9 +20,21 @@
 [ext_resource type="Script" uid="uid://d2c4beeooctrk" path="res://entities/player/states/crouch_walk.gd" id="11_yllr7"]
 [ext_resource type="Script" uid="uid://wi8tcgxjbq4w" path="res://entities/player/states/crouch_jump.gd" id="12_yllr7"]
 [ext_resource type="Script" uid="uid://bmlospoma7j7d" path="res://entities/player/player_input.gd" id="15_gx6sm"]
+[ext_resource type="Shader" uid="uid://dridbv1me07vc" path="res://_shaders/screen_shader.gdshader" id="20_t1t22"]
 [ext_resource type="Script" uid="uid://csl0g7luudq4y" path="res://interaction/default_actions/object_default_hold.gd" id="29_sk710"]
 [ext_resource type="Script" uid="uid://jmu2hxk6ujv1" path="res://interaction/default_actions/hand_default_actions.gd" id="30_7rgwd"]
 [ext_resource type="Script" uid="uid://8tka5p6amtm6" path="res://interaction/default_actions/object_default_interact.gd" id="30_24so6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_50fht"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wuv6x"]
+render_priority = -1
+shader = ExtResource("20_t1t22")
+shader_parameter/color_depth = 5
+shader_parameter/dithering = true
+shader_parameter/resolution_scale = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_221hk"]
 radius = 0.25
@@ -152,6 +164,12 @@ head = NodePath("..")
 player = NodePath("../..")
 player_state_machine = NodePath("../../MovementStateMachine")
 metadata/_custom_type_script = "uid://km01e0l3tsqd"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/FirstPersonCamera" unique_id=1563931602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_50fht")
+surface_material_override/0 = SubResource("ShaderMaterial_wuv6x")
 
 [node name="InteractionRay" type="RayCast3D" parent="Head" unique_id=1730140807 node_paths=PackedStringArray("player")]
 target_position = Vector3(0, 0, -2)

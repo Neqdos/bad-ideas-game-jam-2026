@@ -32,9 +32,10 @@ var camera_rot_offset_sin: Vector2
 var camera_rot_offset_sin_frequency: float
 
 var time: float
-var has_set_jump_move_bob_down: bool = false
+#var has_set_jump_move_bob_down: bool = false
 
 var can_rotate: int = 0
+var can_do_rot_offset: bool = true
 
 
 func _ready() -> void:
@@ -68,10 +69,13 @@ func _on_camera_position_at(marker_transform: Transform3D) -> void:
 		camera_rot_target.x = added_rotation + angle_x
 		head_lerp_y_position = marker_transform.origin.y
 		head_lerp_xz_position = Vector2(marker_transform.origin.x, marker_transform.origin.z)
+		camera_rot_offset = Vector2.ZERO
+		can_do_rot_offset = false
 	else:
 		state_change_head_lerp_position = true
 		head.position.x = 0.0
 		head.position.z = 0.0
+		can_do_rot_offset = true
 		check_for_state_and_head_lerp_position()
 
 func _on_state_changed() -> void:
@@ -107,14 +111,15 @@ func _physics_process(delta: float) -> void:
 
 func check_for_state(delta: float) -> void:
 	match player_state_machine.current_state_name:
-		"jump", "falling":
-			if has_set_jump_move_bob_down:
-				camera_rot_offset.y = lerpf(camera_rot_offset.y, deg_to_rad(15.0), delta * player.JUMP_POWER)
-			else:
-				camera_rot_offset.y = deg_to_rad(-20)
-			camera_rot_offset.x = lerp(camera_rot_offset.x, 0.0, delta)
-			has_set_jump_move_bob_down = true
-			return
+		#"jump", "falling":
+			# This doesn't work
+			#if has_set_jump_move_bob_down:
+				#camera_rot_offset.y = lerpf(camera_rot_offset.y, deg_to_rad(15.0), delta * player.JUMP_POWER)
+			#else:
+				#camera_rot_offset.y = deg_to_rad(-10)
+			#camera_rot_offset.x = lerp(camera_rot_offset.x, 0.0, delta)
+			#has_set_jump_move_bob_down = true
+			#return
 		"run":
 			move_bob_multiplier = .5
 			camera_rot_offset_sin_frequency = 20.0
@@ -127,12 +132,12 @@ func check_for_state(delta: float) -> void:
 		_:
 			move_bob_multiplier = .1
 			camera_rot_offset_sin_frequency = 1.0
-	has_set_jump_move_bob_down = false
+	#has_set_jump_move_bob_down = false
 
 func set_move_bob() -> void:
+	if !can_do_rot_offset: return
 	camera_rot_offset_sin = Vector2(sin(time / 2), sin(time))
 	
-	camera_rot_offset = Vector2.ZERO
 	camera_rot_offset.x = deg_to_rad(move_bob_multiplier * MOVE_BOB * camera_rot_offset_sin.x)
 	camera_rot_offset.y = deg_to_rad(move_bob_multiplier * MOVE_BOB * camera_rot_offset_sin.y)
 

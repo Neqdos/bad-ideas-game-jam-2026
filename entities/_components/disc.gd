@@ -1,5 +1,5 @@
 extends RigidObject
-class_name USBDrive
+class_name Disc
 
 @export var file_res: FileResource
 @export var interact_action: HandInteractAction
@@ -17,7 +17,7 @@ func _on_interacted(player: PlayerBody) -> void:
 	if !is_instance_valid(player.player_interaction_ray.interactable): return
 	
 	var interactable: Node3D = player.player_interaction_ray.interactable
-	if interactable is USBSlot:
+	if interactable is DiscSlot:
 		if !interactable.is_empty:
 			SignalManager.send_message.emit("USB slot is in use.")
 			return

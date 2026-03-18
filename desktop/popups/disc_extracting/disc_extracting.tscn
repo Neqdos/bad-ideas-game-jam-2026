@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bjacl2kl56r75"]
 
-[ext_resource type="Script" uid="uid://b4ph20kmsrare" path="res://desktop/popups/usb_extracting/usb_extracting.gd" id="1_05fbi"]
+[ext_resource type="Script" uid="uid://b4ph20kmsrare" path="res://desktop/popups/disc_extracting/disc_extracting.gd" id="1_jb3ib"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lcvqs"]
 frequency = 0.03
 
-[node name="USBExtracting" type="Control" unique_id=1518733439]
+[node name="DiscExtracting" type="Control" unique_id=1518733439]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_05fbi")
+script = ExtResource("1_jb3ib")
 noise = SubResource("FastNoiseLite_lcvqs")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1031999085]

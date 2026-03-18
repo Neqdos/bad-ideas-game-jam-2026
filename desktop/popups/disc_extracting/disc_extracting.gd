@@ -46,5 +46,5 @@ func _process(delta: float) -> void:
 		extracting = false
 		var popup_window: PopupWindow = GlobalMethods.find_first_parent_of_type(self, PopupWindow)
 		if is_instance_valid(popup_window): popup_window.close_button.visible = true
-		DesktopManager.usb_extracting_finished.emit()
+		DesktopManager.disc_extracting_finished.emit()
 		extracting_label.text = "EXTRACING FILE COMPLETED."

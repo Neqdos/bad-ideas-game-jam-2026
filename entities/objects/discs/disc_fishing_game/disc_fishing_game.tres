@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ObjectResource" format=3 uid="uid://6nsn1nywsjfm"]
 
-[ext_resource type="Script" uid="uid://xd4oslmu3ja4" path="res://interaction/object_resource.gd" id="1_4q2oa"]
+[ext_resource type="Script" uid="uid://xd4oslmu3ja4" path="res://interaction/object_resource.gd" id="1_cax55"]
 
 [resource]
-script = ExtResource("1_4q2oa")
-name = "USB"
+script = ExtResource("1_cax55")
+name = "Disc"
 object_scene = "uid://clbli2af05lx"
 metadata/_custom_type_script = "uid://xd4oslmu3ja4"

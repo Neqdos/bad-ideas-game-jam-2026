@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ch1y7bbiwm04h" path="res://entities/static_objects/pc/pc.tscn" id="1_03f54"]
 [ext_resource type="Script" uid="uid://bhmug3lm0c8su" path="res://world/game.gd" id="1_7oyu6"]
 [ext_resource type="PackedScene" uid="uid://dlgg00l13fbxf" path="res://entities/player/player.tscn" id="2_xfo4j"]
-[ext_resource type="PackedScene" uid="uid://clbli2af05lx" path="res://entities/objects/usbs/usb_fishing_game/usb_fishing_game.tscn" id="5_6jtoe"]
-[ext_resource type="PackedScene" uid="uid://kw187sr6a2ai" path="res://entities/objects/usbs/usb_clock/usb_clock.tscn" id="6_jebw6"]
+[ext_resource type="PackedScene" uid="uid://clbli2af05lx" path="res://entities/objects/discs/disc_fishing_game/disc_fishing_game.tscn" id="5_6jtoe"]
+[ext_resource type="PackedScene" uid="uid://kw187sr6a2ai" path="res://entities/objects/discs/disc_clock/disc_clock.tscn" id="6_jebw6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xfo4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,16 +20,37 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bahc2"]
-size = Vector3(8, 1, 8)
+size = Vector3(10, 1, 10)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xfo4j"]
-size = Vector3(8, 1, 8)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6jtoe"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jebw6"]
+size = Vector3(10, 1, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_b7hlb"]
-size = Vector3(2, 0.8, 0.6)
+size = Vector3(2, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b7hlb"]
-size = Vector3(2, 0.8, 0.6)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wkmc"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2jm6r"]
+size = Vector3(8, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqhmf"]
+size = Vector3(8, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e8jue"]
+size = Vector3(10, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hliwg"]
+size = Vector3(10, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_av0ep"]
+size = Vector3(10, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d65k2"]
+size = Vector3(8, 3, 1)
 
 [node name="Game" type="Node3D" unique_id=678831132 node_paths=PackedStringArray("pc", "player")]
 script = ExtResource("1_7oyu6")
@@ -48,23 +69,63 @@ environment = SubResource("Environment_7oyu6")
 [node name="Environemnt" type="StaticBody3D" parent="Map" unique_id=73272856]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Environemnt" unique_id=120191627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 1.7)
 mesh = SubResource("BoxMesh_bahc2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Environemnt" unique_id=956807539]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_xfo4j")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Environemnt" unique_id=1961104976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 1.7)
+shape = SubResource("BoxShape3D_6jtoe")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Map/Environemnt" unique_id=145338221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 1.7)
+mesh = SubResource("BoxMesh_bahc2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/Environemnt" unique_id=492716459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 1.7)
+shape = SubResource("BoxShape3D_jebw6")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Map/Environemnt" unique_id=769499508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.45)
 mesh = SubResource("BoxMesh_b7hlb")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/Environemnt" unique_id=1258797265]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.5)
-shape = SubResource("BoxShape3D_b7hlb")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Map/Environemnt" unique_id=974062499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.45)
+shape = SubResource("BoxShape3D_6wkmc")
 
-[node name="PC" parent="Map" unique_id=1622198517 instance=ExtResource("1_03f54")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003, 1.05, -1.552)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Map/Environemnt" unique_id=1263071241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 6.2)
+mesh = SubResource("BoxMesh_2jm6r")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Map/Environemnt" unique_id=345165872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 6.2)
+shape = SubResource("BoxShape3D_qqhmf")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Map/Environemnt" unique_id=890212222]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 1.5, 1.6999998)
+mesh = SubResource("BoxMesh_e8jue")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Map/Environemnt" unique_id=2091282233]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.5, 1.5, 1.6999998)
+shape = SubResource("BoxShape3D_hliwg")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Map/Environemnt" unique_id=2074334245]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 1.5, 1.6999998)
+mesh = SubResource("BoxMesh_e8jue")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Map/Environemnt" unique_id=524696872]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 1.5, 1.6999998)
+shape = SubResource("BoxShape3D_av0ep")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Map/Environemnt" unique_id=992499613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2.8)
+mesh = SubResource("BoxMesh_2jm6r")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Map/Environemnt" unique_id=563802873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2.8)
+shape = SubResource("BoxShape3D_d65k2")
+
+[node name="PC" parent="Map" unique_id=1807889510 instance=ExtResource("1_03f54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020838335, 0.99999994, -1.5443698)
 
 [node name="ObjectsNode" type="Node3D" parent="." unique_id=701677193 groups=["objects_node"]]
 
