@@ -15,7 +15,7 @@ radial_segments = 8
 albedo_color = Color(0.090133324, 0.078, 0.26, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3wqc0"]
-height = 0.02
+height = 0.04
 radius = 0.08
 
 [node name="DiscClock" type="RigidBody3D" unique_id=45558438 node_paths=PackedStringArray("interact_action")]

@@ -11,50 +11,66 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7kwmf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1758380033]
+[node name="BG" type="ColorRect" parent="." unique_id=1476182109]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.3372549, 0.42352942, 0.5254902, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=350239038]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1383763861]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1758380033]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=341791209]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=350239038]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=341791209]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "Fullscreen"
 
-[node name="Fullscreen" type="CheckBox" parent="VBoxContainer/HBoxContainer" unique_id=2096929730]
+[node name="Fullscreen" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2096929730]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1805057011]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1805057011]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=894842271]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=894842271]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "V-Sync"
 
-[node name="VSync" type="CheckBox" parent="VBoxContainer/HBoxContainer2" unique_id=1792230338]
+[node name="VSync" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1792230338]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1262767347]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1262767347]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1236286934]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1236286934]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "Max fps"
 
-[node name="MaxFps" type="OptionButton" parent="VBoxContainer/HBoxContainer3" unique_id=58051385]
+[node name="MaxFps" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=58051385]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -78,26 +94,26 @@ popup/item_6/id = 6
 popup/item_7/text = "Unlimited"
 popup/item_7/id = 7
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=941339448]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=941339448]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=1351759748]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1351759748]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "Sensitivity"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer4" unique_id=2135407595]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=2135407595]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ResetSensitivityButton" type="Button" parent="VBoxContainer/HBoxContainer4/HBoxContainer" unique_id=311551497]
+[node name="ResetSensitivityButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer" unique_id=311551497]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 text = "R"
 
-[node name="Sensitivity" type="SpinBox" parent="VBoxContainer/HBoxContainer4/HBoxContainer" unique_id=1889071110]
+[node name="Sensitivity" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer" unique_id=1889071110]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -105,7 +121,7 @@ max_value = 0.5
 step = 0.001
 alignment = 2
 
-[node name="ApplyButton" type="Button" parent="VBoxContainer" unique_id=882956198]
+[node name="ApplyButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=882956198]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

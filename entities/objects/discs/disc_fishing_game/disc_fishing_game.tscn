@@ -15,7 +15,7 @@ radial_segments = 8
 albedo_color = Color(0.4324, 0.88924, 0.94, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_klwnl"]
-height = 0.02
+height = 0.04
 radius = 0.08
 
 [node name="DiscFishingGame" type="RigidBody3D" unique_id=26531379 node_paths=PackedStringArray("interact_action")]

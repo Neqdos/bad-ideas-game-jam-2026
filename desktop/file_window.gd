@@ -10,7 +10,7 @@ class_name FileWindow
 
 @onready var title_bar_texture: TextureRect = %TitleBarTexture
 
-var file_res: FileResource
+@export var file_res: FileResource
 
 func initiate() -> void:
 	name = file_res.name.to_pascal_case()

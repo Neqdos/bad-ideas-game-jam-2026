@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_w4qoe")
-fish_name = "SF2 (Placeholder)"
+fish_name = "Smallfish2"
 sprite = ExtResource("2_t07o5")
 default_money_value = 1.0
 move_pattern = 1

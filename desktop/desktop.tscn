@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://6p8wxrho3tag" path="res://desktop/files/fishing_game.tres" id="9_t632k"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="10_4ndcx"]
 [ext_resource type="Texture2D" uid="uid://4o1vq7q536sf" path="res://desktop/textures/window_npt.png" id="10_jsfay"]
+[ext_resource type="PackedScene" uid="uid://wr7j6c1jo6j2" path="res://desktop/file_window.tscn" id="13_1dkjm"]
+[ext_resource type="Resource" uid="uid://5od8e2g5jgq8" path="res://desktop/files/settings.tres" id="14_mni1t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsfay"]
 texture = ExtResource("10_jsfay")
@@ -61,7 +63,7 @@ texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 
-[node name="Desktop" type="Control" unique_id=608329591]
+[node name="Desktop" type="Control" unique_id=608329591 node_paths=PackedStringArray("settings_window")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,6 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_87qqj")
 script = ExtResource("1_c6ot5")
+settings_window = NodePath("WindowContainer/SettingsWindow")
 
 [node name="BG" type="TextureRect" parent="." unique_id=1712644097]
 layout_mode = 1
@@ -131,6 +134,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="SettingsWindow" parent="WindowContainer" unique_id=1191766311 instance=ExtResource("13_1dkjm")]
+visible = false
+layout_mode = 1
+file_res = ExtResource("14_mni1t")
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=375334904]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 1
@@ -138,7 +146,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -29.0
+offset_top = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -147,14 +155,43 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_jsfay")
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=988957639]
 layout_mode = 2
 theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=588036825]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=185099658]
+[node name="BoxesOSButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=470618400]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Boxes OS  "
+text = "Boxes OS"
+
+[node name="StartMenu" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/BoxesOSButton" unique_id=1583872524]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = -37.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/BoxesOSButton/StartMenu" unique_id=228216638]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_4ndcx")
+theme_override_font_sizes/font_size = 8
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/BoxesOSButton/StartMenu" unique_id=1420541621]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_4ndcx")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1752441923]
 layout_mode = 2

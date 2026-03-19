@@ -13,7 +13,7 @@ signal opened()
 
 const LIMIT_OFFSET: Vector2 = Vector2(16.0, 52.0)
 
-const ROTATION_LERP: float = 12.0
+const ROTATION_LERP: float = 16.0
 const POSITION_LERP: float = 16.0
 
 var move_offset: Vector2
@@ -50,7 +50,7 @@ func _base_process(delta: float) -> void:
 		window_panel.pivot_offset = move_offset
 
 func set_window_rotation(rot: float, delta: float) -> void:
-	window_panel.rotation_degrees = lerpf(window_panel.rotation_degrees, rot, ROTATION_LERP * delta)
+	window_panel.rotation_degrees = lerpf(window_panel.rotation_degrees, rot / delta / 100.0, 1 - exp(-ROTATION_LERP * delta))
 
 
 func _on_window_grab_focus(window: DesktopWindow) -> void:

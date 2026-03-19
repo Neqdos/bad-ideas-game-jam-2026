@@ -22,6 +22,7 @@ const SIZE_TO_RADIUS: Dictionary[FishResource.SIZE, float] = {
 	FishResource.SIZE.Small : 6.0,
 	FishResource.SIZE.Medium: 10.0,
 	FishResource.SIZE.Big : 18.0,
+	FishResource.SIZE.Huge : 18.0,
 }
 
 var randomized_move_range: float
@@ -42,6 +43,8 @@ var time: float = 0.0
 func _ready() -> void:
 	visible_notifier.screen_entered.connect(_on_visible_notifier_screen_entered)
 	visible_notifier.screen_exited.connect(_on_visible_notifier_screen_exited)
+	
+	_on_visible_notifier_screen_exited()
 
 func _physics_process(delta: float) -> void:
 	time += delta

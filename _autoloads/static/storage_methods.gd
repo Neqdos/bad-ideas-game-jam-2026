@@ -3,7 +3,7 @@ class_name StorageMethods
 
 const PLAYER_SIZE_Y: float = 1.85
 
-const THROW_STRENGTH: float = 14.0
+const THROW_STRENGTH: float = 4.0
 const THROW_ANGULAR_ROTATION: float = 4.0
 
 const DROP_OFFSET: Vector3 = Vector3 (0, .2, 0)

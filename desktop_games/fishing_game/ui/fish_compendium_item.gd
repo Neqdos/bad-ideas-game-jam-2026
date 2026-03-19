@@ -7,6 +7,8 @@ extends HBoxContainer
 @onready var fish_value: Label = %FishValue
 @onready var fish_size: Label = %FishSize
 
+@onready var nine_patch_rect: NinePatchRect = %NinePatchRect
+
 var checked: bool = false
 
 const FISH_SIZE_TO_TEXT: Dictionary[FishResource.SIZE, String] = {
@@ -18,6 +20,7 @@ const FISH_SIZE_TO_TEXT: Dictionary[FishResource.SIZE, String] = {
 
 func _ready() -> void:
 	fish_sprite.texture = fish_res.sprite
+	if fish_res.fish_size == FishResource.SIZE.Huge: nine_patch_rect.custom_minimum_size.x = 64.0
 	
 	fish_value.text = "%.2f$" % fish_res.default_money_value
 	fish_size.text = FISH_SIZE_TO_TEXT[fish_res.fish_size]

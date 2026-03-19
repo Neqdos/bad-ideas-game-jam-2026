@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_cbndo")
-fish_name = "MF (Placeholder)"
+fish_name = "Mediumfish"
 sprite = ExtResource("2_0iwfl")
 fish_size = 1
 default_money_value = 3.5

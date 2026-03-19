@@ -91,7 +91,8 @@ rotates = false
 
 [node name="VisibleNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=103682762]
 unique_name_in_owner = true
-rect = Rect2(-16, -16, 32, 32)
+position = Vector2(-18, -2)
+rect = Rect2(-16, -16, 68, 36)
 
 [node name="StateMachine" type="Node" parent="." unique_id=347236510 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -112,7 +113,6 @@ metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
 [node name="Circle" type="Node" parent="StateMachine" unique_id=403030266 node_paths=PackedStringArray("fish")]
 script = ExtResource("7_5thld")
 fish = NodePath("../..")
-type = null
 metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
 
 [node name="RandomInRadius" type="Node" parent="StateMachine" unique_id=1953452776 node_paths=PackedStringArray("fish")]

@@ -29,6 +29,7 @@ theme_override_constants/separation = 6
 script = ExtResource("1_2bj58")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2110810484]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("3_2bj58")

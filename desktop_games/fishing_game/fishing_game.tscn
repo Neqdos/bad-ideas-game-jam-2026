@@ -224,6 +224,14 @@ script = ExtResource("1_ypyik")
 [node name="UpgradesMenu" parent="CanvasLayer" unique_id=1855813188 instance=ExtResource("2_dv54t")]
 mouse_filter = 1
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=786480632]
+offset_left = -381.0
+offset_top = 8.0
+offset_right = 230.0
+offset_bottom = 495.0
+mouse_filter = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+
 [node name="FishingLine" type="Line2D" parent="." unique_id=1992170871]
 unique_name_in_owner = true
 points = PackedVector2Array(0, -32, 0, 0)
