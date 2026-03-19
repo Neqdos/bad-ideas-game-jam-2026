@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c5yjs2osxuqfw"]
+
+[ext_resource type="PackedScene" uid="uid://uwq2fxlggsjm" path="res://desktop_games/fishing_game/ui/fish_compendium_item.tscn" id="1_rrtrl"]
+[ext_resource type="Resource" uid="uid://dt24wel5oeo5k" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder.tres" id="2_o3nmt"]
+[ext_resource type="Resource" uid="uid://cg06o2vtcpr3a" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder2.tres" id="3_etl0e"]
+[ext_resource type="Resource" uid="uid://bp8hcdspwkraa" path="res://desktop_games/fishing_game/fish_resources/medium_fish_placeholder.tres" id="4_1lumu"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rrtrl"]
+color = Color(0.2, 0.23529412, 0.34117648, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_o3nmt"]
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+thickness = 2
+
+[node name="FishCompendiumTab" type="VBoxContainer" unique_id=484678896]
+
+[node name="FishCompendiumItem" parent="." unique_id=1514148459 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("2_o3nmt")
+
+[node name="WindowLineSeparator2" type="HSeparator" parent="." unique_id=207497229]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator2" unique_id=1653308274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="FishCompendiumItem2" parent="." unique_id=845810728 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("3_etl0e")
+
+[node name="WindowLineSeparator3" type="HSeparator" parent="." unique_id=749717392]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator3" unique_id=952168306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="FishCompendiumItem3" parent="." unique_id=1054750984 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("4_1lumu")

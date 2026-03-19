@@ -13,10 +13,12 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 [sub_resource type="Sky" id="Sky_b7hlb"]
 sky_material = SubResource("ProceduralSkyMaterial_xfo4j")
 
-[sub_resource type="Environment" id="Environment_7oyu6"]
+[sub_resource type="Environment" id="Environment_6jtoe"]
 background_mode = 2
 sky = SubResource("Sky_b7hlb")
 tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
 glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bahc2"]
@@ -62,7 +64,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1333082510]
-environment = SubResource("Environment_7oyu6")
+environment = SubResource("Environment_6jtoe")
 
 [node name="Map" type="Node3D" parent="." unique_id=752474690]
 
@@ -129,10 +131,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020838335, 0.99999994, -1.5
 
 [node name="ObjectsNode" type="Node3D" parent="." unique_id=701677193 groups=["objects_node"]]
 
-[node name="USBFishingGame" parent="ObjectsNode" unique_id=26531379 instance=ExtResource("5_6jtoe")]
+[node name="DiscFishingGame" parent="ObjectsNode" unique_id=26531379 instance=ExtResource("5_6jtoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4731932, 0.025, -0.05310142)
 
-[node name="USBClock" parent="ObjectsNode" unique_id=45558438 instance=ExtResource("6_jebw6")]
+[node name="DiscClock" parent="ObjectsNode" unique_id=45558438 instance=ExtResource("6_jebw6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9529626, 0.025000239, -0.06460357)
 
 [node name="Player" parent="." unique_id=1510971249 instance=ExtResource("2_xfo4j")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1785676090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5427108, 1.5555761)
+light_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+shadow_enabled = true
+omni_range = 6.0
+omni_attenuation = 2.0

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://scw0enf2c6bg"]
+
+[ext_resource type="Script" uid="uid://d3oc1sfkvgnu4" path="res://desktop_games/fishing_game/items/anchor.gd" id="1_odjqp"]
+[ext_resource type="Texture2D" uid="uid://bbf5c03kc0d0c" path="res://desktop_games/fishing_game/items/anchors.png" id="2_odjqp"]
+
+[node name="Anchor" type="Node2D" unique_id=1048318018]
+script = ExtResource("1_odjqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=45843076]
+texture = ExtResource("2_odjqp")
+offset = Vector2(0, 7)
+hframes = 3

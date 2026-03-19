@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+color = Color(0.3372549, 0.42352942, 0.5254902, 1)
 
 [node name="ImageSprite" type="Sprite2D" parent="." unique_id=713446977]
 unique_name_in_owner = true

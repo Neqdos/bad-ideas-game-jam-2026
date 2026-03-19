@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ufmjk07p4mwj" path="res://desktop/file_tile/file_tile.gd" id="1_5e8yi"]
 [ext_resource type="Shader" uid="uid://bphre67tsgqmw" path="res://_shaders/grayscale.gdshader" id="2_bfjus"]
-[ext_resource type="Texture2D" uid="uid://xe6t5cofvtb2" path="res://desktop/_file_icons/image_file_icon.png" id="3_u7crq"]
+[ext_resource type="Texture2D" uid="uid://c1el4502vuvoh" path="res://desktop/_file_icons/image_icon.png" id="3_u7crq"]
 [ext_resource type="Texture2D" uid="uid://dowgtrj7xbbiy" path="res://desktop/file_tile/file_tile_border.png" id="4_s4txc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jbb2"]
@@ -50,6 +50,8 @@ animations = [{
 
 [node name="FileTile" type="Area2D" unique_id=362535691]
 modulate = Color(1, 1, 1, 0.5)
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_5e8yi")
 metadata/_custom_type_script = "uid://ufmjk07p4mwj"
 

@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://d1ci57fsl727b"]
+
+[ext_resource type="PackedScene" uid="uid://d0b2m34f30j3p" path="res://desktop_games/fishing_game/ui/fishing_upgrade_ui.tscn" id="2_3nq4o"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3nq4o"]
+color = Color(0.2, 0.23529412, 0.34117648, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ebx82"]
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+thickness = 2
+
+[node name="UpgradesTab" type="VBoxContainer" unique_id=1690041223]
+offset_right = 167.0
+offset_bottom = 417.0
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="MoneyGain" parent="." unique_id=307865522 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Fish quality"
+property_name = "money_gain"
+tooltip = "Increases money gain"
+
+[node name="WindowLineSeparator" type="HSeparator" parent="." unique_id=1455926770]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator" unique_id=354550732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="MaxCapacity" parent="." unique_id=2070460834 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Fish capacity"
+property_name = "max_capacity"
+
+[node name="WindowLineSeparator2" type="HSeparator" parent="." unique_id=348324269]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator2" unique_id=1427451230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="AreaSize" parent="." unique_id=1734919704 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Catching area"
+property_name = "area_size"
+tooltip = "Increases the area whre fish enter = catch fish"
+
+[node name="WindowLineSeparator3" type="HSeparator" parent="." unique_id=1321642490]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator3" unique_id=641527385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="HookSize" parent="." unique_id=842373901 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Hook size"
+property_name = "hook_size"
+tooltip = "Allows to catch bigger fish"
+
+[node name="WindowLineSeparator4" type="HSeparator" parent="." unique_id=685120474]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator4" unique_id=802344937]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="LineLength" parent="." unique_id=314181217 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Line length"
+property_name = "line_length"
+
+[node name="WindowLineSeparator5" type="HSeparator" parent="." unique_id=1620539683]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator5" unique_id=1520573588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="MovingSpeed" parent="." unique_id=157169935 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Moving speed"
+property_name = "moving_speed"
+
+[node name="WindowLineSeparator6" type="HSeparator" parent="." unique_id=163118953]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator6" unique_id=963041094]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="JumpStrength" parent="." unique_id=1587946839 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Reel jump"
+property_name = "jump_strength"
+
+[node name="WindowLineSeparator7" type="HSeparator" parent="." unique_id=834238060]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator7" unique_id=54971601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="JumpCooldown" parent="." unique_id=954335510 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Reel jump cooldown"
+property_name = "jump_cooldown"
+
+[node name="WindowLineSeparator8" type="HSeparator" parent="." unique_id=88466092]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator8" unique_id=1510348045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="FishMult" parent="." unique_id=168150348 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Fish multiplier"
+property_name = "fish_mult"
+tooltip = "Increases the amount of spawned fish"

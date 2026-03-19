@@ -1,10 +1,22 @@
 [gd_resource type="Theme" format=3 uid="uid://bhpbpwq32ojxt"]
 
 [ext_resource type="Texture2D" uid="uid://dl82myxs1ix2h" path="res://desktop/textures/button_npt.png" id="1_hqe54"]
+[ext_resource type="Texture2D" uid="uid://boummv3ev265n" path="res://desktop/textures/button_disabled_npt.png" id="1_pfb4u"]
 [ext_resource type="Texture2D" uid="uid://4o1vq7q536sf" path="res://desktop/textures/window_npt.png" id="1_wu8me"]
 [ext_resource type="Texture2D" uid="uid://57eal82c5pfo" path="res://desktop/textures/button_pressed_npt.png" id="2_lrbaq"]
 [ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="4_tlmju"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="4_ysvx8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfn14"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_pfb4u")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlmju"]
 content_margin_left = 4.0
@@ -12,6 +24,18 @@ content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 texture = ExtResource("1_hqe54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjiyk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("2_lrbaq")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
@@ -68,11 +92,38 @@ expand_margin_bottom = 2.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlmju"]
 bg_color = Color(0.25490198, 0.6509804, 0.9647059, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8lfx"]
+texture = ExtResource("1_hqe54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6egd"]
+texture = ExtResource("1_hqe54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wgbx"]
+content_margin_left = 8.0
+texture = ExtResource("4_tlmju")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wgbx"]
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 Button/constants/outline_size = 4
+Button/styles/disabled = SubResource("StyleBoxTexture_cfn14")
 Button/styles/hover = SubResource("StyleBoxTexture_tlmju")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_hjiyk")
 Button/styles/normal = SubResource("StyleBoxTexture_lrbaq")
 Button/styles/pressed = SubResource("StyleBoxTexture_ysvx8")
 Label/colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
@@ -88,3 +139,10 @@ ProgressBar/font_sizes/font_size = 8
 ProgressBar/fonts/font = ExtResource("4_ysvx8")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_pfb4u")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_tlmju")
+VScrollBar/constants/padding_left = 1
+VScrollBar/constants/padding_right = 1
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_p8lfx")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_m6egd")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_m6egd")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_7wgbx")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_7wgbx")

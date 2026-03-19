@@ -3,6 +3,7 @@ class_name DiscSlot
 
 
 @onready var disc_slot_info_label: ObjectInfoLabel = %DiscSlotInfoLabel
+@onready var inside_marker: Marker3D = %InsideMarker
 
 @export var disc_extracting: PopupResource
 
@@ -25,6 +26,11 @@ func insert(disc: Disc) -> void:
 	disc.set_collision_layer_value(4, false)
 	disc.global_transform = global_transform
 	
+	tween = get_tree().create_tween()
+	tween.tween_property(disc, "global_position", inside_marker.global_position, 1.0)
+	
+	await tween.finished
+	
 	DesktopManager.show_popup(disc_extracting)
 	
 	disc_slot_info_label.info = EXTRACTING_INFO_LABEL_TEXT
@@ -32,6 +38,11 @@ func insert(disc: Disc) -> void:
 	await DesktopManager.disc_extracting_finished
 	
 	DesktopManager.add_file_to_desktop(disc.file_res)
+	
+	tween = get_tree().create_tween()
+	tween.tween_property(disc, "global_position", global_position, 1.0)
+	
+	await tween.finished
 	
 	disc.freeze = false
 	disc.set_collision_layer_value(4, true)

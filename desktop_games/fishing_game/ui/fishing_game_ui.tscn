@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://bv1of3jo3vrim"]
 
 [ext_resource type="Script" uid="uid://bw0dbg4yrpycg" path="res://desktop_games/fishing_game/ui/fishing_game_ui.gd" id="1_2lxjf"]
+[ext_resource type="PackedScene" uid="uid://d1ci57fsl727b" path="res://desktop_games/fishing_game/ui/upgrades_tab.tscn" id="2_1cnwp"]
+[ext_resource type="Texture2D" uid="uid://d2afgrj6i0570" path="res://desktop/_file_icons/fishing_icon.png" id="2_6wtjy"]
+[ext_resource type="Texture2D" uid="uid://lemi2uiqtag0" path="res://desktop/_file_icons/text_icon.png" id="3_b82lf"]
+[ext_resource type="PackedScene" uid="uid://dcf1etyy50blx" path="res://desktop_games/fishing_game/ui/items_tab.tscn" id="3_vserc"]
+[ext_resource type="PackedScene" uid="uid://c5yjs2osxuqfw" path="res://desktop_games/fishing_game/ui/fish_compendium_tab.tscn" id="6_swtya"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2lxjf"]
+color = Color(0.2, 0.23529412, 0.34117648, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1cnwp"]
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+thickness = 2
 
 [node name="FishingGameUI" type="Control" unique_id=1855813188]
 layout_mode = 3
@@ -18,44 +31,114 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
+theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1634721137]
 layout_mode = 2
 
-[node name="VBoxContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1274861811]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=445472406]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1576288750]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=1183171754]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1817118481]
-layout_mode = 2
-text = "Upgrades"
-horizontal_alignment = 1
-
-[node name="VSeparator" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=774707240]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer/VSeparator" unique_id=86277091]
+[node name="ShopButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=2080507039]
 unique_name_in_owner = true
 layout_mode = 2
+icon = ExtResource("3_b82lf")
+
+[node name="FishCompendiumButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=1201438929]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("2_6wtjy")
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=86277091]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
 text = "0.00$"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="VBoxContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1944695407]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1274861811]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1029272510]
+[node name="ShopMenu" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer" unique_id=632397063]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu" unique_id=559547415]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="UpgradesTabButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu/HBoxContainer" unique_id=1317691808]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrades"
+
+[node name="ItemsTabButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu/HBoxContainer" unique_id=1541716329]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Items"
+
+[node name="WindowLineSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu" unique_id=1055414288]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_2lxjf")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu/WindowLineSeparator" unique_id=65701520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_1cnwp")
+
+[node name="UpgradesContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu" unique_id=1490085857]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="UpgradesTab" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu/UpgradesContainer" unique_id=1304815005 instance=ExtResource("2_1cnwp")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer" unique_id=1164638242]
+[node name="ItemsContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu" unique_id=999435185]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
-text = "Items"
-horizontal_alignment = 1
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="ItemsTab" parent="MarginContainer/HBoxContainer/PanelContainer/ShopMenu/ItemsContainer" unique_id=1862682918 instance=ExtResource("3_vserc")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FishCompendiumMenu" type="ScrollContainer" parent="MarginContainer/HBoxContainer/PanelContainer" unique_id=90994616]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="FishCompendiumTab" parent="MarginContainer/HBoxContainer/PanelContainer/FishCompendiumMenu" unique_id=484678896 instance=ExtResource("6_swtya")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -59,6 +59,7 @@ func _ready() -> void:
 	mouse_detection.button_down.connect(_on_button_down)
 	mouse_detection.button_up.connect(_on_button_up)
 	
+	if file_res is WindowlessFileResource: return
 	
 	var task_bar: Control = get_tree().get_first_node_in_group("taskbar")
 	
@@ -117,6 +118,7 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
+	if file_res is WindowlessFileResource: return
 	if !is_being_moved: window.open()
 
 func _on_button_down() -> void:

@@ -13,30 +13,24 @@ signal climbing_input_lock(lock: bool)
 signal climbing_player_death()
 var climbing_spawn_area: SpawnArea
 const CLIMBING_DEATH_TIME: float = .5
+# ---
 
 # FISHING
 signal fishing_game_started()
 signal fishing_game_reeling()
 signal fishing_game_ended()
-signal fishing_money_changed()
 signal fishing_all_sold()
+
+signal fishing_money_changed()
+var fishing_hook: FishingHook
 var fishing_game_is_going: bool = false
 var fishing_money: float = 0.0:
 	set(val):
 		fishing_money = val
 		fishing_money_changed.emit()
-var fishing_stats: Dictionary[String, float] = {
-	"area_size" : 8.0,
-	"moving_speed": 12.0,
-	"max_capacity": 6,
-	"jump_strength": 24.0,
-	"jump_cooldown": 3.0,
-	"money_gain": .8,
-	"hook_size": 0,
-	"line_length": 256.0,
-	"fish_mult": 1,
-}
-
+var fishing_stats: FishingStats = FishingStats.new()
+var fishing_compendium: Array[FishResource] = []
+# ---
 
 const DESKTOP_ICON_SCENE: PackedScene = preload("uid://d2cy4fxujo4kc")
 const POPUP_WINDOW_SCENE: PackedScene = preload("uid://nhxqcrnm8ar6")
@@ -51,15 +45,6 @@ const TITLE_BAR_COLOR_TO_TEXTURE: Dictionary[FileResource.TITLE_BAR_COLOR, Textu
 	FileResource.TITLE_BAR_COLOR.Green : preload("uid://bngoxw5yjtxua"),
 	
 }
-
-#Black,
-	#Gray,
-	#White,
-	#Blue,
-	#Purple,
-	#Red,
-	#Yellow,
-	#Green,
 var desktop_icon_container: Control = null:
 	get():
 		if !is_instance_valid(desktop_icon_container): desktop_icon_container = get_tree().get_first_node_in_group("desktop_icon_container")

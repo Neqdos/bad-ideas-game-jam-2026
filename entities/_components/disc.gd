@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _on_interacted(player: PlayerBody) -> void:
 	if used:
-		SignalManager.send_message.emit("This USB drive was already used.")
+		SignalManager.send_message.emit("This disc was already used.")
 		return
 	
 	if !is_instance_valid(player.player_interaction_ray.interactable): return
@@ -19,7 +19,7 @@ func _on_interacted(player: PlayerBody) -> void:
 	var interactable: Node3D = player.player_interaction_ray.interactable
 	if interactable is DiscSlot:
 		if !interactable.is_empty:
-			SignalManager.send_message.emit("USB slot is in use.")
+			SignalManager.send_message.emit("Disc slot is in use.")
 			return
 		interactable.insert(self)
 		used = true

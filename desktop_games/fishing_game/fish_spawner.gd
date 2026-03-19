@@ -27,9 +27,7 @@ class_name FishSpawner
 
 const FISH_SCENE = preload("uid://b4awr14ncr34m")
 
-const INITIAL_SELL_TIME: float = .3
-const SELL_TIME_CHANGE: float = .85
-var sell_time: float
+
 
 var fish_array: Array[Fish]
 
@@ -45,7 +43,6 @@ func _ready() -> void:
 		return
 	
 	DesktopManager.fishing_game_started.connect(_on_fishing_game_started)
-	DesktopManager.fishing_game_ended.connect(_on_fishing_game_ended)
 	
 	add_fish(default_fish_count)
 	
@@ -71,8 +68,8 @@ func _process(delta: float) -> void:
 				line.add_point((Vector2.RIGHT * radius).rotated((TAU / CIRCLE_POINT_AMOUNT) * i))
 
 func _on_fishing_game_started() -> void:
-	if fish_array.size() < default_fish_count * DesktopManager.fishing_stats["fish_mult"]:
-		add_fish(default_fish_count * int(DesktopManager.fishing_stats["fish_mult"]) - fish_array.size())
+	if fish_array.size() < default_fish_count * DesktopManager.fishing_stats.fish_mult:
+		add_fish(default_fish_count * int(DesktopManager.fishing_stats.fish_mult) - fish_array.size())
 		await get_tree().process_frame
 	
 	for fish: Fish in fish_array:
@@ -81,17 +78,6 @@ func _on_fishing_game_started() -> void:
 		set_fish_position(fish)
 		fish.restart()
 
-func _on_fishing_game_ended() -> void:
-	sell_time = INITIAL_SELL_TIME
-	
-	for fish: Fish in fish_array:
-		if !is_instance_valid(fish.cought_fish_hook): continue
-		
-		fish.sell()
-		await  get_tree().create_timer(sell_time).timeout
-		sell_time *= SELL_TIME_CHANGE
-	
-	DesktopManager.fishing_all_sold.emit()
 
 func add_fish(amount: int) -> void:
 	for i: int in range(amount):

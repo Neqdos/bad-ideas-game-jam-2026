@@ -1,6 +1,8 @@
 extends Resource
 class_name FishResource
 
+@export var fish_name: String
+
 @export var sprite: Texture2D
 @export var fish_size: SIZE
 
@@ -14,12 +16,12 @@ enum SIZE {
 	Small,
 	Medium,
 	Big,
+	Huge,
 }
 
 enum MOVE {
 	Static,
 	Sideways,
-	SineSideways,
 	Circle,
 	RandomInRadius,
 }

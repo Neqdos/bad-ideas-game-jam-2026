@@ -2,9 +2,37 @@
 
 [ext_resource type="Script" uid="uid://bp5nvcgki8b8h" path="res://desktop_games/fishing_game/fish.gd" id="1_n1pdj"]
 [ext_resource type="Texture2D" uid="uid://b8mnaablsrsef" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder.png" id="2_j6d2n"]
+[ext_resource type="Texture2D" uid="uid://cli77clmitmvg" path="res://desktop_games/fishing_game/special_fish_particles.png" id="3_j6d2n"]
+[ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/_components/state_machine.gd" id="4_yestu"]
+[ext_resource type="Script" uid="uid://cxmxhwpimefaa" path="res://desktop_games/fishing_game/states/static.gd" id="5_ds12t"]
+[ext_resource type="Script" uid="uid://cgkj7eq8nml4w" path="res://desktop_games/fishing_game/states/sideways.gd" id="6_ds12t"]
+[ext_resource type="Script" uid="uid://bwxr4opdygn7x" path="res://desktop_games/fishing_game/states/circle.gd" id="7_5thld"]
+[ext_resource type="Script" uid="uid://c6v4faybf5k63" path="res://desktop_games/fishing_game/states/random_in_radius.gd" id="8_b6lif"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qo25w"]
-radius = 8.0
+radius = 6.0
+
+[sub_resource type="Curve" id="Curve_j6d2n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49999997, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qo25w"]
+curve = SubResource("Curve_j6d2n")
+
+[sub_resource type="Curve" id="Curve_7y1xi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4940476, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yestu"]
+curve = SubResource("Curve_7y1xi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qo25w"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_yestu")
+alpha_curve = SubResource("CurveTexture_qo25w")
 
 [sub_resource type="Curve2D" id="Curve2D_n1pdj"]
 _data = {
@@ -30,10 +58,20 @@ collision_mask = 0
 unique_name_in_owner = true
 texture = ExtResource("2_j6d2n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FishArea" unique_id=589546445]
+[node name="FishCollisionShape" type="CollisionShape2D" parent="FishArea" unique_id=589546445]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_qo25w")
 
+[node name="SpecialParticles" type="GPUParticles2D" parent="FishArea" unique_id=308365743]
+unique_name_in_owner = true
+visible = false
+amount = 4
+texture = ExtResource("3_j6d2n")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_qo25w")
+
 [node name="SidewaysPath" type="Path2D" parent="." unique_id=894295868]
+unique_name_in_owner = true
 curve = SubResource("Curve2D_n1pdj")
 
 [node name="Sideways" type="PathFollow2D" parent="SidewaysPath" unique_id=1271758360]
@@ -42,6 +80,7 @@ position = Vector2(-8, 0)
 rotates = false
 
 [node name="CirclePath" type="Path2D" parent="." unique_id=2100187803]
+unique_name_in_owner = true
 curve = SubResource("Curve2D_j6d2n")
 
 [node name="Circle" type="PathFollow2D" parent="CirclePath" unique_id=331945545]
@@ -49,3 +88,34 @@ unique_name_in_owner = true
 position = Vector2(8, 0)
 rotation = 1.7675633
 rotates = false
+
+[node name="VisibleNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=103682762]
+unique_name_in_owner = true
+rect = Rect2(-16, -16, 32, 32)
+
+[node name="StateMachine" type="Node" parent="." unique_id=347236510 node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
+script = ExtResource("4_yestu")
+initial_state = NodePath("Static")
+metadata/_custom_type_script = "uid://bmyit071yrfei"
+
+[node name="Static" type="Node" parent="StateMachine" unique_id=2032711732 node_paths=PackedStringArray("fish")]
+script = ExtResource("5_ds12t")
+fish = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Sideways" type="Node" parent="StateMachine" unique_id=764202139 node_paths=PackedStringArray("fish")]
+script = ExtResource("6_ds12t")
+fish = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Circle" type="Node" parent="StateMachine" unique_id=403030266 node_paths=PackedStringArray("fish")]
+script = ExtResource("7_5thld")
+fish = NodePath("../..")
+type = null
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="RandomInRadius" type="Node" parent="StateMachine" unique_id=1953452776 node_paths=PackedStringArray("fish")]
+script = ExtResource("8_b6lif")
+fish = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"

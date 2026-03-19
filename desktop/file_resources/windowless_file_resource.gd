@@ -1,0 +1,2 @@
+extends FileResource
+class_name WindowlessFileResource

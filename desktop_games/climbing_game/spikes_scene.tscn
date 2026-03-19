@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://fpluuv85nou8"]
+
+[ext_resource type="Script" uid="uid://c00hw2wf7bqny" path="res://desktop_games/climbing_game/death_area.gd" id="1_00rn7"]
+[ext_resource type="Texture2D" uid="uid://b7i01a4dtueqn" path="res://desktop_games/climbing_game/spikes.png" id="2_py4mr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yq6k"]
+size = Vector2(8, 2)
+
+[node name="SpikeScene" type="Area2D" unique_id=1782729846]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_00rn7")
+metadata/_custom_type_script = "uid://c00hw2wf7bqny"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=833456739]
+texture = ExtResource("2_py4mr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=448589133]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_5yq6k")

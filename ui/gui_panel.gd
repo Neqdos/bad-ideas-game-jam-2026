@@ -30,6 +30,7 @@ func _on_area_mouse_exited() -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if !active: return
 	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
 		if is_instance_of(event, mouse_event):
 			return
@@ -48,18 +49,21 @@ func _area_input_event(_camera: Camera3D, event: InputEvent, event_position: Vec
 	
 	var event_position_2d: Vector2 = Vector2.ZERO
 	
-	if is_mouse_inside:
-		event_position_2d = Vector2(event_position.x, -event_position.y)
-		event_position_2d = event_position_2d / quad_mesh_size
-		event_position_2d += Vector2(.5, .5)
-		event_position_2d *= Vector2(viewport.size)
-	elif last_event_position:
-		event_position_2d = last_event_position
+	#if is_mouse_inside:
+	event_position_2d = Vector2(event_position.x, -event_position.y)
+	event_position_2d = event_position_2d / quad_mesh_size
+	event_position_2d += Vector2(.5, .5)
+	event_position_2d *= Vector2(viewport.size)
+	event_position_2d.x = clampf(event_position_2d.x , 0.0, viewport.size.x)
+	event_position_2d.y = clampf(event_position_2d.y , 0.0, viewport.size.y)
+	#elif last_event_position:
+	#	event_position_2d = last_event_position
 	
 	event.position = event_position_2d
-	if event is InputEventMouse:
-		event.global_position = event_position_2d
+	#if event is InputEventMouse:
+	#event.global_position = event_position_2d
 	
+	# This might be uncesseray
 	if event is InputEventMouseMotion or event is InputEventScreenDrag:
 		if last_event_time >= 0.0:
 			event.relative = event_position_2d - last_event_position

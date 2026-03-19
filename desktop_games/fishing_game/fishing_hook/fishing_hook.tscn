@@ -16,10 +16,10 @@ script = ExtResource("1_asu8m")
 shape = SubResource("CircleShape2D_w0ww1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1542439844]
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = 3.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
 
 [node name="FishingArea" type="Area2D" parent="." unique_id=933793157]
 unique_name_in_owner = true
@@ -29,3 +29,9 @@ collision_mask = 4
 [node name="FishingAreaCollisionShape" type="CollisionShape2D" parent="FishingArea" unique_id=1657586915]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_utcc3")
+
+[node name="AreaLine" type="Line2D" parent="." unique_id=759054822]
+unique_name_in_owner = true
+closed = true
+width = 1.0
+default_color = Color(0.5802685, 0.69008625, 0.7604822, 0.5)

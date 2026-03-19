@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://uwq2fxlggsjm"]
+
+[ext_resource type="Script" uid="uid://82j0x2gmg3li" path="res://desktop_games/fishing_game/ui/fish_compendium_item.gd" id="1_2bj58"]
+[ext_resource type="Texture2D" uid="uid://b8mnaablsrsef" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder.png" id="1_v5dkg"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="2_p3dhj"]
+[ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="3_2bj58"]
+[ext_resource type="Shader" uid="uid://dvatyxek8hapl" path="res://_shaders/color.gdshader" id="3_ebfet"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_64ao0"]
+resource_local_to_scene = true
+shader = ExtResource("3_ebfet")
+shader_parameter/color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+shader_parameter/enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebfet"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 3.0
+texture = ExtResource("3_2bj58")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[node name="FishCompendiumItem" type="HBoxContainer" unique_id=1514148459]
+offset_right = 191.0
+offset_bottom = 32.0
+theme_override_constants/separation = 6
+script = ExtResource("1_2bj58")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2110810484]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_2bj58")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="FishSprite" type="TextureRect" parent="NinePatchRect" unique_id=1064405966]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_64ao0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_v5dkg")
+stretch_mode = 3
+
+[node name="FishName" type="Label" parent="." unique_id=1458312111]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_p3dhj")
+theme_override_font_sizes/font_size = 8
+text = "???"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=903191064]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="FishValue" type="Label" parent="VBoxContainer" unique_id=148691766]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_p3dhj")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_ebfet")
+text = "0.00$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FishSize" type="Label" parent="VBoxContainer" unique_id=1000211008]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_p3dhj")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_ebfet")
+text = "Small"
+horizontal_alignment = 1
+vertical_alignment = 1

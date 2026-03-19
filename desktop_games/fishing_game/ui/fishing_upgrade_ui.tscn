@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://d0b2m34f30j3p"]
+
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="1_iw0d3"]
+[ext_resource type="Script" uid="uid://p3fufuw5p7h" path="res://desktop_games/fishing_game/ui/fishing_upgrade_ui.gd" id="1_rccqi"]
+[ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="3_wito8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3o7w"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("3_wito8")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[node name="FishingUpgradeUI" type="VBoxContainer" unique_id=307865522]
+offset_right = 166.0
+offset_bottom = 41.0
+theme_override_constants/separation = 1
+script = ExtResource("1_rccqi")
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1409219841]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=352449714]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="UpgradeNameLabel" type="Label" parent="MarginContainer2/HBoxContainer" unique_id=1374135865]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_fonts/font = ExtResource("1_iw0d3")
+theme_override_font_sizes/font_size = 8
+text = "Upgrade name"
+vertical_alignment = 1
+
+[node name="TooltipButton" type="Button" parent="MarginContainer2/HBoxContainer" unique_id=1574826358]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_iw0d3")
+theme_override_font_sizes/font_size = 8
+text = "?"
+
+[node name="TooltipLabel" type="Label" parent="MarginContainer2/HBoxContainer/TooltipButton" unique_id=552519526]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 1
+anchors_preset = -1
+offset_left = -88.0
+offset_bottom = 12.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_iw0d3")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_l3o7w")
+text = "text"
+autowrap_mode = 3
+
+[node name="UpgradeButton" type="Button" parent="MarginContainer2/HBoxContainer" unique_id=703975308]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 5
+theme_override_fonts/font = ExtResource("1_iw0d3")
+theme_override_font_sizes/font_size = 8
+text = "0.00$"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1938348689]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="UpgradeLevel" type="ProgressBar" parent="MarginContainer" unique_id=1164494144]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 3.0
+step = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="UpgradeValue" type="Label" parent="MarginContainer/UpgradeLevel" unique_id=1666931284]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_iw0d3")
+theme_override_font_sizes/font_size = 8
+text = "0.00"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dw886wwb4bdxg" path="res://desktop/files/readme.tres" id="4_hbe16"]
 [ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land.tres" id="4_irqsv"]
 [ext_resource type="Resource" uid="uid://dnnlfm5p8xvmf" path="res://desktop/files/climbing_game.tres" id="8_r3xg6"]
+[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/bomb.tres" id="9_b6j2u"]
 [ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="9_jsfay"]
 [ext_resource type="Resource" uid="uid://6p8wxrho3tag" path="res://desktop/files/fishing_game.tres" id="9_t632k"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="10_4ndcx"]
@@ -113,6 +114,13 @@ offset_left = 192.0
 offset_right = 256.0001
 file_res = ExtResource("9_t632k")
 grid_pos = Vector2i(3, 0)
+
+[node name="BombTEST" parent="DesktopIconContainer" unique_id=1994140704 instance=ExtResource("3_py4qr")]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.00006
+file_res = ExtResource("9_b6j2u")
+grid_pos = Vector2i(4, 0)
 
 [node name="WindowContainer" type="Control" parent="." unique_id=349596325 groups=["window_container"]]
 layout_mode = 1

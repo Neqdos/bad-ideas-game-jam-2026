@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://cg06o2vtcpr3a"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_w4qoe"]
+[ext_resource type="Texture2D" uid="uid://d1hfvx2e5f8do" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder2.png" id="2_t07o5"]
+
+[resource]
+script = ExtResource("1_w4qoe")
+fish_name = "SF2 (Placeholder)"
+sprite = ExtResource("2_t07o5")
+default_money_value = 1.0
+move_pattern = 1
+move_range = 6.0
+move_speed = 24.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

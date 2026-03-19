@@ -29,7 +29,7 @@ func _on_mouse_exited() -> void:
 func _on_desktop_icon_dropped(desktop_icon: DesktopIcon, from: Vector2i) -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	
+	# FIXME: this doesn't work sometimes for some reason (in fishing game)
 	if !is_hovered: return
 	if desktop_icon.file_res != file_res: return
 	

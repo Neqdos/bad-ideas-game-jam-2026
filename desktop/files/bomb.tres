@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WindowlessFileResource" format=3 uid="uid://d18iyp0dxbb3m"]
+
+[ext_resource type="Script" uid="uid://cyjvhwlne8pwv" path="res://desktop/file_resources/windowless_file_resource.gd" id="1_o8t5e"]
+[ext_resource type="Texture2D" uid="uid://dsqgm83h0g0to" path="res://desktop/_file_icons/bomb_icon.png" id="1_qnw6m"]
+
+[resource]
+script = ExtResource("1_o8t5e")
+name = "Bomb"
+icon = ExtResource("1_qnw6m")
+metadata/_custom_type_script = "uid://cyjvhwlne8pwv"
