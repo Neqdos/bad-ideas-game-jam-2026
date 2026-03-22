@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://csajee5mibjut"]
+
+[ext_resource type="Texture2D" uid="uid://3bk5ywoeotvo" path="res://ui/safe/safe_dingle_base.png" id="1_3b71h"]
+[ext_resource type="Script" uid="uid://3257pde63jw1" path="res://ui/safe/safe_ui.gd" id="1_3bqe7"]
+[ext_resource type="Texture2D" uid="uid://b4gynyrekxmua" path="res://ui/safe/safe_dingle.png" id="2_fla3c"]
+[ext_resource type="PackedScene" uid="uid://cvut5l0aux0a5" path="res://ui/safe/safe_digit.tscn" id="4_e3c2v"]
+
+[node name="SafeUI" type="Control" unique_id=743048784]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3bqe7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=23734150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="SafeDingleButton" type="TextureButton" parent="HBoxContainer" unique_id=222187378]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("1_3b71h")
+stretch_mode = 5
+
+[node name="SafeDingle" type="TextureRect" parent="HBoxContainer/SafeDingleButton" unique_id=469553891]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("2_fla3c")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1581448785]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SafeDigit1" parent="HBoxContainer/HBoxContainer" unique_id=368656033 instance=ExtResource("4_e3c2v")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SafeDigit2" parent="HBoxContainer/HBoxContainer" unique_id=766007516 instance=ExtResource("4_e3c2v")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SafeDigit3" parent="HBoxContainer/HBoxContainer" unique_id=1595501743 instance=ExtResource("4_e3c2v")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SafeDigit4" parent="HBoxContainer/HBoxContainer" unique_id=559485959 instance=ExtResource("4_e3c2v")]
+unique_name_in_owner = true
+layout_mode = 2

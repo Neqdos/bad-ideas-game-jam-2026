@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c3yj415hnvkwg"]
+
+[ext_resource type="Script" uid="uid://c3ckxo5dylvuk" path="res://desktop_apps/browser/browser_link.gd" id="1_hdxce"]
+[ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="1_w7gfm"]
+[ext_resource type="Texture2D" uid="uid://daqtad782w30p" path="res://desktop/textures/input_disabled_npt.png" id="3_br4fu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gadmo"]
+content_margin_left = 3.0
+texture = ExtResource("1_w7gfm")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdx57"]
+content_margin_left = 3.0
+texture = ExtResource("3_br4fu")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[node name="Browserlink" type="HBoxContainer" unique_id=265364612]
+theme_override_constants/separation = 2
+script = ExtResource("1_hdxce")
+
+[node name="SiteNameLabel" type="Label" parent="." unique_id=972566812]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_gadmo")
+text = "link://site.com"
+vertical_alignment = 1
+
+[node name="SiteNameDisabledLabel" type="Label" parent="." unique_id=1847910537]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.95702064, 0.95702064, 0.95702064, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxTexture_kdx57")
+text = "link://site.com"
+vertical_alignment = 1
+
+[node name="VisitButton" type="Button" parent="." unique_id=97347506]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0.5019608)
+disabled = true
+text = "Visit"

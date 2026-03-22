@@ -1,5 +1,7 @@
 extends Control
 
+@export var pc: PCObject
+
 @export var settings_window: FileWindow
 
 @onready var time_label: Label = %TimeLabel
@@ -10,6 +12,11 @@ extends Control
 @onready var settings_button: Button = %SettingsButton
 @onready var quit_button: Button = %QuitButton
 
+@onready var power_off_screen: ColorRect = %PowerOffScreen
+
+@onready var starting_victor_popup_timer: Timer = %StartingVictorPopupTimer
+const STARTING_VICTOR_POPUP = preload("uid://bsmsyxrlo2eq7")
+
 const QUIT_RES: PopupResource = preload("uid://ddwvlde44s6h6")
 
 const TASKBAR_ICON_LABEL_OFFSET_Y: float = 8.0
@@ -19,10 +26,15 @@ var last_task_bar_icon: TaskbarIcon
 
 func _ready() -> void:
 	DesktopManager.taskbar_icon_hovered.connect(_on_taskbar_icon_hovered)
+	DesktopManager.power_off.connect(_on_power_off)
+	DesktopManager.power_on.connect(func(): power_off_screen.visible = false)
 	
 	boxes_os_button.pressed.connect(func(): start_menu.visible = !start_menu.visible)
 	settings_button.pressed.connect(func(): settings_window.open())
 	quit_button.pressed.connect(func(): DesktopManager.show_popup(QUIT_RES))
+	
+	starting_victor_popup_timer.timeout.connect(func(): DesktopManager.show_popup(STARTING_VICTOR_POPUP))
+	# TODO: change the timer to 60s instead of 5s later
 
 func _process(_delta: float) -> void:
 	var time: Dictionary = DesktopManager.get_time_dict()
@@ -32,6 +44,10 @@ func _process(_delta: float) -> void:
 	
 	if boxes_os_button.global_position.distance_squared_to(get_global_mouse_position()) > 9216.0:
 		start_menu.visible = false
+
+func _on_power_off() -> void:
+	pc.exit()
+	power_off_screen.visible = true
 
 func _on_taskbar_icon_hovered(taskbar_icon: TaskbarIcon) -> void:
 	if is_instance_valid(taskbar_icon):

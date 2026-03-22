@@ -59,6 +59,8 @@ static func get_merged_aabb_from_collisions(colls: Array[CollisionShape3D]) -> A
 		elif shape is ConvexPolygonShape3D:
 			for p: Vector3 in shape.points:
 				coll_aabb.expand(p)
+		elif shape is CylinderShape3D:
+			coll_aabb = AABB(coll.position, Vector3(shape.radius * 2.0, shape.height, shape.radius * 2.0))
 		
 		aabb = aabb.merge(AABB(coll.position - coll_aabb.size / 2.0, coll_aabb.size))
 	return aabb

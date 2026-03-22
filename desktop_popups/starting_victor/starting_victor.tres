@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PopupResource" format=3 uid="uid://bsmsyxrlo2eq7"]
+
+[ext_resource type="PackedScene" uid="uid://c0rnjan3enbe1" path="res://desktop_popups/starting_victor/starting_victor.tscn" id="1_btm44"]
+[ext_resource type="Script" uid="uid://dw6gdmwismcdi" path="res://desktop/file_resources/popup_resource.gd" id="1_k1bkt"]
+
+[resource]
+script = ExtResource("1_k1bkt")
+window_size = Vector2(250, 150)
+can_be_closed_manually = false
+scene = ExtResource("1_btm44")
+metadata/_custom_type_script = "uid://dw6gdmwismcdi"

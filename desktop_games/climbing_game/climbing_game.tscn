@@ -9,6 +9,8 @@
 [ext_resource type="Resource" uid="uid://cq5akijkr7mhk" path="res://desktop_games/climbing_game/default_camera_tween.tres" id="6_bov24"]
 [ext_resource type="Script" uid="uid://4dkv1bbjchjy" path="res://desktop_games/climbing_game/camera_change_area.gd" id="7_bov24"]
 [ext_resource type="Script" uid="uid://b04yo5iaj12gc" path="res://desktop_games/climbing_game/spawn_area.gd" id="9_xghrv"]
+[ext_resource type="Script" uid="uid://casr8frccds1s" path="res://desktop_games/popup_area.gd" id="10_xghrv"]
+[ext_resource type="Resource" uid="uid://kyyd543yxu0h" path="res://desktop_popups/hacked/hacked.tres" id="11_l83bx"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xghrv"]
 scenes/1/scene = ExtResource("1_07cv5")
@@ -214,6 +216,10 @@ size = Vector2(8, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5d10"]
 size = Vector2(72, 8)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l83bx"]
+a = Vector2(1, -15)
+b = Vector2(1, 18)
+
 [node name="ClimbingGame" type="Node2D" unique_id=1152776224]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=92377603]
@@ -331,3 +337,14 @@ metadata/_custom_type_script = "uid://b04yo5iaj12gc"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea4" unique_id=1140998388]
 position = Vector2(9, 2)
 shape = SubResource("RectangleShape2D_w5d10")
+
+[node name="PopupArea" type="Area2D" parent="." unique_id=1176574786]
+position = Vector2(240, -66)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_xghrv")
+popup_res = ExtResource("11_l83bx")
+metadata/_custom_type_script = "uid://casr8frccds1s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopupArea" unique_id=1644859910]
+shape = SubResource("SegmentShape2D_l83bx")

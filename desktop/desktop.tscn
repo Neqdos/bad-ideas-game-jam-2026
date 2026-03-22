@@ -5,11 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b45umqf885fhb" path="res://desktop/wallpaper.png" id="3_6vopt"]
 [ext_resource type="PackedScene" uid="uid://d2cy4fxujo4kc" path="res://desktop/desktop_icon.tscn" id="3_py4qr"]
 [ext_resource type="Resource" uid="uid://dw886wwb4bdxg" path="res://desktop/files/readme.tres" id="4_hbe16"]
-[ext_resource type="Resource" uid="uid://jrdh6pxic0ii" path="res://desktop/files/land.tres" id="4_irqsv"]
-[ext_resource type="Resource" uid="uid://dnnlfm5p8xvmf" path="res://desktop/files/climbing_game.tres" id="8_r3xg6"]
-[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/bomb.tres" id="9_b6j2u"]
+[ext_resource type="Resource" uid="uid://cmwiooir0qyc4" path="res://desktop/files/browser.tres" id="6_4ndcx"]
 [ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="9_jsfay"]
-[ext_resource type="Resource" uid="uid://6p8wxrho3tag" path="res://desktop/files/fishing_game.tres" id="9_t632k"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="10_4ndcx"]
 [ext_resource type="Texture2D" uid="uid://4o1vq7q536sf" path="res://desktop/textures/window_npt.png" id="10_jsfay"]
 [ext_resource type="PackedScene" uid="uid://wr7j6c1jo6j2" path="res://desktop/file_window.tscn" id="13_1dkjm"]
@@ -75,6 +72,12 @@ theme = ExtResource("1_87qqj")
 script = ExtResource("1_c6ot5")
 settings_window = NodePath("WindowContainer/SettingsWindow")
 
+[node name="StartingVictorPopupTimer" type="Timer" parent="." unique_id=146799945]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [node name="BG" type="TextureRect" parent="." unique_id=1712644097]
 layout_mode = 1
 anchors_preset = 15
@@ -97,33 +100,12 @@ mouse_filter = 2
 layout_mode = 0
 file_res = ExtResource("4_hbe16")
 
-[node name="Land" parent="DesktopIconContainer" unique_id=1187236872 instance=ExtResource("3_py4qr")]
+[node name="README2" parent="DesktopIconContainer" unique_id=949338286 instance=ExtResource("3_py4qr")]
 layout_mode = 0
 offset_left = 64.0
 offset_right = 128.0
-file_res = ExtResource("4_irqsv")
+file_res = ExtResource("6_4ndcx")
 grid_pos = Vector2i(1, 0)
-
-[node name="ClimbingGame" parent="DesktopIconContainer" unique_id=1649011081 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 128.0
-offset_right = 192.0
-file_res = ExtResource("8_r3xg6")
-grid_pos = Vector2i(2, 0)
-
-[node name="FishingGameTEST" parent="DesktopIconContainer" unique_id=1433175001 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 192.0
-offset_right = 256.0001
-file_res = ExtResource("9_t632k")
-grid_pos = Vector2i(3, 0)
-
-[node name="BombTEST" parent="DesktopIconContainer" unique_id=1994140704 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 256.0
-offset_right = 320.00006
-file_res = ExtResource("9_b6j2u")
-grid_pos = Vector2i(4, 0)
 
 [node name="WindowContainer" type="Control" parent="." unique_id=349596325 groups=["window_container"]]
 layout_mode = 1
@@ -227,3 +209,14 @@ offset_right = 13.0
 offset_bottom = 21.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_b6j2u")
 horizontal_alignment = 1
+
+[node name="PowerOffScreen" type="ColorRect" parent="." unique_id=2067180292]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)

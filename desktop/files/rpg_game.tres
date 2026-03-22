@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AppFileResource" format=3 uid="uid://ddfep6nubk122"]
+
+[ext_resource type="Script" uid="uid://v1qyypsjrqi8" path="res://desktop/file_resources/app_file_resource.gd" id="1_40jgg"]
+[ext_resource type="Texture2D" uid="uid://d2afgrj6i0570" path="res://desktop/_file_icons/fishing_icon.png" id="1_uc13m"]
+[ext_resource type="PackedScene" uid="uid://b8q7iv0ohnf0e" path="res://desktop_popups/quit/quit_popup.tscn" id="2_y8e8f"]
+
+[resource]
+script = ExtResource("1_40jgg")
+scene = ExtResource("2_y8e8f")
+name = "That time I got sent to a different world and became a knight but then got exiled from the kindgom, so now I must take revenge and defeat the evil king"
+icon = ExtResource("1_uc13m")
+title_bar_color = 2
+metadata/_custom_type_script = "uid://v1qyypsjrqi8"

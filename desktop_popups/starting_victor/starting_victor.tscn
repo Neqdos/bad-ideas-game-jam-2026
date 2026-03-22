@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c0rnjan3enbe1"]
+
+[ext_resource type="Script" uid="uid://dorhw00f8be2k" path="res://desktop_popups/starting_victor/starting_victor.gd" id="1_amall"]
+
+[node name="StartingVictor" type="Control" unique_id=1778691994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_amall")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1054778704]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3372549, 0.42352942, 0.5254902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1130298709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=351687994]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1145334170]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hey, I'm a virus and I got inside your computer. I'm going to destroy it because I'm EVIL!
+My name is Victor btw, nice to meet you :)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="OkayButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=115986470]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Okay?"

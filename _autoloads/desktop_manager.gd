@@ -8,6 +8,11 @@ signal desktop_icon_dropped(desktop_icon: DesktopIcon, from: Vector2i)
 
 signal disc_extracting_finished()
 
+signal new_popup_site_unlocked(popup_res: PopupResource)
+
+signal safe_ui_open()
+signal safe_opened()
+
 # CLIMBING
 signal climbing_input_lock(lock: bool)
 signal climbing_player_death()
@@ -32,9 +37,24 @@ var fishing_stats: FishingStats = FishingStats.new()
 var fishing_compendium: Array[FishResource] = []
 # ---
 
+# RPG
+
+# ---
+
+# 3D OBJECTS
+signal power_off()
+signal power_on()
+var can_enter_and_exit_computer: bool = false
+var safe_code: String
+# ---
+
+var unlocked_popup_sites: Array[PopupResource]
+var used_hacked: bool = false
+
+
 const DESKTOP_ICON_SCENE: PackedScene = preload("uid://d2cy4fxujo4kc")
 const POPUP_WINDOW_SCENE: PackedScene = preload("uid://nhxqcrnm8ar6")
-
+const DISC_EXTRACTING_POPUP: PopupResource = preload("uid://khve0uqaqspc")
 
 const TITLE_BAR_COLOR_TO_TEXTURE: Dictionary[FileResource.TITLE_BAR_COLOR, Texture2D] = {
 	FileResource.TITLE_BAR_COLOR.Black : preload("uid://dgqj4co82fad6"),
@@ -45,6 +65,7 @@ const TITLE_BAR_COLOR_TO_TEXTURE: Dictionary[FileResource.TITLE_BAR_COLOR, Textu
 	FileResource.TITLE_BAR_COLOR.Green : preload("uid://bngoxw5yjtxua"),
 	
 }
+
 var desktop_icon_container: Control = null:
 	get():
 		if !is_instance_valid(desktop_icon_container): desktop_icon_container = get_tree().get_first_node_in_group("desktop_icon_container")
@@ -61,6 +82,8 @@ var time_minute_offset: float = 0.0
 
 func _ready() -> void:
 	window_grab_focus.connect(_on_window_grab_focus)
+	
+	safe_code = str(randi_range(1000, 9999))
 
 func _on_window_grab_focus(window: DesktopWindow) -> void:
 	currently_focused_window = window
@@ -93,16 +116,17 @@ func add_file_to_desktop(file_res: FileResource) -> void:
 	desktop_icon_container.add_child(new_desktop_icon)
 
 
-func show_popup(popup_res: PopupResource) -> void:
-	#var popup_window: PopupWindow = _get_popup_from_resource(popup_res)
-	
-	#if is_instance_valid(popup_window):
-		#popup_window.open()
-		#popup_window.popup_scene._start()
-	#else:
+func show_popup(popup_res: PopupResource, data: Dictionary[String, Variant] = {}) -> void:
 	var new_popup_window: PopupWindow = POPUP_WINDOW_SCENE.instantiate()
 	new_popup_window.popup_res = popup_res
+	new_popup_window.data = data
 	window_container.add_child(new_popup_window)
+
+func unlock_popup_site(popup_res: PopupResource) -> void:
+	if unlocked_popup_sites.has(popup_res): return
+	
+	unlocked_popup_sites.append(popup_res)
+	new_popup_site_unlocked.emit(popup_res)
 
 func get_time_dict() -> Dictionary:
 	var time: Dictionary = Time.get_datetime_dict_from_system()

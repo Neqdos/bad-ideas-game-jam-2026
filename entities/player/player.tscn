@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bkxw4rjwpoa6g" path="res://entities/player/states/walk.gd" id="5_sweqy"]
 [ext_resource type="PackedScene" uid="uid://4oqoq70bcefs" path="res://ui/hotbar/hotbar.tscn" id="6_24ehl"]
 [ext_resource type="Script" uid="uid://76mh30jd17dq" path="res://entities/player/states/run.gd" id="7_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://csajee5mibjut" path="res://ui/safe/safe_ui.tscn" id="7_t1t22"]
 [ext_resource type="Script" uid="uid://bkqxko4ydyne0" path="res://entities/player/states/crouch.gd" id="10_ebec5"]
 [ext_resource type="Script" uid="uid://clulfjivr1sax" path="res://entities/player/states/falling.gd" id="11_ebec5"]
 [ext_resource type="Script" uid="uid://d2c4beeooctrk" path="res://entities/player/states/crouch_walk.gd" id="11_yllr7"]
@@ -93,6 +94,9 @@ player = NodePath("../..")
 player = NodePath("../..")
 
 [node name="MessageUI" parent="OnScreenUI" unique_id=828338374 instance=ExtResource("5_eyb6c")]
+
+[node name="SafeUI" parent="OnScreenUI" unique_id=743048784 instance=ExtResource("7_t1t22")]
+visible = false
 
 [node name="PlayerInput" type="Node" parent="." unique_id=9235229]
 script = ExtResource("15_gx6sm")

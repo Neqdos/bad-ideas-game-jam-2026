@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cvut5l0aux0a5"]
+
+[ext_resource type="Script" uid="uid://dg168s6bl2slj" path="res://ui/safe/safe_digit.gd" id="1_t46p3"]
+
+[node name="SafeDigit" type="VBoxContainer" unique_id=368656033]
+script = ExtResource("1_t46p3")
+
+[node name="DigitUp" type="Button" parent="." unique_id=751982950]
+unique_name_in_owner = true
+layout_mode = 2
+text = "^"
+
+[node name="DigitLabel" type="Label" parent="." unique_id=950421046]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="DigitDown" type="Button" parent="." unique_id=2111384160]
+unique_name_in_owner = true
+layout_mode = 2
+text = "v"

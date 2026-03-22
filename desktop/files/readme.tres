@@ -5,13 +5,22 @@
 
 [resource]
 script = ExtResource("1_8rycr")
-data = "So I guess this could be some type of tutorial/info for the player.
+data = "Hello, welcome to Boxes OS.
 
-Most of the stuff works the way you'd expect it to work.
-You can press RMB on an icon in the taskbar to close the app.
-You can move the image in the image files using your mouse, and zoom using scroll."
+Most stuff on the desktop work the way you'd expect it to work.
+
+If you find a disc, you can insert it into the disc slot of your computer.
+You can get various apps or games from discs.
+
+
+3D Controls:
+- WASD walk
+- F use something
+- E hold something
+- LMB use held object
+- G drop held object
+- ESC to exit monitor screen"
 name = "READ ME"
 icon = ExtResource("1_dkpnk")
 window_size = Vector2(500, 300)
-title_bar_color = 0
 metadata/_custom_type_script = "uid://c1hdbvasjjp7k"

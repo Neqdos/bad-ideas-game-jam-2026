@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://ca8m37kjgftpg"]
+
+[ext_resource type="Script" uid="uid://c6paaxpa3deqm" path="res://desktop_popups/hacked/hacked.gd" id="1_33d8n"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="1_s7dms"]
+[ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="2_fgopj"]
+[ext_resource type="Texture2D" uid="uid://2716ymj12v24" path="res://desktop_popups/hacked/hacked_bg_tiles.png" id="2_mm8sr"]
+
+[node name="Hacked" type="Control" unique_id=1359347028]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_33d8n")
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1682494423]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mm8sr")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1191643849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1979743038]
+custom_minimum_size = Vector2(228, 164)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_fgopj")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect" unique_id=171420599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer" unique_id=1167366640]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=548680066]
+layout_mode = 2
+size_flags_vertical = 2
+text = "YOU HAVE BEEN HACKED!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=381430610]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_s7dms")
+theme_override_font_sizes/font_size = 8
+text = "Yup, we got all of your personal data. Our group is made of the greatest hackers in the world so it wasn't really that hard you know.
+We will give you insight on what we've stolen, so you can see how great we are."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DownloadButton" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer/VBoxContainer" unique_id=1066480153]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Download stolen data"

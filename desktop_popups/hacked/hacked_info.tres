@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TextFileResource" format=3 uid="uid://dux2bjc2vihto"]
+
+[ext_resource type="Texture2D" uid="uid://lemi2uiqtag0" path="res://desktop/_file_icons/text_icon.png" id="1_4t061"]
+[ext_resource type="Script" uid="uid://c1hdbvasjjp7k" path="res://desktop/file_resources/text_file_resource.gd" id="1_npi1u"]
+
+[resource]
+script = ExtResource("1_npi1u")
+name = "personal_data"
+icon = ExtResource("1_4t061")
+window_size = Vector2(500, 300)
+metadata/_custom_type_script = "uid://c1hdbvasjjp7k"

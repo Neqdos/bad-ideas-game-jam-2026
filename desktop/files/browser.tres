@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AppFileResource" format=3 uid="uid://cmwiooir0qyc4"]
+
+[ext_resource type="PackedScene" uid="uid://csljbhcu7lsvq" path="res://desktop_apps/browser/browser.tscn" id="1_2ymha"]
+[ext_resource type="Script" uid="uid://v1qyypsjrqi8" path="res://desktop/file_resources/app_file_resource.gd" id="1_gneeh"]
+[ext_resource type="Texture2D" uid="uid://fr3ima5fffcc" path="res://desktop/_file_icons/file_icon.png" id="1_o7nsc"]
+
+[resource]
+script = ExtResource("1_gneeh")
+scene = ExtResource("1_2ymha")
+name = "Web Browser"
+icon = ExtResource("1_o7nsc")
+title_bar_color = 4
+metadata/_custom_type_script = "uid://v1qyypsjrqi8"

@@ -4,11 +4,13 @@ class_name PopupWindow
 @onready var close_button: Button = %CloseButton
 
 var popup_res: PopupResource
+var data: Dictionary[String, Variant]
 
 func initiate() -> void:
 	app_viewport.size = popup_res.window_size
 	
 	var popup_scene: Node = popup_res.scene.instantiate()
+	if "data" in popup_scene: popup_scene.set("data", data)
 	app_viewport.add_child(popup_scene)
 	
 	name = popup_scene.name

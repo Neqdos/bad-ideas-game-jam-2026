@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PopupResource" format=3 uid="uid://kyyd543yxu0h"]
+
+[ext_resource type="Script" uid="uid://dw6gdmwismcdi" path="res://desktop/file_resources/popup_resource.gd" id="1_c4mto"]
+[ext_resource type="PackedScene" uid="uid://ca8m37kjgftpg" path="res://desktop_popups/hacked/hacked.tscn" id="1_fweid"]
+
+[resource]
+script = ExtResource("1_c4mto")
+window_size = Vector2(300, 200)
+scene = ExtResource("1_fweid")
+metadata/_custom_type_script = "uid://dw6gdmwismcdi"

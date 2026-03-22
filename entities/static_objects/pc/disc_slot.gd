@@ -5,8 +5,6 @@ class_name DiscSlot
 @onready var disc_slot_info_label: ObjectInfoLabel = %DiscSlotInfoLabel
 @onready var inside_marker: Marker3D = %InsideMarker
 
-@export var disc_extracting: PopupResource
-
 const DEFAULT_INFO_LABEL_TEXT: String = "Disc slot"
 const EXTRACTING_INFO_LABEL_TEXT: String = "Extracting..."
 
@@ -31,13 +29,13 @@ func insert(disc: Disc) -> void:
 	
 	await tween.finished
 	
-	DesktopManager.show_popup(disc_extracting)
+	DesktopManager.show_popup(DesktopManager.DISC_EXTRACTING_POPUP, {
+		"file_res" : disc.file_res,
+		"type" : 0})
 	
 	disc_slot_info_label.info = EXTRACTING_INFO_LABEL_TEXT
 	
 	await DesktopManager.disc_extracting_finished
-	
-	DesktopManager.add_file_to_desktop(disc.file_res)
 	
 	tween = get_tree().create_tween()
 	tween.tween_property(disc, "global_position", global_position, 1.0)
