@@ -135,10 +135,10 @@ room_lamp = NodePath("../../OmniLight3D")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.100000024, 0.11156011)
 
 [node name="Drawer" parent="Map" unique_id=592042171 instance=ExtResource("8_2jm6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, -2.6)
 
 [node name="DiscClock" parent="Map/Drawer" unique_id=45558438 instance=ExtResource("6_jebw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4442407, 0.08490348)
 
 [node name="Desk" type="StaticBody3D" parent="Map" unique_id=1013549240]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -2.4)
@@ -178,5 +178,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.834, 0)
 light_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
 shadow_enabled = true
-omni_range = 6.0
+omni_range = 10.0
 omni_attenuation = 2.0

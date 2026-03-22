@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://c5fhv5vdp2vi3"]
 
 [ext_resource type="Script" uid="uid://dshu88kjrs0tg" path="res://ui/context_menu/context_menu.gd" id="1_ambon"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="1_xmkoi"]
 [ext_resource type="Texture2D" uid="uid://brqrw80ure2kq" path="res://ui/context_menu/rect_corners.png" id="3_mbel1"]
+[ext_resource type="FontFile" uid="uid://51mqgbgxf7qa" path="res://_fonts/PixelSerif_16px_v02.ttf" id="4_txtrc"]
 [ext_resource type="Texture2D" uid="uid://dq6r08xagvv3u" path="res://ui/message_ui/rounded_npt.png" id="4_xmkoi"]
 [ext_resource type="Texture2D" uid="uid://dior847suqyxc" path="res://ui/context_menu/line_texture_2.png" id="5_xmkoi"]
 
 [sub_resource type="Theme" id="Theme_un24v"]
 Label/colors/font_color = Color(1, 1, 1, 1)
-Label/colors/font_outline_color = Color(0, 0, 0, 1)
-Label/constants/outline_size = 2
-Label/font_sizes/font_size = 10
+Label/colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("1_xmkoi")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sson3"]
 draw_center = false
@@ -75,10 +78,11 @@ patch_margin_bottom = 6
 [node name="ObjectNameLabel" type="Label" parent="Panel" unique_id=486902183]
 unique_name_in_owner = true
 layout_mode = 1
-offset_top = -10.0
-offset_right = 55.0
-offset_bottom = -2.0
-theme_override_font_sizes/font_size = 12
+offset_top = -14.0
+offset_right = 81.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("4_txtrc")
+theme_override_font_sizes/font_size = 16
 text = "object name"
 
 [node name="InfoLabel" type="Label" parent="Panel" unique_id=1780954794]
@@ -90,7 +94,7 @@ anchor_bottom = 1.0
 offset_top = 3.0
 offset_right = 7.0
 offset_bottom = 15.0
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_txtrc")
 text = "description"
 vertical_alignment = 2
