@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bq0fs8fcvdvqw"]
+
+[ext_resource type="Texture2D" uid="uid://cx506bemq38pd" path="res://desktop_games/climbing_game/hook_shot/hook.png" id="1_3tdhx"]
+[ext_resource type="Script" uid="uid://ullf7snqeevb" path="res://desktop_games/climbing_game/hook_shot/hook_shot.gd" id="1_luni1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luni1"]
+size = Vector2(8, 8)
+
+[node name="HookShot" type="Area2D" unique_id=110963134]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_luni1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=396724792]
+shape = SubResource("RectangleShape2D_luni1")
+
+[node name="WrongSurfaceArea" type="Area2D" parent="." unique_id=680892270]
+unique_name_in_owner = true
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WrongSurfaceArea" unique_id=1051640047]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_luni1")
+
+[node name="HookSprite" type="Sprite2D" parent="." unique_id=93830765]
+unique_name_in_owner = true
+texture = ExtResource("1_3tdhx")

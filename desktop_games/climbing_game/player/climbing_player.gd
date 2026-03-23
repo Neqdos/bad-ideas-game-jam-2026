@@ -21,7 +21,9 @@ var gravity_scale: float = 1.0
 
 @onready var last_y_position: float = global_position.y
 
-var can_move: bool = true
+var can_move: int = 0
+
+var hook_uses: int = 0
 
 func _ready() -> void:
 	input.jumped.connect(_on_jumped)
@@ -29,28 +31,27 @@ func _ready() -> void:
 	DesktopManager.climbing_player_death.connect(_on_player_death)
 
 func _physics_process(delta: float) -> void:
-	if !can_move: return
-	if velocity.y < MAX_GRAVITY:
-		velocity.y += GRAVITY * gravity_scale * delta
+	if can_move > 0: return
+	velocity.y += GRAVITY * gravity_scale * delta
+	velocity.y = minf(MAX_GRAVITY, velocity.y)
 	
 	move_and_slide()
 
 func _on_jumped() -> void:
 	if koyote_timer.time_left:
 		state_machine.change_state("jump")
-		koyote_timer.stop()
 	else:
 		jump_buffer_timer.start()
 
 func _on_player_death() -> void:
 	DesktopManager.climbing_input_lock.emit(true)
-	can_move = false
+	can_move += 1
 	velocity = Vector2.ZERO
 	
 	await get_tree().create_timer(DesktopManager.CLIMBING_DEATH_TIME).timeout
 	
 	DesktopManager.climbing_input_lock.emit(false)
-	can_move = true
+	can_move -= 1
 	respawn()
 
 func respawn() -> void:

@@ -4,6 +4,7 @@ extends State
 
 func enter() -> void:
 	if is_node_ready(): return
+	player.hook_uses = 0
 	if player.jump_buffer_timer.time_left:
 		state_machine.change_state("jump")
 
@@ -15,3 +16,5 @@ func update(delta: float) -> void:
 		state_machine.change_state("walk")
 	elif player.jump_buffer_timer.time_left:
 		state_machine.change_state("jump")
+	elif player.input.grappling_hook_pressed:
+		state_machine.change_state("hookshot")

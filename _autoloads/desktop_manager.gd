@@ -18,6 +18,7 @@ signal climbing_input_lock(lock: bool)
 signal climbing_player_death()
 var climbing_spawn_area: SpawnArea
 const CLIMBING_DEATH_TIME: float = .5
+var max_hook_travel_distance: float = 64.0
 # ---
 
 # FISHING

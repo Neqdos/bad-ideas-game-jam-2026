@@ -1,9 +1,19 @@
 extends State
 
 @export var player: ClimbingPlayer
+@onready var jump_dust: GPUParticles2D = %JumpDust
+@onready var animation_controller: AnimationController = %AnimationController
 
 func enter() -> void:
 	player.velocity.y = -player.JUMP_POWER
+	player.jump_buffer_timer.stop()
+	var new_jump_dust: GPUParticles2D = jump_dust.duplicate()
+	player.add_child(new_jump_dust)
+	new_jump_dust.emitting = true
+	new_jump_dust.finished.connect(new_jump_dust.queue_free)
+	animation_controller.squish_y()
+	
+	player.koyote_timer.stop()
 	player.jump_buffer_timer.stop()
 
 func physics_update(delta: float) -> void:
@@ -22,3 +32,5 @@ func physics_update(delta: float) -> void:
 func update(delta: float) -> void:
 	if player.input.jump_released:
 		player.velocity.y *= .2
+	elif player.input.grappling_hook_pressed and player.hook_uses == 0:
+		state_machine.change_state("hookshot")

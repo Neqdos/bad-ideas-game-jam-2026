@@ -2,16 +2,168 @@
 
 [ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/_components/state_machine.gd" id="1_0wo2l"]
 [ext_resource type="Script" uid="uid://bfr01ewl5e2kx" path="res://desktop_games/climbing_game/player/climbing_player.gd" id="1_543t1"]
-[ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop_games/test_game/tg_player.png" id="1_bwiu4"]
 [ext_resource type="Script" uid="uid://cj65v1agwdkx2" path="res://desktop_games/climbing_game/player/states/idle.gd" id="2_bwiu4"]
+[ext_resource type="Texture2D" uid="uid://danjhlhqrek7b" path="res://desktop_games/climbing_game/player/player.png" id="2_q4xk2"]
+[ext_resource type="Script" uid="uid://25ui58bmae00" path="res://desktop_games/climbing_game/player/climbing_player_animation_controller.gd" id="3_hgbq3"]
 [ext_resource type="Script" uid="uid://dw3cq5ixswpof" path="res://desktop_games/climbing_game/player/states/walk.gd" id="4_xgjoa"]
 [ext_resource type="Script" uid="uid://d38oqj0qqjtfq" path="res://desktop_games/climbing_game/player/states/jump.gd" id="5_fjxhk"]
+[ext_resource type="Texture2D" uid="uid://dxh0r77d2tae0" path="res://desktop_games/climbing_game/player/player_eyes.png" id="6_ikbf8"]
 [ext_resource type="Script" uid="uid://dvg5fmhvf66ha" path="res://desktop_games/climbing_game/player/states/falling.gd" id="6_q4xk2"]
+[ext_resource type="Script" uid="uid://rpxx0747n6q8" path="res://desktop_games/climbing_game/player/states/hook_shot.gd" id="9_q4xk2"]
+[ext_resource type="Texture2D" uid="uid://cb8gfrt5hwrx0" path="res://desktop_games/climbing_game/particles/wind_particles.png" id="11_637dr"]
+[ext_resource type="Texture2D" uid="uid://cx506bemq38pd" path="res://desktop_games/climbing_game/hook_shot/hook.png" id="11_ms40s"]
+[ext_resource type="Texture2D" uid="uid://hd8x1qbotp76" path="res://desktop_games/climbing_game/particles/dust_particles.png" id="12_637dr"]
+
+[sub_resource type="Curve" id="Curve_ikbf8"]
+_data = [Vector2(0, 0.6516854), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_t2epw"]
+curve = SubResource("Curve_ikbf8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0h4r1"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 5, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.099999994
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_t2epw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms40s"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(18, 54, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_637dr"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(36, 54, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikbf8"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(0, 54, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2epw"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h4r1"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ene"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(36, 36, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lc5u"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(0, 18, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v8lt"]
+atlas = ExtResource("2_q4xk2")
+region = Rect2(18, 18, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eoq74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms40s")
+}],
+"loop": true,
+"name": &"hook_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_637dr")
+}],
+"loop": true,
+"name": &"hook_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikbf8")
+}],
+"loop": true,
+"name": &"hook_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2epw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h4r1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ene")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lc5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v8lt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwiu4"]
-size = Vector2(10, 12)
+size = Vector2(10, 10)
+
+[sub_resource type="Curve" id="Curve_637dr"]
+_data = [Vector2(0, 0.6516854), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ikbf8"]
+curve = SubResource("Curve_637dr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ikbf8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 4, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_ikbf8")
+
+[sub_resource type="Curve" id="Curve_t2epw"]
+_data = [Vector2(0, 0.6516854), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0h4r1"]
+curve = SubResource("Curve_t2epw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v8ene"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_0h4r1")
 
 [node name="ClimbingPlayer" type="CharacterBody2D" unique_id=1941018465]
+collision_layer = 2
+collision_mask = 25
 script = ExtResource("1_543t1")
 
 [node name="KoyoteTimer" type="Timer" parent="." unique_id=593270593]
@@ -21,8 +173,53 @@ one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=1843242670]
 unique_name_in_owner = true
-wait_time = 0.08
+wait_time = 0.1
 one_shot = true
+
+[node name="HookLine" type="Line2D" parent="." unique_id=2087174989]
+unique_name_in_owner = true
+visible = false
+points = PackedVector2Array(0, 0, 18, 0)
+width = 1.0
+default_color = Color(0.09411765, 0.078431375, 0.14509805, 1)
+
+[node name="HookSprite" type="Sprite2D" parent="." unique_id=891294735]
+unique_name_in_owner = true
+visible = false
+position = Vector2(18, 0)
+texture = ExtResource("11_ms40s")
+offset = Vector2(0, 0.5)
+
+[node name="WindParticles" type="GPUParticles2D" parent="." unique_id=1440367949]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+texture = ExtResource("11_637dr")
+lifetime = 0.3
+explosiveness = 0.3
+use_fixed_seed = true
+seed = 627232468
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0h4r1")
+
+[node name="AnimationController" type="AnimatedSprite2D" parent="." unique_id=107450465 node_paths=PackedStringArray("player", "state_machine")]
+unique_name_in_owner = true
+position = Vector2(0, 5)
+sprite_frames = SubResource("SpriteFrames_eoq74")
+animation = &"walk"
+autoplay = "idle"
+offset = Vector2(0, -8)
+script = ExtResource("3_hgbq3")
+player = NodePath("..")
+state_machine = NodePath("../StateMachine")
+
+[node name="Eyes" type="Sprite2D" parent="AnimationController" unique_id=2117967613]
+unique_name_in_owner = true
+position = Vector2(0, -10)
+texture = ExtResource("6_ikbf8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764679846]
+shape = SubResource("RectangleShape2D_bwiu4")
 
 [node name="StateMachine" type="Node" parent="." unique_id=5333534 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -50,9 +247,35 @@ script = ExtResource("6_q4xk2")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=850247697]
-texture = ExtResource("1_bwiu4")
-offset = Vector2(0, -2)
+[node name="HookShot" type="Node" parent="StateMachine" unique_id=2110260706 node_paths=PackedStringArray("player", "animation_controller")]
+script = ExtResource("9_q4xk2")
+player = NodePath("../..")
+animation_controller = NodePath("../../AnimationController")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764679846]
-shape = SubResource("RectangleShape2D_bwiu4")
+[node name="HookRaycast" type="RayCast2D" parent="." unique_id=968645382]
+unique_name_in_owner = true
+target_position = Vector2(64, 0)
+collision_mask = 8
+
+[node name="JumpDust" type="GPUParticles2D" parent="." unique_id=118797226]
+unique_name_in_owner = true
+position = Vector2(0, 1)
+emitting = false
+amount = 4
+texture = ExtResource("12_637dr")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ikbf8")
+
+[node name="FallDust" type="GPUParticles2D" parent="." unique_id=174272002]
+unique_name_in_owner = true
+position = Vector2(0, 3)
+emitting = false
+amount = 6
+texture = ExtResource("12_637dr")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_v8ene")
