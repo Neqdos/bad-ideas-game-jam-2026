@@ -8,6 +8,8 @@ extends Control
 @onready var safe_digit_3: SafeDigit = %SafeDigit3
 @onready var safe_digit_4: SafeDigit = %SafeDigit4
 
+@onready var lock_fail_sfx: AudioStreamPlayer = %LockFailSFX
+
 var tween: Tween
 
 var can_press: bool = true
@@ -32,6 +34,8 @@ func _on_safe_dingle_button_pressed() -> void:
 		DesktopManager.safe_opened.emit()
 		_close()
 	else:
+		lock_fail_sfx.play()
+		
 		tween = get_tree().create_tween()
 		tween.tween_property(safe_dingle, "rotation_degrees", 30.0, .2)
 		tween.tween_property(safe_dingle, "rotation_degrees", 0.0, .2)

@@ -48,14 +48,14 @@ func enter() -> void:
 	if hook_raycast.is_colliding():
 		var collider = hook_raycast.get_collider()
 		
+		shoot_hook_sprite(hook_raycast.get_collision_point())
+		
 		if collider is TileMapLayer:
 			var collider_rid: RID = hook_raycast.get_collider_rid()
 			var coords: Vector2i = collider.get_coords_for_body_rid(collider_rid)
 			var tile_data: TileData = collider.get_cell_tile_data(coords)
 			
 			var normal: Vector2 = hook_raycast.get_collision_normal()
-			
-			shoot_hook_sprite(hook_raycast.get_collision_point())
 			
 			await tween.finished
 			
@@ -68,6 +68,8 @@ func enter() -> void:
 					return
 				else:
 					player.koyote_timer.start()
+		else:
+			await tween.finished
 	else:
 		shoot_hook_sprite(hook_raycast.global_position + Vector2.from_angle(hook_raycast.rotation) * hook_raycast.target_position.length())
 		await tween.finished

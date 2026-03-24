@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://de60m5uxpymch"]
+
+[ext_resource type="Script" uid="uid://beh213scu0qqy" path="res://entities/objects/battery/battery.gd" id="1_7fnjv"]
+[ext_resource type="Resource" uid="uid://bbev20hmwse0o" path="res://entities/objects/battery/battery.tres" id="2_7fnjv"]
+[ext_resource type="PackedScene" uid="uid://blbm0ljqk4pf2" path="res://entities/objects/battery/battery.gltf" id="2_63v51"]
+[ext_resource type="Script" uid="uid://lkg7k2vxlysd" path="res://interaction/in_hand/hand_interact_action.gd" id="3_al628"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7fnjv"]
+points = PackedVector3Array(-0.108838834, 0.124993265, -0.077588834, -0.108838834, 0.13748837, -0.077588834, 0.108838834, 0.124993265, -0.077588834, -0.10001752, 0, -0.068763636, -0.108838834, 0.124993265, 0.07757365, -0.108838834, 0.13748837, 0.07757365, -0.10001752, 0.14375, -0.068763636, 0.108838834, 0.13748837, -0.077588834, 0.108838834, 0.124993265, 0.07757365, 0.0999962, 0, -0.068763636, -0.10001752, 0, 0.06874845, 0.108838834, 0.13748837, 0.07757365, -0.10001752, 0.14375, 0.06874845, 0.0999962, 0.14375, -0.068763636, 0.0999962, 0, 0.06874845, 0.0999962, 0.14375, 0.06874845)
+
+[node name="Battery" type="RigidBody3D" unique_id=1159110517]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_7fnjv")
+obj_resource = ExtResource("2_7fnjv")
+metadata/_custom_type_script = "uid://04yn7m5smmj4"
+
+[node name="HandInteractAction" type="Node" parent="." unique_id=1260249486]
+unique_name_in_owner = true
+script = ExtResource("3_al628")
+metadata/_custom_type_script = "uid://lkg7k2vxlysd"
+
+[node name="blockbench_export" parent="." unique_id=754760692 instance=ExtResource("2_63v51")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=637098923]
+shape = SubResource("ConvexPolygonShape3D_7fnjv")

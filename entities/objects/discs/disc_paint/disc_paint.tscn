@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://df0a7byx1bxlf"]
+
+[ext_resource type="Script" uid="uid://3yspe6qbyedk" path="res://entities/_components/disc.gd" id="1_vbbck"]
+[ext_resource type="Resource" uid="uid://cknlotn1uwoe6" path="res://desktop/files/paint.tres" id="2_2tdrg"]
+[ext_resource type="Script" uid="uid://lkg7k2vxlysd" path="res://interaction/in_hand/hand_interact_action.gd" id="2_a4l2t"]
+[ext_resource type="Resource" uid="uid://ds3hh0ne62atc" path="res://entities/objects/discs/disc_paint/disc_paint.tres" id="3_v0571"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2tdrg"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.01
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0571"]
+shading_mode = 0
+albedo_color = Color(1, 0.33999997, 0.33999997, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vdns0"]
+height = 0.04
+radius = 0.08
+
+[node name="DiscPaint" type="RigidBody3D" unique_id=1154112241 node_paths=PackedStringArray("interact_action")]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_vbbck")
+file_res = ExtResource("2_2tdrg")
+interact_action = NodePath("HandInteractAction")
+obj_resource = ExtResource("3_v0571")
+metadata/_custom_type_script = "uid://3yspe6qbyedk"
+
+[node name="HandInteractAction" type="Node" parent="." unique_id=724195359]
+script = ExtResource("2_a4l2t")
+metadata/_custom_type_script = "uid://lkg7k2vxlysd"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=193364998]
+mesh = SubResource("CylinderMesh_2tdrg")
+surface_material_override/0 = SubResource("StandardMaterial3D_v0571")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1419994567]
+shape = SubResource("CylinderShape3D_vdns0")

@@ -64,6 +64,39 @@ texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kq1px"]
+texture = ExtResource("1_hqe54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drkkq"]
+texture = ExtResource("1_hqe54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtwqd"]
+texture = ExtResource("1_hqe54")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2gf0v"]
+content_margin_top = 8.0
+texture = ExtResource("4_tlmju")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfb4u"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hqe54"]
 texture = ExtResource("1_wu8me")
 texture_margin_left = 3.0
@@ -105,7 +138,7 @@ texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
-modulate_color = Color(1.353256, 1.353256, 1.353256, 1)
+modulate_color = Color(1.353, 1.353, 1.353, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wgbx"]
 content_margin_left = 8.0
@@ -126,6 +159,13 @@ Button/styles/hover = SubResource("StyleBoxTexture_tlmju")
 Button/styles/hover_pressed = SubResource("StyleBoxTexture_hjiyk")
 Button/styles/normal = SubResource("StyleBoxTexture_lrbaq")
 Button/styles/pressed = SubResource("StyleBoxTexture_ysvx8")
+HScrollBar/constants/padding_bottom = 1
+HScrollBar/constants/padding_top = 1
+HScrollBar/styles/grabber = SubResource("StyleBoxTexture_kq1px")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_drkkq")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_wtwqd")
+HScrollBar/styles/scroll = SubResource("StyleBoxTexture_2gf0v")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_pfb4u")
 Label/colors/font_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
 Label/colors/font_outline_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 Label/constants/outline_size = 4

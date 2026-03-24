@@ -3,7 +3,8 @@ extends Node
 @warning_ignore_start("unused_signal")
 
 signal camera_lock(is_locked: bool)
-signal camera_position_at(transform: Transform3D)
+signal camera_position_at(pos: Vector3)
+signal camera_look_at(what: Node3D)
 
 signal player_input_lock(is_locked: bool)
 
@@ -17,7 +18,8 @@ signal send_message(text: String)
 
 func enter_screen(camera_transform: Transform3D, blacklisted_object: Node, player: PlayerBody, gui_panel: GUIPanel) -> void:
 	camera_lock.emit(true)
-	camera_position_at.emit(camera_transform)
+	camera_position_at.emit(camera_transform.origin)
+	camera_look_at.emit(gui_panel)
 	player_input_lock.emit(true)
 	
 	add_node_to_interaction_ray_blacklist.emit(blacklisted_object, player.player_interaction_ray)
@@ -30,7 +32,8 @@ func enter_screen(camera_transform: Transform3D, blacklisted_object: Node, playe
 
 func exit_screen(blacklisted_object: Node, player: PlayerBody, gui_panel: GUIPanel) -> void:
 	camera_lock.emit(false)
-	camera_position_at.emit(Transform3D())
+	camera_position_at.emit(Vector3.ZERO)
+	camera_look_at.emit(null)
 	player_input_lock.emit(false)
 	
 	remove_node_from_interaction_ray_blacklist.emit(blacklisted_object, player.player_interaction_ray)

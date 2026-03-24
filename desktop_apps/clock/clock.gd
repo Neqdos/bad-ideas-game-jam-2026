@@ -5,8 +5,6 @@ extends Control
 @onready var hour_line: ColorRect = %HourLine
 @onready var minute_line: ColorRect = %MinuteLine
 
-var changing_clock: bool = false
-
 var rot_vector: Vector2
 
 func _ready() -> void:
@@ -21,14 +19,14 @@ func _process(delta: float) -> void:
 	hour_line.rotation = (time["hour"] + time["minute"] / 60.0) / 12.0 * TAU
 
 func _on_clock_button_down() -> void:
-	changing_clock = true
+	DesktopManager.is_using_clock = true
 	set_rot_vector()
 
 func _on_clock_button_up() -> void:
-	changing_clock = false
+	DesktopManager.is_using_clock = false
 
 func _input(event: InputEvent) -> void:
-	if !changing_clock: return
+	if !DesktopManager.is_using_clock: return
 	
 	if event is InputEventMouseMotion:
 		var old_rot_vector: Vector2 = rot_vector

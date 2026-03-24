@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5jkexs28m7q4"
-path.s3tc="res://.godot/imported/drawer_0.png-e1675a43d42f8ab2861609c1e4e302a8.s3tc.ctex"
+path="res://.godot/imported/drawer_0.png-e1675a43d42f8ab2861609c1e4e302a8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "d10a815e3aad9976abba61f210405f21"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://entities/static_objects/drawer/drawer_0.png"
-dest_files=["res://.godot/imported/drawer_0.png-e1675a43d42f8ab2861609c1e4e302a8.s3tc.ctex"]
+dest_files=["res://.godot/imported/drawer_0.png-e1675a43d42f8ab2861609c1e4e302a8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

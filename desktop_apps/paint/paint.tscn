@@ -1,0 +1,119 @@
+[gd_scene format=4 uid="uid://b6xgy3em5th76"]
+
+[ext_resource type="Script" uid="uid://xeopxs5t2s3i" path="res://desktop_apps/paint/paint.gd" id="1_cx2n5"]
+[ext_resource type="TileSet" uid="uid://tqjmduo4x1ia" path="res://desktop_apps/paint/paint_tileset.tres" id="3_q1ebh"]
+
+[node name="Paint" type="Node2D" unique_id=1208908005]
+script = ExtResource("1_cx2n5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1127907960]
+layer = -1
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=450361282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG" type="ColorRect" parent="CanvasLayer/Control" unique_id=268333421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1389004046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 304
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 22
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1450726623]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=156018009]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=918109955]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+
+[node name="WhiteButton" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1281157981]
+unique_name_in_owner = true
+layout_mode = 2
+text = "White"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=22560523]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=2044082709]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.69411767, 0.24313726, 0.3254902, 1)
+
+[node name="RedButton" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=181222897]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Red"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=36180520]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer3" unique_id=416382758]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.21960784, 0.7176471, 0.39215687, 1)
+
+[node name="GreenButton" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer3" unique_id=551196675]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Green"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=1907334966]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer4" unique_id=1115861813]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.23137255, 0.3647059, 0.7882353, 1)
+
+[node name="BlueButton" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/VBoxContainer4" unique_id=805928382]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Blue"
+
+[node name="EXPORTBUTTON" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=2036967061]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Export"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1218428098]
+position = Vector2(-16, 0)
+editor_draw_limits = true
+
+[node name="PaintTileMapLayer" type="TileMapLayer" parent="." unique_id=1718422751]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAIAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAABAP3/AAAAAAAAAAABAPz/AAAAAAAAAAAAAPz/AAAAAAAAAAD///z/AAAAAAAAAAD+//z/AAAAAAAAAAD9//z/AAAAAAAAAAD8//z/AAAAAAAAAAD7//z/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAD9//3/AAAAAAAAAAD8//3/AAAAAAAAAAD7//3/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAD+//7/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD8////AAAAAAAAAAD7////AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD+////AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAAAAAIAAAAAAAAAAAA=")
+tile_set = ExtResource("3_q1ebh")

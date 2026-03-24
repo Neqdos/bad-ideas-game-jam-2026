@@ -7,7 +7,7 @@ extends Control
 @onready var extracting_label: Label = %ExtractingLabel
 @onready var extracting_label_dot_timer: Timer = %ExtractingLabelDotTimer
 
-const NOISE_VALUE_MULT: float = .5
+const NOISE_VALUE_MULT: float = 1.0
 const NOISE_VALUE_OFFSET: float = 0.0
 const TIME_SCALE: float = 10.0
 

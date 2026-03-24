@@ -6,6 +6,7 @@ extends Node3D
 
 @onready var power_off_timer: Timer = %PowerOffTimer
 @onready var power_off_light: OmniLight3D = %PowerOffLight
+@onready var alarm: AudioStreamPlayer3D = %Alarm
 
 
 var is_power_off: bool = false
@@ -19,6 +20,7 @@ func _ready() -> void:
 func _on_power_off() -> void:
 	is_power_off = true
 	power_off_light.visible = true
+	alarm.play()
 	power_off_timer.start()
 	room_lamp.visible = false
 
@@ -36,3 +38,4 @@ func _on_power_off_timer_timeout() -> void:
 	
 	power_off_light.visible = !power_off_light.visible
 	power_off_timer.start()
+	if power_off_light.visible: alarm.play()

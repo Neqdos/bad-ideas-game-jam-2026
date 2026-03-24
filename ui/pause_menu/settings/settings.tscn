@@ -35,6 +35,84 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1758380033]
 layout_mode = 2
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2066016624]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1337032882]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Master volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=617315253]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer" unique_id=1867483472]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "0.5"
+
+[node name="MasterVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer" unique_id=2100045433]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=604440819]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1566562568]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Music Volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1607208292]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer6/HBoxContainer" unique_id=2093540107]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "0.5"
+
+[node name="MusicVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer6/HBoxContainer" unique_id=961996883]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1437137217]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1038534948]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "SFX Volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1468052360]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXVolumeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer7/HBoxContainer" unique_id=1182702179]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+text = "0.5"
+
+[node name="SFXVolume" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer7/HBoxContainer" unique_id=1186740549]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=350239038]
 layout_mode = 2
 

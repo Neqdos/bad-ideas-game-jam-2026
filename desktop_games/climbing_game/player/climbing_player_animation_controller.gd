@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 			eyes.position.x = 0
 		"hook_side":
 			eyes.position.y = -10
-			eyes.position.x = -1 if flip_h else 1
+			eyes.position.x = 0
 	
 	if is_zero_approx(player.velocity.x): return
 	

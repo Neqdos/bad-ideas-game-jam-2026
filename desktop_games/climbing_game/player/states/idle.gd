@@ -2,8 +2,13 @@ extends State
 
 @export var player: ClimbingPlayer
 
+var initial_enter: bool = true
+
 func enter() -> void:
-	if is_node_ready(): return
+	if initial_enter:
+		initial_enter = false
+		return
+	
 	player.hook_uses = 0
 	if player.jump_buffer_timer.time_left:
 		state_machine.change_state("jump")

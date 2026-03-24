@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObjectResource" format=3 uid="uid://ds3hh0ne62atc"]
+
+[ext_resource type="Script" uid="uid://xd4oslmu3ja4" path="res://interaction/object_resource.gd" id="1_4meww"]
+
+[resource]
+script = ExtResource("1_4meww")
+name = "Disc"
+object_scene = "uid://df0a7byx1bxlf"
+metadata/_custom_type_script = "uid://xd4oslmu3ja4"

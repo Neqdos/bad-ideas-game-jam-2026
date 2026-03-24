@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://wi8tcgxjbq4w" path="res://entities/player/states/crouch_jump.gd" id="12_yllr7"]
 [ext_resource type="Script" uid="uid://bmlospoma7j7d" path="res://entities/player/player_input.gd" id="15_gx6sm"]
 [ext_resource type="Shader" uid="uid://dridbv1me07vc" path="res://_shaders/screen_shader.gdshader" id="20_t1t22"]
+[ext_resource type="AudioStream" uid="uid://cjuardr0nbqef" path="res://audio/sfx/pick_up.mp3" id="23_50fht"]
 [ext_resource type="Script" uid="uid://csl0g7luudq4y" path="res://interaction/default_actions/object_default_hold.gd" id="29_sk710"]
 [ext_resource type="Script" uid="uid://jmu2hxk6ujv1" path="res://interaction/default_actions/hand_default_actions.gd" id="30_7rgwd"]
 [ext_resource type="Script" uid="uid://8tka5p6amtm6" path="res://interaction/default_actions/object_default_interact.gd" id="30_24so6"]
@@ -179,10 +180,15 @@ script = ExtResource("3_afbqv")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://d6aavma38un5"
 
-[node name="ObjectDefaultHold" type="Node" parent="Head/InteractionRay" unique_id=904208739 node_paths=PackedStringArray("player")]
+[node name="ObjectDefaultHold" type="Node" parent="Head/InteractionRay" unique_id=904208739 node_paths=PackedStringArray("player", "pick_up_sfx")]
 script = ExtResource("29_sk710")
 player = NodePath("../../..")
+pick_up_sfx = NodePath("PickUpSound")
 metadata/_custom_type_script = "uid://csl0g7luudq4y"
+
+[node name="PickUpSound" type="AudioStreamPlayer" parent="Head/InteractionRay/ObjectDefaultHold" unique_id=947256965]
+stream = ExtResource("23_50fht")
+bus = &"SFX"
 
 [node name="ObjectDefaultInteract" type="Node" parent="Head/InteractionRay" unique_id=925477096 node_paths=PackedStringArray("player")]
 script = ExtResource("30_24so6")

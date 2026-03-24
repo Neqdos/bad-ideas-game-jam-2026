@@ -2,6 +2,7 @@ extends Node
 class_name ObjectDefaultHold
 
 @export var player: PlayerBody
+@export var pick_up_sfx: AudioStreamPlayer
 
 const POSITION_PLACE_OFFSET: Vector3 = Vector3(0, .03, 0)
 
@@ -16,6 +17,7 @@ func _on_object_hold() -> void:
 		if player.player_interaction_ray.is_colliding():
 			place_object()
 			player.inv_manager.unhold_object()
+			pick_up_sfx.play()
 		else:
 			StorageMethods.drop_object(player.inv_manager.held_object, player.player_interaction_ray.global_position, player)
 			player.inv_manager.unhold_object()
@@ -28,7 +30,7 @@ func _on_object_hold() -> void:
 		GlobalMethods.get_merged_aabb_from_collisions(GlobalMethods.get_correct_collisions_from_a_node(player.player_interaction_ray.object)).size,
 		get_tree().current_scene)
 	player.inv_manager.hold_object(player.player_interaction_ray.object)
-
+	pick_up_sfx.play()
 
 func place_object() -> void:
 	var object: RigidObject = player.inv_manager.held_object

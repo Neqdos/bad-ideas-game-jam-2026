@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b04yo5iaj12gc" path="res://desktop_games/climbing_game/spawn_area.gd" id="9_xghrv"]
 [ext_resource type="Script" uid="uid://casr8frccds1s" path="res://desktop_games/popup_area.gd" id="10_xghrv"]
 [ext_resource type="Resource" uid="uid://kyyd543yxu0h" path="res://desktop_popups/hacked/hacked.tres" id="11_l83bx"]
+[ext_resource type="Script" uid="uid://mn78rb65mx6g" path="res://desktop_games/climbing_game/metal_block.gd" id="13_3lmpm"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xghrv"]
 scenes/1/scene = ExtResource("1_07cv5")
@@ -243,6 +244,9 @@ size = Vector2(24, 72)
 a = Vector2(1, -15)
 b = Vector2(1, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcnn6"]
+size = Vector2(16, 16)
+
 [node name="ClimbingGame" type="Node2D" unique_id=1152776224]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=92377603]
@@ -356,3 +360,17 @@ metadata/_custom_type_script = "uid://casr8frccds1s"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HackedPopup" unique_id=1644859910]
 shape = SubResource("SegmentShape2D_l83bx")
+
+[node name="MetalBlock" type="CharacterBody2D" parent="." unique_id=660845864]
+position = Vector2(144, 34)
+script = ExtResource("13_3lmpm")
+metadata/_custom_type_script = "uid://mn78rb65mx6g"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MetalBlock" unique_id=872551066]
+shape = SubResource("RectangleShape2D_wcnn6")
+
+[node name="ColorRect" type="ColorRect" parent="MetalBlock" unique_id=1680403256]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0

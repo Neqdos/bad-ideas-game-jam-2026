@@ -37,6 +37,7 @@ var time: float
 var can_rotate: int = 0
 var can_do_rot_offset: bool = true
 
+var looked_at_object: Node3D = null
 
 func _ready() -> void:
 	if is_multiplayer_authority(): current = true
@@ -45,6 +46,7 @@ func _ready() -> void:
 	
 	SignalManager.camera_lock.connect(_on_camera_lock)
 	SignalManager.camera_position_at.connect(_on_camera_position_at)
+	SignalManager.camera_look_at.connect(_on_camera_look_at)
 	
 	player_state_machine.state_changed.connect(_on_state_changed)
 
@@ -52,31 +54,53 @@ func _on_camera_lock(is_locked: bool) -> void:
 	can_rotate += int(is_locked) * 2 - 1
 	can_rotate = max(0, can_rotate)
 
-func _on_camera_position_at(marker_transform: Transform3D) -> void:
-	if marker_transform:
+func _on_camera_position_at(pos: Vector3) -> void:
+	if pos:
 		state_change_head_lerp_position = false
 		
-		var angle_y: float = Vector2(marker_transform.basis.z.y, marker_transform.basis.z.z).angle() - PI / 2.0
-		var angle_x: float = -Vector2(marker_transform.basis.z.x, marker_transform.basis.z.z).angle() + PI / 2.0
+		#var angle_y: float = Vector2(marker_transform.basis.z.y, marker_transform.basis.z.z).angle() - PI / 2.0
+		#var angle_x: float = -Vector2(marker_transform.basis.z.x, marker_transform.basis.z.z).angle() + PI / 2.0
 		
-		var abs_cam_rot_x: float = absf(camera_rot_target.x)
-		var added_rotation: float = 0.0
-		while abs_cam_rot_x > TAU:
-			abs_cam_rot_x -= TAU
-			added_rotation += TAU if camera_rot_target.x > 0.0 else -TAU
+		#var abs_cam_rot_x: float = absf(camera_rot_target.x)
+		#var added_rotation: float = 0.0
+		#while abs_cam_rot_x > TAU:
+		#	abs_cam_rot_x -= TAU
+		#	added_rotation += TAU if camera_rot_target.x > 0.0 else -TAU
 		
-		camera_rot_target.y = angle_y
-		camera_rot_target.x = added_rotation + angle_x
-		head_lerp_y_position = marker_transform.origin.y
-		head_lerp_xz_position = Vector2(marker_transform.origin.x, marker_transform.origin.z)
-		camera_rot_offset = Vector2.ZERO
-		can_do_rot_offset = false
+		#camera_rot_target.y = angle_y
+		#camera_rot_target.x = added_rotation + angle_x
+		head_lerp_y_position = pos.y
+		head_lerp_xz_position = Vector2(pos.x, pos.z)
+		#camera_rot_offset = Vector2.ZERO
+		#can_do_rot_offset = false
 	else:
 		state_change_head_lerp_position = true
 		head.position.x = 0.0
 		head.position.z = 0.0
-		can_do_rot_offset = true
+		#can_do_rot_offset = true
 		check_for_state_and_head_lerp_position()
+
+func _on_camera_look_at(what: Node3D) -> void:
+	looked_at_object = what
+	can_do_rot_offset = is_instance_valid(what)
+
+func look_at_object() -> void:
+	var dir_to_obj: Vector3 = looked_at_object.global_position - global_position.normalized()
+	var my_dir: Vector3 = global_basis.z
+	var difference: Vector3 = (dir_to_obj - my_dir).normalized()
+	
+	var abs_rot: float = absf(camera_rot_target.x)
+	while abs_rot > TAU: abs_rot -= TAU
+	
+	var is_less_than_half: bool = abs_rot < PI
+	
+	var offset: float = floorf(camera_rot_target.x / TAU) * TAU if is_less_than_half else ceilf(camera_rot_target.x / TAU) * TAU
+	if camera_rot_target.x < 0.0:
+		offset += TAU if is_less_than_half else -TAU
+	
+	camera_rot_target.y = 0.0 
+	
+	camera_rot_target.x = offset + difference.x * PI / 2.0
 
 func _on_state_changed() -> void:
 	if !state_change_head_lerp_position: return
@@ -91,6 +115,8 @@ func _physics_process(delta: float) -> void:
 	
 	check_for_state(delta)
 	set_move_bob()
+	
+	if is_instance_valid(looked_at_object): look_at_object()
 	
 	# move tilt
 	head.rotation.z = lerpf(head.rotation.z, deg_to_rad(-player.input.input_vector.x * MOVE_TILT), delta * 8.0)

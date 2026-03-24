@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://3bk5ywoeotvo" path="res://ui/safe/safe_dingle_base.png" id="1_3b71h"]
 [ext_resource type="Script" uid="uid://3257pde63jw1" path="res://ui/safe/safe_ui.gd" id="1_3bqe7"]
+[ext_resource type="AudioStream" uid="uid://brwlxa5jye1oj" path="res://audio/sfx/safe/lock_fail.mp3" id="2_e3c2v"]
 [ext_resource type="Texture2D" uid="uid://b4gynyrekxmua" path="res://ui/safe/safe_dingle.png" id="2_fla3c"]
 [ext_resource type="PackedScene" uid="uid://cvut5l0aux0a5" path="res://ui/safe/safe_digit.tscn" id="4_e3c2v"]
 
@@ -13,6 +14,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3bqe7")
+
+[node name="LockFailSFX" type="AudioStreamPlayer" parent="." unique_id=1981624752]
+unique_name_in_owner = true
+stream = ExtResource("2_e3c2v")
+bus = &"SFX"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=23734150]
 layout_mode = 1

@@ -2,7 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://ch1y7bbiwm04h" path="res://entities/static_objects/pc/pc.tscn" id="1_03f54"]
 [ext_resource type="Script" uid="uid://bhmug3lm0c8su" path="res://world/game.gd" id="1_7oyu6"]
+[ext_resource type="AudioStream" uid="uid://bk8htf5sj60vp" path="res://audio/ambient/ambient.mp3" id="2_d65k2"]
 [ext_resource type="PackedScene" uid="uid://dlgg00l13fbxf" path="res://entities/player/player.tscn" id="2_xfo4j"]
+[ext_resource type="Texture2D" uid="uid://cfdmk2i13xokb" path="res://entities/static_objects/floor_texture.png" id="3_fuoxl"]
+[ext_resource type="PackedScene" uid="uid://de60m5uxpymch" path="res://entities/objects/battery/battery.tscn" id="4_lkqos"]
 [ext_resource type="PackedScene" uid="uid://clbli2af05lx" path="res://entities/objects/discs/disc_fishing_game/disc_fishing_game.tscn" id="5_6jtoe"]
 [ext_resource type="PackedScene" uid="uid://cymde10hfv13f" path="res://entities/objects/discs/disc_climbing_game/disc_climbing_game.tscn" id="5_6wkmc"]
 [ext_resource type="PackedScene" uid="uid://glfkxhtbix8u" path="res://entities/static_objects/desk/desk.gltf" id="5_qqhmf"]
@@ -10,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://q1jpayu0wfly" path="res://entities/static_objects/safe/safe.tscn" id="6_e8jue"]
 [ext_resource type="PackedScene" uid="uid://kw187sr6a2ai" path="res://entities/objects/discs/disc_clock/disc_clock.tscn" id="6_jebw6"]
 [ext_resource type="PackedScene" uid="uid://jr2nctqvc80v" path="res://entities/static_objects/drawer/drawer.tscn" id="8_2jm6r"]
+[ext_resource type="PackedScene" uid="uid://cxr46jr8csrgv" path="res://entities/static_objects/cuckoo_clock/cuckoo_clock.tscn" id="11_hliwg"]
+[ext_resource type="PackedScene" uid="uid://dy6ew1p8ac8ei" path="res://entities/painting/painting.tscn" id="12_av0ep"]
+[ext_resource type="PackedScene" uid="uid://m0vjqdgxoui8" path="res://entities/static_objects/electromagnet/electromagnet.tscn" id="15_ehfc1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xfo4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,7 +28,7 @@ sky_material = SubResource("ProceduralSkyMaterial_xfo4j")
 background_mode = 2
 sky = SubResource("Sky_b7hlb")
 ambient_light_source = 2
-ambient_light_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+ambient_light_color = Color(0.1964367, 0.2062555, 0.30863175, 1)
 tonemap_mode = 2
 ssao_enabled = true
 ssil_enabled = true
@@ -30,6 +36,11 @@ glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_bahc2"]
 size = Vector3(8, 1, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehfc1"]
+albedo_texture = ExtResource("3_fuoxl")
+uv1_scale = Vector3(16, 16, 16)
+texture_filter = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e8jue"]
 size = Vector3(8, 1, 8)
@@ -72,6 +83,12 @@ script = ExtResource("1_7oyu6")
 pc = NodePath("Map/Desk/PC")
 player = NodePath("Player")
 
+[node name="AmbientSound" type="AudioStreamPlayer" parent="." unique_id=1481049948]
+unique_name_in_owner = true
+stream = ExtResource("2_d65k2")
+autoplay = true
+bus = &"SFX"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1333082510]
 environment = SubResource("Environment_6jtoe")
 
@@ -82,9 +99,11 @@ environment = SubResource("Environment_6jtoe")
 [node name="FloorM" type="MeshInstance3D" parent="Map/Environemnt" unique_id=120191627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_bahc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ehfc1")
 
 [node name="FloorCS" type="CollisionShape3D" parent="Map/Environemnt" unique_id=686213074]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 shape = SubResource("BoxShape3D_e8jue")
 
 [node name="CeilingM" type="MeshInstance3D" parent="Map/Environemnt" unique_id=1648521754]
@@ -128,11 +147,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.5
 shape = SubResource("BoxShape3D_ehfc1")
 
 [node name="PowerControlBox" parent="Map" unique_id=424705334 node_paths=PackedStringArray("room_lamp") instance=ExtResource("6_6wkmc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 1.4, 2.845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 1.4, 2.788)
 room_lamp = NodePath("../../OmniLight3D")
 
 [node name="DiscClimbingGame" parent="Map/PowerControlBox" unique_id=795928205 instance=ExtResource("5_6wkmc")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.100000024, 0.11156011)
+transform = Transform3D(0.8660254, 0.43301272, -0.25000003, -0.1294095, -0.2888487, -0.9485882, -0.4829629, 0.85385394, -0.1941143, 0.063549995, 0.100000024, 0.15644526)
 
 [node name="Drawer" parent="Map" unique_id=592042171 instance=ExtResource("8_2jm6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, -2.6)
@@ -176,7 +195,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1785676090]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.834, 0)
-light_color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+light_color = Color(0.96, 0.8112, 0.6624, 1)
+light_energy = 0.7
 shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 2.0
+
+[node name="CuckooClock" parent="." unique_id=1608381402 instance=ExtResource("11_hliwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.021839, 1.5635548, 2.90625)
+
+[node name="Painting" parent="." unique_id=1990903467 instance=ExtResource("12_av0ep")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.9989166, 1.15, 1.8647435)
+
+[node name="Electromagnet" parent="." unique_id=1015396693 instance=ExtResource("15_ehfc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -2.402)
+
+[node name="Battery" parent="." unique_id=1159110517 instance=ExtResource("4_lkqos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7179508, 0, -0.8140167)

@@ -47,11 +47,15 @@ signal power_off()
 signal power_on()
 var can_enter_and_exit_computer: bool = false
 var safe_code: String
+var is_magnet_on: bool = false
 # ---
+
+var is_using_clock: bool = false
+var paint_tiles: Array[Array]
+signal paint_tiles_changed()
 
 var unlocked_popup_sites: Array[PopupResource]
 var used_hacked: bool = false
-
 
 const DESKTOP_ICON_SCENE: PackedScene = preload("uid://d2cy4fxujo4kc")
 const POPUP_WINDOW_SCENE: PackedScene = preload("uid://nhxqcrnm8ar6")

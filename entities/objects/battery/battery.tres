@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObjectResource" format=3 uid="uid://bbev20hmwse0o"]
+
+[ext_resource type="Script" uid="uid://xd4oslmu3ja4" path="res://interaction/object_resource.gd" id="1_tuc28"]
+
+[resource]
+script = ExtResource("1_tuc28")
+name = "Battery"
+object_scene = "uid://de60m5uxpymch"
+metadata/_custom_type_script = "uid://xd4oslmu3ja4"
