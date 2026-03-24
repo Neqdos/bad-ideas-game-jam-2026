@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://4o1vq7q536sf" path="res://desktop/textures/window_npt.png" id="2_7aqv4"]
 [ext_resource type="Texture2D" uid="uid://r1mj0d6f1hjm" path="res://desktop_games/test_game/tg_player.png" id="2_dohsy"]
 [ext_resource type="Texture2D" uid="uid://uud3gp5runin" path="res://desktop/textures/checked_pattern_blue.png" id="2_ekf7l"]
+[ext_resource type="Texture2D" uid="uid://bnj0g6vpwpmb5" path="res://desktop/desktop_audio_icon.png" id="5_encdj"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="5_m5l4i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5l4i"]
@@ -89,6 +90,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
 ellipsis_char = "."
+
+[node name="AudioButton" type="Button" parent="WindowPanel/VBoxContainer/TitleBarTexture/HBoxContainer" unique_id=889298145]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(17, 17)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("5_encdj")
 
 [node name="MinimizeButton" type="Button" parent="WindowPanel/VBoxContainer/TitleBarTexture/HBoxContainer" unique_id=1213595635]
 unique_name_in_owner = true

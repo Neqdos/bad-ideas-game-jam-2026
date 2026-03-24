@@ -1,16 +1,21 @@
 extends DesktopWindow
 class_name FileWindow
 
+@export var has_minimize: bool = true
 
 @onready var window_icon: TextureRect = %WindowIcon
 @onready var window_name: Label = %WindowName
 
 @onready var minimize_button: Button = %MinimizeButton
 @onready var close_button: Button = %CloseButton
+@onready var audio_button: Button = %AudioButton
 
 @onready var title_bar_texture: TextureRect = %TitleBarTexture
 
 @export var file_res: FileResource
+
+var is_muted: bool = false
+
 
 func initiate() -> void:
 	name = file_res.name.to_pascal_case()
@@ -44,7 +49,25 @@ func _ready() -> void:
 	_base_ready()
 	
 	close_button.pressed.connect(close)
-	minimize_button.pressed.connect(minimize)
+	
+	if has_minimize:
+		minimize_button.pressed.connect(minimize)
+	else:
+		minimize_button.visible = false
+	
+	audio_button.pressed.connect(_on_audio_button_pressed)
 
 func _process(delta: float) -> void:
 	_base_process(delta)
+
+func _on_audio_button_pressed() -> void:
+	is_muted = !is_muted
+	
+	audio_button.icon = DesktopManager.DESKTOP_AUDIO_ICON if !is_muted else DesktopManager.DESKTOP_AUDIO_ICON_MUTE
+	
+	for dap: AudioStreamPlayer3D in app_viewport.find_children("", "AudioStreamPlayer3D", true, false):
+		if !(dap is DesktopAudioPlayer): return
+		if is_muted:
+			dap.mute()
+		else:
+			dap.unmute()

@@ -15,6 +15,7 @@ var initial_enter: bool = true
 
 func _ready() -> void:
 	object_interact_action.interacted.connect(_on_object_interact_action_interacted)
+	DesktopManager.sound_pos = global_position
 
 func _on_object_interact_action_interacted(player: PlayerBody) -> void:
 	if !initial_enter and !DesktopManager.can_enter_and_exit_computer: return

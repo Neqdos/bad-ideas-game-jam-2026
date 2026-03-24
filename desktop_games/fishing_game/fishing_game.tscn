@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://cdk8pgjxo1c2m"]
 
 [ext_resource type="Script" uid="uid://oyx65nkwogwg" path="res://desktop_games/fishing_game/fishing_game.gd" id="1_ypyik"]
+[ext_resource type="AudioStream" uid="uid://c4rvphdvo603j" path="res://audio/music/purple.mp3" id="2_bsli0"]
 [ext_resource type="PackedScene" uid="uid://bv1of3jo3vrim" path="res://desktop_games/fishing_game/ui/fishing_game_ui.tscn" id="2_dv54t"]
 [ext_resource type="PackedScene" uid="uid://epmb7v6e853d" path="res://desktop_games/fishing_game/fishing_hook/fishing_hook.tscn" id="2_k46on"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_cpfjy"]
 [ext_resource type="Texture2D" uid="uid://cknuyedh71j3r" path="res://desktop_games/fishing_game/stone_tileset.png" id="3_dty3a"]
 [ext_resource type="Script" uid="uid://b4fm75m7krycv" path="res://desktop_games/fishing_game/fishing_game_input.gd" id="3_ypyik"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_yxqwv"]
@@ -219,6 +221,15 @@ metadata/_better_terrain = {
 
 [node name="FishingGame" type="Node2D" unique_id=1205627818]
 script = ExtResource("1_ypyik")
+
+[node name="Music" type="AudioStreamPlayer3D" parent="." unique_id=1811568237]
+stream = ExtResource("2_bsli0")
+autoplay = true
+max_distance = 4.0
+bus = &"Music"
+script = ExtResource("3_cpfjy")
+looping = true
+metadata/_custom_type_script = "uid://dd15wmise3apx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1173474434]
 

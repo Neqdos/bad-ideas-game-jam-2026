@@ -124,8 +124,8 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="SettingsWindow" parent="WindowContainer" unique_id=1191766311 instance=ExtResource("13_1dkjm")]
-visible = false
 layout_mode = 1
+has_minimize = false
 file_res = ExtResource("14_mni1t")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=375334904]

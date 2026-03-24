@@ -21,6 +21,8 @@ func _ready() -> void:
 	DesktopManager.fishing_game_reeling.connect(_on_fishing_game_reeling)
 	DesktopManager.fishing_game_ended.connect(_on_fishing_game_ended)
 	DesktopManager.fishing_all_sold.connect(_on_fishing_all_sold)
+	
+	
 
 func _on_try_start() -> void:
 	if !can_start_game: return

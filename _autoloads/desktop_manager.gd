@@ -50,12 +50,18 @@ var safe_code: String
 var is_magnet_on: bool = false
 # ---
 
+var sound_pos: Vector3
+
 var is_using_clock: bool = false
 var paint_tiles: Array[Array]
 signal paint_tiles_changed()
 
 var unlocked_popup_sites: Array[PopupResource]
 var used_hacked: bool = false
+
+const DESKTOP_AUDIO_ICON = preload("uid://bnj0g6vpwpmb5")
+const DESKTOP_AUDIO_ICON_MUTE = preload("uid://crlq0jw43me41")
+
 
 const DESKTOP_ICON_SCENE: PackedScene = preload("uid://d2cy4fxujo4kc")
 const POPUP_WINDOW_SCENE: PackedScene = preload("uid://nhxqcrnm8ar6")

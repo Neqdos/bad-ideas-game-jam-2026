@@ -15,6 +15,7 @@ signal change_player_ui_visibility(visible: bool)
 
 signal send_message(text: String)
 
+signal play_pc_asp(audio_stream_player3d: AudioStreamPlayer3D)
 
 func enter_screen(camera_transform: Transform3D, blacklisted_object: Node, player: PlayerBody, gui_panel: GUIPanel) -> void:
 	camera_lock.emit(true)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bb56jwrmcews0" path="res://entities/static_objects/power_control_box/power_control_box.gd" id="1_nw4jc"]
 [ext_resource type="Texture2D" uid="uid://b0yrsyohevhep" path="res://entities/static_objects/power_control_box/power_control_box_0.png" id="2_1s6h4"]
 [ext_resource type="Script" uid="uid://dkvovvvhiovlj" path="res://interaction/in_world/object_interact_action.gd" id="2_nw4jc"]
+[ext_resource type="AudioStream" uid="uid://diwa2i7ytqcwb" path="res://audio/sfx/light_switch.mp3" id="2_rand3"]
 [ext_resource type="AudioStream" uid="uid://df4nycnt8y1w8" path="res://audio/sfx/power_control_box_alarm.wav" id="2_yl4bw"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yl4bw"]
@@ -92,6 +93,12 @@ script = ExtResource("1_nw4jc")
 unique_name_in_owner = true
 wait_time = 0.25
 one_shot = true
+
+[node name="LightSwitch" type="AudioStreamPlayer3D" parent="." unique_id=637480600]
+unique_name_in_owner = true
+stream = ExtResource("2_rand3")
+max_distance = 3.0
+bus = &"SFX"
 
 [node name="Alarm" type="AudioStreamPlayer3D" parent="." unique_id=1339179729]
 unique_name_in_owner = true
