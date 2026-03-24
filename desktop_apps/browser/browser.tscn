@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="1_cdk01"]
 [ext_resource type="PackedScene" uid="uid://c3yj415hnvkwg" path="res://desktop_apps/browser/browser_link.tscn" id="2_cdk01"]
 [ext_resource type="Resource" uid="uid://kyyd543yxu0h" path="res://desktop_popups/hacked/hacked.tres" id="3_7bca2"]
+[ext_resource type="Resource" uid="uid://lme8grx2etjf" path="res://desktop_popups/online_course/online_course.tres" id="4_gadmo"]
 
 [node name="browser" type="Control" unique_id=193755841]
 layout_mode = 3
@@ -61,3 +62,8 @@ alignment = 1
 layout_mode = 2
 popup_res = ExtResource("3_7bca2")
 site_name = "yougothacked"
+
+[node name="OnlineCourse" parent="MarginContainer/VBoxContainer/SiteLinksContainer" unique_id=50976908 instance=ExtResource("2_cdk01")]
+layout_mode = 2
+popup_res = ExtResource("4_gadmo")
+site_name = "bestcoursesonline"

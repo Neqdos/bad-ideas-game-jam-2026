@@ -1,7 +1,8 @@
 extends Resource
 class_name FishingStats
 
-@export var money_gain: float = 1.0
+# TODO: remember to change this to default
+@export var money_gain: float = 20.0#1.0
 const MONEY_GAIN_UPGRADES: Array[float] = [1.2, 1.4, 1.6, 1.8, 2.0]
 const MONEY_GAIN_COSTS: Array[float] = [25.0, 90.0, 150.0, 400.0, 880.0]
 

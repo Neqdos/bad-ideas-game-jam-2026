@@ -10,6 +10,8 @@ extends Node2D
 const REELING_SPEED: float = 128.0
 const STARTING_HOOK_POSITION: Vector2 = Vector2.ZERO
 
+const ONLINE_COURSE = preload("uid://lme8grx2etjf")
+
 var tween: Tween
 
 var can_start_game: bool = true
@@ -21,8 +23,7 @@ func _ready() -> void:
 	DesktopManager.fishing_game_reeling.connect(_on_fishing_game_reeling)
 	DesktopManager.fishing_game_ended.connect(_on_fishing_game_ended)
 	DesktopManager.fishing_all_sold.connect(_on_fishing_all_sold)
-	
-	
+
 
 func _on_try_start() -> void:
 	if !can_start_game: return
@@ -54,6 +55,12 @@ func _on_fishing_game_ended() -> void:
 
 func _on_fishing_all_sold() -> void:
 	can_start_game = true
+	
+	if DesktopManager.shown_course_popup: return
+	
+	if DesktopManager.fishing_money >= 100.0:
+		DesktopManager.shown_course_popup = true
+		DesktopManager.show_popup(ONLINE_COURSE)
 
 func _physics_process(delta: float) -> void:
 	fishing_line.set_point_position(1, fishing_hook.global_position)

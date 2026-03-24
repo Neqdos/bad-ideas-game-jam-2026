@@ -117,4 +117,6 @@ func catch(fish_hook: FishingHook) -> void:
 
 func sell() -> void:
 	visible = false
-	DesktopManager.fishing_money += fish_res.default_money_value if !is_special else fish_res.default_money_value * SPECIAL_MULT
+	var amount: float = fish_res.default_money_value if !is_special else fish_res.default_money_value * SPECIAL_MULT
+	amount *= DesktopManager.fishing_stats.money_gain
+	DesktopManager.fishing_money += amount

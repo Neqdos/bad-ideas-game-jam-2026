@@ -21,10 +21,20 @@
 [ext_resource type="Script" uid="uid://wi8tcgxjbq4w" path="res://entities/player/states/crouch_jump.gd" id="12_yllr7"]
 [ext_resource type="Script" uid="uid://bmlospoma7j7d" path="res://entities/player/player_input.gd" id="15_gx6sm"]
 [ext_resource type="Shader" uid="uid://dridbv1me07vc" path="res://_shaders/screen_shader.gdshader" id="20_t1t22"]
-[ext_resource type="AudioStream" uid="uid://cjuardr0nbqef" path="res://audio/sfx/pick_up.mp3" id="23_50fht"]
+[ext_resource type="AudioStream" uid="uid://cjuardr0nbqef" path="res://audio/sfx/player/pick_up.mp3" id="23_50fht"]
+[ext_resource type="AudioStream" uid="uid://286nnamkaj80" path="res://audio/sfx/player/footsteps1.wav" id="26_wq0jh"]
+[ext_resource type="AudioStream" uid="uid://bws54b6kfqpoj" path="res://audio/sfx/player/footsteps2.wav" id="27_gt4e4"]
+[ext_resource type="AudioStream" uid="uid://bqodaqfkwjmog" path="res://audio/sfx/player/footsteps3.wav" id="28_24ehl"]
 [ext_resource type="Script" uid="uid://csl0g7luudq4y" path="res://interaction/default_actions/object_default_hold.gd" id="29_sk710"]
 [ext_resource type="Script" uid="uid://jmu2hxk6ujv1" path="res://interaction/default_actions/hand_default_actions.gd" id="30_7rgwd"]
 [ext_resource type="Script" uid="uid://8tka5p6amtm6" path="res://interaction/default_actions/object_default_interact.gd" id="30_24so6"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bwdx1"]
+random_pitch = 1.122462
+streams_count = 3
+stream_0/stream = ExtResource("26_wq0jh")
+stream_1/stream = ExtResource("27_gt4e4")
+stream_2/stream = ExtResource("28_24ehl")
 
 [sub_resource type="QuadMesh" id="QuadMesh_50fht"]
 flip_faces = true
@@ -153,6 +163,11 @@ metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
 script = ExtResource("2_b2kln")
 player = NodePath("..")
 metadata/_custom_type_script = "uid://dxa0malsrpuf7"
+
+[node name="FootstepsSound" type="AudioStreamPlayer3D" parent="." unique_id=394516219]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_bwdx1")
+bus = &"SFX"
 
 [node name="Head" type="Node3D" parent="." unique_id=268318381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)

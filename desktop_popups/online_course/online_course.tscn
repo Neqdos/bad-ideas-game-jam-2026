@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://cp3d51mr8abec"]
+
+[ext_resource type="Script" uid="uid://b55nnfy2uv5fv" path="res://desktop_popups/online_course/online_course.gd" id="1_4isel"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="1_sw8ah"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sw8ah"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.25490198, 0.6509804, 0.9647059, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4isel"]
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+grow_begin = 4.0
+grow_end = 4.0
+
+[node name="OnlineCourse" type="Control" unique_id=595673994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4isel")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1564551174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1315613710]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1815307728]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=684245766]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25490198, 0.6509804, 0.9647059, 1)
+text = "Online Course!!1!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=169318161]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sw8ah")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_sw8ah")
+text = "Are you a dumby? Want to waste your time and money? Lucky for you our course is now on sale and you can buy it for the cheap price of 99.99$! What is included:"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=901348012]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("1_sw8ah")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_sw8ah")
+text = "* this course of course!
+* 99% discount!
+* an image of suspiciously colored books?
+* free -99.99$!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BuyButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=95227443]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Buy 99.99$"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BuyButton" unique_id=1413580794]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -6.9999995
+offset_right = 18.0
+offset_bottom = 6.0000005
+rotation = -0.2617994
+theme_override_colors/font_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
+text = "9999.99$"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/BuyButton/Label" unique_id=1704590518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_4isel")

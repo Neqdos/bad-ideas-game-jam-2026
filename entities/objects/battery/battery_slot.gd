@@ -9,6 +9,7 @@ var powered: bool = false:
 		powered_changed.emit()
 
 @onready var battery_transform: Marker3D = %BatteryTransform
+@onready var insert_sfx: AudioStreamPlayer3D = %InsertSFX
 
 func _ready() -> void:
 	child_exiting_tree.connect(battery_taken)
@@ -21,6 +22,7 @@ func insert_battery(battery: Battery) -> void:
 	battery.freeze = true
 	battery.global_transform = battery_transform.global_transform
 	battery.reparent(self)
+	insert_sfx.play()
 	powered = true
 
 func battery_taken(node: Node) -> void:

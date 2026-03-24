@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://df4nycnt8y1w8"
-path="res://.godot/imported/power_control_box_alarm.wav-79f05a3ea894d4e50bf02bd95e0b290b.sample"
+path="res://.godot/imported/power_control_box_alarm.wav-a8f14409520db26d8c79c8da8ef07193.sample"
 
 [deps]
 
-source_file="res://audio/sfx/power_control_box_alarm.wav"
-dest_files=["res://.godot/imported/power_control_box_alarm.wav-79f05a3ea894d4e50bf02bd95e0b290b.sample"]
+source_file="res://audio/sfx/power_control_box/power_control_box_alarm.wav"
+dest_files=["res://.godot/imported/power_control_box_alarm.wav-a8f14409520db26d8c79c8da8ef07193.sample"]
 
 [params]
 

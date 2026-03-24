@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8f3jbplexwao" path="res://entities/static_objects/cuckoo_clock/cuckoo_clock.gd" id="1_2rora"]
 [ext_resource type="Texture2D" uid="uid://du3ki3spuiwk4" path="res://entities/static_objects/cuckoo_clock/cuckoo_clock_0.png" id="2_fofig"]
-[ext_resource type="AudioStream" uid="uid://df4nycnt8y1w8" path="res://audio/sfx/power_control_box_alarm.wav" id="2_mye86"]
+[ext_resource type="AudioStream" uid="uid://df4nycnt8y1w8" path="res://audio/sfx/power_control_box/power_control_box_alarm.wav" id="2_mye86"]
 [ext_resource type="PackedScene" uid="uid://df0a7byx1bxlf" path="res://entities/objects/discs/disc_paint/disc_paint.tscn" id="3_fofig"]
 [ext_resource type="Texture2D" uid="uid://byxgi5eh4x5sy" path="res://entities/static_objects/cuckoo_clock/cuckoo_clock_1.png" id="5_bmult"]
 

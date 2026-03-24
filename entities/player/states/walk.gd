@@ -2,6 +2,8 @@ extends State
 
 @export var player: PlayerBody
 
+const FOOTSTEP_TIMER: float = .5
+var can_footstep: bool = true
 
 func enter() -> void:
 	physics_update(get_physics_process_delta_time())
@@ -16,6 +18,12 @@ func physics_update(delta: float) -> void:
 		state_machine.change_state("falling")
 
 func update(_delta: float) -> void:
+	if can_footstep:
+		can_footstep = false
+		player.footsteps_sound.play()
+		await get_tree().create_timer(FOOTSTEP_TIMER).timeout
+		can_footstep = true
+	
 	if !player.input.input_vector:
 		state_machine.change_state("idle")
 	elif player.input.is_running:

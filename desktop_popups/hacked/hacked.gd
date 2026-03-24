@@ -7,6 +7,8 @@ const HACKED_INFO: TextFileResource = preload("uid://dux2bjc2vihto")
 func _ready() -> void:
 	download_button.pressed.connect(_on_download_pressed)
 	
+	if DesktopManager.used_hacked: download_button.disabled = true
+	
 	var info: String = "First name: yes
 Last name: also yes
 Adress: Earth (probably)
@@ -18,12 +20,10 @@ Has a virus on their PC: obviously yes" % DesktopManager.safe_code
 	HACKED_INFO.set("data", info)
 	
 	var popup_window: PopupWindow = GlobalMethods.find_first_parent_of_type(self, PopupWindow)
-	
 	DesktopManager.unlock_popup_site(popup_window.popup_res)
 
 func _on_download_pressed() -> void:
-	if DesktopManager.used_hacked: return
-	
+	download_button.disabled = true
 	DesktopManager.used_hacked = true
 	
 	DesktopManager.show_popup(DesktopManager.DISC_EXTRACTING_POPUP, {

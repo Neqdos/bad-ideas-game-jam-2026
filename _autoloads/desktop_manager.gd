@@ -36,6 +36,7 @@ var fishing_money: float = 0.0:
 		fishing_money_changed.emit()
 var fishing_stats: FishingStats = FishingStats.new()
 var fishing_compendium: Array[FishResource] = []
+var shown_course_popup: bool = false
 # ---
 
 # RPG
@@ -58,6 +59,7 @@ signal paint_tiles_changed()
 
 var unlocked_popup_sites: Array[PopupResource]
 var used_hacked: bool = false
+var used_online_course: bool = false
 
 const DESKTOP_AUDIO_ICON = preload("uid://bnj0g6vpwpmb5")
 const DESKTOP_AUDIO_ICON_MUTE = preload("uid://crlq0jw43me41")

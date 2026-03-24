@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PopupResource" format=3 uid="uid://lme8grx2etjf"]
+
+[ext_resource type="Script" uid="uid://dw6gdmwismcdi" path="res://desktop/file_resources/popup_resource.gd" id="1_iw2j0"]
+[ext_resource type="PackedScene" uid="uid://cp3d51mr8abec" path="res://desktop_popups/online_course/online_course.tscn" id="1_pykcb"]
+
+[resource]
+script = ExtResource("1_iw2j0")
+window_size = Vector2(300, 225)
+scene = ExtResource("1_pykcb")
+metadata/_custom_type_script = "uid://dw6gdmwismcdi"

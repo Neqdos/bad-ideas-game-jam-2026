@@ -10,11 +10,12 @@ var player_position_marker: PlayerPositionMarker
 @export var state_machine: StateMachine
 
 @export var input: PlayerInput
+@onready var footsteps_sound: AudioStreamPlayer3D = %FootstepsSound
 
 const PLAYER_POSITION_MARKER_SCENE = preload("uid://cpclijfddba8j")
 
 const SPEED: float = 3.0
-const SPRINT_SPEED: float = 7.0
+const SPRINT_SPEED: float = 5.0
 const CROUCH_SPEED: float = 1.0
 var speed_multiplayer: float = 1.0
 
