@@ -19,7 +19,9 @@ You can get various apps or games from discs.
 - E hold something
 - LMB use held object
 - G drop held object
-- ESC to exit monitor screen"
+- ESC or ~ to exit monitor screen
+
+You can also press M to lock/unlock your mouse cursor."
 name = "READ ME"
 icon = ExtResource("1_dkpnk")
 window_size = Vector2(500, 300)

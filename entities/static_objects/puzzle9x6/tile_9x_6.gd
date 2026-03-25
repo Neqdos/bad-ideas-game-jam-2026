@@ -3,6 +3,8 @@ class_name Tile9x6
 
 @onready var desktop_icon_mesh: MeshInstance3D = %DesktopIconMesh
 
+const OFFSET: Vector3 = Vector3(.5, 0.0, .5)
+
 var desktop_icon: DesktopIcon
 
 func _ready() -> void:
@@ -12,5 +14,7 @@ func _ready() -> void:
 	mat.albedo_texture = desktop_icon.file_res.icon
 
 func sync_position() -> void:
-	position.x = desktop_icon.grid_pos.x * 1.0
-	position.z = desktop_icon.grid_pos.y * 1.0
+	position = Vector3(desktop_icon.grid_pos.x, 0.0, desktop_icon.grid_pos.y) + OFFSET
+
+func check_visibility(powered: bool) -> void:
+	visible = powered

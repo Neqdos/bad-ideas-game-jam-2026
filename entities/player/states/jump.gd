@@ -23,5 +23,5 @@ func physics_update(delta: float) -> void:
 		player.velocity.z = lerpf(player.velocity.z, direction.z * player.SPEED * player.speed_multiplayer, player.IN_AIR_ACCELERATION * delta)
 
 func update(delta: float) -> void:
-	if player.input.is_crouching:
+	if player.input.is_crouching and !DesktopManager.reversed_gravity:
 		state_machine.change_state("crouchjump")

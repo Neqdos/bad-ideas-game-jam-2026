@@ -5,8 +5,8 @@ class_name SettingsResource
 @export var vsync: bool = true
 @export var max_fps: int = 7
 @export var master_volume: float = .5
-@export var sfx_volume: float = .5
-@export var music_volume: float = .5
+@export var sfx_volume: float = 1.0
+@export var music_volume: float = 1.0
 
 const DEFAULT_SENSITIVITY: float = .01
 @export var sensitivity: float = DEFAULT_SENSITIVITY

@@ -49,7 +49,7 @@ shader_parameter/resolution_scale = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_221hk"]
 radius = 0.25
-height = 1.85
+height = 1.7
 
 [node name="Player" type="CharacterBody3D" unique_id=1510971249 node_paths=PackedStringArray("inv_manager", "player_interaction_ray", "camera", "hand", "state_machine", "input")]
 collision_layer = 2
@@ -170,7 +170,7 @@ stream = SubResource("AudioStreamRandomizer_bwdx1")
 bus = &"SFX"
 
 [node name="Head" type="Node3D" parent="." unique_id=268318381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
 
 [node name="FirstPersonCamera" type="Camera3D" parent="Head" unique_id=507761975 node_paths=PackedStringArray("head", "player", "player_state_machine")]
 current = true
@@ -220,5 +220,5 @@ transform = Transform3D(0.9612617, 0, -0.27563736, 0, 1, 0, 0.27563736, 0, 0.961
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="." unique_id=1390363648]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
 shape = SubResource("CapsuleShape3D_221hk")

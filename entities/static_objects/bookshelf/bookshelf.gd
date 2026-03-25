@@ -33,16 +33,16 @@ func add_book(book: Book) -> void:
 			types_in_order.append(b.type)
 			
 		
-		for b: Book in books_pushed:
-			b.unpush()
-		
-		books_pushed.clear()
-		
-		await get_tree().create_timer(Book.PUSH_TIME).timeout
-		
 		if !is_unlocked and types_in_order == CORRECT_BOOKS_PUSH_ORDER:
 			_unlock()
 		else:
+			for b: Book in books_pushed:
+				b.unpush()
+			
+			books_pushed.clear()
+			
+			await get_tree().create_timer(Book.PUSH_TIME).timeout
+			
 			for b: Book in all_books:
 				b.can_be_pushed -= 1
 

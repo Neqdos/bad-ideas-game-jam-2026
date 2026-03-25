@@ -31,5 +31,5 @@ func update(_delta: float) -> void:
 		state_machine.change_state("crouchwalk")
 	if !player.input.is_crouching and !player.test_move(player.global_transform, Vector3(0, player.CROUCH_HEIGHT_DIFFERENCE * DesktopManager.reversed_gravity_strength, 0)):
 		state_machine.change_state("idle")
-	elif player.input.just_jumped:
+	elif player.input.just_jumped and !DesktopManager.reversed_gravity:
 		state_machine.change_state("crouchjump")

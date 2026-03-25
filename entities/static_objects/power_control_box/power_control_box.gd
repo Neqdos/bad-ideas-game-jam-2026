@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var room_lamp: OmniLight3D
+@export var room_lamps: Array[OmniLight3D]
 
 @onready var power_switch_action: ObjectInteractAction = %PowerSwitchAction
 
@@ -23,7 +23,7 @@ func _on_power_off() -> void:
 	power_off_light.visible = true
 	alarm.play()
 	power_off_timer.start()
-	room_lamp.visible = false
+	for lamp: OmniLight3D in room_lamps: lamp.visible = false
 
 func _on_power_switch_action_interacted(player: PlayerBody) -> void:
 	light_switch.play()
@@ -31,7 +31,7 @@ func _on_power_switch_action_interacted(player: PlayerBody) -> void:
 	is_power_off = false
 	power_off_light.visible = false
 	power_off_timer.stop()
-	room_lamp.visible = true
+	for lamp: OmniLight3D in room_lamps: lamp.visible = true
 	DesktopManager.can_enter_and_exit_computer = true
 	DesktopManager.power_on.emit()
 

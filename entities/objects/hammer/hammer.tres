@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObjectResource" format=3 uid="uid://w1rcn2arcy7n"]
+
+[ext_resource type="Script" uid="uid://xd4oslmu3ja4" path="res://interaction/object_resource.gd" id="1_la5by"]
+
+[resource]
+script = ExtResource("1_la5by")
+name = "Hammer"
+object_scene = "uid://drq818rlsgnl0"
+metadata/_custom_type_script = "uid://xd4oslmu3ja4"

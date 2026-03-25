@@ -17,5 +17,5 @@ func physics_update(delta: float) -> void:
 
 
 func update(_delta: float) -> void:
-	if player.input.is_crouching:
+	if player.input.is_crouching and !DesktopManager.reversed_gravity:
 		state_machine.change_state("crouchjump")

@@ -10,6 +10,7 @@ size = Vector3(0.8, 0.2, 0.8)
 size = Vector3(0.8, 0.2, 0.8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buyiq"]
+resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("1_etqr4")
 texture_filter = 2

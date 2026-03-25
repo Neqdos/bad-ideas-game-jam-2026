@@ -17,13 +17,13 @@ func _ready() -> void:
 		create_tile(desktop_icon)
 
 func _on_battery_slot_powered_changed() -> void:
-	if battery_slot.powered:
-		pass
-	else:
-		pass
+	for tile: Tile9x6 in tiles.get_children():
+		tile.check_visibility(battery_slot.powered)
 
 func create_tile(desktop_icon: DesktopIcon) -> void:
 	var new_tile: Tile9x6 = TILE_9X_6_SCENE.instantiate()
 	new_tile.desktop_icon = desktop_icon
+	new_tile.check_visibility(battery_slot.powered)
 	tiles.add_child(new_tile)
 	new_tile.sync_position()
+	

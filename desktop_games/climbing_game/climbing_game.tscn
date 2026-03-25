@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dx2q37rk5ud2b"]
 
 [ext_resource type="PackedScene" uid="uid://fpluuv85nou8" path="res://desktop_games/climbing_game/spikes_scene.tscn" id="1_07cv5"]
-[ext_resource type="AudioStream" uid="uid://crs8l61rqqyt7" path="res://audio/music/mountain.ogg" id="1_wcnn6"]
+[ext_resource type="AudioStream" uid="uid://cdychev1elk1l" path="res://audio/music/mount.wav" id="1_wcnn6"]
 [ext_resource type="PackedScene" uid="uid://bw54bu8lrxlf" path="res://desktop_games/climbing_game/player/climbing_player.tscn" id="1_xvyvt"]
 [ext_resource type="Texture2D" uid="uid://coi18fv6o3qbe" path="res://desktop_games/climbing_game/empty_tile.png" id="2_l83bx"]
 [ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="2_w5d10"]
