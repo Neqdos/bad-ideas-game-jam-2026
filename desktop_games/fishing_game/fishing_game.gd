@@ -7,6 +7,8 @@ extends Node2D
 @onready var hook_camera: PhantomCamera2D = %HookCamera
 @onready var rest_camera: PhantomCamera2D = %RestCamera
 
+const REST_CAMERA_DEFAULT_X_POSITION: float = 67.0
+
 const REELING_SPEED: float = 128.0
 const STARTING_HOOK_POSITION: Vector2 = Vector2.ZERO
 
@@ -23,7 +25,10 @@ func _ready() -> void:
 	DesktopManager.fishing_game_reeling.connect(_on_fishing_game_reeling)
 	DesktopManager.fishing_game_ended.connect(_on_fishing_game_ended)
 	DesktopManager.fishing_all_sold.connect(_on_fishing_all_sold)
-
+	
+	DesktopManager.gravity_changed.connect(_on_gravity_changed)
+	
+	_on_gravity_changed()
 
 func _on_try_start() -> void:
 	if !can_start_game: return
@@ -67,3 +72,8 @@ func _physics_process(delta: float) -> void:
 	
 	if fishing_line.points[0].distance_to(fishing_hook.global_position) >= DesktopManager.fishing_stats.line_length:
 		DesktopManager.fishing_game_reeling.emit()
+
+func _on_gravity_changed() -> void:
+	rest_camera.position.x = REST_CAMERA_DEFAULT_X_POSITION if !DesktopManager.reversed_gravity else -REST_CAMERA_DEFAULT_X_POSITION
+	#hook_camera.rotation = PI * float(DesktopManager.reversed_gravity)
+	#rest_camera.rotation = PI * float(DesktopManager.reversed_gravity)

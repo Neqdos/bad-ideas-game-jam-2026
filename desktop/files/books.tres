@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ImageFileResource" format=3 uid="uid://mcyflw4hqvs1"]
 
 [ext_resource type="Script" uid="uid://ccu20ilt33asc" path="res://desktop/file_resources/image_file_resource.gd" id="1_bqern"]
-[ext_resource type="Texture2D" uid="uid://fr3ima5fffcc" path="res://desktop/_file_icons/file_icon.png" id="1_s1bup"]
+[ext_resource type="Texture2D" uid="uid://c1el4502vuvoh" path="res://desktop/_file_icons/image_icon.png" id="1_s1bup"]
 [ext_resource type="Texture2D" uid="uid://cl28v8m1f2i3x" path="res://desktop/files/books.png" id="2_8d58y"]
 
 [resource]

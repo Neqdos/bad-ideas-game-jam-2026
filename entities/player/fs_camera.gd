@@ -170,7 +170,8 @@ func set_move_bob() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and can_rotate == 0 and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		camera_rot_target.x += -event.relative.x * SaveManager.settings.sensitivity
+		var x_added: float = -event.relative.x * SaveManager.settings.sensitivity
+		camera_rot_target.x += x_added if !DesktopManager.reversed_gravity else -x_added
 		camera_rot_target.y += -event.relative.y * SaveManager.settings.sensitivity
 	elif event.is_action_pressed("change_mouse_mode"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE

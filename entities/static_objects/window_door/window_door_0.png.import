@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmoq47iu7ffhg"
-path.s3tc="res://.godot/imported/climbing_icon.png-a0fe9992492266583c08f5317926ef84.s3tc.ctex"
+uid="uid://dtxm8r5i07klb"
+path.s3tc="res://.godot/imported/window_door_0.png-eac1ac719782a0e13da7349ee26f0e3e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "893337f1d108638fdb6fff58553d4a9a"
+}
 
 [deps]
 
-source_file="res://desktop/_file_icons/climbing_icon.png"
-dest_files=["res://.godot/imported/climbing_icon.png-a0fe9992492266583c08f5317926ef84.s3tc.ctex"]
+source_file="res://entities/static_objects/window_door/window_door_0.png"
+dest_files=["res://.godot/imported/window_door_0.png-eac1ac719782a0e13da7349ee26f0e3e.s3tc.ctex"]
 
 [params]
 

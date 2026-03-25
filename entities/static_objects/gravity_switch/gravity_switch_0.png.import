@@ -2,21 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmoq47iu7ffhg"
-path.s3tc="res://.godot/imported/climbing_icon.png-a0fe9992492266583c08f5317926ef84.s3tc.ctex"
+uid="uid://ds5h1jepixiyh"
+path="res://.godot/imported/gravity_switch_0.png-b3b93a55207c854068185aa18f12db9d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
+}
+generator_parameters={
+"md5": "f1825ded67cc059a3794eb2b60011b2a"
 }
 
 [deps]
 
-source_file="res://desktop/_file_icons/climbing_icon.png"
-dest_files=["res://.godot/imported/climbing_icon.png-a0fe9992492266583c08f5317926ef84.s3tc.ctex"]
+source_file="res://entities/static_objects/gravity_switch/gravity_switch_0.png"
+dest_files=["res://.godot/imported/gravity_switch_0.png-b3b93a55207c854068185aa18f12db9d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

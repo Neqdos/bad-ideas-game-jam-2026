@@ -2,6 +2,8 @@
 extends Control
 class_name DesktopIcon
 
+signal moved()
+
 @export var file_res: FileResource:
 	set(val):
 		file_res = val
@@ -13,6 +15,8 @@ class_name DesktopIcon
 		grid_pos.y = clampi(val.y, 0, MAX_GRID_POS.y)
 		
 		var pos: Vector2 = Vector2(grid_pos) * Vector2(TILE_SIZE, TILE_SIZE)
+		
+		moved.emit()
 		
 		if is_node_ready():
 			tween = get_tree().create_tween()

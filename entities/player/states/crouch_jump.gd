@@ -13,10 +13,10 @@ func enter() -> void:
 	collision_shape.position.y = collision_shape.shape.height / 2
 	
 	if player.is_on_floor():
-		player.velocity.y = player.JUMP_POWER
+		player.velocity.y = player.JUMP_POWER * DesktopManager.reversed_gravity_strength
 	elif state_machine.current_state.type != "crouch":
 		var result: KinematicCollision3D = KinematicCollision3D.new()
-		player.test_move(player.global_transform, Vector3(0, player.CROUCH_JUMP_ADD, 0), result)
+		player.test_move(player.global_transform, Vector3(0, player.CROUCH_JUMP_ADD * DesktopManager.reversed_gravity_strength, 0), result)
 		player.position.y += result.get_travel().y
 		head.position.y -= result.get_travel().y
 
@@ -27,9 +27,10 @@ func exit() -> void:
 	collision_shape.position.y = collision_shape.shape.height / 2
 	
 	var result: KinematicCollision3D = KinematicCollision3D.new()
-	player.test_move(player.global_transform, Vector3(0, -player.CROUCH_JUMP_ADD, 0), result)
+	player.test_move(player.global_transform, Vector3(0, -player.CROUCH_JUMP_ADD * DesktopManager.reversed_gravity_strength, 0), result)
 	player.position.y += result.get_travel().y
 	head.position.y -= result.get_travel().y
+# FIXME: this is weird in reversed gravity
 
 func physics_update(delta: float) -> void:
 	if player.is_on_floor():
@@ -44,6 +45,7 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = lerpf(player.velocity.x, direction.x * player.SPEED * player.speed_multiplayer, player.IN_AIR_ACCELERATION * delta)
 		player.velocity.z = lerpf(player.velocity.z, direction.z * player.SPEED * player.speed_multiplayer, player.IN_AIR_ACCELERATION * delta)
 
+
 func update(_delta: float) -> void:
-	if !player.input.is_crouching and !player.test_move(player.global_transform, Vector3(0, player.CROUCH_HEIGHT_DIFFERENCE, 0)):
+	if !player.input.is_crouching and !player.test_move(player.global_transform, Vector3(0, player.CROUCH_HEIGHT_DIFFERENCE * DesktopManager.reversed_gravity_strength, 0)):
 		state_machine.change_state("falling")

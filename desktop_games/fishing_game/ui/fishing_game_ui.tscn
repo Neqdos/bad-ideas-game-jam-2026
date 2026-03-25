@@ -22,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("1_2lxjf")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1153099354]

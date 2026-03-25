@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dgvoxcs7iwdgo"]
+
+[ext_resource type="Script" uid="uid://dpgxr2cvsdcug" path="res://entities/static_objects/puzzle9x6/tile_9x_6.gd" id="1_1ggow"]
+[ext_resource type="Texture2D" uid="uid://bmoq47iu7ffhg" path="res://desktop/_file_icons/climbing_icon.png" id="1_etqr4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ggow"]
+size = Vector3(0.8, 0.2, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvrln"]
+size = Vector3(0.8, 0.2, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buyiq"]
+transparency = 1
+albedo_texture = ExtResource("1_etqr4")
+texture_filter = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_e4ins"]
+resource_local_to_scene = true
+size = Vector2(0.8, 0.8)
+orientation = 1
+
+[node name="Tile9x6" type="AnimatableBody3D" unique_id=114166691]
+script = ExtResource("1_1ggow")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1704436623]
+mesh = SubResource("BoxMesh_1ggow")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1915520413]
+shape = SubResource("BoxShape3D_jvrln")
+
+[node name="DesktopIconMesh" type="MeshInstance3D" parent="." unique_id=1565001412]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10791881, 0)
+material_override = SubResource("StandardMaterial3D_buyiq")
+mesh = SubResource("QuadMesh_e4ins")

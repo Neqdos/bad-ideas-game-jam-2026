@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bsg3co3w2jke5"]
+
+[ext_resource type="Script" uid="uid://d37ncfy8cmm4m" path="res://desktop/file_tile/file_object.gd" id="1_hicah"]
+[ext_resource type="Texture2D" uid="uid://bgg07lef4vnrx" path="res://desktop/file_tile/file_object_particles.png" id="2_h7kry"]
+[ext_resource type="Texture2D" uid="uid://fr3ima5fffcc" path="res://desktop/_file_icons/file_icon.png" id="3_f43cf"]
+
+[sub_resource type="Curve" id="Curve_mbrji"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7164949, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yqbb3"]
+curve = SubResource("Curve_mbrji")
+
+[sub_resource type="Curve" id="Curve_3x6au"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.51030934, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8tsiu"]
+curve = SubResource("Curve_3x6au")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fw73h"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 24.0
+emission_ring_inner_radius = 16.0
+emission_ring_cone_angle = 90.0
+radial_velocity_min = -96.00002
+radial_velocity_max = -48.000023
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_8tsiu")
+alpha_curve = SubResource("CurveTexture_yqbb3")
+
+[node name="FileObject" type="Area2D" unique_id=451703329]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_hicah")
+metadata/_custom_type_script = "uid://d37ncfy8cmm4m"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1194822992]
+amount = 16
+texture = ExtResource("2_h7kry")
+lifetime = 0.5
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_fw73h")
+
+[node name="FileSprite" type="Sprite2D" parent="." unique_id=819112494]
+unique_name_in_owner = true
+texture = ExtResource("3_f43cf")

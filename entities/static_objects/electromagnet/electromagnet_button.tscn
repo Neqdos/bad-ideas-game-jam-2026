@@ -1,0 +1,75 @@
+[gd_scene format=4 uid="uid://ctghe1ix0xoss"]
+
+[ext_resource type="Script" uid="uid://bn48qu1u2380c" path="res://entities/static_objects/electromagnet/electromagnet_button.gd" id="1_t5y4h"]
+[ext_resource type="Script" uid="uid://dohypidkqqjkv" path="res://interaction/in_world/object_info_label.gd" id="2_e8cl7"]
+[ext_resource type="Script" uid="uid://dkvovvvhiovlj" path="res://interaction/in_world/object_interact_action.gd" id="2_s6vet"]
+[ext_resource type="Texture2D" uid="uid://b0yrsyohevhep" path="res://entities/static_objects/power_control_box/power_control_box_0.png" id="3_e8cl7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4u6b"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("3_e8cl7")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6j0y5"]
+_surfaces = [{
+"aabb": AABB(-0.0625, -0.03125, -0.01875, 0.125, 0.0625, 0.05),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAQAEAAMABAAFAAMAAwAFAAAABgAEAAEAAAAGAAEABAAHAAUABgAHAAQACAAAAAUACQAGAAAACQAAAAgACgAGAAkACgAHAAYACwAFAAcACwAHAAoACAAFAAsADAAKAAkADQAIAAsADgALAAoADQALAA4ADgAKAAwADwAIAA0ADgAPAA0ADwAJAAgADgAMAA8ADAAJAA8A"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("//////9fAAD//wAA//8AAP///////wAAAAD/////AAAAAAAA//8AAAAA////XwAA//8AAP9fAAAAAAAA/18AAMysMtP/XwAAzKzMLP9fAAAyU8ws/18AADJTMtP/XwAAMlPMLAAAAADMrDLTAAAAADJTMtMAAAAAzKzMLAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_glc7e"]
+resource_name = "blockbench_export_mesh2"
+_surfaces = [{
+"aabb": AABB(-0.0625, -0.03125, -0.01875, 0.125, 0.0625, 0.05),
+"attribute_data": PackedByteArray("/xf/D/8P/xf/D/8P/xf/F/9//2//d/9n/3//Z/93/2//F/9//yf/d/8n/3//F/93/4f/T/93/0f/h/9H/3f/T/+H/1//d/9X/4f/V/93/1//f/93/3f/f/93/3f/f/9/MmVlef9v/3fMamV5/1//dzJlmX7/X/93MmVlef9f/3/Mapl+/1//fzJlmX7/b/9/zGplef9v/3/Mapl+/2//d/83/3//L/+H/y//f/83/4f/V/+H/0//f/9X/3//T/+H/z//h/9H/3//R/+H/z//f/8X/4f/H/+P/xf/j/8f/4c="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUA"),
+"material": SubResource("StandardMaterial3D_m4u6b"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("//////9f/7///wAA////v/////////+///8AAP9f/78AAAAA////vwAA////X/+/AAD//////78AAAAA/1//vwAA//////+///////9f/7//////////vwAA////X/+///8AAP9f/78AAAAA////v///AAD///+/AAAAAP9f/7///wAA//8AgAAA/////wCA////////AIAAAAAA//8AgDJTMtMAAP//zKzMLAAA///MrDLTAAD//zJTzCwAAP//zKwy0/9f//8AAP///1///zJTMtP/X/////////9f///MrMws/1//////////X///zKwy0/9f/////wAA/1///zJTzCz/X/////8AAP9f///MrMws/1///wAAAAD/X///MlMy0/9f//8AAAAA/1///zJTzCz/X///AAD///9f///MrDLTAAD/vzJTMtP/X/+/MlMy0wAA/7/MrDLT/1//v8yszCwAAP+/zKwy0/9f/7/MrDLTAAD/v8yszCz/X/+/MlPMLAAA/7/MrMws/1//v8yszCwAAP+/MlPMLP9f/78yUzLTAAD/vzJTzCz/X/+/MlPMLAAA/78yUzLT/1//v/9/AAD/fwAA/38AAP9/AAD/f////3////9/////f///////f////3////9/////fwAA/38AAP9/AAD/fwAA/3//f////3////9/////f////3////9/////f////3////9//v//f/7//3////9//v//f////3/+//9//v//f/7//3/+//9//v//f////3/+//9/////f/7//3/+//9//v////9/////f////3////9//38AAP9/AAD/fwAA/38AAAAA/38AAP9/AAD/fwAA/3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6j0y5")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ueotv"]
+data = PackedVector3Array(0.0625, 0.0313, 0, 0.0625, -0.0313, 0.0313, 0.0625, 0.0313, 0.0313, 0.0625, 0.0313, 0, 0.0625, -0.0313, 0, 0.0625, -0.0313, 0.0313, -0.0625, -0.0313, 0.0313, -0.0625, 0.0313, 0, -0.0625, 0.0313, 0.0313, -0.0625, -0.0313, 0.0313, -0.0625, -0.0313, 0, -0.0625, 0.0313, 0, -0.0625, 0.0313, 0.0313, 0.0625, 0.0313, 0, 0.0625, 0.0313, 0.0313, -0.0625, 0.0313, 0.0313, -0.0625, 0.0313, 0, 0.0625, 0.0313, 0, 0.0625, -0.0313, 0, -0.0625, -0.0313, 0.0313, 0.0625, -0.0313, 0.0313, 0.0625, -0.0313, 0, -0.0625, -0.0313, 0, -0.0625, -0.0313, 0.0313, 0.0625, -0.0313, 0.0313, -0.0625, 0.0313, 0.0313, 0.0625, 0.0313, 0.0313, 0.0625, -0.0313, 0.0313, -0.0625, -0.0313, 0.0313, -0.0625, 0.0313, 0.0313, -0.0219, 0.020299999, -0.0188, 0.0219, -0.020299999, -0.0188, 0.0219, 0.020299999, -0.0188, -0.0219, 0.020299999, -0.0188, -0.0219, -0.020299999, -0.0188, 0.0219, -0.020299999, -0.0188, 0.0219, 0.020299999, 0, -0.0625, 0.0313, 0, -0.0219, 0.020299999, 0, 0.0219, 0.020299999, 0, 0.0625, 0.0313, 0, -0.0625, 0.0313, 0, 0.0219, -0.020299999, 0, 0.0625, 0.0313, 0, 0.0219, 0.020299999, 0, 0.0219, -0.020299999, 0, 0.0625, -0.0313, 0, 0.0625, 0.0313, 0, -0.0219, -0.020299999, 0, 0.0625, -0.0313, 0, 0.0219, -0.020299999, 0, -0.0219, -0.020299999, 0, -0.0625, -0.0313, 0, 0.0625, -0.0313, 0, -0.0219, 0.020299999, 0, -0.0625, -0.0313, 0, -0.0219, -0.020299999, 0, -0.0219, 0.020299999, 0, -0.0625, 0.0313, 0, -0.0625, -0.0313, 0, 0.0219, 0.020299999, -0.0188, -0.0219, 0.020299999, 0, -0.0219, 0.020299999, -0.0188, 0.0219, 0.020299999, -0.0188, 0.0219, 0.020299999, 0, -0.0219, 0.020299999, 0, 0.0219, -0.020299999, -0.0188, 0.0219, 0.020299999, 0, 0.0219, 0.020299999, -0.0188, 0.0219, -0.020299999, -0.0188, 0.0219, -0.020299999, 0, 0.0219, 0.020299999, 0, -0.0219, -0.020299999, -0.0188, 0.0219, -0.020299999, 0, 0.0219, -0.020299999, -0.0188, -0.0219, -0.020299999, -0.0188, -0.0219, -0.020299999, 0, 0.0219, -0.020299999, 0, -0.0219, 0.020299999, -0.0188, -0.0219, -0.020299999, 0, -0.0219, -0.020299999, -0.0188, -0.0219, 0.020299999, -0.0188, -0.0219, 0.020299999, 0, -0.0219, -0.020299999, 0)
+
+[node name="ElectromagnetButton" type="StaticBody3D" unique_id=1660551014]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_t5y4h")
+
+[node name="ObjectInfoLabel" type="Node" parent="." unique_id=754780860]
+unique_name_in_owner = true
+script = ExtResource("2_e8cl7")
+info = "Move electromagnet"
+metadata/_custom_type_script = "uid://dohypidkqqjkv"
+
+[node name="ObjectInteractAction" type="Node" parent="." unique_id=2143219745]
+unique_name_in_owner = true
+script = ExtResource("2_s6vet")
+metadata/_custom_type_script = "uid://dkvovvvhiovlj"
+
+[node name="Button" type="MeshInstance3D" parent="." unique_id=2030684789]
+transform = Transform3D(0, -4.371139e-08, 1, -1, 0, 0, 0, -1, -4.371139e-08, -0.027942657, 0, 0)
+mesh = SubResource("ArrayMesh_glc7e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1279534919]
+transform = Transform3D(0, -4.371139e-08, 1, -1, 0, 0, 0, -1, -4.371139e-08, -0.027942657, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ueotv")

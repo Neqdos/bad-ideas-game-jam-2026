@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d0jbtkxjj5cou"]
+
+[ext_resource type="Script" uid="uid://dmxf7a2q8m7eg" path="res://entities/static_objects/puzzle9x6/puzzle_9x_6.gd" id="1_mxt12"]
+[ext_resource type="PackedScene" uid="uid://clnxoj5faxbt4" path="res://entities/objects/battery/battery_slot.tscn" id="2_b6doj"]
+
+[node name="Puzzle9x6" type="Node3D" unique_id=231302905]
+script = ExtResource("1_mxt12")
+
+[node name="BatterySlot" parent="." unique_id=776438235 instance=ExtResource("2_b6doj")]
+unique_name_in_owner = true
+
+[node name="Tiles" type="Node3D" parent="." unique_id=1610633445]
+unique_name_in_owner = true

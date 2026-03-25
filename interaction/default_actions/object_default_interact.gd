@@ -30,6 +30,7 @@ func _on_object_interact(released: bool) -> void:
 	if !is_instance_valid(ray.interactable): return
 	
 	for action: ObjectInteractAction in interact_actions:
+		if !is_instance_valid(action): continue
 		if released:
 			action.interaction_stopped.emit()
 		else:

@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends AnimatableBody3D
 class_name BatterySlot
 
 signal powered_changed()

@@ -32,7 +32,7 @@ func move(delta: float) -> void:
 func update(_delta: float) -> void:
 	if !player.input.input_vector:
 		state_machine.change_state("crouch")
-	if !player.input.is_crouching and !player.test_move(player.global_transform, Vector3(0, player.CROUCH_HEIGHT_DIFFERENCE, 0)):
+	if !player.input.is_crouching and !player.test_move(player.global_transform, Vector3(0, player.CROUCH_HEIGHT_DIFFERENCE * DesktopManager.reversed_gravity_strength, 0)):
 		state_machine.change_state("walk")
 	elif player.input.just_jumped:
 		state_machine.change_state("crouchjump")

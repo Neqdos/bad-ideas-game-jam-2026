@@ -6,6 +6,8 @@ signal taskbar_icon_hovered(taskbar_icon: TaskbarIcon)
 
 signal desktop_icon_dropped(desktop_icon: DesktopIcon, from: Vector2i)
 
+signal desktop_icon_added(desktop_icon: DesktopIcon)
+
 signal disc_extracting_finished()
 
 signal new_popup_site_unlocked(popup_res: PopupResource)
@@ -46,9 +48,17 @@ var shown_course_popup: bool = false
 # 3D OBJECTS
 signal power_off()
 signal power_on()
+signal gravity_changed()
 var can_enter_and_exit_computer: bool = false
 var safe_code: String
 var is_magnet_on: bool = false
+var reversed_gravity: bool = false:
+	set(val):
+		reversed_gravity = val
+		gravity_changed.emit()
+var reversed_gravity_strength: float:
+	get:
+		return -float(DesktopManager.reversed_gravity) * 2.0 + 1.0
 # ---
 
 var sound_pos: Vector3
@@ -127,6 +137,8 @@ func add_file_to_desktop(file_res: FileResource) -> void:
 	new_desktop_icon.file_res = file_res
 	new_desktop_icon.grid_pos = grid_pos
 	desktop_icon_container.add_child(new_desktop_icon)
+	
+	desktop_icon_added.emit(new_desktop_icon)
 
 
 func show_popup(popup_res: PopupResource, data: Dictionary[String, Variant] = {}) -> void:

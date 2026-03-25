@@ -25,11 +25,18 @@ func _ready() -> void:
 	
 	DesktopManager.fishing_money_changed.connect(_on_money_changed)
 	
+	DesktopManager.gravity_changed.connect(check_gravity_rotation)
+	
 	upgrades_tab_button.pressed.connect(func(): change_shop_tab(upgrades_container))
 	items_tab_button.pressed.connect(func(): change_shop_tab(items_container))
 	
 	shop_button.pressed.connect(func(): change_menu(shop_menu))
 	fish_compendium_button.pressed.connect(func(): change_menu(fish_compendium_menu))
+	
+	check_gravity_rotation()
+
+func check_gravity_rotation() -> void:
+	rotation = PI * float(DesktopManager.reversed_gravity)
 
 func _on_fishing_game_started() -> void:
 	visible = false

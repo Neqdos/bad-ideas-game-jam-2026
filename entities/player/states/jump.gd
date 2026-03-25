@@ -3,7 +3,7 @@ extends State
 @export var player: PlayerBody
 
 func enter() -> void:
-	player.velocity.y = player.JUMP_POWER
+	player.velocity.y = player.JUMP_POWER * DesktopManager.reversed_gravity_strength
 
 func physics_update(delta: float) -> void:
 	if player.velocity.y <= 0.0:

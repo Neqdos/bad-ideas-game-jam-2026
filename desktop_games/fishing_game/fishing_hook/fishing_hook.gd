@@ -40,10 +40,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !can_move: return
 	
-	if velocity.y < MAX_GRAVITY:
-		velocity.y += GRAVITY * delta
-	
-	velocity.x = input.input_x * DesktopManager.fishing_stats.moving_speed
+	if DesktopManager.reversed_gravity:
+		velocity.y -= GRAVITY * delta * float(velocity.y > -MAX_GRAVITY)
+	else:
+		velocity.y += GRAVITY * delta * float(velocity.y < MAX_GRAVITY)
+
+	velocity.x = input.input_x * DesktopManager.fishing_stats.moving_speed * DesktopManager.reversed_gravity_strength
 	
 	move_and_slide()
 
@@ -52,7 +54,7 @@ func _on_jumped() -> void:
 	
 	if !jump_on_cooldown:
 		jump_on_cooldown = true
-		velocity.y = -DesktopManager.fishing_stats.jump_strength
+		velocity.y = -DesktopManager.fishing_stats.jump_strength * DesktopManager.reversed_gravity_strength
 		await get_tree().create_timer(DesktopManager.fishing_stats.jump_cooldown).timeout
 		jump_on_cooldown = false
 

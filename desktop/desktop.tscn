@@ -95,11 +95,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="README" parent="DesktopIconContainer" unique_id=1056225044 instance=ExtResource("3_py4qr")]
+[node name="ReadMe" parent="DesktopIconContainer" unique_id=1056225044 instance=ExtResource("3_py4qr")]
 layout_mode = 0
 file_res = ExtResource("4_hbe16")
 
-[node name="README2" parent="DesktopIconContainer" unique_id=949338286 instance=ExtResource("3_py4qr")]
+[node name="Browser" parent="DesktopIconContainer" unique_id=949338286 instance=ExtResource("3_py4qr")]
 layout_mode = 0
 offset_left = 64.0
 offset_right = 128.0

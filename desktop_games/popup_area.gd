@@ -10,5 +10,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if used: return
-	DesktopManager.show_popup(popup_res)
 	used = true
+	
+	await get_tree().create_timer(randf_range(2.0, 10.0)).timeout
+	
+	DesktopManager.show_popup(popup_res)
