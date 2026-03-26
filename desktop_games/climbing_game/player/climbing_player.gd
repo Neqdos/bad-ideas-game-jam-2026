@@ -8,6 +8,9 @@ class_name ClimbingPlayer
 
 @onready var state_machine: StateMachine = %StateMachine
 
+@onready var death_particles: GPUParticles2D = %DeathParticles
+@onready var animation_controller: AnimationController = %AnimationController
+
 const SPEED: float = 80.0
 const ACCELERATION: float = 40.0
 const IN_AIR_ACCELERATION: float = 8.0
@@ -24,6 +27,8 @@ var gravity_scale: float = 1.0
 var can_move: int = 0
 
 var hook_uses: int = 0
+
+var dead: bool = false
 
 func _ready() -> void:
 	input.jumped.connect(_on_jumped)
@@ -44,15 +49,34 @@ func _on_jumped() -> void:
 		jump_buffer_timer.start()
 
 func _on_player_death() -> void:
+	dead = true
 	DesktopManager.climbing_input_lock.emit(true)
 	can_move += 1
 	velocity = Vector2.ZERO
 	
-	await get_tree().create_timer(DesktopManager.CLIMBING_DEATH_TIME).timeout
+	animation_controller.visible = false
+	var new_death_particles: GPUParticles2D = death_particles.duplicate()
+	new_death_particles.finished.connect(new_death_particles.queue_free)
+	add_child(new_death_particles)
+	new_death_particles.emitting = true
+	
+	await new_death_particles.finished
+	
+	DesktopManager.climbing_transition.emit(true, .5)
+	await DesktopManager.climbing_transition_finished
+	
+	animation_controller.visible = true
+	
+	respawn()
+	
+	await get_tree().create_timer(.1).timeout
+	
+	DesktopManager.climbing_transition.emit(false, .5)
+	await DesktopManager.climbing_transition_finished
 	
 	DesktopManager.climbing_input_lock.emit(false)
 	can_move -= 1
-	respawn()
+	dead = false
 
 func respawn() -> void:
 	global_position = DesktopManager.climbing_spawn_area.global_position

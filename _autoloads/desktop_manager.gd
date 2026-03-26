@@ -18,9 +18,10 @@ signal safe_opened()
 # CLIMBING
 signal climbing_input_lock(lock: bool)
 signal climbing_player_death()
+signal climbing_transition(visible: bool, time: float)
+signal climbing_transition_finished()
 var climbing_spawn_area: SpawnArea
-const CLIMBING_DEATH_TIME: float = .5
-var max_hook_travel_distance: float = 64.0
+var max_hook_travel_distance: float = 8.0
 # ---
 
 # FISHING

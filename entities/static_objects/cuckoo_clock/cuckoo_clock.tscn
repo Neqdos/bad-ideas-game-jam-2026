@@ -299,7 +299,6 @@ one_shot = true
 unique_name_in_owner = true
 stream = ExtResource("2_mye86")
 pitch_scale = 1.5
-max_distance = 8.0
 
 [node name="Model" type="Node3D" parent="." unique_id=1486530089]
 

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cb8gfrt5hwrx0" path="res://desktop_games/climbing_game/particles/wind_particles.png" id="11_637dr"]
 [ext_resource type="Texture2D" uid="uid://cx506bemq38pd" path="res://desktop_games/climbing_game/hook_shot/hook.png" id="11_ms40s"]
 [ext_resource type="Texture2D" uid="uid://hd8x1qbotp76" path="res://desktop_games/climbing_game/particles/dust_particles.png" id="12_637dr"]
+[ext_resource type="Texture2D" uid="uid://cedaxy3vo5c8p" path="res://desktop_games/climbing_game/particles/death_particles.png" id="14_t2epw"]
 
 [sub_resource type="Curve" id="Curve_ikbf8"]
 _data = [Vector2(0, 0.6516854), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -122,8 +123,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwiu4"]
-size = Vector2(10, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2epw"]
+radius = 5.0
 
 [sub_resource type="Curve" id="Curve_637dr"]
 _data = [Vector2(0, 0.6516854), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -160,6 +161,30 @@ initial_velocity_min = 4.0
 initial_velocity_max = 4.0
 gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_0h4r1")
+
+[sub_resource type="Curve" id="Curve_0h4r1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5309279, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v8ene"]
+curve = SubResource("Curve_0h4r1")
+
+[sub_resource type="Curve" id="Curve_v8ene"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7474227, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4lc5u"]
+curve = SubResource("Curve_v8ene")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4lc5u"]
+particle_flag_disable_z = true
+angular_velocity_min = -90.000015
+angular_velocity_max = 89.999985
+radial_velocity_min = 39.999977
+radial_velocity_max = 69.99998
+radial_velocity_curve = SubResource("CurveTexture_v8ene")
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_4lc5u")
 
 [node name="ClimbingPlayer" type="CharacterBody2D" unique_id=1941018465]
 collision_layer = 2
@@ -219,7 +244,7 @@ position = Vector2(0, -10)
 texture = ExtResource("6_ikbf8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=764679846]
-shape = SubResource("RectangleShape2D_bwiu4")
+shape = SubResource("CircleShape2D_t2epw")
 
 [node name="StateMachine" type="Node" parent="." unique_id=5333534 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -279,3 +304,13 @@ lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_v8ene")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=616258382]
+unique_name_in_owner = true
+emitting = false
+amount = 5
+texture = ExtResource("14_t2epw")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4lc5u")

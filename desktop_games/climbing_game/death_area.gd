@@ -7,4 +7,5 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is ClimbingPlayer:
+		if body.dead: return
 		DesktopManager.climbing_player_death.emit()

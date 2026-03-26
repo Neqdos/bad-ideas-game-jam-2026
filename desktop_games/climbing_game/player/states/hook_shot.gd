@@ -22,7 +22,7 @@ func enter() -> void:
 	
 	player.hook_uses += 1
 	
-	hook_raycast.target_position.x = DesktopManager.max_hook_travel_distance
+	hook_raycast.target_position.x = DesktopManager.max_hook_travel_distance * 8.0
 	
 	if Vector2(player.input.input_x, player.input.input_y).is_zero_approx():
 		hook_raycast.rotation = -int(animation_controller.flip_h) * PI
