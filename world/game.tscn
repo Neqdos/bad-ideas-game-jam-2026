@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://ritloeuun3fp" path="res://entities/static_objects/window_door/window_door.tscn" id="21_4rcm1"]
 [ext_resource type="Script" uid="uid://3eljae4cueo5" path="res://world/teleport_area.gd" id="22_5ojwu"]
 [ext_resource type="PackedScene" uid="uid://bwl7r834viac4" path="res://entities/objects/discs/disc_rpg_game/disc_rpg_game.tscn" id="23_nyspk"]
-[ext_resource type="PackedScene" uid="uid://drq818rlsgnl0" path="res://entities/objects/hammer/hammer.tscn" id="24_3tpuh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xfo4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -574,15 +573,13 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.1, 0, -0.5)
 
 [node name="ObjectsNode" type="Node3D" parent="." unique_id=701677193 groups=["objects_node"]]
+unique_name_in_owner = true
 
 [node name="Battery" parent="ObjectsNode" unique_id=1159110517 instance=ExtResource("4_lkqos")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.082049, 0, -0.3140167)
 
 [node name="DiscRPGGame" parent="ObjectsNode" unique_id=1552379542 instance=ExtResource("23_nyspk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6877375, -5.9604645e-08, 12.48519)
-
-[node name="Hammer" parent="ObjectsNode" unique_id=1443494371 instance=ExtResource("24_3tpuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9588983, 0, -0.20410872)
 
 [node name="Player" parent="." unique_id=1510971249 instance=ExtResource("2_xfo4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
@@ -640,3 +637,7 @@ shape = SubResource("BoxShape3D_pq8pb")
 
 [node name="Marker3D" type="Marker3D" parent="TeleportArea" unique_id=261397334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)
+
+[node name="HammerSpotMarker" type="Marker3D" parent="." unique_id=2018898629]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041101694, 0, 2.7958913)

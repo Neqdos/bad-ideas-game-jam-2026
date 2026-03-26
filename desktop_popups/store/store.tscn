@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://72oc2qmi7m81"]
+
+[ext_resource type="Script" uid="uid://dre85e1hw7hoa" path="res://desktop_popups/store/store.gd" id="1_54vvd"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="2_blsxm"]
+[ext_resource type="Texture2D" uid="uid://cg6cy7umi8bgk" path="res://entities/objects/hammer/hammer_icon.png" id="3_fo5s6"]
+[ext_resource type="Texture2D" uid="uid://dq6r08xagvv3u" path="res://ui/message_ui/rounded_npt.png" id="4_08eci"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33y7j"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.8039216, 0.45882353, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3jovg"]
+texture = ExtResource("4_08eci")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.21960784, 0.7176471, 0.39215687, 1)
+
+[node name="Store" type="Control" unique_id=1777614753]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_54vvd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1580121016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95686275, 0.95686275, 0.95686275, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=44644916]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=234721084]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_33y7j")
+text = "Store (need name)"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=183923238]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=974928334]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=389128038]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_blsxm")
+theme_override_font_sizes/font_size = 8
+text = "2026 New Hammering Hammer, Reboundn't Mallet, Extra Damaging Surface Tool, Glass Pane Destruction Hammer, Solid Metal (gear?) Mallet, Yellow/Black Hammer Tool, Does a Great Job at being a Hammer, Suitable for Hammering jobs, Ideal for Professionals and Idiots"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=649323559]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=60483166]
+layout_mode = 2
+texture = ExtResource("3_fo5s6")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1146826411]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1290810488]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_blsxm")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_3jovg")
+text = "INSTANT delivery, right to your door."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1451445473]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1398604094]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+theme_override_constants/outline_size = 0
+text = "0.00$!"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=547757731]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.5802685, 0.69008625, 0.7604822, 0.29500002)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_blsxm")
+theme_override_font_sizes/font_size = 8
+text = "You'll pay with your data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=994044402]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BuyButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1909081473]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BUY NOW"

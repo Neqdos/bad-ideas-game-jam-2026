@@ -50,6 +50,7 @@ var shown_course_popup: bool = false
 signal power_off()
 signal power_on()
 signal gravity_changed()
+signal spawn_hammer()
 var can_enter_and_exit_computer: bool = false
 var safe_code: String
 var is_magnet_on: bool = false
@@ -60,6 +61,7 @@ var reversed_gravity: bool = false:
 var reversed_gravity_strength: float:
 	get:
 		return -float(DesktopManager.reversed_gravity) * 2.0 + 1.0
+
 # ---
 
 var sound_pos: Vector3
