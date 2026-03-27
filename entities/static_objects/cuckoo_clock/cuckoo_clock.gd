@@ -53,7 +53,7 @@ func cuckoo() -> void:
 	tween.tween_property(door_right, "rotation:y", deg_to_rad(OPEN_ROTATION), .5)
 	tween.tween_property(door_stick, "position:z", STICK_OPEN_Z, .5)
 	
-	for i: int in range(5):
+	for i: int in range(8):
 		cuckoo_sound.play()
 		await cuckoo_sound.finished
 		await  get_tree().create_timer(.3).timeout

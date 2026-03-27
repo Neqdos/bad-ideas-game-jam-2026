@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dy6ew1p8ac8ei"]
+
+[ext_resource type="PackedScene" uid="uid://glsng1e0dhws" path="res://entities/static_objects/painting/painting_paint.tscn" id="1_evr5j"]
+[ext_resource type="Script" uid="uid://bwe2dpl5hxt02" path="res://entities/static_objects/painting/painting.gd" id="1_qn7b0"]
+[ext_resource type="PackedScene" uid="uid://d0jn7ps7eis4p" path="res://entities/static_objects/painting/model.gltf" id="2_di37v"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_usvtg"]
+resource_local_to_scene = true
+size = Vector2(0.8, 0.8)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qn7b0"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shfpa"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qn7b0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qn7b0"]
+size = Vector3(0.8845215, 0.89086914, 0.0657959)
+
+[node name="Painting" type="AnimatableBody3D" unique_id=77941854]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_qn7b0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1979281135]
+mesh = SubResource("QuadMesh_usvtg")
+surface_material_override/0 = SubResource("StandardMaterial3D_shfpa")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=358564813]
+canvas_item_default_texture_filter = 0
+size = Vector2i(256, 256)
+
+[node name="PaintingPaint" parent="SubViewport" unique_id=485756866 instance=ExtResource("1_evr5j")]
+unique_name_in_owner = true
+
+[node name="blockbench_export" parent="." unique_id=1348678821 instance=ExtResource("2_di37v")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.4, -0.04960537)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2143484778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.012878418)
+shape = SubResource("BoxShape3D_qn7b0")

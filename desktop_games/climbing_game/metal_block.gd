@@ -11,3 +11,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y += GRAVITY  * delta
 	
 	move_and_slide()
+
+# FIXME: when it's falling and it falls on the player the player is stuck
+# I guess it's similar to when the player is on top of it and there's a ceiling

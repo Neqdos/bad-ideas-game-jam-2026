@@ -32,5 +32,7 @@ func physics_update(delta: float) -> void:
 func update(delta: float) -> void:
 	if player.input.jump_released:
 		player.velocity.y *= .2
+	elif player.input.just_jumped and DesktopManager.has_wings:
+		state_machine.change_state("glide")
 	elif player.input.grappling_hook_pressed and player.hook_uses == 0:
 		state_machine.change_state("hookshot")

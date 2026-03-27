@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AppFileResource" format=3 uid="uid://ds78ye8h4urnj"]
+
+[ext_resource type="PackedScene" uid="uid://b6xgy3em5th76" path="res://desktop_apps/paint/paint.tscn" id="1_4e6v2"]
+[ext_resource type="Script" uid="uid://v1qyypsjrqi8" path="res://desktop/file_resources/app_file_resource.gd" id="1_xyn7w"]
+
+[resource]
+script = ExtResource("1_xyn7w")
+scene = ExtResource("1_4e6v2")
+metadata/_custom_type_script = "uid://v1qyypsjrqi8"

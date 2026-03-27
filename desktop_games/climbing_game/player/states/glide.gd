@@ -1,11 +1,13 @@
 extends State
 
 @export var player: ClimbingPlayer
-@onready var fall_dust: GPUParticles2D = %FallDust
-@onready var animation_controller: AnimationController = %AnimationController
+@onready var wind_tiles_area: Area2D = %WindTilesArea
+
+const GLIDING_MAX_GRAVITY_SCALE: float = .1
+const WIND_MAX_GRAVITY_SCALE: float = -.5
 
 func enter() -> void:
-	player.gravity_scale = 1.75
+	player.max_gravty_scale = GLIDING_MAX_GRAVITY_SCALE
 
 func physics_update(delta: float) -> void:
 	if player.is_on_floor():
@@ -15,18 +17,18 @@ func physics_update(delta: float) -> void:
 			state_machine.change_state("idle")
 	
 	player.velocity.x = lerpf(player.velocity.x, player.input.input_x * player.SPEED, (player.IN_AIR_ACCELERATION if player.input.input_x else player.ACCELERATION) * delta)
+	
+	if wind_tiles_area.has_overlapping_areas():
+		player.max_gravty_scale = WIND_MAX_GRAVITY_SCALE
+	else:
+		player.max_gravty_scale = GLIDING_MAX_GRAVITY_SCALE
 
 func update(delta: float) -> void:
 	if player.input.grappling_hook_pressed and player.hook_uses == 0:
 		state_machine.change_state("hookshot")
-	elif player.input.just_jumped and DesktopManager.has_wings:
-		state_machine.change_state("glide")
+	elif player.input.jump_released:
+		state_machine.change_state("falling")
 
 func exit() -> void:
-	player.gravity_scale = 1.0
-	var new_fall_dust: GPUParticles2D = fall_dust.duplicate()
-	player.add_child(new_fall_dust)
-	new_fall_dust.emitting = true
-	new_fall_dust.finished.connect(new_fall_dust.queue_free)
-	animation_controller.squish_x()
+	player.max_gravty_scale = 1.0
 	

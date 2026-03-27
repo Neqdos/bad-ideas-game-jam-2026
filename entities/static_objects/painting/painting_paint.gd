@@ -14,7 +14,6 @@ func _ready() -> void:
 func _on_paint_tiles_changed() -> void:
 	if DesktopManager.paint_tiles == CORRECT_PAINT:
 		correct_paint.emit()
-		print("Correct")
 	else:
 		incorrect_paint.emit()
 	

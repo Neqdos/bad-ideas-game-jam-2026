@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cb8gfrt5hwrx0" path="res://desktop_games/climbing_game/particles/wind_particles.png" id="11_637dr"]
 [ext_resource type="Texture2D" uid="uid://cx506bemq38pd" path="res://desktop_games/climbing_game/hook_shot/hook.png" id="11_ms40s"]
 [ext_resource type="Texture2D" uid="uid://hd8x1qbotp76" path="res://desktop_games/climbing_game/particles/dust_particles.png" id="12_637dr"]
+[ext_resource type="Script" uid="uid://bgletv541sn7r" path="res://desktop_games/climbing_game/player/states/glide.gd" id="13_0h4r1"]
 [ext_resource type="Texture2D" uid="uid://cedaxy3vo5c8p" path="res://desktop_games/climbing_game/particles/death_particles.png" id="14_t2epw"]
 
 [sub_resource type="Curve" id="Curve_ikbf8"]
@@ -186,6 +187,9 @@ radial_velocity_curve = SubResource("CurveTexture_v8ene")
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_4lc5u")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h4r1"]
+size = Vector2(10, 10)
+
 [node name="ClimbingPlayer" type="CharacterBody2D" unique_id=1941018465]
 collision_layer = 2
 collision_mask = 25
@@ -278,6 +282,11 @@ player = NodePath("../..")
 animation_controller = NodePath("../../AnimationController")
 metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
 
+[node name="Glide" type="Node" parent="StateMachine" unique_id=1779235281 node_paths=PackedStringArray("player")]
+script = ExtResource("13_0h4r1")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
 [node name="HookRaycast" type="RayCast2D" parent="." unique_id=968645382]
 unique_name_in_owner = true
 target_position = Vector2(64, 0)
@@ -314,3 +323,11 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_4lc5u")
+
+[node name="WindTilesArea" type="Area2D" parent="." unique_id=1417451805]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindTilesArea" unique_id=2011665376]
+shape = SubResource("RectangleShape2D_0h4r1")

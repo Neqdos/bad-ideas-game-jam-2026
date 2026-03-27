@@ -22,6 +22,7 @@ signal climbing_transition(visible: bool, time: float)
 signal climbing_transition_finished()
 var climbing_spawn_area: SpawnArea
 var max_hook_travel_distance: float = 8.0
+var has_wings: bool = true#false
 # ---
 
 # FISHING

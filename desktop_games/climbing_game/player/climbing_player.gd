@@ -21,8 +21,8 @@ const JUMP_POWER: float = 160.0
 const GRAVITY: float = 360.0
 const MAX_GRAVITY: float = 300.0
 var gravity_scale: float = 1.0
+var max_gravty_scale: float = 1.0
 
-@onready var last_y_position: float = global_position.y
 
 var can_move: int = 0
 
@@ -38,7 +38,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if can_move > 0: return
 	velocity.y += GRAVITY * gravity_scale * delta
-	velocity.y = minf(MAX_GRAVITY, velocity.y)
+	velocity.y = minf(MAX_GRAVITY * max_gravty_scale, velocity.y)
 	
 	move_and_slide()
 

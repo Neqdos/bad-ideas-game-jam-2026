@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://defhgxqu4k2r8"]
+
+[ext_resource type="Script" uid="uid://3yspe6qbyedk" path="res://entities/_components/disc.gd" id="1_gf2cy"]
+[ext_resource type="Resource" uid="uid://ds78ye8h4urnj" path="res://desktop/files/eye.tres" id="2_mm1b7"]
+[ext_resource type="Resource" uid="uid://b6q1h4mkekwaj" path="res://entities/objects/discs/disc_eye/disc_eye.tres" id="2_tsd3w"]
+[ext_resource type="Script" uid="uid://lkg7k2vxlysd" path="res://interaction/in_hand/hand_interact_action.gd" id="3_j0wdq"]
+[ext_resource type="PackedScene" uid="uid://c0sojypkj034q" path="res://entities/objects/discs/disc_climbing_game/disc_climbing_game.gltf" id="5_587cm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_myrf7"]
+height = 0.04
+radius = 0.08
+
+[node name="DiscEye" type="RigidBody3D" unique_id=952726234 node_paths=PackedStringArray("interact_action")]
+script = ExtResource("1_gf2cy")
+file_res = ExtResource("2_mm1b7")
+interact_action = NodePath("HandInteractAction")
+obj_resource = ExtResource("2_tsd3w")
+metadata/_custom_type_script = "uid://3yspe6qbyedk"
+
+[node name="HandInteractAction" type="Node" parent="." unique_id=1563699630]
+script = ExtResource("3_j0wdq")
+metadata/_custom_type_script = "uid://lkg7k2vxlysd"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=104896756]
+shape = SubResource("CylinderShape3D_myrf7")
+
+[node name="blockbench_export" parent="." unique_id=1522848424 instance=ExtResource("5_587cm")]

@@ -27,6 +27,10 @@ DesktopManager="*uid://c7jwnbsuan11x"
 BetterTerrain="*uid://d2amnv3vywley"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
 [display]
 
 window/size/viewport_width=640
@@ -180,6 +184,7 @@ hook_shot={
 2d_physics/layer_4="special"
 3d_physics/layer_4="interaction"
 2d_physics/layer_5="special2"
+2d_physics/layer_6="wind_areas"
 
 [physics]
 
