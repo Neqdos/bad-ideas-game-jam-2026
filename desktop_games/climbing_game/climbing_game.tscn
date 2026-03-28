@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://fpluuv85nou8" path="res://desktop_games/climbing_game/spikes_scene.tscn" id="1_07cv5"]
 [ext_resource type="Script" uid="uid://cby2yx2w350ek" path="res://desktop_games/climbing_game/climbing_game.gd" id="1_cen12"]
 [ext_resource type="Shader" uid="uid://b08bjw7be8cij" path="res://_shaders/transition_shader.gdshader" id="1_w5d10"]
-[ext_resource type="AudioStream" uid="uid://cdychev1elk1l" path="res://audio/music/mount.wav" id="1_wcnn6"]
 [ext_resource type="PackedScene" uid="uid://bw54bu8lrxlf" path="res://desktop_games/climbing_game/player/climbing_player.tscn" id="1_xvyvt"]
 [ext_resource type="Script" uid="uid://comhgqyu5sr8o" path="res://desktop_games/climbing_game/ui/climbing_transition.gd" id="2_cen12"]
 [ext_resource type="Texture2D" uid="uid://coi18fv6o3qbe" path="res://desktop_games/climbing_game/empty_tile.png" id="2_l83bx"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://blvpge5jqlmg4" path="res://desktop_games/climbing_game/stone_tileset.png" id="2_xghrv"]
 [ext_resource type="Script" uid="uid://bnmjnam17024q" path="res://desktop_games/climbing_game/player/climbing_game_input.gd" id="2_xvyvt"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_pmyrd"]
+[ext_resource type="AudioStream" uid="uid://b6qvd8vasuwfo" path="res://audio/music/mount.ogg" id="5_tarl3"]
 [ext_resource type="Resource" uid="uid://cq5akijkr7mhk" path="res://desktop_games/climbing_game/default_camera_tween.tres" id="6_bov24"]
 [ext_resource type="Texture2D" uid="uid://c8t7m5772xvwe" path="res://desktop_games/climbing_game/platforms.png" id="9_66l8g"]
 [ext_resource type="Script" uid="uid://4dkv1bbjchjy" path="res://desktop_games/climbing_game/camera_change_area.gd" id="9_rgv05"]
@@ -503,7 +503,7 @@ grow_vertical = 2
 color = Color(0.16078432, 0.21176471, 0.43529412, 1)
 
 [node name="MountMusic" type="AudioStreamPlayer3D" parent="." unique_id=1784519878]
-stream = ExtResource("1_wcnn6")
+stream = ExtResource("5_tarl3")
 attenuation_model = 1
 autoplay = true
 bus = &"Music"
@@ -519,10 +519,11 @@ physics_quadrant_size = 1
 [node name="Camera2D" type="Camera2D" parent="." unique_id=959723770]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-3, -755)
+position = Vector2(52, 114)
 zoom = Vector2(2, 2)
 process_callback = 0
-limit_bottom = -680
+limit_left = -48
+limit_right = 304
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=610291607]
@@ -658,7 +659,6 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 top_level = true
 position = Vector2(-3, 114)
 script = ExtResource("4_pmyrd")
-priority_override = true
 follow_mode = 1
 follow_target = NodePath("../../ClimbingPlayer")
 zoom = Vector2(2, 2)
