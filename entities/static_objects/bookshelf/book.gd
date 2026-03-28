@@ -15,6 +15,8 @@ class_name Book
 @onready var book_yellow: MeshInstance3D = %BookYellow
 @onready var book_blue: MeshInstance3D = %BookBlue
 
+@onready var push_sound: AudioStreamPlayer3D = %PushSound
+
 enum BOOK_TYPE {
 	Red,
 	Green,
@@ -53,7 +55,7 @@ func _on_interacted(player: PlayerBody) -> void:
 func push() -> void:
 	tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "position:z", pushed_pos_z, PUSH_TIME)
-
+	push_sound.play()
 
 func unpush() -> void:
 	tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

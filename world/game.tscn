@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://ch1y7bbiwm04h" path="res://entities/static_objects/pc/pc.tscn" id="1_03f54"]
 [ext_resource type="Script" uid="uid://bhmug3lm0c8su" path="res://world/game.gd" id="1_7oyu6"]
 [ext_resource type="AudioStream" uid="uid://bk8htf5sj60vp" path="res://audio/ambient/ambient.mp3" id="2_d65k2"]
+[ext_resource type="AudioStream" uid="uid://61s85kpf03iq" path="res://audio/sfx/doorbell.mp3" id="2_ee0e3"]
+[ext_resource type="Script" uid="uid://bsd0sjedbl6ot" path="res://ui/transition.gd" id="2_tf23e"]
+[ext_resource type="Shader" uid="uid://b08bjw7be8cij" path="res://_shaders/transition_shader.gdshader" id="2_uvi7u"]
 [ext_resource type="PackedScene" uid="uid://dlgg00l13fbxf" path="res://entities/player/player.tscn" id="2_xfo4j"]
 [ext_resource type="Texture2D" uid="uid://cfdmk2i13xokb" path="res://entities/static_objects/floor_texture.png" id="3_fuoxl"]
 [ext_resource type="PackedScene" uid="uid://de60m5uxpymch" path="res://entities/objects/battery/battery.tscn" id="4_lkqos"]
@@ -24,6 +27,35 @@
 [ext_resource type="Script" uid="uid://3eljae4cueo5" path="res://world/teleport_area.gd" id="22_5ojwu"]
 [ext_resource type="PackedScene" uid="uid://bwl7r834viac4" path="res://entities/objects/discs/disc_rpg_game/disc_rpg_game.tscn" id="23_nyspk"]
 [ext_resource type="PackedScene" uid="uid://defhgxqu4k2r8" path="res://entities/objects/discs/disc_eye/disc_eye.tscn" id="24_3tpuh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee0e3"]
+resource_local_to_scene = true
+shader = ExtResource("2_uvi7u")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/global_x_mirror = false
+shader_parameter/global_y_mirror = false
+shader_parameter/local_x_mirror = false
+shader_parameter/local_y_mirror = false
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/cumulative_stagger_flip = false
+shader_parameter/cumulative_stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xfo4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -290,6 +322,27 @@ size = Vector3(6, 1, 9)
 script = ExtResource("1_7oyu6")
 pc = NodePath("Map/Desk/PC")
 player = NodePath("Player")
+
+[node name="DoorBell" type="AudioStreamPlayer3D" parent="." unique_id=31735610]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+stream = ExtResource("2_ee0e3")
+pitch_scale = 2.0
+max_distance = 8.0
+bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1701397359]
+
+[node name="Transition" type="ColorRect" parent="CanvasLayer" unique_id=1599775851]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ee0e3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+script = ExtResource("2_tf23e")
 
 [node name="AmbientSound" type="AudioStreamPlayer" parent="." unique_id=1481049948]
 unique_name_in_owner = true
@@ -688,7 +741,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.1,
 unique_name_in_owner = true
 
 [node name="Battery" parent="ObjectsNode" unique_id=1159110517 instance=ExtResource("4_lkqos")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.082049, 0, -0.3140167)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.0820494, 0, -0.3140167)
 
 [node name="DiscRPGGame" parent="ObjectsNode" unique_id=1552379542 instance=ExtResource("23_nyspk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.994646, 0.8125, 13.642308)

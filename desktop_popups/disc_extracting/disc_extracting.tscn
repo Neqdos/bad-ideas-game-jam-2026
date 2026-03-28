@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bjacl2kl56r75"]
 
 [ext_resource type="Script" uid="uid://b4ph20kmsrare" path="res://desktop_popups/disc_extracting/disc_extracting.gd" id="1_jb3ib"]
+[ext_resource type="AudioStream" uid="uid://dduxigocfavmk" path="res://audio/sfx/read_disc.mp3" id="2_a45nn"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_audpj"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lcvqs"]
 frequency = 0.03
@@ -14,6 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jb3ib")
 noise = SubResource("FastNoiseLite_lcvqs")
+
+[node name="ReadingSound" type="AudioStreamPlayer3D" parent="." unique_id=1144675397]
+unique_name_in_owner = true
+stream = ExtResource("2_a45nn")
+volume_db = -30.0
+bus = &"SFX"
+script = ExtResource("3_audpj")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1031999085]
 layout_mode = 1

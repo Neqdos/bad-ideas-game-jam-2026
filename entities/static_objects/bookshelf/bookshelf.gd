@@ -4,6 +4,8 @@ class_name Bookshelf
 @export var move_pos_marker: Marker3D
 @export var all_books: Array[Book]
 
+@onready var moving_sound: AudioStreamPlayer3D = %MovingSound
+
 const CORRECT_BOOKS_PUSH_ORDER: Array[Book.BOOK_TYPE] = [
 	Book.BOOK_TYPE.Red,
 	Book.BOOK_TYPE.Green,
@@ -48,6 +50,8 @@ func add_book(book: Book) -> void:
 
 func _unlock() -> void:
 	is_unlocked = true
+	
+	moving_sound.play()
 	
 	tween = get_tree().create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT).set_parallel()
 	tween.tween_property(self, "global_position", move_pos_marker.global_position, TWEEN_TIME)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf8raxkuwytdo" path="res://entities/static_objects/electromagnet/electromagnet.gd" id="1_oflp5"]
 [ext_resource type="Texture2D" uid="uid://m4avre6k3db8" path="res://entities/static_objects/electromagnet/electromagnet_0.png" id="2_2vwc1"]
+[ext_resource type="AudioStream" uid="uid://b8txtwpnkphmj" path="res://audio/sfx/bookshelf_moving.mp3" id="2_bkcmd"]
 [ext_resource type="PackedScene" uid="uid://clnxoj5faxbt4" path="res://entities/objects/battery/battery_slot.tscn" id="2_ctqt5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1eeeg"]
@@ -195,6 +196,12 @@ data = PackedVector3Array(0.101399995, -0.0625, 0.0232, 0, -0.0625, 0, 0.0451, -
 
 [node name="Electromagnet" type="Node3D" unique_id=1015396693]
 script = ExtResource("1_oflp5")
+
+[node name="MoveSound" type="AudioStreamPlayer3D" parent="." unique_id=817235860]
+unique_name_in_owner = true
+stream = ExtResource("2_bkcmd")
+pitch_scale = 0.5
+bus = &"SFX"
 
 [node name="BatterySlot" parent="." unique_id=997855051 instance=ExtResource("2_ctqt5")]
 unique_name_in_owner = true

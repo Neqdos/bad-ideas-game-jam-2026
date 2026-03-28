@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3yj415hnvkwg" path="res://desktop_apps/browser/browser_link.tscn" id="2_cdk01"]
 [ext_resource type="Resource" uid="uid://kyyd543yxu0h" path="res://desktop_popups/hacked/hacked.tres" id="3_7bca2"]
 [ext_resource type="Resource" uid="uid://lme8grx2etjf" path="res://desktop_popups/online_course/online_course.tres" id="4_gadmo"]
+[ext_resource type="Resource" uid="uid://cpml7x8aucyak" path="res://desktop_popups/store/store.tres" id="5_hxg66"]
 
 [node name="browser" type="Control" unique_id=193755841]
 layout_mode = 3
@@ -47,8 +48,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cdk01")
 theme_override_font_sizes/font_size = 8
-text = "Click on a button next to a link to visit the site.
-Most sites can't be accessed, and will be unlocked later in the game."
+text = "Sites can be accessed after seeing them at least once."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -67,3 +67,8 @@ site_name = "yougothacked"
 layout_mode = 2
 popup_res = ExtResource("4_gadmo")
 site_name = "bestcoursesonline"
+
+[node name="Store" parent="MarginContainer/VBoxContainer/SiteLinksContainer" unique_id=55849100 instance=ExtResource("2_cdk01")]
+layout_mode = 2
+popup_res = ExtResource("5_hxg66")
+site_name = "gmymstore"

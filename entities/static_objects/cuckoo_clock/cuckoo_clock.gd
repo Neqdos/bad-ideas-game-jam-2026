@@ -10,6 +10,7 @@ extends Node3D
 @onready var cuckoo_cooldown: Timer = %CuckooCooldown
 
 @onready var cuckoo_sound: AudioStreamPlayer3D = %CuckooSound
+@onready var tick_sound: AudioStreamPlayer3D = %TickSound
 
 @onready var swingy_ball: Node3D = %SwingyBall
 
@@ -29,10 +30,20 @@ func _ready() -> void:
 	var time: Dictionary = DesktopManager.get_time_dict()
 	previous_hour = time["hour"]
 	
-	tween_ball = get_tree().create_tween().set_loops()
-	tween_ball.tween_property(swingy_ball, "rotation:z", -BALLS_MAX_ROT, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-	tween_ball.tween_property(swingy_ball, "rotation:z", BALLS_MAX_ROT, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	tween_loop()
 
+
+func tween_loop() -> void:
+	tween_ball = get_tree().create_tween()
+	tween_ball.tween_property(swingy_ball, "rotation:z", -BALLS_MAX_ROT, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	
+	await tween_ball.finished
+	tick_sound.play()
+	tween_ball = get_tree().create_tween()
+	tween_ball.tween_property(swingy_ball, "rotation:z", BALLS_MAX_ROT, 1.0).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	await tween_ball.finished
+	tick_sound.play()
+	tween_loop()
 
 func _process(delta: float) -> void:
 	var time: Dictionary = DesktopManager.get_time_dict()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl28v8m1f2i3x"
-path="res://.godot/imported/books.png-1550df1e89b3fa825dbd6e069491cad9.ctex"
+uid="uid://dvekqocsjdb4h"
+path="res://.godot/imported/books.png-83737c5bd9ed15dc4860bbb5012a12a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://desktop/files/books.png"
-dest_files=["res://.godot/imported/books.png-1550df1e89b3fa825dbd6e069491cad9.ctex"]
+source_file="res://desktop_popups/online_course/books.png"
+dest_files=["res://.godot/imported/books.png-83737c5bd9ed15dc4860bbb5012a12a6.ctex"]
 
 [params]
 

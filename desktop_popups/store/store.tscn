@@ -49,7 +49,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=234721084]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_33y7j")
-text = "$tore (need name)"
+text = "G.M.Y.M. $tore"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=183923238]
@@ -92,7 +92,7 @@ theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("2_blsxm")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_3jovg")
-text = "INSTANT delivery, right to your door."
+text = "INSTANT shipping, right to your door."
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1451445473]

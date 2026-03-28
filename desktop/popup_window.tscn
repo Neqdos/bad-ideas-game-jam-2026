@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://nhxqcrnm8ar6"]
 
 [ext_resource type="Script" uid="uid://dxql1ioslbhtt" path="res://desktop/popup_window.gd" id="1_si0rx"]
+[ext_resource type="AudioStream" uid="uid://boa6lv5r0vtvj" path="res://audio/sfx/notif.mp3" id="2_gfpg7"]
 [ext_resource type="Texture2D" uid="uid://b6g553k1w2vvb" path="res://desktop/textures/checked_pattern_red.png" id="2_jtm15"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="3_ndgb5"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_u08wp"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_jtm15"]
 color = Color(0.2, 0.23529412, 0.34117648, 1)
@@ -23,6 +25,13 @@ window_panel = NodePath("WindowPanel")
 title_bar = NodePath("WindowPanel/VBoxContainer/TitleBarTexture/HBoxContainer/TitleBar")
 app_viewport = NodePath("WindowPanel/VBoxContainer/PanelContainer/SubViewportContainer/AppViewport")
 metadata/_custom_type_script = "uid://dxql1ioslbhtt"
+
+[node name="PopupSound" type="AudioStreamPlayer3D" parent="." unique_id=1078306921]
+unique_name_in_owner = true
+stream = ExtResource("2_gfpg7")
+bus = &"PC SFX"
+script = ExtResource("3_u08wp")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
 
 [node name="WindowPanel" type="PanelContainer" parent="." unique_id=207610277]
 layout_mode = 0

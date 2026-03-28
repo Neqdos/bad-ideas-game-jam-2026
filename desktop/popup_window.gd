@@ -2,6 +2,7 @@ extends DesktopWindow
 class_name PopupWindow
 
 @onready var close_button: Button = %CloseButton
+@onready var popup_sound: DesktopAudioPlayer = %PopupSound
 
 var popup_res: PopupResource
 var data: Dictionary[String, Variant]
@@ -16,6 +17,8 @@ func initiate() -> void:
 	name = popup_scene.name
 	
 	await get_tree().process_frame
+	
+	popup_sound.play()
 	
 	open()
 	position_to_center()

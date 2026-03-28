@@ -2,11 +2,17 @@
 
 [ext_resource type="Script" uid="uid://0l18veesjhbb" path="res://entities/static_objects/bookshelf/book.gd" id="1_7pc15"]
 [ext_resource type="Texture2D" uid="uid://c4kaakwbxxe8r" path="res://entities/static_objects/bookshelf/books/books_0.png" id="2_ndagj"]
+[ext_resource type="AudioStream" uid="uid://bjcx1kj58j3iu" path="res://audio/sfx/book.mp3" id="2_urrm6"]
 [ext_resource type="Script" uid="uid://dkvovvvhiovlj" path="res://interaction/in_world/object_interact_action.gd" id="2_yt830"]
 [ext_resource type="Texture2D" uid="uid://4s0gfhqg0od8" path="res://entities/static_objects/bookshelf/books/books_1.png" id="3_yt830"]
 [ext_resource type="Texture2D" uid="uid://drs1agyiw64ay" path="res://entities/static_objects/bookshelf/books/books_2.png" id="4_urrm6"]
 [ext_resource type="Texture2D" uid="uid://1ixn0677cvqu" path="res://entities/static_objects/bookshelf/books/books_3.png" id="5_c2n3u"]
 [ext_resource type="Texture2D" uid="uid://tqdjn16vg34f" path="res://entities/static_objects/bookshelf/books/books_4.png" id="6_no8ve"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yt830"]
+random_pitch = 1.2599211
+streams_count = 1
+stream_0/stream = ExtResource("2_urrm6")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bnmsm"]
 data = PackedVector3Array(0.0234, 0.1875, -0.0703, 0.0234, 0, 0.0703, 0.0234, 0.1875, 0.0703, 0.0234, 0.1875, -0.0703, 0.0234, 0, -0.0703, 0.0234, 0, 0.0703, -0.0234, 0, 0.0703, -0.0234, 0.1875, -0.0703, -0.0234, 0.1875, 0.0703, -0.0234, 0, 0.0703, -0.0234, 0, -0.0703, -0.0234, 0.1875, -0.0703, -0.0234, 0.1875, 0.0703, 0.0234, 0.1875, -0.0703, 0.0234, 0.1875, 0.0703, -0.0234, 0.1875, 0.0703, -0.0234, 0.1875, -0.0703, 0.0234, 0.1875, -0.0703, 0.0234, 0, -0.0703, -0.0234, 0, 0.0703, 0.0234, 0, 0.0703, 0.0234, 0, -0.0703, -0.0234, 0, -0.0703, -0.0234, 0, 0.0703, 0.0234, 0, 0.0703, -0.0234, 0.1875, 0.0703, 0.0234, 0.1875, 0.0703, 0.0234, 0, 0.0703, -0.0234, 0, 0.0703, -0.0234, 0.1875, 0.0703, -0.0234, 0.1875, -0.0703, 0.0234, 0, -0.0703, 0.0234, 0.1875, -0.0703, -0.0234, 0.1875, -0.0703, -0.0234, 0, -0.0703, 0.0234, 0, -0.0703)
@@ -223,6 +229,12 @@ shadow_mesh = SubResource("ArrayMesh_30vrt")
 
 [node name="Book" type="AnimatableBody3D" unique_id=472046716]
 script = ExtResource("1_7pc15")
+
+[node name="PushSound" type="AudioStreamPlayer3D" parent="." unique_id=754197718]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_yt830")
+max_distance = 5.0
+bus = &"SFX"
 
 [node name="ObjectInteractAction" type="Node" parent="." unique_id=93279710]
 unique_name_in_owner = true

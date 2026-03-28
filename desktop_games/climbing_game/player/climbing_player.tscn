@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/_components/state_machine.gd" id="1_0wo2l"]
 [ext_resource type="Script" uid="uid://bfr01ewl5e2kx" path="res://desktop_games/climbing_game/player/climbing_player.gd" id="1_543t1"]
+[ext_resource type="AudioStream" uid="uid://dwra75kh6spgj" path="res://audio/sfx/climbing_game/death.mp3" id="2_4lc5u"]
 [ext_resource type="Script" uid="uid://cj65v1agwdkx2" path="res://desktop_games/climbing_game/player/states/idle.gd" id="2_bwiu4"]
 [ext_resource type="Texture2D" uid="uid://danjhlhqrek7b" path="res://desktop_games/climbing_game/player/player.png" id="2_q4xk2"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_6v8lt"]
 [ext_resource type="Script" uid="uid://25ui58bmae00" path="res://desktop_games/climbing_game/player/climbing_player_animation_controller.gd" id="3_hgbq3"]
 [ext_resource type="Script" uid="uid://dw3cq5ixswpof" path="res://desktop_games/climbing_game/player/states/walk.gd" id="4_xgjoa"]
 [ext_resource type="Script" uid="uid://d38oqj0qqjtfq" path="res://desktop_games/climbing_game/player/states/jump.gd" id="5_fjxhk"]
@@ -194,6 +196,14 @@ size = Vector2(10, 10)
 collision_layer = 2
 collision_mask = 25
 script = ExtResource("1_543t1")
+
+[node name="DeathSFX" type="AudioStreamPlayer3D" parent="." unique_id=636726945]
+unique_name_in_owner = true
+stream = ExtResource("2_4lc5u")
+volume_db = -28.0
+bus = &"PC SFX"
+script = ExtResource("3_6v8lt")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
 
 [node name="KoyoteTimer" type="Timer" parent="." unique_id=593270593]
 unique_name_in_owner = true

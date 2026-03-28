@@ -7,6 +7,8 @@ extends Control
 @onready var extracting_label: Label = %ExtractingLabel
 @onready var extracting_label_dot_timer: Timer = %ExtractingLabelDotTimer
 
+@onready var reading_sound: DesktopAudioPlayer = %ReadingSound
+
 const NOISE_VALUE_MULT: float = 1.0
 const NOISE_VALUE_OFFSET: float = 0.0
 const TIME_SCALE: float = 10.0
@@ -34,6 +36,7 @@ func _ready() -> void:
 		label_text = "DOWNLOADING FILE"
 	else:
 		label_text = "EXTRACTING FILE"
+		reading_sound.play()
 
 
 func _on_extracting_label_dot_timer_timeout() -> void:
@@ -57,6 +60,7 @@ func _process(delta: float) -> void:
 		extracting = false
 		var popup_window: PopupWindow = GlobalMethods.find_first_parent_of_type(self, PopupWindow)
 		if is_instance_valid(popup_window): popup_window.close_button.visible = true
+		reading_sound.stop()
 		DesktopManager.disc_extracting_finished.emit()
 		DesktopManager.add_file_to_desktop(file_res)
 		extracting_label.text = "%s COMPLETED." % label_text

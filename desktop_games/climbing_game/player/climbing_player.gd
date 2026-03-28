@@ -15,6 +15,7 @@ class_name ClimbingPlayer
 @onready var metal_block_above_raycast: RayCast2D = %MetalBlockAboveRaycast
 @onready var ceiling_above_raycast: RayCast2D = %CeilingAboveRaycast
 @onready var metal_block_below_raycast: RayCast2D = $MetalBlockBelowRaycast
+@onready var death_sfx: DesktopAudioPlayer = %DeathSFX
 
 const SPEED: float = 80.0
 const ACCELERATION: float = 40.0
@@ -70,6 +71,7 @@ func _on_restart() -> void:
 
 func _on_player_death() -> void:
 	dead = true
+	death_sfx.play()
 	DesktopManager.climbing_input_lock.emit(true)
 	can_move += 1
 	velocity = Vector2.ZERO

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b8l7tfp6an156" path="res://desktop_games/climbing_game/objects/pressure_plate/pressure_plate.gd" id="1_k54l0"]
 [ext_resource type="Texture2D" uid="uid://bjfmbmb8sn4f5" path="res://desktop_games/climbing_game/objects/pressure_plate/pressure_plate.png" id="1_xwhs3"]
+[ext_resource type="AudioStream" uid="uid://da4nlvy13kpyi" path="res://audio/sfx/climbing_game/pressure_plate.mp3" id="2_o0tih"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_wdrxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k54l0"]
 size = Vector2(8, 2)
@@ -11,6 +13,13 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_k54l0")
+
+[node name="PressSFX" type="AudioStreamPlayer3D" parent="." unique_id=1142609620]
+unique_name_in_owner = true
+stream = ExtResource("2_o0tih")
+bus = &"PC SFX"
+script = ExtResource("3_wdrxa")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1028472802]
 texture = ExtResource("1_xwhs3")

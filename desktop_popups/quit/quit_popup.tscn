@@ -46,13 +46,13 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=801219060]
 layout_mode = 2
 
-[node name="YesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=440821087]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Yea"
-
 [node name="NoButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1811672023]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Nah"
+
+[node name="YesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=440821087]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Yea"

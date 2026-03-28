@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ccu20ilt33asc" path="res://desktop/file_resources/image_file_resource.gd" id="1_bqern"]
 [ext_resource type="Texture2D" uid="uid://c1el4502vuvoh" path="res://desktop/_file_icons/image_icon.png" id="1_s1bup"]
-[ext_resource type="Texture2D" uid="uid://cl28v8m1f2i3x" path="res://desktop/files/books.png" id="2_8d58y"]
+[ext_resource type="Texture2D" uid="uid://dvekqocsjdb4h" path="res://desktop_popups/online_course/books.png" id="2_s1bup"]
 
 [resource]
 script = ExtResource("1_bqern")
-image = ExtResource("2_8d58y")
+image = ExtResource("2_s1bup")
 name = "books"
 icon = ExtResource("1_s1bup")
 metadata/_custom_type_script = "uid://ccu20ilt33asc"
