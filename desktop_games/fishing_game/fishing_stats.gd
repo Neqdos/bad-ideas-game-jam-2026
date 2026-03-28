@@ -20,9 +20,10 @@ const JUMP_STRENGTH_COSTS: Array[float] = [65.0, 205.0, 650.0]
 const JUMP_COOLDOWN_UPGRADES: Array[float] = [2.6, 2.2, 1.8, 1.5, .5]
 const JUMP_COOLDOWN_COSTS: Array[float] = [25.0, 125.0, 225.0, 525.0, 1025.0]
 
+# -80, 176
 @export var line_length: float = 256.0
-const LINE_LENGTH_UPGRADES: Array[float] = [512.0, 1024.0, 2048.0]
-const LINE_LENGTH_COSTS: Array[float] = [30.0, 200.0, 800.0]
+const LINE_LENGTH_UPGRADES: Array[float] = [432.0, 608.0, 784.0, 1136.0] #1664.0
+const LINE_LENGTH_COSTS: Array[float] = [30.0, 200.0, 800.0, 1200.0]
 
 @export var hook_size: int = 0
 const HOOK_SIZE_UPGRADES: Array[int] = [1, 2]

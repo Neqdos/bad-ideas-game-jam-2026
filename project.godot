@@ -58,6 +58,7 @@ folder_colors={
 "res://desktop_games/": "purple",
 "res://desktop_games/climbing_game/": "pink",
 "res://desktop_games/fishing_game/": "blue",
+"res://desktop_games/rpg/": "orange",
 "res://desktop_popups/": "purple",
 "res://entities/": "red",
 "res://interaction/": "orange",

@@ -7,6 +7,9 @@ extends Node2D
 @onready var hook_camera: PhantomCamera2D = %HookCamera
 @onready var rest_camera: PhantomCamera2D = %RestCamera
 
+@onready var dark_stone_tilemap: TileMapLayer = %DarkStoneTilemap
+@onready var explosives_file_tile: FileTile = %ExplosivesFileTile
+
 const REST_CAMERA_DEFAULT_X_POSITION: float = 67.0
 
 const REELING_SPEED: float = 128.0
@@ -28,7 +31,13 @@ func _ready() -> void:
 	
 	DesktopManager.gravity_changed.connect(_on_gravity_changed)
 	
+	explosives_file_tile.file_placed.connect(_on_file_placed)
+	
 	_on_gravity_changed()
+
+func _on_file_placed() -> void:
+	explosives_file_tile.queue_free.call_deferred()
+	dark_stone_tilemap.enabled = false
 
 func _on_try_start() -> void:
 	if !can_start_game: return
