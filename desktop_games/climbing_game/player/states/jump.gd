@@ -6,7 +6,7 @@ extends State
 
 func enter() -> void:
 	player.velocity.y = -player.JUMP_POWER
-	player.jump_buffer_timer.stop()
+	
 	var new_jump_dust: GPUParticles2D = jump_dust.duplicate()
 	player.add_child(new_jump_dust)
 	new_jump_dust.emitting = true

@@ -32,9 +32,9 @@ func _on_body_exited(body: Node2D) -> void:
 			"right":
 				if body.global_position.x > global_position.x: entered = true
 			"up":
-				if body.global_position.y > global_position.y: entered = true
-			"down":
 				if body.global_position.y < global_position.y: entered = true
+			"down":
+				if body.global_position.y > global_position.y: entered = true
 		
 		var pcam: PhantomCamera2D = host.get_active_pcam()
 		if entered:

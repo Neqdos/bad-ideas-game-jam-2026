@@ -7,6 +7,7 @@ func enter() -> void:
 	player.hook_uses = 0
 	if player.jump_buffer_timer.time_left:
 		state_machine.change_state("jump")
+		player.jump_buffer_timer.stop()
 
 func physics_update(delta: float) -> void:
 	player.velocity.x = lerpf(player.velocity.x, player.input.input_x * player.SPEED, player.ACCELERATION * delta)
@@ -21,5 +22,6 @@ func update(_delta: float) -> void:
 	elif player.jump_buffer_timer.time_left:
 		player.velocity.x *= 1.3
 		state_machine.change_state("jump")
+		player.jump_buffer_timer.stop()
 	elif player.input.grappling_hook_pressed:
 		state_machine.change_state("hookshot")

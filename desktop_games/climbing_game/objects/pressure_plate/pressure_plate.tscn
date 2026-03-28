@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cr18ttxcovbts"]
+
+[ext_resource type="Script" uid="uid://b8l7tfp6an156" path="res://desktop_games/climbing_game/objects/pressure_plate/pressure_plate.gd" id="1_k54l0"]
+[ext_resource type="Texture2D" uid="uid://bjfmbmb8sn4f5" path="res://desktop_games/climbing_game/objects/pressure_plate/pressure_plate.png" id="1_xwhs3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k54l0"]
+size = Vector2(8, 2)
+
+[node name="PressurePlate" type="Area2D" unique_id=490705250]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_k54l0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1028472802]
+texture = ExtResource("1_xwhs3")
+offset = Vector2(0, -1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=231003181]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_k54l0")

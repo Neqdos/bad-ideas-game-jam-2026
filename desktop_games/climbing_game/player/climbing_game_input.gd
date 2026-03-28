@@ -2,6 +2,7 @@ extends DesktopGameInput
 class_name ClimbingGameInput
 
 signal jumped()
+signal restart()
 
 var input_x: float = 0.0
 var input_y: float = 0.0
@@ -35,6 +36,9 @@ func _process(delta: float) -> void:
 	just_jumped = Input.is_action_just_pressed("jump")
 	jump_released = Input.is_action_just_released("jump")
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("reel"):
+		restart.emit()
 
 func reset() -> void:
 	did_reset = true

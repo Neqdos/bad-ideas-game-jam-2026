@@ -331,3 +331,18 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindTilesArea" unique_id=2011665376]
 shape = SubResource("RectangleShape2D_0h4r1")
+
+[node name="MetalBlockAboveRaycast" type="RayCast2D" parent="." unique_id=910214375]
+unique_name_in_owner = true
+target_position = Vector2(0, -6)
+hit_from_inside = true
+
+[node name="CeilingAboveRaycast" type="RayCast2D" parent="." unique_id=1386564885]
+unique_name_in_owner = true
+target_position = Vector2(0, -6)
+collision_mask = 25
+hit_from_inside = true
+
+[node name="MetalBlockBelowRaycast" type="RayCast2D" parent="." unique_id=1014763289]
+target_position = Vector2(0, 6)
+hit_from_inside = true

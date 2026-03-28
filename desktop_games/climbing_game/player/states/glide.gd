@@ -10,18 +10,18 @@ func enter() -> void:
 	player.max_gravty_scale = GLIDING_MAX_GRAVITY_SCALE
 
 func physics_update(delta: float) -> void:
+	if wind_tiles_area.has_overlapping_areas():
+		player.max_gravty_scale = WIND_MAX_GRAVITY_SCALE
+	else:
+		player.max_gravty_scale = GLIDING_MAX_GRAVITY_SCALE
+	
+	player.velocity.x = lerpf(player.velocity.x, player.input.input_x * player.SPEED, (player.IN_AIR_ACCELERATION if player.input.input_x else player.ACCELERATION) * delta)
+	
 	if player.is_on_floor():
 		if player.input.input_x:
 			state_machine.change_state("walk")
 		else:
 			state_machine.change_state("idle")
-	
-	player.velocity.x = lerpf(player.velocity.x, player.input.input_x * player.SPEED, (player.IN_AIR_ACCELERATION if player.input.input_x else player.ACCELERATION) * delta)
-	
-	if wind_tiles_area.has_overlapping_areas():
-		player.max_gravty_scale = WIND_MAX_GRAVITY_SCALE
-	else:
-		player.max_gravty_scale = GLIDING_MAX_GRAVITY_SCALE
 
 func update(delta: float) -> void:
 	if player.input.grappling_hook_pressed and player.hook_uses == 0:

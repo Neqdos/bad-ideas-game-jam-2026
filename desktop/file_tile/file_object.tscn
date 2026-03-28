@@ -38,6 +38,7 @@ alpha_curve = SubResource("CurveTexture_yqbb3")
 [node name="FileObject" type="Area2D" unique_id=451703329]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 script = ExtResource("1_hicah")
 metadata/_custom_type_script = "uid://d37ncfy8cmm4m"
 

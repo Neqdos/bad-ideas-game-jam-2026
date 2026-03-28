@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bifp4wtxesbd0"]
+
+[ext_resource type="Script" uid="uid://hyh0jb8dpmnb" path="res://desktop_games/climbing_game/ui/climbing_game_ui.gd" id="1_s5dnt"]
+[ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="2_ayitp"]
+[ext_resource type="Texture2D" uid="uid://dm5iv6nl21s0k" path="res://desktop_games/climbing_game/ui/wings_icon.png" id="3_sj6df"]
+
+[node name="ClimbingGameUI" type="Control" unique_id=1256527301]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5dnt")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1444740162]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1537385848]
+layout_mode = 2
+
+[node name="Wings" type="NinePatchRect" parent="MarginContainer/HBoxContainer" unique_id=846561091]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_ayitp")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Wings" unique_id=1654366888]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sj6df")
+stretch_mode = 3

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://t4pr4w760kxb" path="res://desktop_games/fishing_game/plank.png" id="13_il8kp"]
 [ext_resource type="Shader" uid="uid://cld6h4uhpsn6u" path="res://_shaders/water.gdshader" id="14_nivri"]
 [ext_resource type="PackedScene" uid="uid://br8lyylghpxpj" path="res://desktop/file_tile/file_tile.tscn" id="15_mng8b"]
-[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/bomb.tres" id="16_od7tt"]
+[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/explosives.tres" id="19_0181o"]
 [ext_resource type="PackedScene" uid="uid://bsg3co3w2jke5" path="res://desktop/file_tile/file_object.tscn" id="20_0181o"]
 [ext_resource type="Resource" uid="uid://bcjvixiw0vuxv" path="res://desktop/files/holyfish.tres" id="21_yqbjn"]
 
@@ -407,7 +407,7 @@ tile_set = SubResource("TileSet_k46on")
 
 [node name="FileTile" parent="." unique_id=362535691 instance=ExtResource("15_mng8b")]
 position = Vector2(-112, 255)
-file_res = ExtResource("16_od7tt")
+file_res = ExtResource("19_0181o")
 
 [node name="FileObject" parent="." unique_id=451703329 instance=ExtResource("20_0181o")]
 position = Vector2(0, -395)
