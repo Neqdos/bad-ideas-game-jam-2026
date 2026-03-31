@@ -402,7 +402,7 @@ a = Vector2(0, -14)
 b = Vector2(0, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4hh1"]
-size = Vector2(40, 16)
+size = Vector2(38, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c4hh1"]
 radius = 8.0
