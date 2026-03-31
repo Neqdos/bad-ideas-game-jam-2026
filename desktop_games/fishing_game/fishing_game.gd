@@ -72,7 +72,7 @@ func _on_fishing_all_sold() -> void:
 	
 	if DesktopManager.shown_course_popup: return
 	
-	if DesktopManager.fishing_money >= 100.0:
+	if DesktopManager.fishing_money >= 300.0:
 		DesktopManager.shown_course_popup = true
 		DesktopManager.show_popup(ONLINE_COURSE)
 

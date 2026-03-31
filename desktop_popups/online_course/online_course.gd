@@ -13,8 +13,8 @@ func _ready() -> void:
 	DesktopManager.unlock_popup_site(popup_window.popup_res)
 
 func _on_buy_button_pressed() -> void:
-	if DesktopManager.fishing_money >= 100.0:
-		DesktopManager.fishing_money -= 100.0
+	if DesktopManager.fishing_money >= 300.0:
+		DesktopManager.fishing_money -= 300.0
 		DesktopManager.used_online_course = true
 		buy_button.disabled = true
 		

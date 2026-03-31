@@ -87,7 +87,7 @@ autowrap_mode = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Buy 99.99$"
+text = "Buy 299.99$"
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BuyButton" unique_id=1413580794]
 layout_mode = 0
