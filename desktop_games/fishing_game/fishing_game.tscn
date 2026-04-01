@@ -7,9 +7,6 @@
 [ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_cpfjy"]
 [ext_resource type="Texture2D" uid="uid://cknuyedh71j3r" path="res://desktop_games/fishing_game/stone_tileset.png" id="3_dty3a"]
 [ext_resource type="Script" uid="uid://b4fm75m7krycv" path="res://desktop_games/fishing_game/fishing_game_input.gd" id="3_ypyik"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_yxqwv"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_gkht2"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_yxqwv"]
 [ext_resource type="Script" uid="uid://du3d2kpwnh7al" path="res://desktop_games/fishing_game/fish_spawner.gd" id="9_2v5x7"]
 [ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="10_dty3a"]
 [ext_resource type="PackedScene" uid="uid://cjsr6qcaeml73" path="res://desktop/victor_sprite.tscn" id="10_voav4"]
@@ -34,11 +31,6 @@
 [ext_resource type="Resource" uid="uid://ixybdr71yplc" path="res://desktop_games/fishing_game/fish_resources/swordfish.tres" id="22_gksqo"]
 [ext_resource type="Texture2D" uid="uid://c86t67rbbl8ab" path="res://desktop_games/fishing_game/player_fishing.png" id="23_4po16"]
 [ext_resource type="Resource" uid="uid://dbg77q0pq7ley" path="res://desktop/files/rope.tres" id="32_6o3gf"]
-
-[sub_resource type="Resource" id="Resource_dv54t"]
-script = ExtResource("6_yxqwv")
-duration = 0.5
-transition = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frmg3"]
 radius = 4.1231055
@@ -621,18 +613,6 @@ unique_name_in_owner = true
 points = PackedVector2Array(0, -32, 0, 0)
 width = 1.0
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2016293746]
-top_level = true
-position = Vector2(67, -32)
-zoom = Vector2(2, 2)
-editor_draw_limits = true
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=2117669226]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("3_yxqwv")
-host_layers = 2
-
 [node name="FishingHook" parent="." unique_id=1250461834 node_paths=PackedStringArray("input") instance=ExtResource("2_k46on")]
 unique_name_in_owner = true
 input = NodePath("FishingGameInput")
@@ -643,30 +623,13 @@ script = ExtResource("3_ypyik")
 app_node = NodePath("../..")
 metadata/_custom_type_script = "uid://b4fm75m7krycv"
 
-[node name="HookCamera" type="Node2D" parent="." unique_id=1113775122 node_paths=PackedStringArray("follow_target")]
+[node name="GameCamera" type="Camera2D" parent="FishingHook" unique_id=2016293746]
 unique_name_in_owner = true
-top_level = true
-script = ExtResource("5_gkht2")
-follow_mode = 1
-follow_target = NodePath("../FishingHook")
+physics_interpolation_mode = 1
+offset = Vector2(-32, 0)
 zoom = Vector2(2, 2)
-overide_screen_size = Vector2(400, 300)
-tween_resource = SubResource("Resource_dv54t")
-host_layers = 2
-draw_limits = true
-metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="RestCamera" type="Node2D" parent="." unique_id=1497218368]
-unique_name_in_owner = true
-position = Vector2(67, -32)
-script = ExtResource("5_gkht2")
-priority = 1
-zoom = Vector2(2, 2)
-overide_screen_size = Vector2(400, 300)
-tween_resource = SubResource("Resource_dv54t")
-host_layers = 2
-draw_limits = true
-metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+process_callback = 0
+editor_draw_limits = true
 
 [node name="Victor" type="Area2D" parent="." unique_id=1165197948]
 position = Vector2(-90, 1513)

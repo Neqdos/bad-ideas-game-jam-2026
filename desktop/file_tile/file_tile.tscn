@@ -65,6 +65,7 @@ material = SubResource("ShaderMaterial_sk3lt")
 texture = ExtResource("3_u7crq")
 
 [node name="Border" type="AnimatedSprite2D" parent="." unique_id=1587682380]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_rqs1b")
 autoplay = "default"
 frame_progress = 0.24745351

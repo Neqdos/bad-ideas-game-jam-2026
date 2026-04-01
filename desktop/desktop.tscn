@@ -12,6 +12,9 @@
 [ext_resource type="Resource" uid="uid://cknlotn1uwoe6" path="res://desktop/files/paint.tres" id="9_mni1t"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="10_4ndcx"]
 [ext_resource type="Texture2D" uid="uid://4o1vq7q536sf" path="res://desktop/textures/window_npt.png" id="10_jsfay"]
+[ext_resource type="Resource" uid="uid://dbg77q0pq7ley" path="res://desktop/files/rope.tres" id="10_sscii"]
+[ext_resource type="Resource" uid="uid://bcjvixiw0vuxv" path="res://desktop/files/holyfish.tres" id="11_jqijg"]
+[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/bomb.tres" id="12_1m8fn"]
 [ext_resource type="PackedScene" uid="uid://wr7j6c1jo6j2" path="res://desktop/file_window.tscn" id="13_1dkjm"]
 [ext_resource type="Resource" uid="uid://5od8e2g5jgq8" path="res://desktop/files/settings.tres" id="14_mni1t"]
 
@@ -129,6 +132,33 @@ offset_left = 256.0
 offset_right = 320.00006
 file_res = ExtResource("9_mni1t")
 grid_pos = Vector2i(4, 0)
+
+[node name="Browser5" parent="DesktopIconContainer" unique_id=1876403275 instance=ExtResource("3_py4qr")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 320.00006
+offset_bottom = 192.00002
+file_res = ExtResource("10_sscii")
+grid_pos = Vector2i(4, 2)
+
+[node name="Browser6" parent="DesktopIconContainer" unique_id=1238699967 instance=ExtResource("3_py4qr")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 384.00006
+offset_bottom = 192.00002
+file_res = ExtResource("11_jqijg")
+grid_pos = Vector2i(5, 2)
+
+[node name="Browser7" parent="DesktopIconContainer" unique_id=1576875731 instance=ExtResource("3_py4qr")]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 448.00006
+offset_bottom = 192.00002
+file_res = ExtResource("12_1m8fn")
+grid_pos = Vector2i(6, 2)
 
 [node name="WindowContainer" type="Control" parent="." unique_id=349596325 groups=["window_container"]]
 layout_mode = 1

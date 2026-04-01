@@ -27,6 +27,7 @@ var has_wings: bool = false:
 		has_wings = val
 		climbing_items_changed.emit()
 signal climbing_items_changed()
+signal climbing_victor_hit()
 # ---
 
 # FISHING

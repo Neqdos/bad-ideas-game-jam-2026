@@ -6,6 +6,7 @@ signal file_placed()
 @export var file_res: FileResource
 
 @onready var icon: Sprite2D = %Icon
+@onready var border: AnimatedSprite2D = %Border
 
 var is_hovered: bool = false
 
@@ -19,12 +20,16 @@ func _ready() -> void:
 	
 	icon_grayscale_shader = icon.material
 	icon.texture = file_res.icon
+	
+	border.pause()
 
 func _on_mouse_entered() -> void:
 	is_hovered = true
+	border.play()
 
 func _on_mouse_exited() -> void:
 	is_hovered = false
+	border.pause()
 
 func _on_desktop_icon_dropped(desktop_icon: DesktopIcon, from: Vector2i) -> void:
 	await get_tree().physics_frame

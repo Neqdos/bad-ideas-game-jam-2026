@@ -4,13 +4,9 @@ extends Node2D
 @onready var fishing_game_input: FishingGameInput = %FishingGameInput
 @onready var fishing_line: Line2D = %FishingLine
 
-@onready var hook_camera: PhantomCamera2D = %HookCamera
-@onready var rest_camera: PhantomCamera2D = %RestCamera
-
 @onready var dark_stone_tilemap: TileMapLayer = %DarkStoneTilemap
 @onready var explosives_file_tile: FileTile = %ExplosivesFileTile
-
-const REST_CAMERA_DEFAULT_X_POSITION: float = 67.0
+@onready var game_camera: Camera2D = %GameCamera
 
 const REELING_SPEED: float = 128.0
 const STARTING_HOOK_POSITION: Vector2 = Vector2.ZERO
@@ -18,6 +14,7 @@ const STARTING_HOOK_POSITION: Vector2 = Vector2.ZERO
 const ONLINE_COURSE = preload("uid://lme8grx2etjf")
 const CATFISHING = preload("uid://c1ry1sls6uns")
 
+const CAMERA_OFFSET_X: float = -32
 
 var tween: Tween
 
@@ -31,13 +28,9 @@ func _ready() -> void:
 	DesktopManager.fishing_game_ended.connect(_on_fishing_game_ended)
 	DesktopManager.fishing_all_sold.connect(_on_fishing_all_sold)
 	
-	DesktopManager.gravity_changed.connect(_on_gravity_changed)
-	
 	
 	
 	explosives_file_tile.file_placed.connect(_on_file_placed)
-	
-	_on_gravity_changed()
 
 func _on_file_placed() -> void:
 	explosives_file_tile.queue_free.call_deferred()
@@ -57,8 +50,8 @@ func _on_fishing_game_started() -> void:
 	fishing_hook.can_move = true
 	can_start_game = false
 	
-	rest_camera.priority = 0
-	hook_camera.priority = 1
+	tween = get_tree().create_tween()
+	tween.tween_property(game_camera, "offset:x", 0.0, .5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _on_fishing_game_reeling() -> void:
 	DesktopManager.fishing_game_is_going = false
@@ -72,8 +65,8 @@ func _on_fishing_game_reeling() -> void:
 	DesktopManager.fishing_game_ended.emit()
 
 func _on_fishing_game_ended() -> void:
-	rest_camera.priority = 1
-	hook_camera.priority = 0
+	tween = get_tree().create_tween()
+	tween.tween_property(game_camera, "offset:x", CAMERA_OFFSET_X, .5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _on_fishing_all_sold() -> void:
 	can_start_game = true
@@ -89,8 +82,3 @@ func _physics_process(delta: float) -> void:
 	
 	if fishing_line.points[0].distance_to(fishing_hook.global_position) >= DesktopManager.fishing_stats.line_length:
 		DesktopManager.fishing_game_reeling.emit()
-
-func _on_gravity_changed() -> void:
-	rest_camera.position.x = REST_CAMERA_DEFAULT_X_POSITION if !DesktopManager.reversed_gravity else -REST_CAMERA_DEFAULT_X_POSITION
-	#hook_camera.rotation = PI * float(DesktopManager.reversed_gravity)
-	#rest_camera.rotation = PI * float(DesktopManager.reversed_gravity)

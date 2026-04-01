@@ -40,35 +40,6 @@ theme_override_constants/margin_bottom = 16
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1634721137]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=445472406]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=1183171754]
-layout_mode = 2
-
-[node name="ShopButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=2080507039]
-unique_name_in_owner = true
-layout_mode = 2
-icon = ExtResource("3_b82lf")
-
-[node name="FishCompendiumButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=1201438929]
-unique_name_in_owner = true
-layout_mode = 2
-icon = ExtResource("2_6wtjy")
-
-[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=86277091]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 16
-text = "0.00$"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=1274861811]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -143,3 +114,32 @@ vertical_scroll_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=445472406]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=86277091]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "0.00$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=1183171754]
+layout_mode = 2
+
+[node name="ShopButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=2080507039]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("3_b82lf")
+
+[node name="FishCompendiumButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer/VBoxContainer" unique_id=1201438929]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("2_6wtjy")

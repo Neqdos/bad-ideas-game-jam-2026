@@ -46,7 +46,7 @@ func enter() -> void:
 	hook_raycast.force_raycast_update()
 	
 	if hook_raycast.is_colliding():
-		var collider = hook_raycast.get_collider()
+		var collider: Node2D = hook_raycast.get_collider()
 		
 		shoot_hook_sprite(hook_raycast.get_collision_point())
 		
@@ -69,6 +69,9 @@ func enter() -> void:
 				else:
 					player.koyote_timer.start()
 		else:
+			if collider.name == "VictorBody":
+				collider.queue_free.call_deferred()
+				DesktopManager.climbing_victor_hit.emit()
 			await tween.finished
 	else:
 		shoot_hook_sprite(hook_raycast.global_position + Vector2.from_angle(hook_raycast.rotation) * hook_raycast.target_position.length())

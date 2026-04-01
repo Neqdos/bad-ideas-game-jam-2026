@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_x1aoh")
 scene = ExtResource("2_rddey")
-name = "Fishing Game"
+name = "Victor is stuck in my lake"
 icon = ExtResource("1_rddey")
 title_bar_color = 2
 metadata/_custom_type_script = "uid://v1qyypsjrqi8"
