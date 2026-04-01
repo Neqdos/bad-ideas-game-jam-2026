@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WindowlessFileResource" format=3 uid="uid://dbg77q0pq7ley"]
+
+[ext_resource type="Script" uid="uid://cyjvhwlne8pwv" path="res://desktop/file_resources/windowless_file_resource.gd" id="1_dtgp5"]
+[ext_resource type="Texture2D" uid="uid://dsacof0iyunpr" path="res://desktop/_file_icons/rope_icon.png" id="1_f6qhs"]
+
+[resource]
+script = ExtResource("1_dtgp5")
+name = "Rope"
+icon = ExtResource("1_f6qhs")
+metadata/_custom_type_script = "uid://cyjvhwlne8pwv"

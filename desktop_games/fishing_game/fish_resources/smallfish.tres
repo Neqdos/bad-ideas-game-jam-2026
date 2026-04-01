@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://ci4oau3cfxncs"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_0dtpm"]
+[ext_resource type="Texture2D" uid="uid://dlisrqwvnsgn6" path="res://desktop_games/fishing_game/fish_resources/smallfish.png" id="2_t64k5"]
+
+[resource]
+script = ExtResource("1_0dtpm")
+fish_name = "Smallfish"
+sprite = ExtResource("2_t64k5")
+default_money_value = 0.5
+move_pattern = 2
+move_range = 3.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

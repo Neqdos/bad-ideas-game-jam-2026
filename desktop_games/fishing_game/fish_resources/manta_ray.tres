@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://dlw77hlfl3ogp"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_i24b4"]
+[ext_resource type="Texture2D" uid="uid://b87nngaiqjrhx" path="res://desktop_games/fishing_game/fish_resources/manta_ray.png" id="2_t3wuq"]
+
+[resource]
+script = ExtResource("1_i24b4")
+fish_name = "Manta Ray"
+sprite = ExtResource("2_t3wuq")
+fish_size = 2
+default_money_value = 22.0
+move_pattern = 1
+move_range = 12.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

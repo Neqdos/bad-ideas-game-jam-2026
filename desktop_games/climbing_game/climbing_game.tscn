@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cby2yx2w350ek" path="res://desktop_games/climbing_game/climbing_game.gd" id="1_cen12"]
 [ext_resource type="Shader" uid="uid://b08bjw7be8cij" path="res://_shaders/transition_shader.gdshader" id="1_w5d10"]
 [ext_resource type="PackedScene" uid="uid://bw54bu8lrxlf" path="res://desktop_games/climbing_game/player/climbing_player.tscn" id="1_xvyvt"]
-[ext_resource type="AudioStream" uid="uid://cumqibhw47tr2" path="res://audio/sfx/climbing_game/wind.mp3" id="2_b1hkw"]
 [ext_resource type="Script" uid="uid://comhgqyu5sr8o" path="res://desktop_games/climbing_game/ui/climbing_transition.gd" id="2_cen12"]
 [ext_resource type="Texture2D" uid="uid://coi18fv6o3qbe" path="res://desktop_games/climbing_game/empty_tile.png" id="2_l83bx"]
 [ext_resource type="PackedScene" uid="uid://bifp4wtxesbd0" path="res://desktop_games/climbing_game/ui/climbing_game_ui.tscn" id="2_tarl3"]
@@ -24,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bsg3co3w2jke5" path="res://desktop/file_tile/file_object.tscn" id="20_c4hh1"]
 [ext_resource type="Texture2D" uid="uid://dscgu4tghigt8" path="res://desktop_games/climbing_game/tutorial_sign.png" id="20_ekw8x"]
 [ext_resource type="Texture2D" uid="uid://ceu5w15xrslvo" path="res://desktop_games/climbing_game/tutorial_sign2.png" id="21_0r8b6"]
-[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/explosives.tres" id="21_iunj0"]
+[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/bomb.tres" id="21_iunj0"]
 [ext_resource type="Script" uid="uid://dxctgddv6qlqj" path="res://desktop_games/climbing_game/objects/door_block/door_block_switch.gd" id="21_nqvuy"]
 [ext_resource type="PackedScene" uid="uid://dhxn55exgfcx3" path="res://desktop_games/climbing_game/particles/wind_particles.tscn" id="22_nerm2"]
 [ext_resource type="Texture2D" uid="uid://dd3yhn7bhuouo" path="res://desktop_games/climbing_game/objects/door_block/door_block_on.png" id="22_nlp6u"]
@@ -476,6 +475,7 @@ alpha_curve = SubResource("CurveTexture_nqvuy")
 [node name="ClimbingGame" type="Node2D" unique_id=1152776224]
 script = ExtResource("1_cen12")
 
+<<<<<<< Updated upstream
 [node name="WindAmbient" type="AudioStreamPlayer3D" parent="." unique_id=1923488623]
 stream = ExtResource("2_b1hkw")
 volume_db = -28.0
@@ -486,6 +486,8 @@ script = ExtResource("2_w5d10")
 looping = true
 metadata/_custom_type_script = "uid://dd15wmise3apx"
 
+=======
+>>>>>>> Stashed changes
 [node name="MountMusic" type="AudioStreamPlayer3D" parent="." unique_id=1784519878]
 stream = ExtResource("5_tarl3")
 attenuation_model = 1

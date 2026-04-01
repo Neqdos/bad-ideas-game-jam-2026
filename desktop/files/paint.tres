@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AppFileResource" format=3 uid="uid://cknlotn1uwoe6"]
 
-[ext_resource type="Texture2D" uid="uid://fr3ima5fffcc" path="res://desktop/_file_icons/file_icon.png" id="1_5jldi"]
+[ext_resource type="Texture2D" uid="uid://cl5pbmslbnjt3" path="res://desktop/_file_icons/paint_icon.png" id="1_5jldi"]
 [ext_resource type="Script" uid="uid://v1qyypsjrqi8" path="res://desktop/file_resources/app_file_resource.gd" id="1_cnuhk"]
 [ext_resource type="PackedScene" uid="uid://b6xgy3em5th76" path="res://desktop_apps/paint/paint.tscn" id="2_5jldi"]
 

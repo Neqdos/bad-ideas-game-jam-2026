@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dawfucunx56fi"]
+
+[ext_resource type="Script" uid="uid://5adjpn6wesrx" path="res://desktop_popups/ai/ai.gd" id="1_qp07d"]
+[ext_resource type="Texture2D" uid="uid://bni1vdtwwcv5p" path="res://desktop_popups/ai/ai_logo.png" id="2_q53l8"]
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="3_b3xu6"]
+[ext_resource type="Texture2D" uid="uid://dq6r08xagvv3u" path="res://ui/message_ui/rounded_npt.png" id="4_dhcl8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jnaxo"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_dhcl8")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.2, 0.23529412, 0.34117648, 1)
+
+[node name="AI" type="Control" unique_id=923727871]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qp07d")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=188777013]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=800267305]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1912144114]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1439309676]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=421517377]
+layout_mode = 2
+texture = ExtResource("2_q53l8")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=504453475]
+layout_mode = 2
+text = "AIamGarbage"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=133679513]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_b3xu6")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_jnaxo")
+text = "AIamGarbage is the LATEST and BEST AI \"art\" generating tool."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1644948764]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_b3xu6")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_jnaxo")
+text = "With the help of AIamGarbage, you'll be able to create many amazing images. No need to waste time learning skills and doing that yourself, just use AIamGarbage and focus on important things in life, like... working or pooping."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GenerateButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=376554624]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Generate Image"

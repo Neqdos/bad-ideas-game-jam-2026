@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PopupResource" format=3 uid="uid://c1ry1sls6uns"]
+
+[ext_resource type="Script" uid="uid://dw6gdmwismcdi" path="res://desktop/file_resources/popup_resource.gd" id="1_7s762"]
+[ext_resource type="PackedScene" uid="uid://cy55b3c3n1cjp" path="res://desktop_popups/catfishing/catfishing.tscn" id="1_sju8b"]
+
+[resource]
+script = ExtResource("1_7s762")
+window_size = Vector2(300, 225)
+scene = ExtResource("1_sju8b")
+metadata/_custom_type_script = "uid://dw6gdmwismcdi"

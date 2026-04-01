@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cy55b3c3n1cjp"]
+
+[ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="1_qa0oe"]
+[ext_resource type="Texture2D" uid="uid://cqmhtkkiygcp8" path="res://desktop_games/fishing_game/fish_resources/catfish.png" id="2_hnniu"]
+[ext_resource type="Texture2D" uid="uid://boxjslora7x3m" path="res://desktop_popups/catfishing/catfish_heart.png" id="3_wlvdv"]
+
+[node name="Catfishing" type="Control" unique_id=391723600]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=306269279]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14509805, 0.44313726, 0.4745098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=534854757]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=806623813]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1693639244]
+layout_mode = 2
+text = "Catfishing"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1332565622]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_qa0oe")
+theme_override_font_sizes/font_size = 8
+text = "So you want to catch some good catfish, but you can't find any. Well, thanks to the convenencie of game design, between 3.00-3.10 AM, there's no fish in the waters expect a few catfish. This may also help you reach deeper if you have trouble with too many fish in the water."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=581024633]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 111.0
+offset_right = 90.0
+offset_bottom = 149.0
+texture = ExtResource("2_hnniu")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=311153922]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 159.0
+offset_right = 282.0
+offset_bottom = 207.0
+texture = ExtResource("2_hnniu")
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=538945269]
+layout_mode = 0
+offset_left = 82.999985
+offset_top = 164.0
+offset_right = 128.99998
+offset_bottom = 203.0
+rotation = 0.2617994
+texture = ExtResource("2_hnniu")
+flip_h = true
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=310732072]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 128.0
+offset_right = 204.0
+offset_bottom = 182.0
+texture = ExtResource("3_wlvdv")

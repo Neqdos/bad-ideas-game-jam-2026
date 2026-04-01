@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cjo3uoktpky7k"]
+
+[ext_resource type="Texture2D" uid="uid://danjhlhqrek7b" path="res://desktop_games/climbing_game/player/player.png" id="1_kcexh"]
+[ext_resource type="Script" uid="uid://cqtxi57vi6doq" path="res://desktop_games/rpg/player/rpg_player.gd" id="1_l2bu3"]
+[ext_resource type="Script" uid="uid://burip2lrb02jc" path="res://desktop_games/rpg/rpg_player_animation_controller.gd" id="2_l2bu3"]
+[ext_resource type="Texture2D" uid="uid://dxh0r77d2tae0" path="res://desktop_games/climbing_game/player/player_eyes.png" id="4_carsd"]
+[ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/_components/state_machine.gd" id="5_y1nuc"]
+[ext_resource type="Script" uid="uid://bmmb6k8oi1cyw" path="res://desktop_games/rpg/player/states/idle.gd" id="6_xs656"]
+[ext_resource type="Script" uid="uid://cwjgxe54it503" path="res://desktop_games/rpg/player/states/walk.gd" id="7_d2ykn"]
+[ext_resource type="Script" uid="uid://b3ene37pafs0h" path="res://desktop_games/rpg/player/states/battle.gd" id="8_2yu3i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0rwo"]
+atlas = ExtResource("1_kcexh")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_carsd"]
+atlas = ExtResource("1_kcexh")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1nuc"]
+atlas = ExtResource("1_kcexh")
+region = Rect2(0, 18, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdjsx"]
+atlas = ExtResource("1_kcexh")
+region = Rect2(18, 18, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xs656"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0rwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_carsd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1nuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdjsx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1nuc"]
+radius = 4.1231055
+
+[node name="RPGPlayer" type="CharacterBody2D" unique_id=1638436287]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_l2bu3")
+
+[node name="RPGAnimationController" type="AnimatedSprite2D" parent="." unique_id=2089242932 node_paths=PackedStringArray("player", "state_machine")]
+sprite_frames = SubResource("SpriteFrames_xs656")
+animation = &"walk"
+autoplay = "idle"
+offset = Vector2(0, -6)
+script = ExtResource("2_l2bu3")
+player = NodePath("..")
+state_machine = NodePath("../StateMachine")
+
+[node name="Eyes" type="Sprite2D" parent="RPGAnimationController" unique_id=764900999]
+unique_name_in_owner = true
+texture = ExtResource("4_carsd")
+offset = Vector2(0, -9)
+
+[node name="StateMachine" type="Node" parent="." unique_id=987160456 node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
+script = ExtResource("5_y1nuc")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://bmyit071yrfei"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1653557255 node_paths=PackedStringArray("player")]
+script = ExtResource("6_xs656")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=9389158 node_paths=PackedStringArray("player")]
+script = ExtResource("7_d2ykn")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="Battle" type="Node" parent="StateMachine" unique_id=843092877 node_paths=PackedStringArray("player")]
+script = ExtResource("8_2yu3i")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://d2ja0jdln0t1d"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241160234]
+shape = SubResource("CircleShape2D_y1nuc")

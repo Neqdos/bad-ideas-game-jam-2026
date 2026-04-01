@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://da7sy0c8nuf13"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_bcqqu"]
+[ext_resource type="Texture2D" uid="uid://8td5hhhhck3r" path="res://desktop_games/fishing_game/fish_resources/bluefish.png" id="2_36vw6"]
+
+[resource]
+script = ExtResource("1_bcqqu")
+fish_name = "Bluefish"
+sprite = ExtResource("2_36vw6")
+default_money_value = 1.2
+move_pattern = 2
+move_range = 3.0
+move_speed = 20.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

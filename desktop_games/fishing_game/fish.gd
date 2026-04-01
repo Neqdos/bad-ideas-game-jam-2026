@@ -71,9 +71,11 @@ func _on_visible_notifier_screen_entered() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 
 func restart() -> void:
-	fish_area.monitorable = true
 	visible = true
 	cought_fish_hook = null
+	
+	
+	fish_area.set_collision_layer_value(3, true)
 	
 	var shape: CircleShape2D = fish_collision_shape.shape
 	shape.set_deferred("radius", SIZE_TO_RADIUS[fish_res.fish_size])
@@ -113,10 +115,14 @@ func catch(fish_hook: FishingHook) -> void:
 	active = false
 	cought_fish_hook = fish_hook
 	
-	fish_area.set_deferred("monitorable", false)
+	fish_area.set_collision_layer_value(3, false)
 
 func sell() -> void:
 	visible = false
 	var amount: float = fish_res.default_money_value if !is_special else fish_res.default_money_value * SPECIAL_MULT
 	amount *= DesktopManager.fishing_stats.money_gain
 	DesktopManager.fishing_money += amount
+
+func update_activity(is_active: bool) -> void:
+	visible = is_active
+	fish_area.monitorable = is_active

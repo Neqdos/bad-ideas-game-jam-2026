@@ -104,11 +104,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Blue"
 
-[node name="EXPORTBUTTON" type="Button" parent="CanvasLayer/Control/MarginContainer/VBoxContainer" unique_id=2036967061]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Export"
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1218428098]
 position = Vector2(-16, 0)
 editor_draw_limits = true

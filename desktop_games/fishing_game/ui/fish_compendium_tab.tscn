@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://c5yjs2osxuqfw"]
 
 [ext_resource type="PackedScene" uid="uid://uwq2fxlggsjm" path="res://desktop_games/fishing_game/ui/fish_compendium_item.tscn" id="1_rrtrl"]
-[ext_resource type="Resource" uid="uid://dt24wel5oeo5k" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder.tres" id="2_o3nmt"]
-[ext_resource type="Resource" uid="uid://cg06o2vtcpr3a" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder2.tres" id="3_etl0e"]
-[ext_resource type="Resource" uid="uid://bp8hcdspwkraa" path="res://desktop_games/fishing_game/fish_resources/medium_fish_placeholder.tres" id="4_1lumu"]
+[ext_resource type="Resource" uid="uid://ci4oau3cfxncs" path="res://desktop_games/fishing_game/fish_resources/smallfish.tres" id="2_mf2h6"]
+[ext_resource type="Resource" uid="uid://da7sy0c8nuf13" path="res://desktop_games/fishing_game/fish_resources/bluefish.tres" id="3_g7k8s"]
+[ext_resource type="Resource" uid="uid://dpkn5wopsiufa" path="res://desktop_games/fishing_game/fish_resources/kelpfish.tres" id="4_fp6q0"]
+[ext_resource type="Resource" uid="uid://51gepseia0vy" path="res://desktop_games/fishing_game/fish_resources/sunfish.tres" id="5_opfjh"]
+[ext_resource type="Resource" uid="uid://c1kxecuhl3240" path="res://desktop_games/fishing_game/fish_resources/clownfish.tres" id="6_1u2y2"]
+[ext_resource type="Resource" uid="uid://ijksovi6kun" path="res://desktop_games/fishing_game/fish_resources/darkfish.tres" id="7_ksuy6"]
+[ext_resource type="Resource" uid="uid://f665n883jy1b" path="res://desktop_games/fishing_game/fish_resources/moonfish.tres" id="8_35j7j"]
+[ext_resource type="Resource" uid="uid://dxraajajeocrr" path="res://desktop_games/fishing_game/fish_resources/catfish.tres" id="9_m7nmh"]
+[ext_resource type="Resource" uid="uid://dlw77hlfl3ogp" path="res://desktop_games/fishing_game/fish_resources/manta_ray.tres" id="10_wdv1b"]
+[ext_resource type="Resource" uid="uid://ixybdr71yplc" path="res://desktop_games/fishing_game/fish_resources/swordfish.tres" id="11_amao3"]
+[ext_resource type="Resource" uid="uid://c76lclkk7qdkb" path="res://desktop_games/fishing_game/fish_resources/whale.tres" id="12_2eof0"]
+[ext_resource type="Resource" uid="uid://cpoa0jx5mof8i" path="res://desktop_games/fishing_game/fish_resources/anglerfish.tres" id="13_f343e"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_rrtrl"]
 color = Color(0.2, 0.23529412, 0.34117648, 1)
@@ -15,16 +24,16 @@ thickness = 2
 
 [node name="FishCompendiumTab" type="VBoxContainer" unique_id=484678896]
 
-[node name="FishCompendiumItem" parent="." unique_id=1514148459 instance=ExtResource("1_rrtrl")]
+[node name="Smallfish" parent="." unique_id=1514148459 instance=ExtResource("1_rrtrl")]
 layout_mode = 2
-fish_res = ExtResource("2_o3nmt")
+fish_res = ExtResource("2_mf2h6")
 
-[node name="WindowLineSeparator2" type="HSeparator" parent="." unique_id=207497229]
+[node name="WindowLineSeparator" type="HSeparator" parent="." unique_id=207497229]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
 
-[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator2" unique_id=1653308274]
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator" unique_id=1653308274]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,16 +43,16 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
 
-[node name="FishCompendiumItem2" parent="." unique_id=845810728 instance=ExtResource("1_rrtrl")]
+[node name="Bluefish" parent="." unique_id=1740502098 instance=ExtResource("1_rrtrl")]
 layout_mode = 2
-fish_res = ExtResource("3_etl0e")
+fish_res = ExtResource("3_g7k8s")
 
-[node name="WindowLineSeparator3" type="HSeparator" parent="." unique_id=749717392]
+[node name="WindowLineSeparator2" type="HSeparator" parent="." unique_id=918500083]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
 
-[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator3" unique_id=952168306]
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator2" unique_id=1439847044]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +62,177 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
 
-[node name="FishCompendiumItem3" parent="." unique_id=1054750984 instance=ExtResource("1_rrtrl")]
+[node name="Kelpfish" parent="." unique_id=1584501336 instance=ExtResource("1_rrtrl")]
 layout_mode = 2
-fish_res = ExtResource("4_1lumu")
+fish_res = ExtResource("4_fp6q0")
+
+[node name="WindowLineSeparator3" type="HSeparator" parent="." unique_id=127277519]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator3" unique_id=1543536101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Sunfish" parent="." unique_id=191425671 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("5_opfjh")
+
+[node name="WindowLineSeparator4" type="HSeparator" parent="." unique_id=1279833144]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator4" unique_id=1908173664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Clownfish" parent="." unique_id=494361036 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("6_1u2y2")
+
+[node name="WindowLineSeparator5" type="HSeparator" parent="." unique_id=235163773]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator5" unique_id=1345243513]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Darkfish" parent="." unique_id=133483768 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("7_ksuy6")
+
+[node name="WindowLineSeparator6" type="HSeparator" parent="." unique_id=447272865]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator6" unique_id=1983525019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Moonfish" parent="." unique_id=335164183 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("8_35j7j")
+
+[node name="WindowLineSeparator7" type="HSeparator" parent="." unique_id=956302026]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator7" unique_id=1330769747]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Catfish" parent="." unique_id=2139945659 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("9_m7nmh")
+
+[node name="WindowLineSeparator12" type="HSeparator" parent="." unique_id=459894714]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator12" unique_id=505442486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="MantaRay" parent="." unique_id=1597045103 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("10_wdv1b")
+
+[node name="WindowLineSeparator8" type="HSeparator" parent="." unique_id=1863724298]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator8" unique_id=384842165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Swordfish" parent="." unique_id=1237228726 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("11_amao3")
+
+[node name="WindowLineSeparator9" type="HSeparator" parent="." unique_id=641047256]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator9" unique_id=398189729]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Whale" parent="." unique_id=815275665 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("12_2eof0")
+
+[node name="WindowLineSeparator10" type="HSeparator" parent="." unique_id=771054096]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_rrtrl")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator10" unique_id=868177965]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_o3nmt")
+
+[node name="Anglerfish" parent="." unique_id=2065594322 instance=ExtResource("1_rrtrl")]
+layout_mode = 2
+fish_res = ExtResource("13_f343e")

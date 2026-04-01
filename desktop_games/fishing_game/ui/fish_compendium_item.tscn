@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://uwq2fxlggsjm"]
 
 [ext_resource type="Script" uid="uid://82j0x2gmg3li" path="res://desktop_games/fishing_game/ui/fish_compendium_item.gd" id="1_2bj58"]
-[ext_resource type="Texture2D" uid="uid://b8mnaablsrsef" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder.png" id="1_v5dkg"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="2_p3dhj"]
 [ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="3_2bj58"]
 [ext_resource type="Shader" uid="uid://dvatyxek8hapl" path="res://_shaders/color.gdshader" id="3_ebfet"]
+[ext_resource type="Texture2D" uid="uid://dlisrqwvnsgn6" path="res://desktop_games/fishing_game/fish_resources/smallfish.png" id="4_ebfet"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_64ao0"]
 resource_local_to_scene = true
@@ -30,7 +30,7 @@ script = ExtResource("1_2bj58")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2110810484]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 texture = ExtResource("3_2bj58")
 patch_margin_left = 1
@@ -48,7 +48,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-texture = ExtResource("1_v5dkg")
+texture = ExtResource("4_ebfet")
 stretch_mode = 3
 
 [node name="FishName" type="Label" parent="." unique_id=1458312111]

@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://brl77h2xj5nmm"]
+
+[ext_resource type="Script" uid="uid://jp25b7ghpars" path="res://desktop_games/rpg/ui/battle_ui.gd" id="1_ckpl5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6410a"]
+bg_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckpl5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufgq8"]
+bg_color = Color(0.25490198, 0.6509804, 0.9647059, 1)
+
+[node name="BattleUI" type="Control" unique_id=1848512642]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -240.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ckpl5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=309060031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=684719333]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=563805590]
+layout_mode = 2
+
+[node name="EnemyButtonConatiner" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1568591669]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=204317746]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1379875163]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_6410a")
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1972068362]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1360737865]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ckpl5")
+
+[node name="ManaLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1860860350]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="ManaBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1750741971]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_ufgq8")
+max_value = 5.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=313500603]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=999004591]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1367868282]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defend"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1366835306]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Run"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1383867133]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=49860401]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slash
+4"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1896481214]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Heavy slash
+6 [2]"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=889882226]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Laser
+5x3 [4]"

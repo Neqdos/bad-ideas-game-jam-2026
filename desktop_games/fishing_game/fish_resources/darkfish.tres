@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://ijksovi6kun"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_ixg25"]
+[ext_resource type="Texture2D" uid="uid://bq7jaoo1kmm1f" path="res://desktop_games/fishing_game/fish_resources/darkfish.png" id="2_qiqtt"]
+
+[resource]
+script = ExtResource("1_ixg25")
+fish_name = "Darkfish"
+sprite = ExtResource("2_qiqtt")
+fish_size = 1
+default_money_value = 6.0
+move_pattern = 2
+move_range = 4.0
+move_speed = 24.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

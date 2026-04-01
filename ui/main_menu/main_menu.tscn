@@ -43,7 +43,7 @@ alignment = 1
 [node name="Label" type="Label" parent="TitleScreen/VBoxContainer" unique_id=2025064257]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Game Title"
+text = "Mizikori"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="TitleScreen/VBoxContainer" unique_id=1321703465]

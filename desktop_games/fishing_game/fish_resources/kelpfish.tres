@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://dpkn5wopsiufa"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_obf13"]
+[ext_resource type="Texture2D" uid="uid://sruulf8m213r" path="res://desktop_games/fishing_game/fish_resources/kelpfish.png" id="2_bo60l"]
+
+[resource]
+script = ExtResource("1_obf13")
+fish_name = "Kelpfish"
+sprite = ExtResource("2_bo60l")
+default_money_value = 2.5
+move_pattern = 2
+move_range = 3.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

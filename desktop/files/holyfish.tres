@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WindowlessFileResource" format=3 uid="uid://bcjvixiw0vuxv"]
 
-[ext_resource type="Texture2D" uid="uid://d2afgrj6i0570" path="res://desktop/_file_icons/fishing_icon.png" id="1_wvxr0"]
+[ext_resource type="Texture2D" uid="uid://bbhpc622u047u" path="res://desktop/_file_icons/holyfish.png" id="1_wvxr0"]
 [ext_resource type="Script" uid="uid://cyjvhwlne8pwv" path="res://desktop/file_resources/windowless_file_resource.gd" id="2_63yh2"]
 
 [resource]

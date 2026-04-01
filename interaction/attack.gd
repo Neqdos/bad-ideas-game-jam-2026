@@ -1,5 +1,5 @@
 extends Resource
-class_name Attack
+class_name WeaponAttack
 
 @export var damage: float
 @export var knockback: float

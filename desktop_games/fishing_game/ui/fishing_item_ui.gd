@@ -10,6 +10,8 @@ extends VBoxContainer
 @onready var tooltip_button: Button = %TooltipButton
 @onready var tooltip_label: Label = %TooltipLabel
 
+@onready var upgrade_sfx: DesktopAudioPlayer = %UpgradeSFX
+
 var is_bought: bool = false
 
 func _ready() -> void:
@@ -36,6 +38,7 @@ func _on_buy_button_pressed() -> void:
 		var new_item: FishingItem = item_scene.instantiate()
 		DesktopManager.fishing_hook.add_child(new_item)
 		DesktopManager.fishing_money -= cost
+		upgrade_sfx.play()
 
 func _on_fishing_game_started() -> void:
 	is_bought = false

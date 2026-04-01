@@ -124,6 +124,26 @@ layout_mode = 2
 upgrade_name = "Moving speed"
 property_name = "moving_speed"
 
+[node name="WindowLineSeparator9" type="HSeparator" parent="." unique_id=647719199]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_3nq4o")
+
+[node name="HSeparator2" type="HSeparator" parent="WindowLineSeparator9" unique_id=1005585956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxLine_ebx82")
+
+[node name="FallingSpeed" parent="." unique_id=1784522744 instance=ExtResource("2_3nq4o")]
+layout_mode = 2
+upgrade_name = "Falling speed"
+property_name = "falling_speed"
+
 [node name="WindowLineSeparator6" type="HSeparator" parent="." unique_id=163118953]
 layout_mode = 2
 theme_override_constants/separation = 0

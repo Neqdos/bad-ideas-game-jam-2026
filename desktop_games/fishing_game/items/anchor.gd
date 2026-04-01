@@ -3,7 +3,7 @@ class_name FishingItemAnchor
 
 @export var level: int = 0
 
-const FALL_LENGTH: float = 64.0#192.0
+const FALL_LENGTH: float = 256.0
 const FALL_SPEED: float = 64.0
 
 var hook: FishingHook
@@ -22,6 +22,8 @@ func end() -> void:
 	is_falling = false
 	queue_free()
 
+func reel() -> void:
+	end()
 
 func _physics_process(delta: float) -> void:
 	if !is_falling: return

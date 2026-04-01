@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://bgbogsek8jltu"]
+
+[ext_resource type="Script" uid="uid://bfudxjfqyl4qd" path="res://desktop_games/rpg/enemy_resource.gd" id="1_ejihr"]
+[ext_resource type="Texture2D" uid="uid://cys7pmuw87pmp" path="res://desktop_games/rpg/enemies/knight.png" id="2_xoc1b"]
+
+[resource]
+script = ExtResource("1_ejihr")
+sprite = ExtResource("2_xoc1b")
+health = 8
+actions = Dictionary[int, int]({
+0: 2,
+1: 0
+})
+metadata/_custom_type_script = "uid://bfudxjfqyl4qd"

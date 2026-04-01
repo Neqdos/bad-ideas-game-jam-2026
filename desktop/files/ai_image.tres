@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ImageFileResource" format=3 uid="uid://bmmblhkbjdhbu"]
+
+[ext_resource type="Texture2D" uid="uid://c1el4502vuvoh" path="res://desktop/_file_icons/image_icon.png" id="1_055gn"]
+[ext_resource type="Script" uid="uid://ccu20ilt33asc" path="res://desktop/file_resources/image_file_resource.gd" id="1_c4lp1"]
+[ext_resource type="Texture2D" uid="uid://cqfs2vacp5a6d" path="res://desktop_apps/paint/correct_painting.png" id="2_nn1w3"]
+
+[resource]
+script = ExtResource("1_c4lp1")
+image = ExtResource("2_nn1w3")
+name = "ai_image"
+icon = ExtResource("1_055gn")
+metadata/_custom_type_script = "uid://ccu20ilt33asc"

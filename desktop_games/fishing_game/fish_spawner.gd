@@ -25,6 +25,8 @@ class_name FishSpawner
 @export var spawnable_fish: Dictionary[FishResource, float]
 @export var default_fish_count: int = 1
 
+@export var special_spawn: bool = false
+
 const FISH_SCENE = preload("uid://b4awr14ncr34m")
 
 
@@ -72,11 +74,18 @@ func _on_fishing_game_started() -> void:
 		add_fish(default_fish_count * int(DesktopManager.fishing_stats.fish_mult) - fish_array.size())
 		await get_tree().process_frame
 	
+	var time: Dictionary = DesktopManager.get_time_dict()
+	var is_special: bool = false
+	if time["hour"] == DesktopManager.SPECIAL_HOUR:
+		if time["minute"] < DesktopManager.SPECIAL_MINUTE:
+			is_special = true
+	
 	for fish: Fish in fish_array:
 		if fish.get_parent() != self: fish.reparent(self)
 		randomize_fish_resource(fish)
 		set_fish_position(fish)
 		fish.restart()
+		fish.update_activity(is_special == special_spawn)
 
 
 func add_fish(amount: int) -> void:

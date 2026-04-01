@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://ixybdr71yplc"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_jdgww"]
+[ext_resource type="Texture2D" uid="uid://rdi15el1e2xn" path="res://desktop_games/fishing_game/fish_resources/swordfish.png" id="2_jdgww"]
+
+[resource]
+script = ExtResource("1_jdgww")
+fish_name = "Swordfish"
+sprite = ExtResource("2_jdgww")
+fish_size = 2
+default_money_value = 18.0
+move_pattern = 2
+move_range = 6.0
+move_speed = 32.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

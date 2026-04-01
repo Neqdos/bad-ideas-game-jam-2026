@@ -16,6 +16,8 @@ const REELING_SPEED: float = 128.0
 const STARTING_HOOK_POSITION: Vector2 = Vector2.ZERO
 
 const ONLINE_COURSE = preload("uid://lme8grx2etjf")
+const CATFISHING = preload("uid://c1ry1sls6uns")
+
 
 var tween: Tween
 
@@ -31,6 +33,8 @@ func _ready() -> void:
 	
 	DesktopManager.gravity_changed.connect(_on_gravity_changed)
 	
+	
+	
 	explosives_file_tile.file_placed.connect(_on_file_placed)
 	
 	_on_gravity_changed()
@@ -38,6 +42,10 @@ func _ready() -> void:
 func _on_file_placed() -> void:
 	explosives_file_tile.queue_free.call_deferred()
 	dark_stone_tilemap.enabled = false
+	
+	await get_tree().create_timer(213).timeout
+	
+	DesktopManager.show_popup(CATFISHING)
 
 func _on_try_start() -> void:
 	if !can_start_game: return

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://cpoa0jx5mof8i"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_6aduf"]
+[ext_resource type="Texture2D" uid="uid://dwv61ba3ty21i" path="res://desktop_games/fishing_game/fish_resources/anglerfish.png" id="2_6aduf"]
+
+[resource]
+script = ExtResource("1_6aduf")
+fish_name = "Anglerfish"
+sprite = ExtResource("2_6aduf")
+fish_size = 2
+default_money_value = 35.0
+move_pattern = 3
+move_range = 5.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

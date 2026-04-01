@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://kyyd543yxu0h" path="res://desktop_popups/hacked/hacked.tres" id="3_7bca2"]
 [ext_resource type="Resource" uid="uid://lme8grx2etjf" path="res://desktop_popups/online_course/online_course.tres" id="4_gadmo"]
 [ext_resource type="Resource" uid="uid://cpml7x8aucyak" path="res://desktop_popups/store/store.tres" id="5_hxg66"]
+[ext_resource type="Resource" uid="uid://pay0pqfimfun" path="res://desktop_popups/ai/ai.tres" id="6_3060m"]
 
 [node name="browser" type="Control" unique_id=193755841]
 layout_mode = 3
@@ -72,3 +73,8 @@ site_name = "bestcoursesonline"
 layout_mode = 2
 popup_res = ExtResource("5_hxg66")
 site_name = "gmymstore"
+
+[node name="AI" parent="MarginContainer/VBoxContainer/SiteLinksContainer" unique_id=2051479666 instance=ExtResource("2_cdk01")]
+layout_mode = 2
+popup_res = ExtResource("6_3060m")
+site_name = "aiamgarbage"

@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://epmb7v6e853d"]
 
 [ext_resource type="Script" uid="uid://13lhpo7g6bas" path="res://desktop_games/fishing_game/fishing_hook/fishing_hook.gd" id="1_asu8m"]
+[ext_resource type="AudioStream" uid="uid://cwyvocxdvapgf" path="res://audio/sfx/fishing_game/coin.mp3" id="2_41nta"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_nfl1i"]
+[ext_resource type="AudioStream" uid="uid://lhgj3g7p88oh" path="res://audio/sfx/fishing_game/fish.mp3" id="4_nfl1i"]
+[ext_resource type="Texture2D" uid="uid://dcvjpno0lkd5j" path="res://desktop_games/fishing_game/fishing_hook/fishing_hook.png" id="5_t5ers"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0ww1"]
 radius = 4.0
@@ -12,14 +16,29 @@ radius = 8.0
 collision_layer = 2
 script = ExtResource("1_asu8m")
 
+[node name="SellSFX" type="AudioStreamPlayer3D" parent="." unique_id=987067294]
+unique_name_in_owner = true
+stream = ExtResource("2_41nta")
+max_polyphony = 2
+bus = &"PC SFX"
+script = ExtResource("3_nfl1i")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
+
+[node name="CaughtSFX" type="AudioStreamPlayer3D" parent="." unique_id=738817472]
+unique_name_in_owner = true
+stream = ExtResource("4_nfl1i")
+max_polyphony = 2
+bus = &"PC SFX"
+script = ExtResource("3_nfl1i")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=655652796]
 shape = SubResource("CircleShape2D_w0ww1")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1542439844]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+[node name="HookSprite" type="Sprite2D" parent="." unique_id=199564451]
+unique_name_in_owner = true
+texture = ExtResource("5_t5ers")
+hframes = 3
 
 [node name="FishingArea" type="Area2D" parent="." unique_id=933793157]
 unique_name_in_owner = true

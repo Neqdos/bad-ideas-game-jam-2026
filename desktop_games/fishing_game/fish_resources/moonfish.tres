@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://f665n883jy1b"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_gk3cv"]
+[ext_resource type="Texture2D" uid="uid://c0jglpc0hrbfq" path="res://desktop_games/fishing_game/fish_resources/moonfish.png" id="2_sk84d"]
+
+[resource]
+script = ExtResource("1_gk3cv")
+fish_name = "Moonfish"
+sprite = ExtResource("2_sk84d")
+fish_size = 1
+default_money_value = 8.0
+move_pattern = 3
+move_range = 5.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

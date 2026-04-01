@@ -2,30 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://c5kjfm6slrfp2" path="res://desktop_games/fishing_game/ui/fishing_item_ui.tscn" id="1_lhhjl"]
 [ext_resource type="PackedScene" uid="uid://scw0enf2c6bg" path="res://desktop_games/fishing_game/items/small_anchor.tscn" id="2_825b0"]
-[ext_resource type="PackedScene" uid="uid://blr68wd27xr3c" path="res://desktop_games/fishing_game/items/medium_anchor.tscn" id="3_j05eb"]
-[ext_resource type="PackedScene" uid="uid://si7i6qd6igto" path="res://desktop_games/fishing_game/items/big_anchor.tscn" id="4_o3vs8"]
+[ext_resource type="PackedScene" uid="uid://snttc2gkalds" path="res://desktop_games/fishing_game/items/victor_bait.tscn" id="3_wwbrb"]
 
 [node name="ItemsTab" type="VBoxContainer" unique_id=1862682918]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="FishingItemUI" parent="." unique_id=511951847 instance=ExtResource("1_lhhjl")]
+[node name="Anchor" parent="." unique_id=511951847 instance=ExtResource("1_lhhjl")]
 layout_mode = 2
-item_name = "Small anchor"
+item_name = "Anchor"
 item_scene = ExtResource("2_825b0")
-cost = 2.0
+cost = 10.0
 tooltip = "Makes you sink at the start of the game."
 
-[node name="FishingItemUI2" parent="." unique_id=1935730895 instance=ExtResource("1_lhhjl")]
+[node name="Victor bait" parent="." unique_id=1388127979 instance=ExtResource("1_lhhjl")]
 layout_mode = 2
-item_name = "Medium Anchor"
-item_scene = ExtResource("3_j05eb")
-cost = 3.0
-tooltip = "Makes you sink at the start of the game."
-
-[node name="FishingItemUI3" parent="." unique_id=1945556356 instance=ExtResource("1_lhhjl")]
-layout_mode = 2
-item_name = "Big anchor"
-item_scene = ExtResource("4_o3vs8")
-cost = 4.0
-tooltip = "Makes you sink at the start of the game."
+item_name = "Victor bait"
+item_scene = ExtResource("3_wwbrb")
+cost = 1.0
+tooltip = "Allows you to catch Victor"

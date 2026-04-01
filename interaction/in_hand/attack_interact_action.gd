@@ -1,7 +1,7 @@
 extends HandInteractAction
 class_name AttackInteractAction
 
-@export var attack: Attack
+@export var attack: WeaponAttack
 ## The animation to play when the object is being interacted should be named named "[b]attack[/b]".
 @export var animation_player: AnimationPlayer
 ## Only needed if there is no animation player and you want to play the default animation when the object is being interacted.

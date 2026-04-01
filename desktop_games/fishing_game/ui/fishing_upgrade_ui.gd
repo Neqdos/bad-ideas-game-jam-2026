@@ -4,6 +4,7 @@ extends VBoxContainer
 @export var property_name: String = ""
 @export var tooltip: String = ""
 
+
 @onready var upgrade_name_label: Label = %UpgradeNameLabel
 @onready var upgrade_button: Button = %UpgradeButton
 @onready var upgrade_level: ProgressBar = %UpgradeLevel
@@ -11,6 +12,8 @@ extends VBoxContainer
 
 @onready var tooltip_button: Button = %TooltipButton
 @onready var tooltip_label: Label = %TooltipLabel
+
+@onready var upgrade_sfx: DesktopAudioPlayer = %UpgradeSFX
 
 var upgrades_property_name: String
 var costs_property_name: String
@@ -49,10 +52,12 @@ func _on_upgrade_button_pressed() -> void:
 		DesktopManager.fishing_stats.set(property_name, upgrades_array[current_upgrade_level])
 		current_upgrade_level += 1
 		DesktopManager.fishing_money -= cost
+		upgrade_sfx.play()
 
 func sync_ui() -> void:
 	var stat_value = DesktopManager.fishing_stats.get(property_name)
 	upgrade_value.text = ("%.2f" if stat_value is float else "%d") % DesktopManager.fishing_stats.get(property_name)
+	
 	upgrade_level.max_value = max_upgrade_level
 	upgrade_level.value = current_upgrade_level
 	

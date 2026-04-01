@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4awr14ncr34m"]
 
 [ext_resource type="Script" uid="uid://bp5nvcgki8b8h" path="res://desktop_games/fishing_game/fish.gd" id="1_n1pdj"]
-[ext_resource type="Texture2D" uid="uid://b8mnaablsrsef" path="res://desktop_games/fishing_game/fish_resources/small_fish_placeholder.png" id="2_j6d2n"]
+[ext_resource type="Texture2D" uid="uid://8td5hhhhck3r" path="res://desktop_games/fishing_game/fish_resources/bluefish.png" id="2_ds12t"]
 [ext_resource type="Texture2D" uid="uid://cli77clmitmvg" path="res://desktop_games/fishing_game/special_fish_particles.png" id="3_j6d2n"]
 [ext_resource type="Script" uid="uid://bmyit071yrfei" path="res://entities/_components/state_machine.gd" id="4_yestu"]
 [ext_resource type="Script" uid="uid://cxmxhwpimefaa" path="res://desktop_games/fishing_game/states/static.gd" id="5_ds12t"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c6v4faybf5k63" path="res://desktop_games/fishing_game/states/random_in_radius.gd" id="8_b6lif"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qo25w"]
+resource_local_to_scene = true
 radius = 6.0
 
 [sub_resource type="Curve" id="Curve_j6d2n"]
@@ -53,10 +54,11 @@ script = ExtResource("1_n1pdj")
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 0
+monitoring = false
 
 [node name="FishSprite" type="Sprite2D" parent="FishArea" unique_id=9811941]
 unique_name_in_owner = true
-texture = ExtResource("2_j6d2n")
+texture = ExtResource("2_ds12t")
 
 [node name="FishCollisionShape" type="CollisionShape2D" parent="FishArea" unique_id=589546445]
 unique_name_in_owner = true

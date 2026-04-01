@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://c1kxecuhl3240"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_201li"]
+[ext_resource type="Texture2D" uid="uid://bsf7258ldw3n8" path="res://desktop_games/fishing_game/fish_resources/clownfish.png" id="2_46iyx"]
+
+[resource]
+script = ExtResource("1_201li")
+fish_name = "Clownfish"
+sprite = ExtResource("2_46iyx")
+fish_size = 1
+default_money_value = 1.0
+move_pattern = 3
+move_speed = 64.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

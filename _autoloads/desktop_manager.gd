@@ -34,7 +34,6 @@ signal fishing_game_started()
 signal fishing_game_reeling()
 signal fishing_game_ended()
 signal fishing_all_sold()
-
 signal fishing_money_changed()
 var fishing_hook: FishingHook
 var fishing_game_is_going: bool = false
@@ -45,10 +44,40 @@ var fishing_money: float = 0.0:
 var fishing_stats: FishingStats = FishingStats.new()
 var fishing_compendium: Array[FishResource] = []
 var shown_course_popup: bool = false
+const SPECIAL_HOUR: int = 3
+const SPECIAL_MINUTE: int = 10
 # ---
 
 # RPG
+signal rpg_input_lock(locked: bool)
+signal rpg_start_battle(battle: BattleResource)
+signal rpg_battle_ended()
+var rpg_battle_enemies: int = 0
+var rpg_battle_attacks: Array[RPGAttack] = [
+	RPGSlash.new(),
+	RPGHeavySlash.new(),
+]
 
+var rpg_health: int = 10
+var rpg_max_health: int = 10
+var rpg_mana: int = 5
+var rpg_max_mana: int = 5
+
+var rpg_level: int = 0
+
+var rpg_exp: int = 0
+var rpg_max_exp: int = 3
+
+var rpg_lvl_strength: int = 0
+var rpg_lvl_mana: int = 0
+var rpg_lvl_health: int = 0
+var rpg_lvl_defense: int = 0
+
+func rpg_set_stats_from_levels() -> void:
+	rpg_max_health = 10 + rpg_lvl_health * 2
+	rpg_health = rpg_max_health
+	rpg_max_mana = 5 + rpg_lvl_mana * 2
+	rpg_mana = rpg_max_mana
 # ---
 
 # 3D OBJECTS
@@ -78,6 +107,8 @@ signal paint_tiles_changed()
 var unlocked_popup_sites: Array[PopupResource]
 var used_hacked: bool = false
 var used_online_course: bool = false
+var used_store: bool = false
+var used_ai: bool = false
 
 const DESKTOP_AUDIO_ICON = preload("uid://bnj0g6vpwpmb5")
 const DESKTOP_AUDIO_ICON_MUTE = preload("uid://crlq0jw43me41")
@@ -110,6 +141,8 @@ var currently_moved_window: Control = null
 var currently_focused_window: DesktopWindow
 
 var time_minute_offset: float = 0.0
+
+var victors_defeated: int = 0
 
 func _ready() -> void:
 	window_grab_focus.connect(_on_window_grab_focus)

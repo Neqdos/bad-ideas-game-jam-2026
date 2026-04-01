@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://colmbgsekc27c"]
+
+[ext_resource type="Script" uid="uid://b6btnq17xoqnr" path="res://desktop_games/rpg/ui/enemy_ui.gd" id="1_2rdth"]
+[ext_resource type="Texture2D" uid="uid://cys7pmuw87pmp" path="res://desktop_games/rpg/enemies/knight.png" id="1_4b11r"]
+
+[node name="EnemyUI" type="Control" unique_id=1385965596]
+custom_minimum_size = Vector2(32, 48)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 24.0
+offset_bottom = 24.0
+size_flags_vertical = 4
+script = ExtResource("1_2rdth")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1518813550]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="EnemySpriteButton" type="TextureButton" parent="VBoxContainer" unique_id=338894475]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_4b11r")
+stretch_mode = 3
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="VBoxContainer" unique_id=523012427]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 8
+show_percentage = false

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://dxraajajeocrr"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_so3lw"]
+[ext_resource type="Texture2D" uid="uid://cqmhtkkiygcp8" path="res://desktop_games/fishing_game/fish_resources/catfish.png" id="2_tc6w7"]
+
+[resource]
+script = ExtResource("1_so3lw")
+fish_name = "Catfish"
+sprite = ExtResource("2_tc6w7")
+fish_size = 1
+default_money_value = 7.0
+move_pattern = 1
+move_range = 6.0
+move_speed = 12.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

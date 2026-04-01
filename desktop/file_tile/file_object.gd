@@ -9,6 +9,7 @@ var used: bool = false
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	file_sprite.texture = file_res.icon
 
 func _on_body_entered(body: Node2D) -> void:
 	if used: return

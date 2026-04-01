@@ -14,19 +14,13 @@ var selected_tile: int = 0
 
 var is_mouse_pressed: bool = false
 
-@onready var exportbutton: Button = %EXPORTBUTTON
-
 func _ready() -> void:
 	white_button.pressed.connect(func(): selected_tile = 0)
 	red_button.pressed.connect(func(): selected_tile = 1)
 	green_button.pressed.connect(func(): selected_tile = 2)
 	blue_button.pressed.connect(func(): selected_tile = 3)
-	
-	exportbutton.pressed.connect(func():
-		print(DesktopManager.paint_tiles)
-		)
-	
 	DesktopManager.paint_tiles.clear()
+	
 	for y: int in range(8):
 		DesktopManager.paint_tiles.append([])
 		for x: int in range(8):

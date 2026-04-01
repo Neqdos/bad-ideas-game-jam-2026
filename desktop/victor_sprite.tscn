@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cjsr6qcaeml73"]
+
+[ext_resource type="Texture2D" uid="uid://bgqccijspqoyu" path="res://desktop/victor.png" id="1_1g85v"]
+[ext_resource type="Script" uid="uid://dxb4wp8edujks" path="res://desktop/victor_sprite.gd" id="2_kjb47"]
+[ext_resource type="Texture2D" uid="uid://7up5g0nw1qkv" path="res://desktop/big_particles.png" id="3_44bdd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4slth"]
+atlas = ExtResource("1_1g85v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mvm5"]
+atlas = ExtResource("1_1g85v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e1yv"]
+atlas = ExtResource("1_1g85v")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okb1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4slth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mvm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e1yv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_3scig"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.33, 0.66)
+colors = PackedColorArray(0.09411765, 0.078431375, 0.14509805, 1, 1, 0, 0.26666668, 1, 0.17254902, 0.9098039, 0.9607843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kbxq8"]
+gradient = SubResource("Gradient_3scig")
+
+[sub_resource type="Curve" id="Curve_dsjd0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.90721655, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ugg8x"]
+curve = SubResource("Curve_dsjd0")
+
+[sub_resource type="Curve" id="Curve_saocs"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.15463918, 1), 0.0, 0.0, 0, 0, Vector2(0.7371135, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_adorr"]
+curve = SubResource("Curve_saocs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qut2x"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.0
+radial_velocity_min = 39.999977
+radial_velocity_max = 39.999977
+radial_velocity_curve = SubResource("CurveTexture_ugg8x")
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_adorr")
+color_initial_ramp = SubResource("GradientTexture1D_kbxq8")
+
+[node name="VictorSprite" type="AnimatedSprite2D" unique_id=1560810063]
+sprite_frames = SubResource("SpriteFrames_okb1r")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.95742166
+script = ExtResource("2_kjb47")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="." unique_id=547006724]
+unique_name_in_owner = true
+emitting = false
+amount = 6
+texture = ExtResource("3_44bdd")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_qut2x")

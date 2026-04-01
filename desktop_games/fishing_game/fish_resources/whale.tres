@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://c76lclkk7qdkb"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_46gtw"]
+[ext_resource type="Texture2D" uid="uid://suvucnc42pjm" path="res://desktop_games/fishing_game/fish_resources/whale.png" id="2_46gtw"]
+
+[resource]
+script = ExtResource("1_46gtw")
+fish_name = "Whale"
+sprite = ExtResource("2_46gtw")
+fish_size = 2
+default_money_value = 42.0
+move_pattern = 1
+move_range = 5.0
+move_speed = 8.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

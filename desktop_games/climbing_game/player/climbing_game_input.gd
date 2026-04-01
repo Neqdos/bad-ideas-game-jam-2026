@@ -44,4 +44,10 @@ func reset() -> void:
 	did_reset = true
 	
 	input_x = 0.0
+	input_y = 0.0
+	
+	grappling_hook_pressed = false
+	
 	jump_released = false
+	jump_pressed = false
+	just_jumped = false

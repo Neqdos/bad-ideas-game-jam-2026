@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://51gepseia0vy"]
+
+[ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="1_si51m"]
+[ext_resource type="Texture2D" uid="uid://ddqolcjvtddgt" path="res://desktop_games/fishing_game/fish_resources/sunfish.png" id="2_tsalc"]
+
+[resource]
+script = ExtResource("1_si51m")
+fish_name = "Sunfish"
+sprite = ExtResource("2_tsalc")
+fish_size = 1
+default_money_value = 3.5
+move_pattern = 3
+move_range = 4.0
+metadata/_custom_type_script = "uid://dyitj7or5gexa"

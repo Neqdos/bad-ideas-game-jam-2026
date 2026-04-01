@@ -2,6 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="1_iw0d3"]
 [ext_resource type="Script" uid="uid://p3fufuw5p7h" path="res://desktop_games/fishing_game/ui/fishing_upgrade_ui.gd" id="1_rccqi"]
+[ext_resource type="AudioStream" uid="uid://da3mgfsox0sdw" path="res://audio/sfx/fishing_game/upgrade.mp3" id="2_3enh1"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_va3h2"]
 [ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="3_wito8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l3o7w"]
@@ -20,6 +22,13 @@ offset_right = 166.0
 offset_bottom = 41.0
 theme_override_constants/separation = 1
 script = ExtResource("1_rccqi")
+
+[node name="UpgradeSFX" type="AudioStreamPlayer3D" parent="." unique_id=1882214275]
+unique_name_in_owner = true
+stream = ExtResource("2_3enh1")
+bus = &"PC SFX"
+script = ExtResource("3_va3h2")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1409219841]
 layout_mode = 2
