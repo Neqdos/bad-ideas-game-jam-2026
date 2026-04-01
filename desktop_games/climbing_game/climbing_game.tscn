@@ -475,19 +475,6 @@ alpha_curve = SubResource("CurveTexture_nqvuy")
 [node name="ClimbingGame" type="Node2D" unique_id=1152776224]
 script = ExtResource("1_cen12")
 
-<<<<<<< Updated upstream
-[node name="WindAmbient" type="AudioStreamPlayer3D" parent="." unique_id=1923488623]
-stream = ExtResource("2_b1hkw")
-volume_db = -28.0
-pitch_scale = 2.0
-autoplay = true
-bus = &"PC SFX"
-script = ExtResource("2_w5d10")
-looping = true
-metadata/_custom_type_script = "uid://dd15wmise3apx"
-
-=======
->>>>>>> Stashed changes
 [node name="MountMusic" type="AudioStreamPlayer3D" parent="." unique_id=1784519878]
 stream = ExtResource("5_tarl3")
 attenuation_model = 1
