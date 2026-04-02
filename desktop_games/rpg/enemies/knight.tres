@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_ejihr")
 sprite = ExtResource("2_xoc1b")
-health = 8
+health = 2
 actions = Dictionary[int, int]({
-0: 2,
+0: 1,
 1: 0
 })
 metadata/_custom_type_script = "uid://bfudxjfqyl4qd"

@@ -12,6 +12,7 @@ extends Node3D
 
 const HAMMER_SCENE_PATH: String = "uid://drq818rlsgnl0"
 const STORE_POPUP = preload("uid://cpml7x8aucyak")
+const ENDING_SCREEN = preload("uid://d1e8x3j8136hw")
 
 var first_time_gravity_change: bool = true
 
@@ -28,6 +29,8 @@ func _ready() -> void:
 	await get_tree().create_timer(.5).timeout
 	
 	transition.do_transition(false, 1.0)
+	
+	DesktopManager.game_end.connect(_on_game_end)
 
 func _on_spawn_hammer() -> void:
 	var hammer_scene: PackedScene = load(HAMMER_SCENE_PATH)
@@ -41,7 +44,11 @@ func _on_gravity_changed() -> void:
 	if !first_time_gravity_change: return
 	first_time_gravity_change = false
 	
-	# TODO: make this longer later
-	await get_tree().create_timer(randf_range(1.0, 10.0)).timeout
+	await get_tree().create_timer(randf_range(60.0, 120.0)).timeout
 	
 	DesktopManager.show_popup(STORE_POPUP)
+
+func _on_game_end() -> void:
+	transition.do_transition(true, 2.0)
+	await transition.transition_finished
+	get_tree().change_scene_to_packed(ENDING_SCREEN)

@@ -3,10 +3,13 @@ extends Node2D
 @onready var fishing_hook: FishingHook = %FishingHook
 @onready var fishing_game_input: FishingGameInput = %FishingGameInput
 @onready var fishing_line: Line2D = %FishingLine
+@onready var rope_file_tile: FileTile = %RopeFileTile
 
 @onready var dark_stone_tilemap: TileMapLayer = %DarkStoneTilemap
 @onready var explosives_file_tile: FileTile = %ExplosivesFileTile
 @onready var game_camera: Camera2D = %GameCamera
+
+@onready var explosion: DesktopAudioPlayer = %Explosion
 
 const REELING_SPEED: float = 128.0
 const STARTING_HOOK_POSITION: Vector2 = Vector2.ZERO
@@ -28,7 +31,7 @@ func _ready() -> void:
 	DesktopManager.fishing_game_ended.connect(_on_fishing_game_ended)
 	DesktopManager.fishing_all_sold.connect(_on_fishing_all_sold)
 	
-	
+	rope_file_tile.file_placed.connect(_on_rope_placed)
 	
 	explosives_file_tile.file_placed.connect(_on_file_placed)
 
@@ -36,9 +39,15 @@ func _on_file_placed() -> void:
 	explosives_file_tile.queue_free.call_deferred()
 	dark_stone_tilemap.enabled = false
 	
-	await get_tree().create_timer(213).timeout
+	explosion.play()
+	
+	await get_tree().create_timer(45.0).timeout
 	
 	DesktopManager.show_popup(CATFISHING)
+
+func _on_rope_placed() -> void:
+	DesktopManager.unlimited_line_length = true
+	rope_file_tile.queue_free.call_deferred()
 
 func _on_try_start() -> void:
 	if !can_start_game: return
@@ -80,5 +89,6 @@ func _on_fishing_all_sold() -> void:
 func _physics_process(delta: float) -> void:
 	fishing_line.set_point_position(1, fishing_hook.global_position)
 	
+	if DesktopManager.unlimited_line_length: return
 	if fishing_line.points[0].distance_to(fishing_hook.global_position) >= DesktopManager.fishing_stats.line_length:
 		DesktopManager.fishing_game_reeling.emit()

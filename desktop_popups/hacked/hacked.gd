@@ -12,10 +12,10 @@ func _ready() -> void:
 	var info: String = "First name: yes
 Last name: also yes
 Adress: Earth (probably)
-IP Adress: 192.168.0.1 lol
+IP Adress: 127.0.0.1
 Safe code: %s
 Favorite animal: idk this one too hard
-Has a virus on their PC: obviously yes" % DesktopManager.safe_code
+Has a virus on their PC: obviously yes and it's Victor" % DesktopManager.safe_code
 	
 	HACKED_INFO.set("data", info)
 	

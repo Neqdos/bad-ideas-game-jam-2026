@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
 
 [node name="TitleScreen" type="MarginContainer" parent="." unique_id=2007519772]
 unique_name_in_owner = true

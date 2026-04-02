@@ -45,6 +45,7 @@ var fishing_money: float = 0.0:
 var fishing_stats: FishingStats = FishingStats.new()
 var fishing_compendium: Array[FishResource] = []
 var shown_course_popup: bool = false
+var unlimited_line_length: bool = false
 const SPECIAL_HOUR: int = 3
 const SPECIAL_MINUTE: int = 10
 # ---
@@ -54,31 +55,19 @@ signal rpg_input_lock(locked: bool)
 signal rpg_start_battle(battle: BattleResource)
 signal rpg_battle_ended()
 var rpg_battle_enemies: int = 0
-var rpg_battle_attacks: Array[RPGAttack] = [
-	RPGSlash.new(),
-	RPGHeavySlash.new(),
-]
+
+signal turn_ended()
+var can_attack: bool = true
 
 var rpg_health: int = 10
 var rpg_max_health: int = 10
-var rpg_mana: int = 5
-var rpg_max_mana: int = 5
-
-var rpg_level: int = 0
-
-var rpg_exp: int = 0
-var rpg_max_exp: int = 3
-
-var rpg_lvl_strength: int = 0
-var rpg_lvl_mana: int = 0
-var rpg_lvl_health: int = 0
-var rpg_lvl_defense: int = 0
-
-func rpg_set_stats_from_levels() -> void:
-	rpg_max_health = 10 + rpg_lvl_health * 2
-	rpg_health = rpg_max_health
-	rpg_max_mana = 5 + rpg_lvl_mana * 2
-	rpg_mana = rpg_max_mana
+var rpg_mana: int = 6
+var rpg_max_mana: int = 6
+var rpg_flying: bool = false:
+	set(val):
+		rpg_flying = val
+		rpg_started_flying.emit()
+signal rpg_started_flying()
 # ---
 
 # 3D OBJECTS
@@ -143,7 +132,12 @@ var currently_focused_window: DesktopWindow
 
 var time_minute_offset: float = 0.0
 
-var victors_defeated: int = 0
+signal game_end()
+var victors_defeated: int = 0:
+	set(val):
+		victors_defeated = val
+		if victors_defeated == 3:
+			game_end.emit()
 
 func _ready() -> void:
 	window_grab_focus.connect(_on_window_grab_focus)

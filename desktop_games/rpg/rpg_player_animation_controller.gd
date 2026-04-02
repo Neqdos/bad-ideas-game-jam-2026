@@ -12,13 +12,17 @@ var last_velocity_x: float
 
 func _ready() -> void:
 	state_machine.state_changed.connect(_on_state_changed)
+	DesktopManager.rpg_started_flying.emit(_on_state_changed)
 
 func _on_state_changed() -> void:
-	match state_machine.current_state_name:
-		"idle", "battle":
-			play("idle")
-		"walk":
-			play("walk")
+	if DesktopManager.rpg_flying:
+		play("flying")
+	else:
+		match state_machine.current_state_name:
+			"idle", "battle":
+				play("idle")
+			"walk":
+				play("walk")
 
 func _process(delta: float) -> void:
 	match animation:
@@ -28,6 +32,10 @@ func _process(delta: float) -> void:
 		"walk":
 			eyes.position.x = -1 if flip_h else 1
 			eyes.position.y = 0
+		"flying":
+			offset.y = -8.0
+			eyes.position.x = 0
+			eyes.position.y = -7
 	
 	if is_zero_approx(player.velocity.x): return
 	

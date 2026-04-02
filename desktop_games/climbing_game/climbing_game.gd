@@ -37,8 +37,6 @@ func _on_victor_hit() -> void:
 	await victor_sprite.died
 	DesktopManager.victors_defeated += 1
 
-# FIXME: putting this here but remember to make fishing game stats to normal
-# and bomb wall back to enabled
 
 func _on_holyfish_file_placed() -> void:
 	holyfish_file_tile.queue_free()
@@ -48,9 +46,9 @@ func _on_holyfish_file_placed() -> void:
 
 # TODO: add the bird here.
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("crouch"):
-		$ClimbingPlayer.global_position = get_global_mouse_position()
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("crouch"):
+		#$ClimbingPlayer.global_position = get_global_mouse_position()
 
 func _on_paint_tiles_changed() -> void:
 	for y: int in range(8):

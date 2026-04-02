@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="3_cpfjy"]
 [ext_resource type="Texture2D" uid="uid://cknuyedh71j3r" path="res://desktop_games/fishing_game/stone_tileset.png" id="3_dty3a"]
 [ext_resource type="Script" uid="uid://b4fm75m7krycv" path="res://desktop_games/fishing_game/fishing_game_input.gd" id="3_ypyik"]
+[ext_resource type="AudioStream" uid="uid://c1hqr0w64ip5s" path="res://audio/sfx/fishing_game/explosion.mp3" id="4_6o3gf"]
 [ext_resource type="Script" uid="uid://du3d2kpwnh7al" path="res://desktop_games/fishing_game/fish_spawner.gd" id="9_2v5x7"]
 [ext_resource type="Script" uid="uid://dyitj7or5gexa" path="res://desktop_games/fishing_game/fish_resources/fish_resource.gd" id="10_dty3a"]
 [ext_resource type="PackedScene" uid="uid://cjsr6qcaeml73" path="res://desktop/victor_sprite.tscn" id="10_voav4"]
@@ -587,6 +588,13 @@ script = ExtResource("3_cpfjy")
 looping = true
 metadata/_custom_type_script = "uid://dd15wmise3apx"
 
+[node name="Explosion" type="AudioStreamPlayer3D" parent="." unique_id=332820610]
+unique_name_in_owner = true
+stream = ExtResource("4_6o3gf")
+bus = &"PC SFX"
+script = ExtResource("3_cpfjy")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1173474434]
 
 [node name="UpgradesMenu" parent="CanvasLayer" unique_id=1855813188 instance=ExtResource("2_dv54t")]
@@ -973,7 +981,6 @@ tile_set = SubResource("TileSet_k46on")
 [node name="DarkStoneTilemap" type="TileMapLayer" parent="." unique_id=319770270]
 unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAD5/xgAAgAAAAEAAAD6/xgAAgAAAAMAAGD7/xgAAgACAAMAAAD8/xgAAgABAAMAAAD9/xgAAgAAAAMAAAD+/xgAAgAAAAEAAFD8/xkAAgABAAIAAGD9/xkAAgABAAIAAGD6/xcAAgAAAAEAAAD7/xcAAgABAAIAAFD7/xkAAgABAAIAAGD8/xcAAgABAAIAAFD5/xkAAgAAAAEAAGD6/xkAAgABAAIAAGD9/xcAAgAAAAEAAFD+/xkAAgAAAAEAADA=")
-enabled = false
 tile_set = SubResource("TileSet_hofmh")
 
 [node name="ExplosivesFileTile" parent="." unique_id=362535691 instance=ExtResource("15_mng8b")]

@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = input.input_x * DesktopManager.fishing_stats.moving_speed * DesktopManager.reversed_gravity_strength
 	
-	_check_for_fish()
+	#_check_for_fish()
 	
 	move_and_slide()
 

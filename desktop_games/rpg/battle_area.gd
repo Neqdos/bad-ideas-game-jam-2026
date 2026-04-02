@@ -1,10 +1,7 @@
 extends Area2D
 class_name BattleArea
 
-@export var min_time: float = 5.0
-@export var max_time: float = 20.0
-
-@export var battles: Array[int]
+@export var battle: BattleResource
 
 
 func _ready() -> void:
@@ -12,5 +9,5 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is RPGPlayer:
-		# Start battle
-		pass
+		DesktopManager.rpg_start_battle.emit(battle)
+		queue_free.call_deferred()

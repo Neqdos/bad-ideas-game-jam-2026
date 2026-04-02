@@ -19,5 +19,5 @@ tooltip = "Makes you sink at the start of the game."
 layout_mode = 2
 item_name = "Victor bait"
 item_scene = ExtResource("3_wwbrb")
-cost = 1.0
+cost = 3000.0
 tooltip = "Allows you to catch Victor"

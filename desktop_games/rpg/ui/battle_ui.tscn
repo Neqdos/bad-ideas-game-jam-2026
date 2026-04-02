@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://brl77h2xj5nmm"]
 
 [ext_resource type="Script" uid="uid://jp25b7ghpars" path="res://desktop_games/rpg/ui/battle_ui.gd" id="1_ckpl5"]
+[ext_resource type="AudioStream" uid="uid://ctwpxuarugqpn" path="res://audio/sfx/rpg/hit.mp3" id="2_arm8j"]
+[ext_resource type="Script" uid="uid://dd15wmise3apx" path="res://desktop/desktop_audio_player.gd" id="2_ufgq8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6410a"]
 bg_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
@@ -15,11 +17,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -240.0
-offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ckpl5")
+
+[node name="HitSFX" type="AudioStreamPlayer3D" parent="." unique_id=1116924675]
+unique_name_in_owner = true
+stream = ExtResource("2_arm8j")
+bus = &"PC SFX"
+script = ExtResource("2_ufgq8")
+metadata/_custom_type_script = "uid://dd15wmise3apx"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=309060031]
 layout_mode = 1
@@ -45,10 +52,16 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=563805590]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1753464482]
+layout_mode = 2
+text = "Click on enemy to attack them."
+horizontal_alignment = 1
+
 [node name="EnemyButtonConatiner" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1568591669]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=204317746]
@@ -69,7 +82,7 @@ show_percentage = false
 unique_name_in_owner = true
 custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
-text = "0"
+text = "10"
 horizontal_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1360737865]
@@ -81,7 +94,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_ckpl5")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
-text = "0"
+text = "6"
 horizontal_alignment = 1
 
 [node name="ManaBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1750741971]
@@ -94,42 +107,3 @@ max_value = 5.0
 step = 1.0
 value = 5.0
 show_percentage = false
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=313500603]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=999004591]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Attack"
-
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1367868282]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Defend"
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1366835306]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Run"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1383867133]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=49860401]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Slash
-4"
-
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1896481214]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Heavy slash
-6 [2]"
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=889882226]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Laser
-5x3 [4]"

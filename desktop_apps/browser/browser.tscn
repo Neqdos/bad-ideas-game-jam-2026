@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://lme8grx2etjf" path="res://desktop_popups/online_course/online_course.tres" id="4_gadmo"]
 [ext_resource type="Resource" uid="uid://cpml7x8aucyak" path="res://desktop_popups/store/store.tres" id="5_hxg66"]
 [ext_resource type="Resource" uid="uid://pay0pqfimfun" path="res://desktop_popups/ai/ai.tres" id="6_3060m"]
+[ext_resource type="Resource" uid="uid://c1ry1sls6uns" path="res://desktop_popups/catfishing/catfishing.tres" id="7_nao82"]
 
 [node name="browser" type="Control" unique_id=193755841]
 layout_mode = 3
@@ -78,3 +79,8 @@ site_name = "gmymstore"
 layout_mode = 2
 popup_res = ExtResource("6_3060m")
 site_name = "aiamgarbage"
+
+[node name="Catfishing" parent="MarginContainer/VBoxContainer/SiteLinksContainer" unique_id=1729679491 instance=ExtResource("2_cdk01")]
+layout_mode = 2
+popup_res = ExtResource("7_nao82")
+site_name = "catfishenjoyers"

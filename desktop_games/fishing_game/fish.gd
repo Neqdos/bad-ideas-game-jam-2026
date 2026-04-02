@@ -112,6 +112,7 @@ func update_state() -> void:
 			push_error("No valid state.")
 
 func catch(fish_hook: FishingHook) -> void:
+	if !active: return
 	active = false
 	cought_fish_hook = fish_hook
 	

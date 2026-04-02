@@ -34,7 +34,6 @@ func _ready() -> void:
 	quit_button.pressed.connect(func(): DesktopManager.show_popup(QUIT_RES))
 	
 	starting_victor_popup_timer.timeout.connect(func(): DesktopManager.show_popup(STARTING_VICTOR_POPUP))
-	# TODO: change the timer to 60s instead of 5s later
 
 func _process(_delta: float) -> void:
 	var time: Dictionary = DesktopManager.get_time_dict()

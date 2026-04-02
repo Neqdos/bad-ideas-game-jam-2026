@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d1e8x3j8136hw"]
+
+[node name="EndingScreen" type="Control" unique_id=553404414]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=563553063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.10980392, 0.17254902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=281521753]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=80558677]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=411903380]
+layout_mode = 2
+text = "Victor is no longer inside your pc
+
+The end
+
+
+
+Made by:
+
+Pixelated
+Nekudo
+Toadie"
+horizontal_alignment = 1

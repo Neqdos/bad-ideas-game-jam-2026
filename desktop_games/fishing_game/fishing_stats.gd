@@ -20,14 +20,14 @@ const JUMP_COOLDOWN_UPGRADES: Array[float] = [2.5, 2.0, 1.5, 1.0]
 const JUMP_COOLDOWN_COSTS: Array[float] = [36.0, 80.0, 220.0, 515.0]
 
 # -80, 176
-@export var line_length: float = 2560.0#256.0
+@export var line_length: float = 256.0
 const LINE_LENGTH_UPGRADES: Array[float] = [432.0, 608.0, 784.0, 1136.0] #1664.0
 const LINE_LENGTH_COSTS: Array[float] = [14.0, 65.0, 360.0, 1100.0]
 
 @export var hook_size: int = 0
 const HOOK_SIZE_UPGRADES: Array[int] = [1, 2]
 const HOOK_SIZE_COSTS: Array[float] = [50.0, 440.0]
-@export var max_capacity: int = 500#5
+@export var max_capacity: int = 5
 const MAX_CAPACITY_UPGRADES: Array[int] = [10, 20, 40, 80, 160, 320]
 const MAX_CAPACITY_COSTS: Array[float] = [5.0, 32.0, 130.0, 450.0, 900.0, 1700.0]
 

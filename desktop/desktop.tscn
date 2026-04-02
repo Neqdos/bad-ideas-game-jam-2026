@@ -6,15 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d2cy4fxujo4kc" path="res://desktop/desktop_icon.tscn" id="3_py4qr"]
 [ext_resource type="Resource" uid="uid://dw886wwb4bdxg" path="res://desktop/files/readme.tres" id="4_hbe16"]
 [ext_resource type="Resource" uid="uid://cmwiooir0qyc4" path="res://desktop/files/browser.tres" id="6_4ndcx"]
-[ext_resource type="Resource" uid="uid://ddfep6nubk122" path="res://desktop/files/rpg_game.tres" id="7_b6j2u"]
-[ext_resource type="Resource" uid="uid://6p8wxrho3tag" path="res://desktop/files/fishing_game.tres" id="8_1dkjm"]
 [ext_resource type="Texture2D" uid="uid://fpqdsla1f7v0" path="res://desktop/textures/input_npt.png" id="9_jsfay"]
-[ext_resource type="Resource" uid="uid://cknlotn1uwoe6" path="res://desktop/files/paint.tres" id="9_mni1t"]
 [ext_resource type="FontFile" uid="uid://dcxvpjo2old2m" path="res://_fonts/Dedicool.ttf" id="10_4ndcx"]
 [ext_resource type="Texture2D" uid="uid://4o1vq7q536sf" path="res://desktop/textures/window_npt.png" id="10_jsfay"]
-[ext_resource type="Resource" uid="uid://dbg77q0pq7ley" path="res://desktop/files/rope.tres" id="10_sscii"]
-[ext_resource type="Resource" uid="uid://bcjvixiw0vuxv" path="res://desktop/files/holyfish.tres" id="11_jqijg"]
-[ext_resource type="Resource" uid="uid://d18iyp0dxbb3m" path="res://desktop/files/bomb.tres" id="12_1m8fn"]
 [ext_resource type="PackedScene" uid="uid://wr7j6c1jo6j2" path="res://desktop/file_window.tscn" id="13_1dkjm"]
 [ext_resource type="Resource" uid="uid://5od8e2g5jgq8" path="res://desktop/files/settings.tres" id="14_mni1t"]
 
@@ -80,6 +74,7 @@ settings_window = NodePath("WindowContainer/SettingsWindow")
 
 [node name="StartingVictorPopupTimer" type="Timer" parent="." unique_id=146799945]
 unique_name_in_owner = true
+wait_time = 20.0
 one_shot = true
 autostart = true
 
@@ -111,54 +106,6 @@ offset_left = 64.0
 offset_right = 128.0
 file_res = ExtResource("6_4ndcx")
 grid_pos = Vector2i(1, 0)
-
-[node name="Browser2" parent="DesktopIconContainer" unique_id=1082417090 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 128.0
-offset_right = 192.00003
-file_res = ExtResource("7_b6j2u")
-grid_pos = Vector2i(2, 0)
-
-[node name="Browser3" parent="DesktopIconContainer" unique_id=1349968840 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 192.0
-offset_right = 256.00003
-file_res = ExtResource("8_1dkjm")
-grid_pos = Vector2i(3, 0)
-
-[node name="Browser4" parent="DesktopIconContainer" unique_id=779081267 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 256.0
-offset_right = 320.00006
-file_res = ExtResource("9_mni1t")
-grid_pos = Vector2i(4, 0)
-
-[node name="Browser5" parent="DesktopIconContainer" unique_id=1876403275 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 128.0
-offset_right = 320.00006
-offset_bottom = 192.00002
-file_res = ExtResource("10_sscii")
-grid_pos = Vector2i(4, 2)
-
-[node name="Browser6" parent="DesktopIconContainer" unique_id=1238699967 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 128.0
-offset_right = 384.00006
-offset_bottom = 192.00002
-file_res = ExtResource("11_jqijg")
-grid_pos = Vector2i(5, 2)
-
-[node name="Browser7" parent="DesktopIconContainer" unique_id=1576875731 instance=ExtResource("3_py4qr")]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 128.0
-offset_right = 448.00006
-offset_bottom = 192.00002
-file_res = ExtResource("12_1m8fn")
-grid_pos = Vector2i(6, 2)
 
 [node name="WindowContainer" type="Control" parent="." unique_id=349596325 groups=["window_container"]]
 layout_mode = 1
